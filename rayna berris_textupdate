@@ -1,0 +1,22 @@
+Electrical circuit elements that resist the flow of electricity and electric charge
+Passive two terminal element (does not generate its own energy)
+Resistance = R and is measured in Ohms  Ω 
+    1  Ω = 1V/1A
+Resistance is the subset of a broad phenomenon known as impedence (Z), which is an element's total opposition to a current when a potential is applied.
+
+Resistivity: based on 3 parameters
+        1) ρ --> materials abiliity to resist flow ( Ω m)
+        2) l --> length of the element (m)
+        3) A --> cross sectional area of element (m^2)
+        
+   *  R = ρ*(l/A) *
+
+Resistivity and Materials
+Materials that exhibit a high resistivity are things that are classified as conductors. Conductors are commonly associated 
+with metals such as silver. In contrast, materials that exhibit a low resistivity are called insulators. Some common examples of 
+insulators would be polymers such as plastics, ceramics and glass. 
+
+
+Here is a link to a video that further explains the concepts of resistivity and resistance. 
+https://www.youtube.com/watch?v=4rsswT_Rv1M
+
