@@ -684,22 +684,157 @@ What if we didn’t have any resistors? $\rightarrow$ Vi = v2 = v1 = Vo $\righta
 
 \chapter{Circuit analysis: I. Nodal analysis}
 01/22/2019
+\minitoc
+\newpage
 \section{Nodes and branches}
 \begin{enumerate}
-	\item \textbf{A branch} is any two-terminal element. (examples: Resistor, Capacitor, Wire, etc.)
-	\item \textbf{A node} (junction) is a point of connection between two or more branches.
-	\item \textbf{A loop} is any closed path within a circuit/ a closed path formed by starting at a node, going through a set of nodes, without crossing any node more than once.
-	\subitem A loop is \textbf{independent} if at least one branch is not part of any other independent loop.
-	\item \textbf{Fundemental theroem of Network topology} 
-	\subitem # of branches = # of independent loops + # of nodes - 1
+	\item \textbf{A branch} is any two-terminal element. (examples: Resistor, Capacitor, Wire, etc.) 
+	\subitem \textit{\textbf{A branch} is any two-terminal element. What are some two-terminal elements we’ve learned?}
+	\item \textbf{A node} (junction) is a point of connection between two or more branches. 
+	\subitem \textit{\textbf{A node} is a point of connection between two or more branches. Often indicated by a dot. What else have we called a node? A junction.}
+	\item A loop is \textbf{independent} if at least one branch is not part of any other independent loop. 
+	\subitem \textit{\textbf{A loop} is any closed path within a circuit. A closed path formed by starting at a node, passing through a set of nodes, returning to the starting node without passing through any node more than once.}
 \end{enumerate}
-\section{Kirchhoff's Laws} At any node or junction in a circuit the currents entering must equal the currents leaving.
-	\subitem All current entering a node must sum to 0.
-\subsection{Kirchhoff's Current Law} conservation of mass.
-\subsection{Kirchhoff's Voltage Law} sum of potential differences around any closed network is 0.
+
+\subsection{The Seven Bridges of Konigsberg}
+The Königsberg bridge problem asks if the seven bridges of the city of Königsberg (left figure; Kraitchik 1942), formerly in Germany but now known as Kaliningrad and part of Russia, over the river Preger can all be traversed in a single trip without doubling back, with the additional requirement that the trip ends in the same place it began.
+
+\begin{center}
+	\includegraphics{figures/04.konisberg.png}
+\end{center}
+
+
+
+\subsection{Independence}
+A loop is independent if it contains at least one branch which is not a part of any other independent loop
+\begin{enumerate}
+	\item Each of the loops in the circuit at right are independent 
+	\item Independent loops lend themselves to sets of equations to be solved!
+\end{enumerate}
+
+\subsection{Fundamental theorem of network topology}
+Fundamental theorem of network topology states that the number of branches, $b$, must equal the sum of the independent loops, $l$ and nodes, $m$ minus one, that is
+\begin{equation}
+	b = l + n - 1
+\end{equation}
+
+With this fundamental theorem we can also “redefine”/”refine” our definition of series and parallel.
+\begin{itemize}
+	\item \textbf{Series} | two or more elements share a single node and thereby carry the same current
+	\item \textbf{Parallel} | connected to the same two nodes and thereby have the same voltage across them (potential difference)
+\end{itemize}
+
+\begin{center}
+	\includegraphics{figures/04.example1.png}
+\end{center}
+
+ 
+\newpage
+\section{Kirchhoff's Laws}
+I am not personally a fan named laws of nature, especially ones which are mere recapitulations of already perfectly good laws. Thus do we introduce Kirchhoff’s laws, known as 
+\begin{itemize}
+	\item Kirchhoff’s current law (``KCL'') 
+	\item Kirchhoff’s voltage law (``KVL'')  
+\end{itemize}
+	
+These are, as far as I’m concerned, mere restatements of \textit{the conservation of mass} and \textit{the conservation of energy}, respectively.
+
+
+\subsection{Kirchhoff's Current Law}
+\textbf{Kirchhoff's current law} states that any node (junction) in an electrical circuit, the sum of currents flowing into that node is equal to the sum of currents flowing out of that node.
+
+\begin{itemize}
+	\item Put differently, the algebraic sum of currents entering a node (or any closed boundary) is zero
+	\item For those mathematically inclined among us, that is: $\sum_{x=1}^n i_x = 0$
+	\item Another way this often gets stated is by saying that the algebraic sum of charges within a system cannot change and is thus sometimes referred to as ``the conservation of charge''.
+	\item Well since all of our charge carriers are merely particles (electrons, protons, ions, etc.), this is just another layer over the top of the underlying law which is that mass cannot be created or destroyed.
+	\item However, Kirchhoff's formulation of this law (conserving charge, mass) is useful in circuits as it gives us a great tool, being able to say that current going in is equal to current going out
+	\item For the figure $i_1 + (-i_2) + i_3 + i_4 + (-i_5) = 0 \rightarrow i_1 +i_3 + i_4 = i_2 + i_5$
+	\item KCL forms the basis of a technique we’ll spend the next couple of lectures on known as “nodal analysis” because we evaluate the current going into and coming out of nodes
+\end{itemize}
+
+\includegraphics{figures/04.node.png}
+\includegraphics{figures/04.single-loop-kvl.png}
+
+\subsection{Kirchhoff's Voltage Law}
+Kirchhoff's voltage law states that the sum of electrical potential differences (voltage) around any closed network is zero
+\begin{itemize}
+	\item That is, for any closed path (loop), the sum of voltages is zero.
+	\item Mathematically: $\sum_{m=1}^{M} v_m = 0$, where M is the number of voltage drops (caused by circuit elements) in the loop and vm is the $m$th voltage drop
+	\item v1 + (-v2) + (-v3) + v4 – v5 = 0
+v1 + v4 = v2 +v3 + v5
+iv.	The sum of voltage rises = the sum of voltage drops
+\end{itemize}
+
+\subsection{A few examples}
+\begin{enumerate}
+	\item Simple 1 Vs – 1 R circuit; Vs = 10, R = 1 kohm, I = 0.01 A / 10 mA
+	\item Simple 1 Vs – 2 R in series; Vs = 10, R = 1 kohm, I = 0.005 A / 5 mA
+	\subitem \textit{What does KCL tell us? (Current is the same through  resistors). }
+	\item Simple 10 mA source, 2 R (1 kohm) in parallel; What is the voltage?
+	\subitem $i_1 + (-i_2) + (-i_3) = 0 ] \rightarrow i_1 = i_2 + i_3 \rightarrow i_1 = V/R_1 + V/R_2$ 
+	\subitem $0.01 = V/1000 + V/1000 \rightarrow 0.01 = 2V/1000 \rightarrow 0.010/2*1000 = 5$ V
+	\subitem \textit{Nodes are at the same voltage!}
+	\item 10 mA up, 5 mA down, 2 R (1 kohm), Rl (500 ohm), all in parallel. What is the current through load Rl? [have someone come to the board and solve]
+	\subitem When current sources are in parallel they add together 
+	\item For the circuit shown below, use KCL to find the remaining branch currents
+\end{enumerate}
+
+\begin{center}
+	\includegraphics{figures/04.example2.png}
+\\
+\includegraphics{figures/04.example3.png}
+
+\end{center}
+
+
+\newpage
 \section{Nodal analysis}
+Nodal analysis | a general circuit analysis technique in which we try to determine the potential difference between nodes by applying KCL and KVL (in my experience, usually focusing a bit more on KCL)
+
+Your textbook offers the following description of the technique which seems pretty good to me:
+\begin{enumerate}
+	\item Select a node as a reference. Assign voltages ($v_1, v_2, ..., v_{n-1}$) for the remaining n-1 nodes, all of which will be referenced with respect to the reference node.
+	\item Apply KCL to each of the n-1 nonreference nodes. Use Ohm’s law to express the branch currents in terms of node voltages.
+	\item Solve the resulting simultaneous equations (system of equations) for each unknown node voltage.
+	\item It's as easy as that! But, well, actually, it can get a little hairy once you start to apply it in earnest.
+\end{enumerate}
+
+
+\subsection{The procedure}
+
+\begin{center}
+	\includegraphics{figures/04.typical-nodal-circuit.png}
+\end{center}
+
+\begin{enumerate}
+	\item Begin by putting a reference, usually a ``ground''
+	\subitem This ground can be one of two sorts: (1) \textbf{Earth ground} in which ultimately the whole earth is used as the reference point; or \textbf{Chassis ground} in which the case of the device in which the circuit is in will act as a reference as it will presumably be sufficiently large as to serve fine [this is also partly the reason why you can ``feel'' a MacBook charge up – its charger does not utilize a traditional ``earth ground''
+	\subitem Either will suffice for our purposes here
+	\item Next we label all the nodes.
+	\subitem How many branches, nodes, and loops?
+	\subitem 5 branches, 3 nodes, 3 loops. Satisfies our network condition. 
+	\subitem You can give them any label you want, but I find working your way up from the ground in a clockwise manner and numbering them sequentially is a good habit to get into.
+	\subitem Keep in mind that we typically set our reference node to have a voltage of 0. We can actually set it to be anything we’d like, but the math is often easier if we just make it 0.
+	\item Then we apply KCL to each nonreference node in the circuit.
+	\subitem At node 1, $IA - i1 - i2 - IB \rightarrow IA = IB + i1 + i2$
+	\subitem At node 2, $IB + i2 - i3  IB + i2 = i3$
+	\subitem Once we’ve got that, now it’s a matter of applying Ohm’s law. Thought typically written as V = iR, it is perhaps more helpful to write its full extension here and note that (Va – Vb) = iR
+	\subsubitem $I = (Va - Vb)/R$
+	\subitem Thus we can state
+	\subsubitem $I1 = (v1 - v0)/R1 	\rightarrow I1 = G1(v1 - v0)$
+	\subsubitem $I2 = (v1 - v2)/R2 \rightarrow I2 = G2(v1 - v2)$
+
+\end{enumerate}
+
+
+
+
+
 \section{Solving simultaneous equations}
 \subsection{Cramer's Rule}
+
+
 
 
 
