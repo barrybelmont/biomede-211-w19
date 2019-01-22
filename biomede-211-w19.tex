@@ -372,6 +372,66 @@ Taking the derivative of both sides:
 	Q(t) &= C\cdot V_0\left(1 - e^{-t/RC}\right)
 \end{align}
 
+\subsection{Formal Calculus Derivation of Capacitor Charge Equation in RC Circuit}
+In the following sketch, we are assuming that a battery is in series with a discharged capacitor and resistor. At t = 0, the circuit is connected and the capacitor will begin charging.
+
+Let's start with a base equation. Since the battery, resistor, and capacitor are all in series, we can find that
+\begin{equation}
+	\label{Kirchoff}
+V = IR + \frac{Q}{C}
+\end{equation}
+We can then further manipulate the equation to get
+\begin{equation}
+\frac{V}{R} =  I + \frac{Q}{RC}
+\end{equation}
+Isolate I to get
+\begin{equation}
+ \frac{V}{R} - \frac{Q}{RC} =  I
+\end{equation}
+We can find that I can be represented as the derivative of q with respect to time
+\begin{equation}
+\frac{V}{R} - \frac{Q}{RC} =  \frac{dQ}{dt}
+\end{equation}
+Combining the left hand side into one fraction:
+\begin{equation}
+\frac{CV - Q}{RC} =  \frac{dQ}{dt}
+\end{equation}
+By rules of separable equations, we can find that
+\begin{equation}
+\int_{0}^{Q} \frac{RC}{CV - Q}dQ = \int_{0}^{t} dt
+\end{equation}
+We can evaluate the definite integral with random charge based off time, Q(t) = Q, from Q(0) = 0 (This basically explains why the bounds of the integrals are the way that they are) 
+
+We can evaluate the definite integral
+\begin{equation}
+-RC[\ln{(CV-Q)}]_{0}^{Q} = [t]_{0}^{t} dt
+\end{equation}
+\begin{equation}
+-RC[\ln{(CV-Q)}-\ln{CV}] = t
+\end{equation}
+Rearranging, we get
+\begin{equation}
+\ln{(1-\frac{Q}{CV})} = -\frac{t}{RC}
+\end{equation}
+\begin{equation}
+1-\frac{Q}{CV} = e^{-\frac{t}{RC}}
+\end{equation}
+\begin{equation}
+Q(t) = CV[1 - e^{-\frac{t}{RC}}]
+\end{equation}
+This is an equation that can be used at any point in time given that the capacitor was initially discharged.
+
+\subsection{Capacitor Current Equation in RC Circuit}
+With the charge equation above, we can easily take the derivative to find the current flow in a circuit for arbitrary time.
+\begin{equation}
+Q(t) = CV[1 - e^{-\frac{t}{RC}}]
+\end{equation}
+\begin{equation}
+\frac{dQ}{dt} = -\frac{1}{RC}CVe^{-\frac{t}{RC}}
+\end{equation}
+\begin{equation}
+I(t) = -\frac{V}{R}e^{-\frac{t}{RC}}
+\end{equation}
 
 \section{Inductors}
 
