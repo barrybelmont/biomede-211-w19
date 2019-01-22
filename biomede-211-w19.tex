@@ -685,9 +685,18 @@ What if we didn’t have any resistors? $\rightarrow$ Vi = v2 = v1 = Vo $\righta
 \chapter{Circuit analysis: I. Nodal analysis}
 01/22/2019
 \section{Nodes and branches}
-\section{Kirchhoff's Laws}
-\subsection{Kirchhoff's Current Law}
-\subsection{Kirchhoff's Voltage Law}
+\begin{enumerate}
+	\item \textbf{A branch} is any two-terminal element. (examples: Resistor, Capacitor, Wire, etc.)
+	\item \textbf{A node} (junction) is a point of connection between two or more branches.
+	\item \textbf{A loop} is any closed path within a circuit/ a closed path formed by starting at a node, going through a set of nodes, without crossing any node more than once.
+	\subitem A loop is \textbf{independent} if at least one branch is not part of any other independent loop.
+	\item \textbf{Fundemental theroem of Network topology} 
+	\subitem # of branches = # of independent loops + # of nodes - 1
+\end{enumerate}
+\section{Kirchhoff's Laws} At any node or junction in a circuit the currents entering must equal the currents leaving.
+	\subitem All current entering a node must sum to 0.
+\subsection{Kirchhoff's Current Law} conservation of mass.
+\subsection{Kirchhoff's Voltage Law} sum of potential differences around any closed network is 0.
 \section{Nodal analysis}
 \section{Solving simultaneous equations}
 \subsection{Cramer's Rule}
