@@ -57,7 +57,15 @@ In this class, we will be learning a lot from each other. You are encouraged to 
 
 \newpage
 \section{The policies of this class}
-
+\begin{enumerate}
+\item There will be six homework assignments, each one is worth 8 percent of final grade
+\subitem Name must be in upper right corner of the page
+\subitem A pdf version must also be submitted to canvas by the time the assignment is due
+\subitem Failure to comply will result in a significant deduction in homework grade
+\subitem Homework 1 is due in class on Thursday, January 31, 2019
+\item
+\item
+\end{enumerate}
 
 \mainmatter
 \setcounter{page}{1}
@@ -761,9 +769,12 @@ Kirchhoff's voltage law states that the sum of electrical potential differences 
 \begin{itemize}
 	\item That is, for any closed path (loop), the sum of voltages is zero.
 	\item Mathematically: $\sum_{m=1}^{M} v_m = 0$, where M is the number of voltage drops (caused by circuit elements) in the loop and vm is the $m$th voltage drop
-	\item v1 + (-v2) + (-v3) + v4 – v5 = 0
-v1 + v4 = v2 +v3 + v5
-iv.	The sum of voltage rises = the sum of voltage drops
+	\item The sum of voltage rises = the sum of voltage drops
+	\subitem In Figure 2.19: v_1 + (-v_2) + (-v_3) + v_4 + (-v_5) = 0
+	\subitem v_1 + v_4 = v_2 +v_3 + v_5
+	\subitem Ohm's law can then be applied
+	\subitem v_1 - iR_1 - iR_2 + v_4 - \frac{1}{C}\int_{t_0}^{t} i(\tau) d\tau
+
 \end{itemize}
 
 \subsection{A few examples}
@@ -787,6 +798,27 @@ iv.	The sum of voltage rises = the sum of voltage drops
 
 \end{center}
 
+For Figure 2.13, you know to use KCL because the circuit contains two current sources. Ideal current sources will deliver whatever potential is necessary to obtain the desired current so we don't know how potential behaves through it.
+If we look at node x and arbitrarily set i_1 as enterring the node from the left, i_2 as exiting the node down the branch containing the resistor, and i_3 as enterring the node from the right, then:
+\subitem i_1 - i_2 + i_3 = 0
+\subitem 2i_0 - i_0 + 5 = 0
+\subitem i_0 = - 5 A 
+The negative sign just means that the arbitrary direction we chose for our analysis is opposite of the actual direction of current flow
+
+For Figure 2.77, start at a node with only one unknown current such as the upper right node.
+\subitem 2 - i_4 - 4 = 0
+\subitem i_4 = -2 A
+Repeat the process for remaining nodes
+\subitem 7 + i_4 - i_3 = 0
+\subitem i_3 = 7 + (-2) = 5 A
+
+\subitem -i_2 - 3 - 7 = 0
+\subitem i_2 = -10 A
+
+\subitem i_1 + i_2 - 2 = 0
+\subitem i_1 = 2 - (-10) = 12 A
+
+We could check our work by performing nodal analysis at the last node. However, it is not a necessary step as we have already found the desired unknowns.
 
 \newpage
 \section{Nodal analysis}
