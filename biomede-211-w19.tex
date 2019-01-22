@@ -607,6 +607,12 @@ Make/break/change circuit paths (thereby diverting current or removing potential
 
 
 \section{Transistors}
+These are semi-conductors that are mostly used for switching and amplifying. Each transistor is comprised of three elements: base, collector and emitter. There are two types of transmitters: PNP and NPN
+
+\begin{enumerate}
+	\item PNP: The current will flow from the emitter to the collector
+	\item NPN: The current will flow from the collector to the emitter
+\end{enumerate}
 
 
 \section{Transformers}
@@ -668,9 +674,11 @@ Determine the resistance of a homogenous and isotropic tissue with a cross-secti
 	\item They can amplify, sum, subtract, multiply, differentiate, integrate
 	\item They are active circuit elements
 	\item Though they have somewhat more complicated internal workings, we typically represent them in electrical circuits as a triangle with three (sometimes five) very important terminals:
-	\subitem An inverting input (— sign, typically represented up top for convenience, but it need not be)
+	\subitem An inverting input ($—$ sign, typically represented up top for convenience, but it need not be)
 	\subitem A non-inverting input (+ sign, typically on bottom)
 	\subitem An output
+	\subitem A positive power supply
+	\subitem A negative power supply
 \end{enumerate}
 
 \section{Some rules}
@@ -698,17 +706,20 @@ We will apply the conservation of mass at this point to solve our equations.  Th
 
 We apply KCL at the node for v1
 \begin{enumerate}
-	\item I1 – i2 – i3 = 0
-	\item I3 = 0
-	\item I1 – i2 = 0
-	\item I1 = i2
-	\item I1 = (vi – v1)/R1
-	\item I2 = (v1 - Vo)/Rf
-	\item (vi – v1)/R1 = (v1 - Vo)/Rf
-	\item V1 = V2 = 0
-	\item Vi/R1 = -Vo/Rf
-	\item Vo = -Rf/R1 * Vi
-	\item R2/R1 is our gain, gain factor.
+
+	\item Since the non-inverting amplifier is attached to the ground, $v_2 = 0$ 
+	\item Using Rule 2 from earlier (Infinite Input Impedance) there is no current between v_1 and v_2. Therefore, $v_2 = v_1 = 0$
+	\item From this we can conclude that $i_1 = i_2 = i$
+	\item Using Ohm's Law ( $V = iR$) We can rewrite the equation in terms of current: $i = \frac{V}{R}
+	\subitem $i_1 = \frac{v_i - v_1}{R_1}$
+	\subitem $i_2 = \frac{v_1 - v_0}{R_f}$
+	\item Using the known values from above, set the two current equations together and solve for $v_0$
+	\subitem Known: $i_1 = i_2 = i$ and $v_2 = v_1 = 0$
+	\subitem $ \frac{v_i - v_1}{R_1} = \frac{v_1 - v_0}{R_f}$
+	\subitem $ \frac{v_i}{R_1} = \frac{-v_0}{R_f}$
+	\subitem $v_0 = (\frac{-R_f}{R_1})*v_i $
+	\item The gain factor is $\frac{R_f}{R_1}$
+
 \end{enumerate}
 
 
@@ -721,12 +732,20 @@ Again, the name might imply what it does. It will amplify our input signal witho
 
 We can again perform Nodal analysis.
 \begin{enumerate}
-	\item I1 – i2 – i3 = 0
-	\item I3 = 0, since no current enters the non-inverting input
-	\item I1 = i2
-	\item (Vg – v2)/R1 = (v2 – Vo)/Rf
-	\item –v2/R1 = (vi – Vo)/Rf
-	\item Vo = (1 + Rf/R1) * Vi
+
+	\item Since the non-inverting amplifier is attached to the ground, $v_2 = v_i$ 
+	\item Using Rule 2 from earlier (Infinite Input Impedance) there is no current between v_1 and v_2. Therefore, $v_2 = v_1 = v_i$
+	\item From this we can conclude that $i_1 = i_2 = i$
+	\item Using Ohm's Law ( $V = iR$) We can rewrite the equation in terms of current: $i = \frac{V}{R}
+	\subitem $i_1 = \frac{v_g - v_1}{R_1}$
+	\subitem $i_2 = \frac{v_1 - v_0}{R_f}$
+	\item Using the known values from above, set the two current equations together and solve for $v_0$
+	\subitem Known: $i_1 = i_2 = i$, $v_g = 0$, and $v_2 = v_1 = v_i$
+	\subitem $\frac{v_g - v_i}{R_1} = \frac{v_i - v_0}{R_f}$
+	\subitem $\frac{-v_i}{R_1} = \frac{v_i - v_0}{R_f}$
+	\subitem $v_0 = (1+ \frac{R_f}{R_1})*v_i$
+	\item The gain factor is $1+ \frac{R_f}{R_1}$
+
 \end{enumerate}
 
 
@@ -735,6 +754,9 @@ We can again perform Nodal analysis.
 \includegraphics[width=0.5\textwidth]{figures/op-amp5.png}
 
 What if we didn’t have any resistors? $\rightarrow$ Vi = v2 = v1 = Vo $\rightarrow Vi = Vo$
+
+This is used to transfer voltage without transferring current. 
+
 
 
 \subsection{Summing amplifier}
