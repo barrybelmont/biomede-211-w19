@@ -866,7 +866,65 @@ Your textbook offers the following description of the technique which seems pret
 
 \section{Solving simultaneous equations}
 \subsection{Cramer's Rule}
+When given a system of linear equations, Cramer's Rule allows us to solve directly for the specific variable whose value we are looking for.
 
+To use Cramer's Rule, the system of equations must satisfy two conditions:
+\begin{enumerate}
+	\item There must be the same number of equations as variables (the coefficient matrix must be a square).
+	\item The determinant of the coefficient must be non-zero.
+\end{enumerate}
+
+Use the following steps to apply Cramer's Rule:
+\begin{enumerate}
+	\item Write the coefficient matrix of the system (call this matrix A). Make sure this is a square matrix; otherwise Cramer's Rule is not applicable.
+	\item Compute the determinant of matrix A. Make sure that this value is non-zero; otherwise Cramer's Rule is not applicable here.
+	\item Suppose the first variable of the system is x. Write the matrix Ax by placing the column of numbers to the right of the equals sign as the first column of Ax and using the non-x coefficients of matrix A as the remaining columns.
+	\item The value of x is the determinant of Ax divided by the determinant of A.
+	\item Repeat steps 3 and 4 to solve for any other variable as needed.
+\end{enumerate}
+
+Example implementing Cramer's Rule:
+We will use the following system of equations to demonstrate how to use Cramer's Rule to solve for the value of x:
+
+\begin{center}
+x + y + z = 4
+-x + 2y = 1
+-y + z = 1
+\end{center}
+
+\begin{enumerate}
+	\item Write the coefficient matrix A and check that it is a square matrix:
+		\begin{center}
+		\[
+  		A=
+  		\left[ {\begin{array}{ccc}
+   		1 & 1 & 1\\
+   		-1 & 2 & 0\\
+   		0 & -1 & 1\\
+  		\end{array} } \right]
+		\]
+		\end{center}
+	\item Solve for the determinant of A. (|A| = 4). The determinant does not equal zero.
+	\item Write the matrix Ax:
+		\begin{center}
+		\[
+  		Ax=
+  		\left[ {\begin{array}{ccc}
+   		4 & 1 & 1\\
+   		1 & 2 & 0\\
+   		1 & -1 & 1\\
+  		\end{array} } \right]
+		\]
+		\end{center}
+	\item Solve for the determinant of Ax. (|Ax| = 4). 
+	\item Solve for the value of x:
+		\begin{center}
+		x = $\frac{|Ax|}{|A|}$
+		x = 1
+		\end{center}
+\end{enumerate}
+
+Reference: Explanation and example inspired by "Solving System of Linear Equations: (lesson 4 of 5), Cramers Rule", MathPortal: https://www.mathportal.org/algebra/solving-system-of-linear-equations/cramers-rule.php. [Accessed 23 January, 2019].
 
 
 \chapter*{Homework I}
