@@ -772,8 +772,8 @@ Kirchhoff's voltage law states that the sum of electrical potential differences 
 	\item That is, for any closed path (loop), the sum of voltages is zero.
 	\item Mathematically: $\sum_{m=1}^{M} v_m = 0$, where M is the number of voltage drops (caused by circuit elements) in the loop and vm is the $m$th voltage drop
 	\item The sum of voltage rises = the sum of voltage drops
-	\subitem v_1 + (-v_2) + (-v_3) + v_4 + (-v_5) = 0
-	\subitem v_1 + v_4 = v_2 +v_3 + v_5
+	\subitem $v_1 + (-v_2) + (-v_3) + v_4 + (-v_5) = 0$
+	\subitem $v_1 + v_4 = v_2 +v_3 + v_5$
 	
 \end{itemize}
 
@@ -799,24 +799,24 @@ Kirchhoff's voltage law states that the sum of electrical potential differences 
 \end{center}
 
 For Figure 2.13, you know to use KCL because the circuit contains two current sources. Ideal current sources will deliver whatever potential is necessary to obtain the desired current so we don't know how potential behaves through it.
-If we look at node x and arbitrarily set i_1 as enterring the node from the left, i_2 as exiting the node down the branch containing the resistor, and i_3 as enterring the node from the right, then:
-\subitem i_1 - i_2 + i_3 = 0
-\subitem 2i_0 - i_0 + 5 = 0
-\subitem i_0 = - 5 A 
+If we look at node x and arbitrarily set $i_1$ as entering the node from the left, $i_2$ as exiting the node down the branch containing the resistor, and $i_3$ as entering the node from the right, then:
+\subitem $i_1 - i_2 + i_3 = 0$
+\subitem $2i_0 - i_0 + 5 = 0$
+\subitem $i_0 = - 5 A $
 The negative sign just means that the arbitrary direction we chose for our analysis is opposite of the actual direction of current flow
 
 For Figure 2.77, start at a node with only one unknown current such as the upper right node.
-\subitem 2 - i_4 - 4 = 0
-\subitem i_4 = -2 A
+\subitem $2 - i_4 - 4 = 0$
+\subitem $i_4 = -2 A$
 Repeat the process for remaining nodes
-\subitem 7 + i_4 - i_3 = 0
-\subitem i_3 = 7 + (-2) = 5 A
+\subitem $7 + i_4 - i_3 = 0$
+\subitem $i_3 = 7 + (-2) = 5 A$
 
-\subitem -i_2 - 3 - 7 = 0
-\subitem i_2 = -10 A
+\subitem $-i_2 - 3 - 7 = 0$
+\subitem $i_2 = -10 A$
 
-\subitem i_1 + i_2 - 2 = 0
-\subitem i_1 = 2 - (-10) = 12 A
+\subitem $i_1 + i_2 - 2 = 0$
+\subitem $i_1 = 2 - (-10) = 12 A$
 
 We could check our work by performing nodal analysis at the last node. However, it is not a necessary step as we have already found the desired unknowns.
 
@@ -928,6 +928,45 @@ x + y + z = 4
 Reference: Explanation and example inspired by "Solving System of Linear Equations: (lesson 4 of 5), Cramers Rule", MathPortal: https://www.mathportal.org/algebra/solving-system-of-linear-equations/cramers-rule.php. [Accessed 23 January, 2019].
 
 
+\newpage
+
+\section{Worksheet}
+\subsection{Problem 1, KCL at a few nodes}
+Use KCL to write equations at each node.
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{figures/04.problem1.png}
+\end{center}
+
+
+\textbf{Solution}
+
+
+\subsection{Problem 2, matrix notation}
+Write the matrix form of the equations written above. 
+
+
+\textbf{Solution}
+
+
+\subsection{Problem 3, Cramer's rule}
+Using Cramer’s rule on the matrix equations above, what are the results?
+
+
+\textbf{Solution}
+
+
+\subsection{Problem 4, Straight to the matrix}
+Write the node-voltage equations to the circuit at right in the matrix form.\begin{center}
+	\includegraphics[width=0.5\textwidth]{figures/04.problem4.png}
+\end{center}
+
+
+\textbf{Solution}
+
+
+
+
+
 \chapter*{Homework I}
 Assigned January 22, 2019. Due January 31, 2019 as \textit{both} a hard copy in class and a pdf on Canvas.
 \setcounter{chapter}{1}
@@ -1015,11 +1054,293 @@ $v(t) = B \cos \omega t$.
 
 
 
-\chapter{Circuit analysis: II. Mesh analysis; Homework I}
+\chapter{Circuit analysis: II. Mesh analysis}
 01/24/2019
+\minitoc
+\newpage
+\section{Clarifications on the homework}
+
 \section{Mesh analysis}
+\begin{itemize}
+	\item A mesh is a loop which does not contain any other loops within it.
+	\item ABEF and BCDE are meshes. ABCDEF is not.
+	\item We apply KVL to find the mesh currents within a given circuit (this can be particularly helpful / convenient when dealing with parallel circuits).
+\end{itemize}
+\begin{center}
+	\includegraphics{figures/05.mesh1.png}
+\end{center}
+
 \section{Steps of mesh analysis}
+\begin{enumerate}
+	\item \textbf{For each of your $n$ meshes assign a mesh current ($i_1$, $i_2$, ..., $i_n$).} You may draw them in any direction you want, but generally a nice clockwise direction will help with consistency.
+	\item \textbf{Apply KVL to each of the n meshes.} Use Ohm’s law to express the voltages in terms of the mesh currents
+	\item \textbf{Solve the resulting n simultaneous equations to get the mesh currents.}
+\end{enumerate}
+
+\subsection{Important condition for use}
+Unlike nodal analysis, mesh analysis only works for ``planar” networks'' | that is one which can be written in two-dimensions without any branches.\footnote{Nonplanar networks can still be solved using nodal analysis.}
+
+\section{An example}
+\includegraphics[width=\textwidth]{figures/05.mesh2.png}
+
+For the example seen above, we might at this point in our lives be tempted to solve the circuit with branch currents (the current that actually flows into and out of every branch. That is certainly a valid way by which to look at the problem. But now we're going to try another. We're going to try to understand ``mesh currents''.
+
+Those branch currents can be formed into a pair of coupled equations
+\begin{eqnarray}
+	V_A - R_1 i_1 - R_3 i_3 = 0 \\
+	V_B - R_2 i_2 - R_3 i_3 = 0 
+\end{eqnarray}
+
+We can also apply KCL at the node between the three resistors and recognize a third bounding equation: $i_1 + i_2 - i_3 = 0$. We can then solve these three equations through any number of means (substitution, elimination, etc.).
+
+But mesh analysis allows us to model the situation more simply and often more efficiently.
+
+We begin by defining two arbitrary mesh currents, $i_1$ and $i_2$. Then we apply KVL as we do a ``walk'' around the loop defined by the mesh current.
+\begin{eqnarray}
+	V_A - R_1i_1 - R_3(i_1 - i_2) = 0 \\
+	-R_3(-i_1 +i_2) - R_2i_2 - V_B = 0
+\end{eqnarray}
+This given us two equations with two unknowns (the arbitrary mesh currents, $i_1$ and $i_2$, we defined).
+
+\section{Another example}
+\begin{center}
+	\includegraphics{figures/05.mesh3.png}
+\end{center}
+
+For the circuit above, let's try to find the branch currents by performing mesh analysis (i.e., by. first finding the mesh currents).
+
+\textbf{Solution.}
+
+Obtain mesh current using KVL. For mesh 1:
+\begin{equation}
+	-15 + 5 i_1 + 10(i_1 - i_2) + 10 = 0
+\end{equation}
+which simplifies to 
+\begin{equation}
+	3i_1 - 2i_2 = 1
+	\label{mesh1}
+\end{equation}
+
+For  mesh 2:
+\begin{equation}
+	6i_2 + 4 i_2 + 10(i_2 - i_1) - 10 = 0
+\end{equation}
+simplifying to
+\begin{equation}
+	i_1 = 2i_2 - 1
+	\label{mesh2}
+\end{equation}
+
+\subsection{Solving it one way}
+Perhaps the technique we'd most likely reach for if we knew nothing else about a situation is substitution. In this case, let's substitute equation \ref{mesh2} into equation \ref{mesh1}:
+\begin{equation}
+	6i_2 - 3 - 2i_2 = 1 \rightarrow i_2 = 1 \text{ A}
+\end{equation}
+And plugging that result back in
+\begin{equation}
+	i_1 = 2i_2 -1 = 2 - 1 = 1 \text{ A}
+\end{equation}
+
+And thus $I_3$ being equal to the difference in current between $i_1$ and $i_2$ is equal t zero.
+
+
+\subsection{Solving it another}
+Another way of doing this is by recognizing some of the techniques afforded to us by linear algebra. If we squint at the equations with a little bit of good brain wrinkling, we can see that 
+\begin{equation}
+	\begin{bmatrix}
+		3 & -2 \\ -1 & 2
+	\end{bmatrix}
+	\begin{bmatrix}
+		i_1 \\ i_2
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		1 \\ 1
+	\end{bmatrix}
+\end{equation}
+is just as valid of way of putting it as any other.
+
+In this form we can use a few techniques to solve for the unknowns. One technique to be aware of given its deployability in those times in which you might need to write out your work is \textit{Cramer's rule}.
+
+Cramer's rule says that 
+\begin{eqnarray}
+	i_1 = \frac{\Delta_1}{\Delta} \\
+	i_2 = \frac{\Delta_2}{\Delta}
+\end{eqnarray}
+where
+\begin{eqnarray}
+	\Delta = 
+	\begin{vmatrix}
+		3 & -2 \\ -1 & 2
+	\end{vmatrix}
+	= (3)(2) - (-1)(-2) = 4 \\
+	\Delta_1 = 
+	\begin{vmatrix}
+		1 & -2 \\ 1 & 2
+	\end{vmatrix}
+	= (1)(2) - (1)(-2) = 4 \\
+	\Delta_2 = 
+	\begin{vmatrix}
+		3 & 1 \\ -1 & 1
+	\end{vmatrix}
+	= (3)(1) - (-1)(1) = 4 \\
+\end{eqnarray}
+Thus
+\begin{eqnarray}
+	i_1 = \frac{4}{4} = 1 \\
+	i_2 = \frac{4}{4} = 1
+\end{eqnarray}
+which agrees with the results we obtained before.
+
+
+
+\section{Yet another example}
+\begin{center}
+	\includegraphics{figures/05.mesh5.png}
+\end{center}
+Let's begin by defining the mesh currents (flowing clockwise around each mesh)
+
+\begin{center}
+	\textbf{Mesh 1}
+\end{center}
+\begin{equation}
+	20(i_1 - i_3) + 10(i_1 - i_2) - 70 = 0
+\end{equation}
+
+\begin{center}
+	\textbf{Mesh 2}
+\end{center}
+\begin{equation}
+	10(i_2 - i1) + 12(i_2 - i_3) + 42 = 0
+\end{equation}
+
+\begin{center}
+	\textbf{Mesh 3}
+\end{center}
+\begin{equation}
+	20(i_3 - i_1) + 14i_3 + 12(i_3 - i_2 = 0
+\end{equation}
+
+Putting the equations into standard form:
+\begin{eqnarray}
+	30i_1 - 10i_2 - 20i_3 = 70 \\
+	-10 i_2 +22 i_2 - 12 i_3 = -42 \\
+	-20 i_1 - 12i_2 +46 i_3 = 0
+\end{eqnarray}
+
+In matrix notation that becomes:
+\begin{equation}
+	\begin{bmatrix}
+		30 & -10 & -20 \\ -10 & 22 & -12 \\ -20 & -12 & 46
+	\end{bmatrix}
+	\begin{bmatrix}
+		i_1 \\ i_2 \\ i_3
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		70 \\ -42 \\ 0
+	\end{bmatrix}
+\end{equation}
+While this can be solved any number of ways, in MATLAB one can simply write \texttt{I = R/V}, which should tell you something about what is ``going on'' mathematically in these operations.
+
+
 \section{Writing mesh equations directly in matrix form}
+Let's take a look at yet one more example.
+\begin{center}
+	\includegraphics{figures/05.mesh6.png}
+\end{center}
+
+We might, by now, begin to appreciate that one of our matrices is simply the resistances (impedances) of a mesh bundled up in one matrix, the currents bundled up in another, and the potentials bundled up in another, shown below.
+
+\begin{equation}
+	\begin{bmatrix}
+		r_{11} & r_{12} & r_{13} \\
+		r_{21} & r_{22} & r_{23} \\
+		r_{31} & r_{32} & r_{33} \\
+	\end{bmatrix}
+	\begin{bmatrix}
+		i_1 \\ i_2 \\ i_3
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		v_1 \\ v_2 \\ v_3
+	\end{bmatrix}
+\end{equation}
+
+To properly assemble these matrices there's just a few simple rules.
+
+
+First, let's take a loop around each mesh and determine the equivalent impedance (of that mesh!)
+\begin{itemize}
+	\item \textbf{Mesh 1.} $R_2 + R_5 + R_6$
+	\item \textbf{Mesh 2.} $R_2 + R_1 + R_3$
+	\item \textbf{Mesh 3.} $R_3 + R_6 + R_5$
+\end{itemize}
+
+These will comprise values along the diagonal of the resistance (impedance) matrix ($r_{11}$. $r_{22}$, and $r_{33}$).
+
+Next, let's look for elements that are shared among meshes
+\begin{itemize}
+	\item \textbf{Mesh 1 \& 2} share $R_2$, so $r_{21}$ and $r_{12}$ both become $-R_2$
+	\item \textbf{Mesh 2 \& 3} share $R_3$, so $r_{23}$ and $r_{32}$ both become $-R_3$
+	\item \textbf{Mesh 3 \& 1} share $R_5$, so $r_{13}$ and $r_{31}$ both become $-R_5$
+\end{itemize}
+
+Thus, our entire resistance matrix becomes
+
+\begin{equation}
+	\begin{bmatrix}
+		r_{11} & r_{12} & r_{13} \\
+		r_{21} & r_{22} & r_{23} \\
+		r_{31} & r_{32} & r_{33} \\
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		(R_2 + R_5 + R_6) & -R_2 & -R_5 \\
+		-R_2 & (R_2 + R_1 + R_3) & -R_3 \\
+		-R_5 & -R_3 & (R_3 + R_6 + R_5) \\
+	\end{bmatrix}
+\end{equation}
+
+The matrix it buts up against is easy enough to construct, it is simply the mesh current of each mesh
+
+\begin{equation}
+	\begin{bmatrix}
+		i_1 \\ i_2 \\ i_3
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		i_1 \\ i_2 \\ i_3
+	\end{bmatrix}
+\end{equation}
+	
+And the potential matrix is the sum of sources in the direction of the mesh current
+
+\begin{equation}
+		\begin{bmatrix}
+		v_1 \\ v_2 \\ v_3
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		-v_A + v_B \\ v_A \\ -v_B
+	\end{bmatrix}
+\end{equation}
+
+Giving rise to a final form which can be solved efficiently by any computation engine we put before us.
+\begin{equation}
+	\begin{bmatrix}
+		(R_2 + R_5 + R_6) & -R_2 & -R_5 \\
+		-R_2 & (R_2 + R_1 + R_3) & -R_3 \\
+		-R_5 & -R_3 & (R_3 + R_6 + R_5) \\
+	\end{bmatrix}
+	\begin{bmatrix}
+		i_1 \\ i_2 \\ i_3
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		-v_A + v_B \\ v_A \\ -v_B
+	\end{bmatrix}
+\end{equation}
 
 
 
