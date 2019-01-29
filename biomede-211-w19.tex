@@ -639,6 +639,8 @@ There are \textbf{three important features of ideal operational amplifiers} that
 	\item Since no current flows across the terminals, the terminals are at equal potential. Hence ``$v_1 = v_2$''.
 \end{enumerate}
 
+Some extra facts with operational amplifiers are that they can be combined with a capacitors to create different filters. Adding a capacitor in series with the input resistor creates a "high-pass filter" amplifier, where it passes signals with frequency higher than a specific cutoff frequency and attenutates signals lower than the cutoff. Adding a capacitor in parallel with the feedback resistor creates a "low-pass filter" amplifier, where it passes signals with frequency lower than the cutoff and attenuates signals higher than it. The corner frequency for the cutoff may be caulcated with f=1/(2piRC). Having both capacitors would create a band-pass filter which attenuates signals lower than the lower cutoff and higher than the upper cutoff frequencies.
+
 \newpage
 \section{Some examples}
 
