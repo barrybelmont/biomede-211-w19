@@ -1350,37 +1350,279 @@ Giving rise to a final form which can be solved efficiently by any computation e
 
 \chapter{Circuit analysis: III. Supernodes and supermeshes}
 01/29/2019 – Lecture 6. 
+\minitoc
+\newpage
+\section{A review of nodal and mesh analysis}
+\subsection{Nodal analysis}
+\begin{enumerate}
+	\item Select a node as a reference. Assign voltages ($v_1$, $v_2$, ..., $v_{n-1}$) for the remaining n-1 nodes, all of which will be referenced with respect to the reference node.
+	\item Apply KCL to each of the n-1 nonreference nodes. Use Ohm’s law to express the branch currents in terms of node voltages.
+	\item Solve the resulting simultaneous equations (system of equations) for each unknown node voltage.
+	\item (It’s as easy as that! But, well, actually, it can get a little hairy once you start to apply it in earnest.)
+\end{enumerate}
+
+\newpage
 \section{Nodal analysis with an independent current source}
+Let's begin by analyzing the following circuit.
+\begin{center}
+	\includegraphics{figures/06.example1.png}
+\end{center}
+\begin{enumerate}
+	\item Begin by putting a reference, usually a ``ground''.
+	\item Next we label all the nodes.
+	\subitem How many branches, nodes, and loops? (5 branches, 3 nodes, 3 loops. Satisfies our network condition.)
+	\subitem You can give them any label you want, but I find working your way up from the ground in a clockwise manner and numbering them sequentially is a good habit to get into.
+	\subitem Keep in mind that we typically set our reference node to have a voltage of 0. We can actually set it to be anything we’d like, but the math is often easier if we just make it 0. 
+	\item Then we apply KCL to each nonreference node in the circuit.
+	\subitem At node 1, $IA - i1 - i2 - IB \rightarrow IA = IB + i1 + i2$
+	\subitem At node 2, $IB + i2 - i3 - IB + i2 = i3$
+	\subitem Once we’ve got that, now it’s a matter of applying Ohm’s law. Thought typically written as $V = iR$, it is perhaps more helpful to write its full extension here and note that $(Va – Vb) = iR$
+	\item $I = (Va - Vb)/R$, Thus we can state
+	\begin{itemize} 
+		\item 	$I1 = (v1 - v0)/R1 	\rightarrow I1 = G1(v1 - v0)$
+		\item $I2 = (v1 - v2)/R2	 \rightarrow I2 = G2(v1 - v2)$
+		\item $I3 = (v2 - v0)/R3	 \rightarrow I3 = G3(v2 - v0)$
+	\end{itemize}
+	\item Now we can substitute these relationships into our previous equations
+\end{enumerate}
+\newpage
+
+\section{A brief review of Cramer's rule}\includegraphics[width =\textwidth]{figures/06.cramers.png}
+\newpage
+
 \section{Nodal analysis with voltage sources, \textbf{Supernodes}}
+We often pick the reference node at one end of the source (and then we have one less unknown node voltage to solve.
+
+Typical examples can be typically solved. Write current equations at nodes 1 and two.
+
+\includegraphics{figures/06.example2.png}
+
+\includegraphics{figures/06.example3.png}
+If we try to write a current equation at node 1, we must include a term for current through the 10V source. We could assign an unknown, or...
+
+Or we can create a ``supernode'' which we do by drawing a dashed line around several nodes, including the elements between them, and apply KCL more broadly
+
+\begin{itemize}
+	\item Recall that KCL says that the net current flowing through any closed surface must be equal to zero. Thus, we apply KCL to the supernode.
+\end{itemize}
+\begin{equation}
+	\frac{v_1}{R_2} + \frac{}{v_1 - (-15)}{R_!} + \frac{v_2}{R_4} + \frac{v_2 = (-15)}{R_3} = 0
+\end{equation}
+
+Now you might be tempeted to write another current equation for the other super node, however, you’d find that the equation is equivalent to the one we just found. If we tried to solve by substitution, all the terms would drop out and we’d see that the matrix was singular (the determinant is 0, it won't tell you anything new. 
+
+Instead we apply KVL, noting that $-v_1 - 10 + v_2 = 0$
+
+Next, we find an expression for the controlling variable ix in terms of the node voltages. Notice that since in this case ix is the current flowing away from node 3 through R3, we can say ix = (v3 – v2)/R3.
+
+
+\newpage
+
 \section{Nodal analysis with controlled sources}
+We approach it the same way, but we're mindful of the dependence
+\begin{center}
+	\includegraphics{figures/06.example4.png}
+\end{center}
+
+
+Write KCL equations at each node, including the current of the controlled source, just as if it were an ordinary current source
+
+\begin{center}
+	\includegraphics{figures/06.eqn1.png}
+\end{center}
+
+Next, we find an expression for the controlling variable ix in terms of the node voltages. Notice that since in this case ix is the current flowing away from node 3 through R3, we can say $ix = (v3 - v2)/R3$.
+\begin{center}
+	\includegraphics{figures/06.eqn2.png}
+\end{center}
+
+So long as only three of those variable are unknown (say the voltages), then it can be solved by whatever method you’d like.
+
 \section{Mesh analysis with current sources}
 \section{Mesh analysis with controlled sources, \textbf{Supermeshes}}
 
 
 
 \chapter{Circuit analysis: IV. Circuit theorems}
-01/31/2019 – Lecture 7. 
+02/05/2019 – Lecture 7. 
+\minitoc
+\newpage
 \section{Circuit theorems}
+Circuit theorems are ways of quickly describing, summarizing, analyzing circuit, based on some mathematical tricks, two of which we’ll review today: Thevenin and Norton equivalent circuits. 
+\begin{itemize}
+	\item \textbf{Thevenin} | taking a complex circuit seen between two terminals and representing it as a resistor in series with a voltage source
+	\item \textbf{Norton} | taking a complex bit of circuitry between two terminals and representing it as a current source in parallel with a current source
+\end{itemize}
+
+\begin{enumerate}
+	\item These only apply to ``linear circuits'' – that is, circuits made of (ideal) resistors, capacitors, inductors, op-amps, filters
+	\item Non-linear elements include things like diodes, transistors, and some of the digital logic stuff we’ll get into later in the semester.
+	\item It might pay us dividends for us to consider what we mean by linearity at this point in the semester as it will become very relevant in our up-coming analyses
+\end{enumerate}
+
 \section{Linearity}
+Comprises two separate yet equally important properties
+
+\begin{enumerate}
+	\item Homogeneity | If the input (the excitation) is multiplied by a constant, the output (the response) is multiplied by the same constant
+	\subitem $v = iR \rightarrow kv = kiR$
+	\item Additivity | The response to a sum of excitations is equal to the responses to each individual excitation
+	\subitem  $v_1 = i_1R; v_2 = i_2R; \rightarrow v = (i_1 + i_2)R = i_1R_1 +i_2R = v_1 + v_2$
+\end{enumerate}
+
+Much of what we will do in this class is linear and much in life, given sufficient approximating, can be considered linear. Such relationships are useful, if not always strictly true (recall that even wires have resistivities and resistors have frequency ranges)
+
+Note that since power is $i^2R = v^2/R$, the relationship is a quadratic and thus our necessary assumptions of linearity are not applicable.
+
+
 \section{Superposition}
+\begin{itemize}
+	\item Until now, we’ve been considering everything in a circuit always ``on'', but one of the things the linearity of the system allows us to do is to selectively turn on and off sources while we solve, so long as we sum them up in the end.
+	\item This principle | \textbf{superposition} | states that the voltage (or current) through an element (in a linear circuit) is the algebraic sum of the voltages across (or current through) that element due to each independent source acting alone. 
+	\item To apply the superposition principle
+	\begin{enumerate}
+		\item Turn off all independent source but one and find the output (voltage or current) due to that source [using any of the techniques you’ve previously learned]
+		\item Do this for each independent source
+		\item Find the total contribution [for any given element, or indeed for all of them] by adding all the contributions due to the independent sources
+		\item (Leave in all dependent sources since they are controlled by circuit variables)
+	\end{enumerate}
+	\item To “turn off” a source:
+	\subitem Voltage sources get replaced by a 0V source / a short circuit | \textbf{Turn voltage sources into wires}
+	\subitem Current sources get replaced by a 0A source / an open circuit | \textbf{Cut current sources out}
+\end{itemize}
+
+\includegraphics[width=\textwidth]{figures/07.01.png} \\
+\includegraphics[width=0.5\textwidth]{figures/07.02.png}
+
+
 \section{Source transformation}
+\textbf{Source transformation} is the process of replacing a voltage source $v_s$ in series with a resistor $R$ by a current source $i_s$ in parallel with a resistor $R$ or vice versa.
+\includegraphics{figures/07.03.png}
+
+\begin{itemize}
+	\item We can prove these two are equivalent between a-b by short circuiting the two-terminals.
+	\item If the sources are turned off, the resistance at terminal a-b are the same (R)
+	\item If the terminals are shorted, current flowing from a to be is $i_{ab}$ = $Vs/R$ and $i_{ab}$ = $i_s$. Thus $Vs/R = i_s$
+	\item You can also replace dependent sources this way, provided you’re careful, but we’ll skip that analysis here and I won’t encourage its use unless you personally feel comfortable with the material
+\end{itemize}
+
+
 \section{Thevenin equivalents}
+\begin{itemize}
+	\item A linear two-terminal circuit can be replaced by an equivalent circuit consisting of a voltage source, $V_{th}$, in series with a resistor, $R_{th}$
+	\subitem $V_{th}$ is equal to open-circuit voltage of original network, $V_{th} = V_{oc}$
+	\item If we were to short the connection across terminals a and b, we can see (as we did previously), that $i_{sc} = V_{th}/R_{th}$
+	\subitem Thus the short-circuit current is equal to the current for the original circuit and the Thevenin equivalent.
+	\item These two facts allow us to say something rather interesting, namely that the \textbf{Thevenin resistance} of a circuit is equal to the ratio of its open-circuit voltage and its short-circuit current. $R_{th} = V_{oc}/I_{sc}$
+	\item Thus, \textbf{to determine the Thevenin equivalent circuit}, we start by analyzing the original network for its open-circuit voltage and its short circuit current. [A more robust derivation of this is shown in your book in chapter 4.7]
+	\item \textbf{To find the thevenin equivalent resistance}:
+	\subitem \textit{If there are \textbf{no} dependent sources}, turn off all independent sources in the network. $R_{th}$ is the input resistance to the network between the two terminals of interest
+	\subitem \textit{If \textbf{there are} dependent sources}, still turn off all independent sources and apply superposition.
+	\subsubitem Apply a voltage at the terminals and determine the resulting current. Then $R_{th}$ is the ratio of applied voltage and elicited current $v_o/i_o$
+	\subsubitem Or apply a current and determine the resulting voltage. Use which ever you feel comfortable with.
+\end{itemize}
+\newpage
+
+\subsection{An example}
+Create thevenin equivalent circuit between a and b [$R_L$ is a potentiometer and thus its value can change. We want to simplify our understanding of how all the complex stuff before it will act.]
+
+\includegraphics{figures/07.04.png}
+
+\begin{enumerate}
+	\item Start by turning off the independent sources (32 V and 2 A), replacing them with a short- and an open-circuit respectively
+	\item This will yield our resistance as a 4 || 12 + 1 = (4*12)/16 + 1 = 4 ohms
+	\item Next, identify what our $V_{Th}$ would be
+	\item To find $V_{Th}$ we can apply mesh analysis
+	\begin{eqnarray}
+		32 – 4i1 -12i1 + 12i2 = 0 \\ 
+		i2 = 2 \\ 
+		i1 = 0.5 A \\ 
+	\end{eqnarray} 
+	then plug it in for the voltage across the 12 ohm 
+	\begin{equation}
+		V_{th} = 1_2(i_1-i_1) = 30
+	\end{equation}
+	\item Or could use nodal analysis
+	\begin{equation}
+		(32 – V_{th})/4 + 2 = V_{Th}/12 \rightarrow V_{Th} = 30 
+	\end{equation} 
+\end{enumerate}
+
+\newpage
+
 \section{Norton equivalents}
+\begin{itemize}
+	\item A linear two-terminal circuit can be replaced by an equivalent circuit comprising a current source, $I_N$ in parallel with a resistor $R_N$
+	\subitem $I_N$ is equal to the short-circuit current through the terminals
+	\item To find the Norton equivalent resistance, we start the same way we did for $R_Th$ | that is, short our voltage sources, open our current sources and find the resistance.
+	\subitem Well then this should suggest to us that $R_N$ is equal to $R_Th$, and indeed they are equal.
+	\item The Norton current, $I_N$, is equal to the short-circuit current. 
+	\subitem So we merely find the current that would travel through the short 
+\end{itemize}
+
+\subsection{An example}
+\includegraphics{figures/07.05.png}
+\begin{enumerate}
+	\item We begin by zeroing all of our independent sources 
+	\subitem $R_N = 5 || (8 +4 +8 [+0]) = 5||20 = (5*20)/(5+20) = 4$ ohms
+	\item We can apply mesh analysis to find $I_N$
+	\subitem We can ignore the 5-ohm resistor as its in parallel with a short and current will always seek the path of least resistance.
+	\subsubitem Recall our bioimpedance example where with increasing frequency caused the current to flow down a different branch, because with greater frequency the capacitor went from acting like an open circuit (at low frequencies) to a short circuit (at high frequencies), thus bypassing the other branch altogether.
+	\begin{eqnarray}
+		I_1 = 2  \\
+		I_2 = 12 – 4i_2 +4i_1 – 8i_2 – 8 i_2 \rightarrow 4(2) – 20(i_2) = -12 \\ 
+		I_2 = 1 = i_{sc} = I_N
+	\end{eqnarray}
+	\item Alternatively, we could have found the Thevinin voltage [meshing it up]
+	\begin{eqnarray}
+		i3 = 2 \\
+		12 -4(i4) + 4(i1) – 8(i4) -5(i4) – 8(i4) \rightarrow 4(2) – 25(i4) = -12 \\
+		I4 = 0.8 A
+	\end{eqnarray}
+	\subitem Since we know 0.8 A goes through the 5 ohm resistor, and since we know that that 5 ohm resistor experiences the same voltage drop as the open circuit, we simple multiple 5*0.8 to give us, 4 V
+	\item Well since we know $R_N = R_Th$ is 4 and $V_Th$ is 4: $I_N = V_Th/R_Th = 1 A$
+	\item Thus Norton and Thevenin circuits are two sides of the same “source transformation” coin
+\end{enumerate}
+
+\newpage
+
 \section{Equivalents with dependents}
+When we’ve got a dependent source, we can’t just remove the sources and combine impedances. Instead, we’ve got to analyze the circuit to find the open-circuit voltage and the short-circuit current (and indeed such an approach will work in all cases, it’s just a little bit more work on our parts)
+\includegraphics[width=0.9\textwidth]{figures/07.06.png}
+
+\begin{itemize}
+	\item I’m personally a fan of finding the Thevenin open voltage because it just clicks with my brain a little better, but if you like the Norton short-circuit current, feel to take that approach
+	\item So I apply nodal analysis
+	\begin{eqnarray}
+		I_x + 2i_x – V_{oc}/10 = 0 \rightarrow 3i_x = V_{oc}/10 \\
+		\text{Next we write an expression for our controlling variable, ix} \\
+		10 – V_{oc} = i_x(5) \rightarrow ix = (10 – V_{oc})/5 \\
+		\text{We can substitute this into our previous equation} \\
+		3*(10-V_{oc})/5 = Voc/10 \rightarrow \mathbf{V_{oc} = V_{Th} = 8.57 }
+	\end{eqnarray}
+	\item Now we can consider the short-circuit conditions.
+	\begin{eqnarray}
+		I_x + 2i_x i_{sc} = 0 \rightarrow 3i_x = i_{sc} \\
+		I_x = 10/5 = 2 \rightarrow \mathbf{I_{sc} = 3i_x = I_N = 6} 
+	\end{eqnarray}
+	\item From this, we can take the ratio of the open circuit voltage and the short circuit current and find the equivalent resistance of the network via Ohm's law: 8.57 V / 6 A = 1.43 ohms
+\end{itemize}
+
+\section{A step-by-step procedure}
+\begin{enumerate}
+	\item Perform two of these:
+	\subitem Determine the open-circuit voltage $V_t = v_{oc}$
+	\subitem Determine the short-circuit current $I_n = i_{sc}$
+	\subitem Zero the independent sources and find the Thevenin resistance $R_t$ looking back into the terminals. Do not zero dependent sources
+	\item Use the equations $V_t = R_tIn$ to compute the remaining value
+	\item The Thevenin equivalent consists of a voltage source $V_t$ in series with $R_t$
+	\item The Norton equivalent consists of a current source $I_n$ in parallel with $R_t$
+\end{enumerate}
 
 
 
-\chapter{Circuit analysis: V. When to choose between analyses}
-02/05/2019 – Lecture 8. 
-
-\chapter{A review of the material thus far; Homework II}
-02/07/2019 – Lecture 9. 
-
-\section{How to measure voltage and current}
-
-\chapter*{Exam I}
-02/12/2019
-
+\chapter*{A Glorified Quiz I}
+02/07/2019 
 
 
 \part{Systems}
@@ -1388,7 +1630,7 @@ Giving rise to a final form which can be solved efficiently by any computation e
 
 
 \chapter{The Laplace Transform: I. What it is and why it is important}
-02/14/2019 – Lecture 10. 
+02/12/2019 – Lecture 10. 
 \section{How do we know our world looks like this?}
 \section{Euler's identity / Euler's formula}
 \section{The Laplace transform}
@@ -1407,7 +1649,7 @@ Giving rise to a final form which can be solved efficiently by any computation e
 
 
 \chapter{The Laplace Transform: II. How to use it}
-02/19/2019 – Lecture 11. 
+02/14/2019 – Lecture 11. 
 \section{The inverse Laplace transform}
 \section{The Laplace transform of $\sin$}
 \section{The Laplace transform of $t^n$}
