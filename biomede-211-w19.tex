@@ -151,6 +151,11 @@ A possible misconception is that the electrons inside a wire travels at the spee
 	\item T\textbf{he \textit{signal} of electrical current (that is electromagnetic radiation) travels anywhere between about 50-99\% the speed of light} (dependent on a number of conditions) depending upon the material through which it travels (based on a “dielectric” behavior known as permittivity)
 	\item \textbf{The drift velocity of electrons} within a copper wire is ~25 $\mu$m/s, so how does anything ever turn on?
 	\item \textbf{The hose effect} - The electrons at the light switch will almost certainly never pass through a light bulb, but they will move around and bump into their neighbors which bump into their neighbors which bump into their neighbors, etc., until it causes the electrons nearest the light to pass through. This is how water at a spigot is able to push water at the end of a hose.
+	\item \textbf{How current and drift veolcity related?} - Mathematically, it's represented as follow:
+	\begin{equation}
+		I = \frac{Q}{t} = \frac{neAd}{d/v_d}
+	\end{equation}
+	Imagine there is a cylindrical wire with length d and cross-sectional area A. Suppose there are n electrons per unit volume and each with a charge of e. Then in the whole cylinderical wire, the total charge is derived by multuplying the total volume Ad, the number of electron per unit volume n, and the elementary charge e. This is the numerator part of the story. On the denominator is the time component. Assume all electrons are moving in one direction and with drift veolcity. It would take t amount of time for the last electron to move a distance of d from one end to the other and exit the cylinderical wire. In fact, this is how we, in a microscopic sense, perceive the concept of current, which is defined by the total charge that passes through a single reference cross-section over a given amount of time. 
 \end{enumerate}
 
 
@@ -1387,7 +1392,8 @@ Let's begin by analyzing the following circuit.
 \end{enumerate}
 \newpage
 
-\section{A brief review of Cramer's rule}\includegraphics[width =\textwidth]{figures/06.cramers.png}
+\section{A brief review of Cramer's rule}
+\includegraphics[width =\textwidth]{figures/06.cramers.png}
 \newpage
 
 \section{Nodal analysis with voltage sources, \textbf{Supernodes}}
@@ -1588,7 +1594,8 @@ Create thevenin equivalent circuit between a and b [$R_L$ is a potentiometer and
 
 \section{Equivalents with dependents}
 When we’ve got a dependent source, we can’t just remove the sources and combine impedances. Instead, we’ve got to analyze the circuit to find the open-circuit voltage and the short-circuit current (and indeed such an approach will work in all cases, it’s just a little bit more work on our parts)
-\includegraphics[width=0.9\textwidth]{figures/07.06.png}
+
+\includegraphics[width=0.9\textwidth]{figures/07.06.png}
 
 \begin{itemize}
 	\item I’m personally a fan of finding the Thevenin open voltage because it just clicks with my brain a little better, but if you like the Norton short-circuit current, feel to take that approach
