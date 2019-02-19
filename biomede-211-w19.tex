@@ -2046,7 +2046,14 @@ The former equation requires us to integrate by parts. I will be assumed here th
 	&= s\int_{0}^{\infty} x(t)\left(e^{-st}dt\right) + \left[\left(xe^{-\infty}\right) - \left(xe^{0}\right) \right]\\
 	&= s\tilde{X}(s) - x(0)
 \end{align}
-What this end result suggests to us, is that the Laplace of the derivative of some function $x(t)$ is the Laplace of the function itself, $\tilde{X}(s)$, multiplied by $s$ to which an initial condition, $x(0)$ is subtracted.
+What this end result suggests to us, is that the Laplace of the derivative of some function $x(t)$ is the Laplace of the function itself, $\tilde{X}(s)$, multiplied by $s$ to which an initial condition, $x(0)$ is subtracted.\footnote{In fact, we can expand this to $n$-th order derivatives. It will be of the form:
+\begin{align}
+	\mathcal{L}\left\{\frac{dx}{dt}\right\} &= s\tilde{X} - x(0)\\
+	\mathcal{L}\left\{\frac{d^2x}{dt^2}\right\} &= s^2\tilde{X} - sx(0) - \frac{dx(0)}{dt} \\
+	\mathcal{L}\left\{\frac{d^2x}{dt^2}\right\} &= s^2\tilde{X} - sx(0) - x^{\prime}(0) \\
+	\mathcal{L}\left\{\frac{d^3x}{dt^3}\right\} &= s^3\tilde{X} - s^2x(0) - sx^{\prime}(0) - x^{\prime\prime}(0) \\
+	\mathcal{L}\left\{\frac{d^4x}{dt^4}\right\} &= s^4\tilde{X} - s^3x(0) - s^2x^{\prime}(0) - sx^{\prime\prime}(0) - x^{\prime\prime\prime}(0)
+\end{align}}
 
 Combining these two results and rewriting:
 
@@ -2058,9 +2065,23 @@ Combining these two results and rewriting:
 \end{align}
 Without too much squinting, we can probably see that such a form is quite close to what we found for our exponential function's transformation, $\frac{1}{s - a}$. In fact, as will become clearer and more comfortable to you over time, is that indeed we can begin to quickly map a solution to a differential equation by first transforming it over the $s$-domain. In this particular case, we can hazard a guess that a solution to the differential equation $\frac{dx}{dt} -ax = 0$ is the function $x(t) = x(0)e^{at}$, which indeed from inspection appears to work.
 
-It you didn't catch it there, let me point it out here: you have just learned a very neat mathematical trick for an engineer. This might be the quickest way to solve a differential equation that you will ever know of. 
+It you didn't catch it there, let me point it out here: you have just learned a very neat mathematical trick for an engineer. This might be the quickest way to solve a differential equation that you will ever know of.
 
 We've taken a differential equation and reduced it to simple algebra.
+
+\section{The Laplace transform of $\sin$}
+There are many ways of going about proving this to yourself. This is the one I prefer. It forces us to begin, as we should, with Euler's formula.
+
+\begin{eqnarray}
+	\mathcal L\left\{ {\sin at}\right\} &=& \mathcal L\left\{ {\frac {e^{iat}-e^{-iat} } {2i} }\right\} \\
+	&=& \frac 1 {2i} \left( {\mathcal L\left\{ { e^{iat} }  \right\} - \mathcal L \left\{ { e^{-iat} } \right\} } \right) \\
+	&=& \frac 1 {2i} \left( {\frac 1 {s-ia}-\frac 1 {s+ia} } \right) \\
+	&=& \frac 1 {2i} \left( {\frac {s+ia-s+ia} {s^2+a^2} } \right) \\
+	&=& \frac 1 {2i} \left({\frac{2ia}{s^2+a^2} }\right) \\
+	&=& \frac a {s^2+a^2}
+\end{eqnarray}
+
+
 
 \section{The Laplace transform in RLC circuits}
 \subsection{Resistors}
@@ -2129,15 +2150,96 @@ Combining these results and recognizing the linearity of each, in a series RLC c
 \subsubsection{An example}
 What is the Laplace transform of a series RLC circuit with $L$ = 1, $R$ = 7, and $C$ = 10.
 
+
+
+
+
+
+\chapter{The Laplace Transform: II. How to use it}
+02/19/2019
+\minitoc
+\newpage
+
+\section{A brief review}
+Returning for a moment to our series RLC circuit from last time, once converted with the Laplace transform, the system is described via a second-order polynomial. 
+\begin{align}
+	v_L &= L\frac{di_L(t)}{dt} \\
+	v_R &= i_R(t)R \\
+	v_C & = \frac{1}{C}\int_0^t i(\tau)d\tau + V_c(0)
+\end{align}
+When all elements are placed in series, a simple KVL walk will suggest to us that
+\begin{equation}
+	L\frac{di_L(t)}{dt} + i_R(t)R + \frac{1}{C}\int_0^t i(\tau)d\tau + V_c(0) = 0
+\end{equation}
+Transforming via Laplace\footnote{It may do you some good to remember that in the Laplace domain, differentiation is achieved by multiplying by $s$ and integration is accomplished by dividing by $s$.}:
+\begin{eqnarray}
+	L(s\tilde{I} - I_0) + R\tilde{I} + \frac{\tilde{I}}{sC} + \frac{V_0}{s} = 0 \\
+	s^2\tilde{I} - sI_0 + s\frac{R}{L}\tilde{I} + \frac{\tilde{I}}{C} + V_0 = 0 
+\end{eqnarray}
+Rearranging and rewriting
+\begin{equation}
+	\tilde{I} = \frac{sI_0 - \frac{V_0}{L}}{s^2 + \frac{R}{L}s + \frac{1}{LC}}
+\end{equation}
+If we give to our RLC circuit the values of $L$ = 1, $R$ = 7, and $C$ = 10 and initial conditions $V_0$ =10 and $I_0$ = 1 we can see, without too much effort that the equation becomes
+
+\begin{equation}
+	\tilde{I} = \frac{s - \frac{10}{1}}{s^2 + \frac{7}{1}s + \frac{1}{1 \cdot 10}}
+\end{equation}
+\begin{equation}
+	\tilde{I} = \frac{s - 10}{(s+2)(s+5)}
+\end{equation}
+In this form, we now see laid bare before us two important places in the $s$-domain: poles and zeros.
+
+
+\section{Two important places, zeros and poles}
+It may help us to recall that a point in the $s$-domain characterizes a system's response as a  combination of decay, growth, and oscillations. Thus, since $s$ is a coefficient of a exponential function, any value thereof will tell us whether the function 
+\begin{itemize}
+	\item will growth with respect to time (s $>$ 0);
+	\item will decay with respect to time (s $<$ 0); 
+	\item will oscillate over time (s has an imaginary component); or
+	\item will remain constant (s = 0).
+\end{itemize}
+
+A system can be characterized by its combination of these behaviors by finding the roots of $s$ for the system as described in the $s$-domain. These can either be a ``zero'' or a ``pole''.
+
+In our systems, as the value of $s$ approaches
+\begin{itemize}
+	\item a \textbf{zero}, the numerator of the transfer function approaches 0 and thus so too does the whole system and
+	\item when approaching a \textbf{pole}, the denominator of the transfer function approaches 0, causing the system to approach the infinite.
+\end{itemize}
+
+Recalling our RLC circuit:
+\begin{equation}
+	\tilde{I} = \frac{s - 10}{(s+2)(s+5)}
+\end{equation}
+
+For this system, we have three special points.
+\begin{enumerate}
+	\item $s \rightarrow 10$ causes the numerator to approach 0 (\textbf{and is thus a zero}) and so too will the system;
+	\item $s \rightarrow -2$ causes the denominator to approach 0 (\textbf{and is thus a pole}), causing the system response to be quite large; and
+	\item $s \rightarrow -5$ also causes the denominator to approach 0 (\textbf{and is thus a pole}), causing the system response to be quite large.
+\end{enumerate}
+ 
+
+
+\newpage
 \section{The general form of just about all systems}
-Most systems on earth and else can be expressed by a generalized second-order equation 
-\begin{equation}s^2 + 2\zeta\omega_n s  + \omega_n^2\end{equation} 
-where $\zeta$ is the damping coefficient and $\omega_n$ is the natural frequency of the system.
+As it turns out, most systems on earth and else can be expressed by a generalized second-order equation 
+\begin{equation}
+	s^2 + 2\zeta\omega_n s  + \omega_n^2 = f(t)
+\end{equation} 
+where $\zeta$ is the damping coefficient and $\omega_n$ is the natural frequency of the system, and $f(t)$ is some ``forcing'' function.
+
+In our case, $\zeta = \frac{R}{2}\sqrt{\frac{C}{L}}$\footnote{It may be more intuitive to think of this terms instead as $\zeta = \alpha/\omega_n$, where $\alpha = R/2L$ represents an attenuation coefficient (of units nepers/second).} and $\omega_n = \sqrt{\frac{1}{LC}}$
+
+
+
 \begin{itemize}
 	\item \textbf{The natural frequency} is the frequency at which a system tends to oscillate in the absence of any driving or damping forces. It's just what wants to happen.
 	\item \textbf{The damping coefficient}, or the damping ratio, is a dimensionless measure of decay. It describes how oscillations in a system die down after a disturbance.
 \end{itemize}
 
+For the moment, we will consider systems for which $s < 0$. These systems are guaranteed to be ``stable'' in the sense that they will not grow exponentially large. Rather, given the fullness of time, we are assured that each of these types of systems will eventually decay away to a stable point.
 
 \subsection{Undamped systems}
 When $\zeta = 0$, a system comprises a single harmonic oscillator, as is the case of a mass suspended by a perfect spring. This is what we would expect with no ``real'' components ($e^{\jmath \omega_n t}$) 
@@ -2173,28 +2275,59 @@ When $\zeta > 1$, a system in does not oscillate and decays  at a slower rate th
 \end{itemize}
 
 
-
-\chapter{The Laplace Transform: II. How to use it}
-\section{Two important places, zeros and poles}
+\newpage
 \section{``Inverting'' the Laplace transform}
-\section{The Laplace transform of $\sin$}
-\section{The Laplace transform of $t^n$}
-\section{Some applicability}
+\begin{equation}
+	{\mathcal  {L}}\{f\}(s)={\mathcal  {L}}\{f(t)\}(s)=\tilde{F}(s)
+\end{equation}
+\textbf{Mellin's inverse formula} An integral formula for the inverse Laplace transform, called the Mellin's inverse formula, the Bromwich integral, or the Fourier–Mellin integral, is given by the line integral:
+\begin{equation}
+	{\displaystyle f(t)={\mathcal {L}}^{-1}\{\tilde{F}(s)\}={\frac {1}{2\pi i}}\lim _{T\to \infty }\int _{\gamma -iT}^{\gamma +iT}e^{st}\tilde{F}(s)\,ds,}
+\end{equation}
+where the integration is done along the vertical line Re(s) = $\gamma$ in the complex plane such that $\gamma$ is greater than the real part of all singularities of F(s) and F(s) is bounded on the line, for example if contour path is in the region of convergence. If all singularities are in the left half-plane, or F(s) is an entire function , then $\gamma$ can be set to zero and the above inverse integral formula becomes identical to the inverse Fourier transform.
 
-\section{Additional Laplace Transform Recourses}
-Laplace Transform Explained and Visualized Intuitively-https://youtu.be/6MXMDrs6ZmA
+In practice, computing the complex integral can be done by using the Cauchy residue theorem. Or simply by recognizing common forms.
+
+\subsection{A convenient way of doing it}
+To find solutions to the equations left behind after we have transformed them via Laplace, I personally prefer to use the ``cover-up method''.
+
+Returning to our function describing current throughout the circuit
+\begin{equation}
+	\tilde{I} = \frac{s - 10}{(s+2)(s+5)}
+\end{equation}
+
+\newpage
+\section{Worksheet}
+\subsection{Problem 1}
+Find the Laplace transform of the following:
 \begin{itemize}
-	\item Shows several examples using different Laplace Transforms
-	\item Explains the Laplace Transform using 3D visualization
-	\item Great soothing background Classical Music
-\end{itemize}
-Laplace Domain Circuit Analysis-https://youtu.be/L0PZvvt36DA
-\begin{itemize}
-	\item Elaborates on the RLC chart we created in class
-	\item Gives an example using the Laplace Transform to solve a RC circuit
+	\item $f(t) = 9$
+	\item $f(t) = \delta(t)$ the Dirac-delta function
+	\item $f(t) = e^{-3t/2}$
+	\item $f(t) = \sin\omega t$
 \end{itemize}
 
+\textbf{Solution}
 
+
+\subsection{Problem 2}
+What is the differential equation describing an inductor, a resistor, and a capacitor in series?
+
+\textbf{Solution}
+
+
+\subsection{Problem 3}
+What is the differential equation describing an inductor, a resistor, and a capacitor in series? What is a solution to that  differential equation if L = 1 H, R = 1 $\Omega$, and C = 100 mF? Take the Laplace transform of the differential equation. What are its poles and zeros?
+
+\textbf{Solution}
+
+\newpage
+
+\subsection{Problem 4}
+Draw an s-plane. Label the axes. Plot the poles and zeros you found. What can you say of the behavior of the system? If the poles had an imaginary component to them (that is, if they were pushed along the vertical axis), how would that affect our system?
+
+\subsection{Problem 5}
+Draw an s-plane. Label the axes. Plot these poles -- (-2,0) and (-5,0) -- and this zero -- (0,0). Plot what the signal would look over time at each of these poles and zeros. 
 
 
 \chapter{Circuits as ODEs: I. First-order}
