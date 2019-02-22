@@ -2456,7 +2456,7 @@ Viewing everything as a ``system''.
 
 \part{Assignments}
 \chapter*{Homework I}
-Assigned January 22, 2019. Due January 31, 2019 as \textit{both} a hard copy in class and a pdf on Canvas.
+Assigned January 22, 2019. Due January 31, 2019 as \textit{both} a hard copy in class and a pdf on Canvas. Each problem worth 10 points.
 \setcounter{chapter}{1}
 \setcounter{section}{0}
 \section{Problem 1}
@@ -2539,7 +2539,7 @@ $v(t) = B \cos \omega t$.
 
 
 \chapter*{Homework II}
-Assigned February 8, 2019. Due February 14, 2019 as \textit{both} a hard copy in class and a pdf on Canvas.
+Assigned February 8, 2019. Due February 14, 2019 as \textit{both} a hard copy in class and a pdf on Canvas. Each problem worth 10 points.
 \setcounter{chapter}{2}
 \setcounter{section}{0}
 
@@ -2607,6 +2607,71 @@ Our blood vessels are something of glorified hollow conductive cylinders. Let us
 
 \section{Problem 10}
 To the extent you feel comfortable sharing this information, have you ever had to interact with a piece of biomedical equipment that utilized electronic circuitry? (This may include anything from a Fitbit to an ECG and beyond.) If so, what aspects of that experience relating to the equipment did you find fascinating, and which aspects of it would you personally liked to have seen improved? [If you do not wish to share a personal experience or perhaps do not have one to share, consider the question in the abstract: \textit{knowing what you know, what might you wish to see improved regarding current medical instruments}?]
+
+
+\chapter*{Homework III}
+Assigned February 22, 2019. Due February 28, 2019 as \textit{both} a hard copy in class (at the beginning thereof) and a pdf on Canvas (by 11:59pm). Each problem worth 20 points.
+\setcounter{chapter}{3}
+\setcounter{section}{0}
+%\minitoc
+
+
+\section{Problem 1 on mathematical proficiency}
+Please find the Laplace transforms for the following functions. Be sure to show as much of your work as you can. And please also resist the urge to use computational means of finding these answers. Try it yourself! It's good exercise.
+
+\begin{enumerate}
+	\item $a(t) = \sin(\omega t)$
+	\item $b(t) = \cos(\omega t)$
+	\item $c(t) = 1 - \cos(\omega t)$
+	\item $d(t) = t$
+	\item $f(t) = t^n$
+\end{enumerate}
+
+\newpage
+
+\section{Problem 2 on poles and zeros, exponentially}
+
+Find the poles and zeroes of the following functions. Again, show as much of your work as you can and resist those computational urges.
+
+\begin{enumerate}
+	\item $f(t) = e^{-3t}$
+	\item $f(t) = e^{-3t - 2t + 1t}\cdot e^{-t}$
+	\item $f(t) = e^{-3t}\cdot \sin(3t)$
+	\item $f(t) = e^{-3t}\cdot \cos(4t - 3t)$
+	\item $f(t) = e^{3t}\cdot e^{-2t} \cdot \sin(t)\cdot cos (-t)$
+\end{enumerate}
+
+\section{Problem 3 on the stability of geopolitical systems}
+``Stability'' is a property we seek in many systems. Representing something of a ``back of the envelope'' approximation of the time course of geopolitical entities, a model was first proposed by a fellow by the name of Lewis Fry Richardson to track the development of weapons used/accrued by the nations of the earth. Richardson's Arms race, expressed as the coupled differential equation below, relates the rate at which one country (Country 1) develops its arms, $dx/dt$ to the rate at which another country (Country 2) develops its arms $dy/dt$:
+
+\begin{align}
+	\frac{dx}{dt} &= Ay - mx \\
+	\frac{dy}{dt} &= Bx - ny
+\end{align}
+One can see that these rates are proportional to the the amount of arms the other country has minus the amount of arms the country has. If we know that $s < 0$ for a system to be stable, determine the conditions of stability in this system. (Assume the world starts peacefully with no weapons in either country.) Comment on the results. 
+
+\newpage
+
+\section{Problem 4 on a circuit as a differential equation}
+For circuit below
+\begin{enumerate}
+	\item Write its differential equation and take its Laplace transform (assume all initial conditions are equal to zero). 
+	\item Find its transfer function (the ratio of voltage to current).
+	\item  Choose \textbf{five} triplets of values (different from those printed on the figure). Plot the output of each transfer function as \textit{either} a function of time ($t$) or frequency ($s = \jmath \omega $).
+\end{enumerate} 
+
+
+\begin{center}
+	\includegraphics{figures/hw3.01.png}
+\end{center}
+
+\newpage
+\section{Problem 5 on poles and zeros, applicably}
+Believe it or not, this Laplace and circuitry stuff can actually be useful to those more biologically inclined among us. Indeed, it can be used to describe how drugs perfuse into our bodies. Let us consider taking some drugs.\footnote{Don't do drugs, kids.}  We may model the drug as a charged capacitor, C1, with a potential of 100 V across it and a value of 1 F. Recalling that the tissues within our bodies may be modeled as the combination of a resistor, R1, in series with the parallel combination of a resistor, R2, and a capacitor, C2, we may model the perfusion of the drug within the body as the time rate of change of potential within the circuit shown at right. Once we’ve taken the drug (t = 0), the switch is closed. Using nodal analysis, determine the potential at point b in the s-domain. What are the poles of this model? 
+\begin{center}
+	\includegraphics{figures/hw3.02.png}
+\end{center}
+
 
 
 %\setcounter{chapter}{4}
