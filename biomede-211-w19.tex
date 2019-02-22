@@ -2081,6 +2081,18 @@ There are many ways of going about proving this to yourself. This is the one I p
 	&=& \frac a {s^2+a^2}
 \end{eqnarray}
 
+\section{The Laplace transform of $\int_{0}^{t} x(u) du$}
+
+We have shown that taking the derivative of a function in the time domain is analogous to multiplying its Laplace transform by s in the frequency domain. Using integration by parts, we can similarly show that taking the integral of a function is analogous to dividing its Laplace transform by s. (Source: https://www.youtube.com/watch?v=IYOzTt-gB8A)
+
+\begin{align}
+	\mathcal L \left\{\int_{0}^{t} x(u) du}\right\} &= \int_{0}^{\infty} e^{-st}\int_{0}^{t} x(u) du dt \\ 
+	&= \left[\int_{0}^{t} x(u) du \frac{e^{-st}}{-s}\right]_{0}^{\infty} - \int_{0}^{\infty} X(t)\left(\frac{e^{-st}}{s}dt\right)\\
+	&= \left[\int_{0}^{t} x(u) du \frac{e^{-s\infty}}{-s} - \int_{0}^{0} x(u) du \frac{e^{-s0}}{-s} \right] + \frac{1}{s} \int_{0}{\infty}\\
+	&= \frac{\tilde{X}(s)}{s} + x(0)
+
+\end{align}
+
 
 
 \section{The Laplace transform in RLC circuits}
