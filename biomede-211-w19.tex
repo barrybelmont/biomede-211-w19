@@ -2085,13 +2085,12 @@ There are many ways of going about proving this to yourself. This is the one I p
 
 We have shown that taking the derivative of a function in the time domain is analogous to multiplying its Laplace transform by s in the frequency domain. Using integration by parts, we can similarly show that taking the integral of a function is analogous to dividing its Laplace transform by s. (Source: https://www.youtube.com/watch?v=IYOzTt-gB8A)
 
-\begin{align}
-	\mathcal L \left\{\int_{0}^{t} x(u) du}\right\} &= \int_{0}^{\infty} e^{-st}\int_{0}^{t} x(u) du dt \\ 
-	&= \left[\int_{0}^{t} x(u) du \frac{e^{-st}}{-s}\right]_{0}^{\infty} - \int_{0}^{\infty} X(t)\left(\frac{e^{-st}}{s}dt\right)\\
-	&= \left[\int_{0}^{t} x(u) du \frac{e^{-s\infty}}{-s} - \int_{0}^{0} x(u) du \frac{e^{-s0}}{-s} \right] + \frac{1}{s} \int_{0}{\infty}\\
-	&= \frac{\tilde{X}(s)}{s} + x(0)
-
-\end{align}
+%\begin{align}
+%	\mathcal L \left\{\int_{0}^{t} x(u) du}\right\} &= \int_{0}^{\infty} e^{-st}\int_{0}^{t} x(u) du dt \\ 
+%	&= \left[\int_{0}^{t} x(u) du \frac{e^{-st}}{-s}\right]_{0}^{\infty} - \int_{0}^{\infty} X(t)\left(\frac{e^{-st}}{s}dt\right)\\
+%	&= \left[\int_{0}^{t} x(u) du \frac{e^{-s\infty}}{-s} - \int_{0}^{0} x(u) du \frac{e^{-s0}}{-s} \right] + \frac{1}{s} \int_{0}{\infty}\\
+%	&= \frac{\tilde{X}(s)}{s} + x(0)
+%\end{align}
 
 
 
@@ -2366,19 +2365,121 @@ Draw an s-plane. Label the axes. Plot these poles -- (-2,0) and (-5,0) -- and th
 
 
 
-\chapter{System response: I. Convolution; Homework III}
-02/28/2019 – Lecture 14. 
+\chapter{System response: I. Convolution}
+02/28/2019
+\minitoc
+\newpage
 \section{An introduction to thinking in systems}
-Viewing everything as a ``system''. 
-\subsection{Domains of interest, of command}
-\subsection{The time-domain, or: our typical realm}
-\subsection{The frequency-domain, or: our new realm}
-\subsection{The $s$-domain, or: our magical realm}
-\section{Inputs and outputs}
-\section{Somewhere in the between}
-\section{Convolution in the time-domain}
-\section{Multiplication in the frequency- and $s$-domain}
+Completely characterizing the input v. output properties of a system by exhaustive measurement of all parameters involved is usually not possible. As
 
+\section{Pulse and impulse}
+We have previously noted that the unit impulse function 
+
+\begin{equation}
+	\delta(t) = \begin{cases} 
+      \infty, & t = 0\\
+      0, & t \neq 0\\
+   \end{cases}
+\end{equation}
+But another useful way of conceiving of the impulse signal is as a limiting case of the ``pulse signal'', $\delta_{\Delta}(t)$:
+\begin{equation}
+	\delta_{\Delta}(t) = \begin{cases} 
+      \frac{1}{\Delta}, & \text{if } 0< t < \Delta \\
+      0, & \text{otherwise }\\
+   \end{cases}
+\end{equation}
+It can be seen without much effort that the impulse signal is equal to the pulse signal when the pulse gets infinitely short.
+
+It may also be helpful to consider integration at this point as a limiting case of summation:
+\begin{equation}
+	\int_{t = -\infty}^{\infty}x(t)dt = \lim_{\Delta\rightarrow 0}\sum_{k=-\infty}^{\infty}x(k\Delta)\Delta
+\end{equation}
+This even allows us to perhaps more easily reckon that the unit step signal can be obtained by integrating the unit impulse
+\begin{equation}
+	u(t) = \int_{-\infty}^{t}\delta(\tau)d\tau
+\end{equation}
+
+Well, as it turns out, any signal can be expressed as a sum of scaled and shift unit impulses. Indeed, thanks to our digital world, this is indeed how it mostly works out there in the real world, wherein discrete samples from an original signal may be approximated more or less exactly as pulse signals scaled to the amplitude of the sample. Mathematically,
+\begin{equation}
+	x(t) \approx \sum_{k=-\infty}^{\infty}x(k\Delta)\delta_{\Delta}(t-k\Delta)\Delta
+\end{equation} 
+
+Graphically,
+\includegraphics[width=\textwidth]{figures/13.01.png}
+
+As we let $\Delta\rightarrow 0$, our approximation of $x(t)$ hones in on reality with the summation approaching an integral and the pulse approach the unit impulse:
+\begin{equation}
+	x(t) = \int_{-\infty}^{\infty}x(\tau)\delta(t-\tau)d\tau
+\end{equation}
+
+Thus, we can represent any signal as an infinite sum of shifted and scaled unit impulse. This is indeed that best way we human beings have thus far figured out how to store information. A train of 1s and 0s.
+
+\section{Convolution}
+Recall, the two principles of linearity inherent in our studies here: \textbf{homogeneity} which enables the scaling of linear systems and \textbf{additivity} which allows us to sum up two or more linear systems. From these we arrive at the emergent phenomenon of \textbf{superposition} which states that $T(ax_1+bx_2)= aT(x_1) + bT(x_2)$.
+
+There is also a facet of these systems known as \textbf{shift-invariance} in which we say that so long as we don't (cause long-term) damage (to) a system by inputting some signal, then whether we input that signal at a time $t$ or a time $t + \tau$ some while later will not significantly alter the response of the system. Such systems are said to be shift-invariant, and we will consider their behaviors here.\footnote{A shift-invariant system is the discrete equivalent of the time-invariant systems we have heretofore concerned ourselves with.}
+
+To characterize a linear, shift-invariant, one need only measure how a system responds to a unit impulse. This response is known as the \textbf{impulse response function} and in principle it allows us to predict how a system will respond to any other possible stimulus. 
+
+Graphically, this may be easy to understand. We can imagine that an impulse given to some system cause it to rapidly rise, then decay (exponentially) away. If we do this for ever point in time for a system of interest, we could fully characterize the total response of the system.
+
+\begin{center}\includegraphics[width=\textwidth]{figures/13.03.png}\end{center}
+
+Mathematically, we can call upon our two principles of linearity to guide our way. Let us define some output, $y(t)$, of a system, characterized by transfer function\footnote{It has helped some students to think of a ``transfer'' function merely as a ``transform'' function such that given an input, $x(t)$, there exists an output, $y(t)$, which is mapped from $x(t)$ via the transform, $T$.}, $T$, and an input signal, $x(t)$
+\begin{align}
+	y(t) = T[x(t)] &= T\left(\int_{-\infty}^{\infty}x(\tau)\delta(t-\tau)d\tau\right) \\
+	&= T\left(\lim_{\Delta\rightarrow 0}\sum_{k=-\infty}^{\infty}x(k\Delta)\delta_{\Delta}(t-k\Delta)\Delta\right)
+\end{align}
+From additivity,
+\begin{align}
+	y(t) &= \lim_{\Delta\rightarrow 0}\sum_{k=-\infty}^{\infty}T\left(x(k\Delta)\delta_{\Delta}(t-k\Delta)\Delta\right)
+\end{align}
+Taking the limit,
+\begin{align}
+	y(t) = \int_{-\infty}^{\infty}T(x(\tau)\delta(t-\tau)d\tau)
+\end{align}
+Homogeneity suggests:
+\begin{align}
+	y(t) = \int_{-\infty}^{\infty}x(\tau)T(\delta(t-\tau))d\tau
+\end{align}
+If we then define for ourselves the response of $T$ to the unshifted unit response $h(t) = T[\delta(t)]$, then via shift-invariance we are left with
+\begin{align}
+	y(t) = \int_{-\infty}^{\infty}x(\tau)h(t-\tau)d\tau
+\end{align}
+
+This last result is worth sitting down and thinking about. Its consequence is that for any shift-invariant system, $T$, once we known its impulse response, we know how it will respond to every other system, since every other signal is merely a combination of scaled and shifted impulses.
+
+This way of combining signals is so widespread and useful that it has its own mathematical shorthand, ``$*$'', known as convolution. For any two signals, $x$ and $y$, an output, $z(t)$, may be found by convolving $x$ with $y$
+\begin{equation}
+	z(t) = x*y = \int_{-\infty}^{\infty}x(\tau)y(t-\tau)d\tau
+\end{equation} 
+One way of thinking about this operation is it is as if you took two signals, left one where it was, put there at one side of eternity and found the piece-wise multiplication and sum of two signals as you moved the other signal to the other side of eternity.
+
+\subsection{Convolution as a series of weighted sums}
+
+\includegraphics[width=\textwidth]{figures/13.02.png}
+
+The output of convolution may be thought of as a series of weight sums. More specifically, a linear, shift-invariant system will output a response that is a weighted sum of the inputs. That \textit{weighting function} which helps maps the inputs to the output is very closely related to the impulse response of the system. Indeed, the impulse response and weighting function are time-reversed copies if each other (as shown in the top part of the graph).
+
+\subsection{A few properties of convolution}
+\begin{itemize}
+	\item Commutative: $x*y = y*x$
+	\item Associative: $(x*y)*z = x*(y*z)$
+	\item Distributive: $(x*z)+(y*z)=(x+y)*z$
+\end{itemize}
+
+\subsection{The Laplace transform of a convolution}
+To editorialize a bit, perhaps the single most important thing to get out of this chapter is that convolution in the time-domain is the same as multiplication in the $s$-domain. That is
+\begin{equation}
+	\mathcal{L}(f*g) = \tilde{F}(s)\cdot\tilde{G}(s) = \tilde{G}(s)\cdot\tilde{F}(s) = \mathcal{L}(g*f)
+\end{equation}
+Let us prove this to ourselves.\footnote{0$^-$ and $t^+$ will be avoided in this derivation for convenience, but the interested reader is encouraged to redo this proof with their inclusion. It should come out the same}
+
+
+\section{A few examples}
+
+\subsection{Convolution of an exponential and a $\sin$ function}
+\includegraphics[width=\textwidth]{figures/13.04.png}
 
 
 \chapter{System response: II. Stability}
@@ -2463,7 +2564,7 @@ Viewing everything as a ``system''.
 
 
 \chapter*{Exam III}
-04/26/2019 
+04/26/2019, 4:00-6:00pm
 
 
 \part{Assignments}
