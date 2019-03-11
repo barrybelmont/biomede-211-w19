@@ -2483,9 +2483,43 @@ Let us prove this to ourselves.\footnote{0$^-$ and $t^+$ will be avoided in this
 
 
 \chapter{System response: II. Stability}
-03/12/2019 – Lecture 15. 
-\section{An introduction}
-\subsection{What do we mean by stability?}
+03/12/2019
+\minitoc
+\newpage
+\section{}
+\section{Bound inputs, bound outputs}
+Systems may be thought of as stable or unstable. That is, they either approach some known, finite value, or they approach some infinite value.
+
+One of the more convenient ways to think about stability, is to concern ourselves with systems whose outputs are based on its inputs. With such an approach, we may say of a stable system that the output should be \textit{bounded} for each \textit{bounded} input for each and every time point. Such systems are \textbf{bounded-input, bounded-output stable}, or exhibit \textbf{BIBO stability}.
+
+What ``bounded'' means here is that we are confining the values being input (and thus output) to some \textit{range} of values. Another way of thinking about it is that from time of $-\infty$ to $+\infty$, the amplitude of the input is never infinite. For a BIBO stable system, the amplitude of the output will never be infinite during all that time. For a BIBO unstable system, that is not true for at least one point in time.
+
+Those really looking for formality here may use the following definition of boundedness: a signal is bounded if there exists a finite value $B > 0$ such that the magnitude of the signal never exceeds, $\|y(t)|\leq B, \forall t\in \mathbb {R} $.
+
+\subsection{A few standard bounded signals}
+\begin{itemize}
+	\item \textbf{DC signals}, e.g., $y(t) = 2$ | consider that at all points of $t$, the amplitude will equal a constant
+	\item \textbf{Sines and cosines}, e.g., $y(t) = \sin(t)$ | for all points $t$, the amplitude is bounded In other words, to -1 and +1
+	\item \textbf{Singularity functions}\footnote{But what about the unit impulse function? Doesn't this violate our ``never infinite'' rule? Only kind of! First, it will help to realize that the impulse function, $\delta(t)$, is an \textit{idealization} of a signal that is \begin{enumerate}
+		\item very large near $t = 0$,
+		\item very small away from $t = 0$, and
+		\item has an integral of 1.
+	\end{enumerate} That is, it is a signal whose width is $\epsilon$ and whose amplitude is $1/\epsilon$, where $\epsilon$ is very small. In fact, the impulse function is formally defined by the property that $\int_{-\infty}^{\infty}f(t)\delta(t)dt = f(0)$. Hence, $\delta(t)$ is not \textit{really} defined for any \textit{t}, only its behavior within an integral.}, e.g., $y(t) = u(t)$ | for all points $t$, the amplitude is either 0 or 1
+\end{itemize}
+
+\newpage
+
+\subsection{A few example bounded signals}
+In the examples which follow, we can an imagine an input signal, $x(t)$, going into a system (``being convolved with''), such that it produces an output, $y(t)$. Somewhat graphically, $x(t) \rightarrow \text{system} \rightarrow y(t)$.
+\begin{enumerate}
+	\item $y(t) = t\cdot x(t)$ | Let's choose a simple input, $x(t) = u(t)$, such that $y(t) = t\cdot u(t) = r(t)$. \textit{Note here that the product of a signal with time is equal to its integral.}\footnote{It should also further be recalled here that multiplication by $s$ is the equivalent of taking the derivative and division by $s$ its integral. Further note that under appropriate circumstances $t = 1/s$. From this, the result reported above should follow.}
+	\subitem \textbf{However! This is not a stable system.} Simply because an input is bounded does not mean a system will be stable. Such boundedness merely gives us a specific means by which to evaluate stability in systems. In this case a bounded input produces an unbounded output.
+	\item $y(t) = x(t) + 5$ | Here we see the effects of a possible DC offset (the ``+5'' term) on a system. Let's input another simple bounded signal, $x(t) = -3.3$. Then, $-3.3 \rightarrow \text{system} \rightarrow y(t) = -3.3 + 5 = 1.7$. 
+	\subitem \textbf{Here we have a bounded input which produces a bounded output.} Hence, we have a stable system!
+	\item $y(t) = x(t)\cdot\sin(t)$
+\end{enumerate}
+
+
 \section{Undamped, $\zeta = 0$}
 \section{Underdamped, $0 < \zeta < 1$}
 \section{Overdamped, $\zeta > 1$}
