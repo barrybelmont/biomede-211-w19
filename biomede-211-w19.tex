@@ -2613,9 +2613,103 @@ Given that
 
 
 
-\chapter*{Exam II}
+\chapter*{A Glorified Quiz II}
 03/26/2019
 
+A set of exercises in preparation of the second glorified quiz.
+
+\begin{enumerate}
+	\item Find the transfer function (as V/I, I/V, Vo/Vin, etc.) of the following (``+'' means ``in series with'', ``$\vert\vert$'' means “in parallel with''):
+	\subitem R1 + R2$\vert\vert$(R3 + C1)
+	\subitem (R1 + R2)$\vert\vert$(R3 + C1 + L1)
+	\subitem C1 + (C2 + R1$\vert\vert$(R2 + C3)$\vert\vert$L1)
+	\subitem (R1$\vert\vert$R2$\vert\vert$R3)$\vert\vert$(R4$\vert\vert$R5$\vert\vert$R6)$\vert\vert$(R7 + R8$\vert\vert$R9)
+	\item Label and describe the pins of an operational amplifier.
+	\item Draw and derive an inverting amplifier.
+	\item Draw and derive a non-inverting amplifier.
+	\item Draw and derive a differential amplifier.
+	\item Draw and derive an operational amplifier.
+	\item What is the Laplace transform? What is its definition? What does it do for us? How does it do that? Why do we care? When can you use it? When can you not? When should you?
+	\item What is the s-domain? What are its axes? What do those axes represent? When is looking at the s-domain useful for us?
+	\item The s of the s-domain has two components. What are they and what do they individually and collectively represent?
+	\item What is at least one condition (w/r/t s) that must exist for a system to be stable? 
+	\item What is the Laplace transform of a constant (i.e., of 1)?
+	\item What is the Laplace transform of an exponential function (i.e., of $e^{at}$)?
+	\item What is the Laplace transform of a derivative (i.e., of dx/dt)? First, second, third, fourth, etc.?
+	\item Is the Laplace transform linear? And if so, what does that mean?
+	\item What is Euler’s formula? What is Euler’s identity? When might it be useful (especially in this class)?
+	\item What is the differential equation of a series RLC circuit? [I will take “series RLC circuit” here to mean a resistor, an inductor, and a capacitor in series.]
+	\item What is the differential equation of a parallel RLC circuit? [I will take “parallel RLC circuit” here to mean a resistor, an inductor, and a capacitor in parallel.]
+	\item What is the differential equation of a series RLC circuit in parallel with another series RLC circuit?
+	\item What the inverse Laplace transform?
+	\item Make sure you can invert a simple Laplace transformation (say of an RLC circuit) to yield the time-domain equation. For example:
+	\subitem $1/(s^2+5s+6)$
+	\subitem $(s+2)/(s+3)(s+4)$
+	\subitem $s^2/(s(s^2+4s+4))$
+	\subitem $(s+1)/(s^1+1)$
+	\item For the s-domain representations show above, what sort of frequency dependent behavior do you expect each to have? How do you know?
+	\item We have learned the general form the denominator (the poles) that many transfer functions take is: $s^2 + 2\zeta \omega_n s + \omega_n^2$. What is $\zeta$? What is $\omega_n$?
+	\item Describe the behavior of a system when $\zeta$ is (1) zero, (2) between zero and one, (3) one, and (4) greater than one. Include graphs. Include solutions to the differential equations thus described. Be sure you could identify such behavior if given a graphical representation.
+	\item A charged capacitor (charge it to whatever value you’d like) is dropped in series with a resistor at time t = 0. Use KCL to find first-order differential equation. What is its solution?
+	\item The solution to the above example has a time constant, $\tau$. What is it (in terms of the resistor and capacitor terms)? What is the amplitude of the response when t = 1$\tau$? When t = 2$\tau$? 3$\tau$? 4$\tau$? 5$\tau$? 10$\tau$?
+	\item If one were to take the derivative of the solution to 24 at t = 0, the slope of the line would intersect time axis at what point? Why might this be useful?
+	\item If there is no excitation signal (as in 24), but there are initial conditions, what kind of response is this, ZIR or ZSR?
+	\item BTW, what’s ZIR \& ZSR?
+	\item A voltage source, a resistor, and a switch are in series with (R2 + C1)$\vert\vert$R3. What is the differential equation of the circuit? What is its Laplace transformation? What is its solution?
+	\item 30.	What is partial fraction decomposition and why should I know it?
+	\item For the circuit at right, assume the initial condition of the inductor’s current is i(0) = I0. Apply KVL around the loop to find the first-order differential equation. Solve said equation. What is the time constant?
+	\item If instead of charging the inductor in the above example, we removed the charge and put in a time varying voltage signal and measured the voltage drop across the resistor, would we record be recording the zero state response, the zero input response, or some combination of the two?
+	\item For the circuit below, assuming i(0) = 10 A, calculate i(t) and ix(t).
+	\begin{center}\includegraphics{figures/q2.02.png}\end{center}
+	\item Below is what’s called a “gate function”, which is like a step function that switches on at one value of t and switches off at another. Express this voltage pulse (seen at right) in terms of the unit step. Calculate its derivative.
+	\begin{center}\includegraphics{figures/q2.03.png}\end{center}
+	\item What is the definition of a unit step function?
+	\item What is the definition of a unit impulse function? How is it related to the unit step function?
+	\item What is the definition of a unit ramp function? How is it related to the unit step function?
+	\item For 35-37, draw a graphical representation of the functions.
+	\item If you wanted to shift a unit step/impulse/ramp function by an amount t0 in time, how does this alter your definition of the function as reported above?
+	\item If you multiplied a function f(t) by an impulse function that has been time shifted (by an amount t0), what is the result? 
+	\item If the switch of the circuit shown below is closed at t = 0, find the time-dependent voltage function for the circuit for both t $<$ 0 and t $\geq$ 0.
+	\begin{center}\includegraphics{figures/q2.05.png}\end{center}
+	\item The above example has two responses, a natural response (using stored energy) and a forced response (using an independent source). Describe these in your own words.
+	\item One could also decompose the responses by a transient response and a steady-state response. Describe these in your own words.
+	\item Describe convolution in your own words.
+	\item What is the formal definition of convolution?
+	\item Draw a (simple) system function and a (simple) input function. What is the convolution of your input with your system? 
+	\item Convolution with the impulse response produces what?
+	\item What are the commutative, associative, and distributive properties of convolution?
+	\item What is the relationship between convolution and the Laplace transform? (Similarly, what is the relationship between convolution the Fourier transform?)
+	\item Draw a passive low-pass circuit. What is the transfer function between Vo/Vin? What is the cutoff frequency?
+	\item Draw a passive high-pass circuit. What is the transfer function between Vo/Vin? What is the cutoff frequency?
+	\item Draw a bode plot for a first-order passive low-pass filter. What is the pass band? What is the stop band? What is the slope of the tracing within the stop band? At the corner frequency, what is the amplitude in dB? Draw a corresponding phase diagram. What is the phase shift one order of magnitude below the cutoff frequency? What is the phase shift one order of magnitude above the cutoff frequency?
+	\item Draw a bode plot for a first-order passive high-pass filter. List all the ways it differs from the first-order passive low-pass filter of 50.
+	\item Draw a bode plot and phase diagram for the series combination of a first-order passive low-pass filter with a cutoff frequency of 50 Hz and a first-order passive low-pass filter with a cutoff frequency of 500 Hz.
+	\item Redo the above questions but using ``second-order'' instead of ``first-order'' filters. How does this change your results?
+	\item Why do we care about the phase of a signal?
+	\item Draw the bode plot and phase diagram of the following transfer functions:
+	\subitem $100(s + 1) / (s + 10)(s + 100)$
+	\subitem $(s^2 + 27s + 100) / (s^2 + 4s + 4)$
+	\subitem $(s(s + 100)) / (s(s + 1)(s + 10))$
+	\subitem $s^2 / (s^3 + 2s^2 + 3s + 4)$
+	\item What are the general forms of the transfer functions for low-pass, high-pass, and band-pass filters?
+	\item What is an integrator? How would you make one with an operational amplifier? What is the Laplace transform of an integrator / integration? What is one advantage and disadvantage to using an ideal inverting integrator?
+	\item We can modify the ideal inverting integrator by placing a resistor in the feedback loop of the op-amp. What does this produce? Sketch a bode plot relating Vo/Vin for such a modified inverting integrator.
+	\item Given real values for the modified inverting integrator, could you determine the frequency at which you would expect the amplitude of a signal in the stop-band to be half the value one would expect to see in the pass-band?
+	\item What is a differentiator? How could you make one with an operational amplifier? What is the Laplace transform of a differentiator / differentiation? What is one advantage and disadvantage to using an ideal inverting differentiator?
+	\item We can modify the ideal inverting differentiator by inserting an input resistor (generally before the capacitor). What does this produce? Sketch a bode plot relating Vo/Vin for such a modified inverting differentiator.
+	\item What is the input impedance of the following system? (Note, this is from an actual bit of implantable electronics.)
+	\begin{center}\includegraphics{figures/q2.01.png}\end{center}
+	\item What is a plant? What is a controller? What is a system?
+	\item What is open-loop control? What is closed-loop control?
+	\item Given a simple block diagram with F = 1 / (s + a), G = s / (s + b), and H = 1 / s; what is the overall system response (output / input)?
+	\item What is proportional, integral, and derivative control?
+	\item What is the s-domain representation of P, I, and D control?
+	\item How can we make for a stable arms race?
+
+
+
+
+\end{enumerate}
 
 
 \part{in Biomedical Engineering}
