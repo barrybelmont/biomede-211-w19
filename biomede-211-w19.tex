@@ -2486,7 +2486,7 @@ Let us prove this to ourselves.\footnote{0$^-$ and $t^+$ will be avoided in this
 03/12/2019
 \minitoc
 \newpage
-\section{}
+
 \section{Bound inputs, bound outputs}
 Systems may be thought of as stable or unstable. That is, they either approach some known, finite value, or they approach some infinite value.
 
@@ -2504,7 +2504,7 @@ Those really looking for formality here may use the following definition of boun
 		\item very large near $t = 0$,
 		\item very small away from $t = 0$, and
 		\item has an integral of 1.
-	\end{enumerate} That is, it is a signal whose width is $\epsilon$ and whose amplitude is $1/\epsilon$, where $\epsilon$ is very small. In fact, the impulse function is formally defined by the property that $\int_{-\infty}^{\infty}f(t)\delta(t)dt = f(0)$. Hence, $\delta(t)$ is not \textit{really} defined for any \textit{t}, only its behavior within an integral.}, e.g., $y(t) = u(t)$ | for all points $t$, the amplitude is either 0 or 1
+	\end{enumerate} That is, it is a signal whose width is $\epsilon$ and whose amplitude is $1/\epsilon$, where $\epsilon$ is very small. In fact, the impulse function is formally defined by the property that $\int_{-\infty}^{\infty}f(t)\delta(t)dt = f(0)$. Hence, $\delta(t)$ is not \textit{really} defined for any \textit{t}, only its behavior within an integral. For a simple demonstration of this conundrum, consider Problem 14.7.3.5.}, e.g., $y(t) = u(t)$ | for all points $t$, the amplitude is either 0 or 1.
 \end{itemize}
 
 \newpage
@@ -2519,10 +2519,17 @@ In the examples which follow, we can an imagine an input signal, $x(t)$, going i
 	\item $y(t) = x(t)\cdot\sin(t)$
 \end{enumerate}
 
+\section{Stability at poles and zeroes}
+Recall our series RLC circuit. It produced a transfer function with two general points of interest, poles and zeroes. Pondering still further what the Laplace transform tells us, we are ultimately taking the integral sum of an exponential function whose exponential is determined by either a pole or a zero. 
 
-\section{Undamped, $\zeta = 0$}
-\section{Underdamped, $0 < \zeta < 1$}
-\section{Overdamped, $\zeta > 1$}
+\begin{itemize}
+	\item In the case of \textbf{zeros}, summation is to zero. It is equivalent to taking the integral of a sinusoidal function centered at 0 over time. It sums to zero. Hence the name.
+	\item The other case that we care about is that of the \textbf{poles} in which the summation is just barely infinite. In this case, you can imagine a sinusoid shifted such that its minimum intersects the x-axis. In this scenario, the area under the curve as time approached infinity would be just barely infinite.
+	\subitem It would become unbounded if its amplitude slightly increased with time and it would be finite if its amplitude decreased with time. The sweet spot representing this boundary is our ``pole''.
+\end{itemize}
+
+It is within those just barely infinite realms that we will meet our destiny.
+
 
 \section{Resonance}
 Resonance can be both useful and annoying and it is a prime example of marginal stability.
@@ -2532,6 +2539,30 @@ Electrical resonance occurs in a electric system at a particular resonant freque
 	\item at maximum in a parallel circuit.
 \end{itemize}
 That is, resonance usually happens when the transfer function peaks in absolute value. 
+
+\begin{center}
+	\includegraphics[width=\textwidth]{figures/14.01.png}
+\end{center}
+
+
+\section{Q factor}
+\begin{itemize}
+	\item The quality factor (``Q factor'') is a dimensionless parameter that describes how damped an oscillator or resonator is. 
+	\item It characterizes a resonator's bandwidth relative to its center frequency.
+	\item A higher Q indicates a lower rate of energy loss relative to the stored energy of the oscillator, i.e., the oscillations die out more slowly. 
+	\item For example, a pendulum suspended from a high-quality bearing, oscillating in air, would have a high Q, while a pendulum immersed in oil would have a low Q.
+\end{itemize}
+\begin{center}
+	\includegraphics{figures/14.02.png}
+\end{center}
+The bandwidth $\Delta f = f_2 - f_1$ of a damped oscillator is shown on a graph of energy versus frequency. The Q factor of the damped oscillator, or filter, is $f_c/\Delta f$. The higher the Q, the narrower and ‘sharper’ the peak is.
+
+The resonant frequency $f_r$, has a resonance width or \textbf{full width at half maximum (FWHM)} of $\Delta f$ and can be used to defined the Q factor as 
+\begin{equation}
+	Q = \frac{f_r}{\Delta f}
+\end{equation}
+
+
 
 
 \newpage
@@ -2556,7 +2587,10 @@ Given that
 \subsection{Is the system stable?}
 \begin{enumerate}
 	\item A system, $y(t) = \int_{-\infty}^{\infty}x(\tau)d\tau$, when $x(t) = \cos(t)$.
-	\item 
+	\item A system, $y(t) = \int_{-\infty}^{\infty}x(\tau)d\tau$, when $x(t) = u(t)$.
+	\item A system, $y(t) = x(t)/t$, when $x(t) = 2$.
+	\item A system, $y(t) = dx(t)/dt$, when $x=1$.
+	\item A system, $y(t) = dx(t)/dt$, when $u(t)$.
 \end{enumerate}
 
 
