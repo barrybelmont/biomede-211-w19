@@ -2500,7 +2500,7 @@ Those really looking for formality here may use the following definition of boun
 \begin{itemize}
 	\item \textbf{DC signals}, e.g., $y(t) = 2$ | consider that at all points of $t$, the amplitude will equal a constant
 	\item \textbf{Sines and cosines}, e.g., $y(t) = \sin(t)$ | for all points $t$, the amplitude is bounded In other words, to -1 and +1
-	\item \textbf{Singularity functions}\footnote{But what about the unit impulse function? Doesn't this violate our ``never infinite'' rule? Only kind of! First, it will help to realize that the impulse function, $\delta(t)$, is an \textit{idealization} of a signal that is \begin{enumerate}
+	\item \textbf{The unit step function}\footnote{But what about the unit impulse function? Doesn't this violate our ``never infinite'' rule? Only kind of! First, it will help to realize that the impulse function, $\delta(t)$, is an \textit{idealization} of a signal that is \begin{enumerate}
 		\item very large near $t = 0$,
 		\item very small away from $t = 0$, and
 		\item has an integral of 1.
@@ -2524,6 +2524,40 @@ In the examples which follow, we can an imagine an input signal, $x(t)$, going i
 \section{Underdamped, $0 < \zeta < 1$}
 \section{Overdamped, $\zeta > 1$}
 
+\section{Resonance}
+Resonance can be both useful and annoying and it is a prime example of marginal stability.
+Electrical resonance occurs in a electric system at a particular resonant frequency when the impedance of the circuit is 
+\begin{itemize}
+	\item at a minimum in a series circuit or
+	\item at maximum in a parallel circuit.
+\end{itemize}
+That is, resonance usually happens when the transfer function peaks in absolute value. 
+
+
+\newpage
+\section{A few examples}
+\subsection{What is $\tilde{Z}(s)$ (i.e., $\tilde{V}(s)/\tilde{I}(s)$) of a resistor and a capacitor in parallel?}
+\begin{enumerate}
+	\item Show the \textit{frequency response} (i.e., $\tilde{Z}(s)$ v. frequency) of such a system. If it helps to ascribe values, assume that the resistor is 1 ohm and the capacitor is 10 farad.
+	\item Comment on the behavior. Is it like anything you have seen before?
+	\item (\textit{The kind of question that might be on a glorified quiz.}) If the current through the circuit is 1 amp when $t \geq 0$, what will be the voltage response?
+\end{enumerate}
+
+\subsection{What is the voltage time response of a system with a given impedance?}
+Given that 
+\begin{equation}
+	\tilde{Z}(s) = \frac{s^3+9}{(s+1)(s+3)}
+\end{equation}
+\begin{enumerate}
+	\item What is the \textit{time response} of potential to a unit step of current?
+	\item (\textit{The kind of question that might be on a glorified quiz.}) Which exponential term will most significantly affect the signal?
+\end{enumerate}
+
+\subsection{Is the system stable?}
+\begin{enumerate}
+	\item A system, $y(t) = \int_{-\infty}^{\infty}x(\tau)d\tau$, when $x(t) = \cos(t)$.
+	\item 
+\end{enumerate}
 
 
 \part{\& Signals}
