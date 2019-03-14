@@ -2614,23 +2614,29 @@ Given that
 
 
 
-\chapter{System response: III. The frequency domain}
-03/14/2019 – Lecture 16. 
+\chapter{System response: III. Active filters}
+03/14/2019 
+
+\section{Recall, an inverting amplifier}
+
+\section{An ideal inverting integrator}
+
+\subsection{A modification yielding a low pass filter}
+
+\section{An ideal differentiator}
+
+\subsection{A modification yielding a high pass filter}
+
+\section{Combining active filters}
 
 
-
-\chapter{System response: IV. Filters}
-03/19/2019 – Lecture 17. 
-
-
-
-\chapter{System response: V. Feedback; Homework IV}
-03/21/2019 – Lecture 18. 
-
+\chapter{System response: IV. Feedback and moving forward}
+03/19/2019
+
 
 
 \chapter*{A Glorified Quiz II}
-03/26/2019
+03/21/2019
 
 A set of exercises in preparation of the second glorified quiz.
 
@@ -2999,11 +3005,11 @@ Believe it or not, this Laplace and circuitry stuff can actually be useful to th
 
 \chapter*{Homework IV}
 Assigned March 14, 2019. Due March 28, 2019 as \textit{both} a hard copy in class (at the beginning thereof) and a pdf on Canvas (by 11:59pm). Each problem worth 20 points.
-\setcounter{chapter}{3}
+\setcounter{chapter}{4}
 \setcounter{section}{0}
 
 
-\section{Problem 1}
+\section{Problem 1 on equivalent differential equations for transfer functions}
 For each of the transfer functions, $\tilde{H}(s)$, below, find a time-domain differential equation, $h(t)$, that would produce such a transfer function. (In this problem and those that follow from it, you may choose any initial conditions you would like, but I suggest setting them to 0 as a first attempt.)
 \begin{enumerate}
 	\item $\tilde{H}(s) = \frac{4}{s^2+5s+6}$
@@ -3014,11 +3020,11 @@ For each of the transfer functions, $\tilde{H}(s)$, below, find a time-domain di
 \end{enumerate}
 
 \newpage
-\section{Problem 2}
+\section{Problem 2 on designing circuitry}
 Let us treat the transfer functions reported in Problem 1 as system impedance, $\tilde{Z}(s)$.
 For each of the differential equations you found from Problem 1, draw a circuit which whose output, $v(t)$, represents the voltage time response of an input of a unit step of current, $u(t)$ applied at time, $t = 0$. (That is, design a circuit which when subjected to an input $u(t)$ would produces an output of $v(t) = z(t)*u(t)$.)
 
-\section{Problem 3}
+\section{Problem 3 on determining output}
 Given the transfer functions reported in Problem 1, please answer the questions below.
 \begin{enumerate}
 	\item Is the system stable when subjected to a unit step function? (In other words, is it BIBO stable?)
@@ -3028,7 +3034,7 @@ Given the transfer functions reported in Problem 1, please answer the questions 
 \end{enumerate}
 
 
-\section{Problem 4}
+\section{Problem 4 on designing filters}
 Design the following filters (using an input impedance, R1 = 1 k$\Omega$) and produce a Bode plot demonstrating your results. (You may plot your results via computational means, i.e., a computer program, or by hand, by using what we learned in this class.)
 \begin{enumerate}
 	\item A first order high-pass filter with a corner frequency at 0.5 Hz and a magnitude of gain of 10.
@@ -3037,7 +3043,7 @@ Design the following filters (using an input impedance, R1 = 1 k$\Omega$) and pr
 \end{enumerate}
 
 
-\section{Problem 5}
+\section{Problem 5 on convolving}
 
 Given an input signal (seen on the left) and a system impulse response, SIR (seen on the right), determine the output signal that would arise. That is, convolve the input with the SIR. You may solve by hand (so long as your work is clear) and/or MATLAB, Excel, or some equivalent software to arrive at your answers. Please include all code used.
 \begin{enumerate}
@@ -3050,8 +3056,39 @@ Given an input signal (seen on the left) and a system impulse response, SIR (see
 	\includegraphics[width=\textwidth]{figures/hw4.01.png}
 \end{center}
 
+\chapter*{Homework V}
+Assigned March 14, 2019. Due April 2, 2019 as \textit{both} a hard copy in class (at the beginning thereof) and a pdf on Canvas (by 11:59pm). Each problem worth X points.
+\setcounter{chapter}{5}
+\setcounter{section}{0}
 
-%\setcounter{chapter}{4}
+
+\chapter*{Homework VI}
+Assigned March 14, 2019. Due April 16, 2019 as \textit{both} a hard copy in class (at the beginning thereof) and a pdf on Canvas (by 11:59pm). Each problem worth X points.
+\setcounter{chapter}{6}
+\setcounter{section}{0}
+
+\section{Problem 1 on bioamplification}
+
+\newpage
+\section{Problem 2 on knights, knaves, truths, and lies}
+Recall the land inhabited by knights and knaves. Knights always tell the truth and knaves always lie. For each of the following give an answer and explain your reasoning as best you can. It will often help to draw a truth table or a logic/decision tree. Please use your own methods or feel free to ask me what I might do.
+
+Please note that I will make use of the singular form of ``they'' and ``them'' to describe the individuals below. If that leads to any consternation, you may replace with any singular pronoun of your choice.
+
+\begin{enumerate}
+	\item You come across three inhabitants and ask the first, A, ``Are you a knight or a knave?'' A answers, but so quietly you can’t hear them. You ask B ``What did A say?” to which B responds “A said they were a knave.'' Upon hearing this, C piped up and said ``Don’t believe that; it’s a lie.'' Is C a knight or a knave? (Further, is it possible to know what A is?)
+	\item Instead of asking if A was a knight or a knave, you could have asked how many of the three of them were knaves. So, upon meeting the next three inhabitants (D, E, and F), D answers indistinctly, so you ask E what D had said. E said that D had said that exactly two of them were knaves. F says E is lying. Is it possible to know what D is? (Further, what are E and F?)
+	\item Meeting with two inhabitants, G and H, G says, ``Both of us are knaves.'' What is G? What is H?
+	\item Meeting two other inhabitants, I and J, I says, ``At least one of us is a knave.'' What are I and J?
+	\item Meeting yet two more, K and L, K says, ``We are the same type – we are either both knights or both knaves.'' What are K and L?
+	\item Meeting another two, M and N, you ask M if they are a knight and get an answer. You then ask N if M is a knight and get an answer. Are M and N’s answers the same or different? 
+\end{enumerate}
+
+\newpage
+
+\section{Problem 3 on logic gates}
+Did you know that each of the above knight and knave situations can be represented by a combination of logic gates? For example, a simple single knave can be represented by a NOT gate since they always lie. An easy way to work in this matter is to assign 0s and 1s to lies and truth (and thereby liars and truth-tellers and thereby knaves and knights) and construct a truth table. From that truth table and from the logic you used in deriving the solution, put together a sequence of logic gates for each of the situations reported in Problem 2
+
 
 
 \end{document}
