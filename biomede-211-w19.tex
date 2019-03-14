@@ -2618,16 +2618,127 @@ Given that
 03/14/2019 
 
 \section{Recall, an inverting amplifier}
+Given an inverting amplifier (as reported below), we know that the ratio of the output to the input is
+\begin{equation}
+	\frac{V_o}{V_i} = -\frac{R_f}{R_{in}}
+\end{equation}
+
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{figures/15.01.png}
+\end{center}
+This can be more generally thought of in terms of a ratio of the feedback impedance, $Z_f$, and the input impedance, $Z_{in}$
+
+\begin{equation}
+	\frac{V_o}{V_{in}} = -\frac{Z_f}{Z_{in}}
+\end{equation}
+With this in mind, we can start to analyze any number of impedance combinations to determine four very useful types of active filters.
 
 \section{An ideal inverting integrator}
+\textbf{The first combination of impedances we will consider is a resistor, $R_{in}$, at the input and a capacitor, $C_F$ in the feedback loop.}
+
+This will produce a (voltage gain) transfer function, $V_o/V_{in}$:
+
+\begin{equation}
+	\frac{V_o}{V_{in}} = -\frac{Z_f}{Z_{in}} = -\frac{1/sC_F}{R_{in}} = -\frac{1}{sR_{in}C_F}
+\end{equation}
+
+We may remember that division by $s$ in the $s$-domain is equivalent to integration in the time domain. Thus, the time-varying output is 
+
+\begin{equation}
+	V_o(t) = -\frac{1}{R_{in}C_F}\int_{-\infty}^{t} V_{in}(\tau)d\tau
+\end{equation}
+
+Hence, this system will produce an output which integrates the input with respect to time and scales it to $1/R_{in}C_F$
+An \textbf{integrator} produces an output proportional to the time integral of its input.
+\\
+
+\textit{Question to ponder: what frequency wouldn't produce an output voltage?}
 
 \subsection{A modification yielding a low pass filter}
+Because at 0 Hz, $C_F$ produces an open circuit, the feedback loop is no longer connected and hence no output is produced, we can include a resistor in combination with that feedback capacitor, so as to prevent this. This leads to our second combination: \textbf{a resistor, $R_{in}$, at the input and a capacitor, $C_F$, in parallel with a resistor, $R_F$, in the feedback loop.}
 
+This will yield a transfer function of
+
+\begin{equation}
+	\frac{V_o}{V_{in}} = -\frac{Z_f}{Z_{in}} = -\frac{R_F \vert \vert (1/sC_F)}{R_{in}} = -\frac{1}{R_{in}C_F}\cdot \frac{sR_F C_F }{1 + sR_F C_F}
+\end{equation}
+
+And let us consider its response with respect to frequency. To help matters, let us consider resistors of value 1 $\Omega$ and a capacitor of 10 mF. (Let's consider the output for frequencies of 1 Hz, 10 Hz, 100 Hz, 1 kHz, and 10 kHz.)
+
+\begin{center}\includegraphics{figures/15.02.png}\end{center}
 \section{An ideal differentiator}
 
+\textbf{The third combination of impedances we will consider is a capacitor, $C_{in}$, at the input and a resistor, $R_F$ in the feedback loop.}
+
+This produces a voltage gain response of
+
+\begin{equation}
+	\frac{V_o}{V_{in}} = -\frac{Z_f}{Z_{in}} = -\frac{R_F}{1/sC_{in}} = -sR_FC_{in}
+\end{equation}
+Since multiplication by $s$ in the $s$-domain is equivalent to differentiation in the time-domain, then the time-domain output potential may be written as
+
+\begin{equation}
+	V_o = -R_fC_{in}\frac{d V_{in}(t)}{dt}
+\end{equation}
+
+Hence, in this case, the circuit has a transfer function which takes the time-derivative of the input voltage, scales it by the product of the resistor and capacitor, and inverts.
+
 \subsection{A modification yielding a high pass filter}
+At very low frequencies, the input capacitor begins to introduce some effects that me undesirable (e.g., at low frequencies, no current flows in the input branch.) If we were to add a resistor in series with the capacitor at the input to prevent the non-flowing of current we would produce our forth combination: \textbf{a capacitor, $C_{in}$, in series with a resistor, $R_{in}$ at the input and a resistor, $R_F$ in the feedback loop}.
+
+\begin{equation}
+	\frac{V_o}{V_{in}} = -\frac{Z_f}{Z_{in}} = -\frac{R_F}{R_{in} + (1/sC_F)} = -R_FC_{in}\cdot\frac{1}{1 + sR_1C_1}
+\end{equation}
+
+And let us consider its response with respect to frequency. To help matters, let us consider resistors of value 1 $\Omega$ and a capacitor of 10 mF. (Let's consider the output for frequencies of 1 Hz, 10 Hz, 100 Hz, 1 kHz, and 10 kHz.)
+
+\begin{center}\includegraphics{figures/15.03.png}\end{center}
+
+\section{Non-inverting variants}
+For each of these types of active filters, there are non-inverting versions which produce similar responses.
+
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{figures/15.06.png}
+\end{center}
+
+Such a circuit will produce a gain transfer function of 
+\begin{equation}
+	\frac{V_o}{V_{in}} = 1 + \frac{R_2}{R_1}
+\end{equation}
+A more generalized version of this relationship may be thought of the ratio of the ``feedback'' impedance, $Z_F$, ($R_2$ in the figure above) to the ``ground'' impedance, $Z_G$ ($R_1$ in the figure above) plus 1. Hence,
+
+\begin{equation}
+	\frac{V_o}{V_{in}} = 1 + \frac{Z_F}{Z_G}
+\end{equation}
+
+
+\subsection{A non-inverting low pass filter}
+
+Let us approach this case by viewing the two inputs of our operational amplifier as having undergone voltage division.
+
+\begin{equation}
+	\frac{V_o}{V_{in}} = \frac{V_+}{V_{in}}\cdot \frac{V_o}{V_+} = \left(\frac{1/sC}{R+ 1/sC}\right)\cdot\left(1+ \frac{R_F}{R_G}\right) = \left(\frac{1}{1 + sRC}\right)\cdot\left(1+ \frac{R_F}{R_G}\right) 
+\end{equation}
+
+\begin{center}
+	\includegraphics[width=\textwidth]{figures/15.04.png}
+\end{center}
+
+\subsection{A non-inverting high pass filter}
+
+Let us again approach this  by viewing the two inputs of our operational amplifier as having undergone voltage division.
+
+\begin{equation}
+	\frac{V_o}{V_{in}} = \frac{V_+}{V_{in}}\cdot \frac{V_o}{V_+} = \left(\frac{R}{R+ 1/sC}\right)\cdot\left(1+ \frac{R_F}{R_G}\right) = \left(\frac{sRC}{1 + sRC}\right)\cdot\left(1+ \frac{R_F}{R_G}\right) 
+\end{equation}
+
+\begin{center}
+	\includegraphics[width=\textwidth]{figures/15.05.png}
+\end{center}
+
 
 \section{Combining active filters}
+
 
 
 \chapter{System response: IV. Feedback and moving forward}
