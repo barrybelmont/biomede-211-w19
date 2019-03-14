@@ -2997,6 +2997,58 @@ Believe it or not, this Laplace and circuitry stuff can actually be useful to th
 	\includegraphics{figures/hw3.02.png}
 \end{center}
 
+\chapter*{Homework IV}
+Assigned March 14, 2019. Due March 28, 2019 as \textit{both} a hard copy in class (at the beginning thereof) and a pdf on Canvas (by 11:59pm). Each problem worth 20 points.
+\setcounter{chapter}{3}
+\setcounter{section}{0}
+
+
+\section{Problem 1}
+For each of the transfer functions, $\tilde{H}(s)$, below, find a time-domain differential equation, $h(t)$, that would produce such a transfer function. (In this problem and those that follow from it, you may choose any initial conditions you would like, but I suggest setting them to 0 as a first attempt.)
+\begin{enumerate}
+	\item $\tilde{H}(s) = \frac{4}{s^2+5s+6}$
+	\item $\tilde{H}(s) = \frac{4}{s^2+4s+4}$
+	\item $\tilde{H}(s) = \frac{4}{s^2+5s+4}$
+	\item $\tilde{H}(s) = \frac{4}{s^2-4}$
+	\item $\tilde{H}(s) = \frac{4}{s^2-5s-6}$
+\end{enumerate}
+
+\newpage
+\section{Problem 2}
+Let us treat the transfer functions reported in Problem 1 as system impedance, $\tilde{Z}(s)$.
+For each of the differential equations you found from Problem 1, draw a circuit which whose output, $v(t)$, represents the voltage time response of an input of a unit step of current, $u(t)$ applied at time, $t = 0$. (That is, design a circuit which when subjected to an input $u(t)$ would produces an output of $v(t) = z(t)*u(t)$.)
+
+\section{Problem 3}
+Given the transfer functions reported in Problem 1, please answer the questions below.
+\begin{enumerate}
+	\item Is the system stable when subjected to a unit step function? (In other words, is it BIBO stable?)
+	\item How damped is the system?
+	\item Where are the poles and zeros of the transfer function in the $s$-domain?
+	\item How long would it take for each system to achieve 95\% of its total response? (For systems to which this does not apply, please state why.)
+\end{enumerate}
+
+
+\section{Problem 4}
+Design the following filters (using an input impedance, R1 = 1 k$\Omega$) and produce a Bode plot demonstrating your results. (You may plot your results via computational means, i.e., a computer program, or by hand, by using what we learned in this class.)
+\begin{enumerate}
+	\item A first order high-pass filter with a corner frequency at 0.5 Hz and a magnitude of gain of 10.
+	\item A second low-pass filter with a corner frequency of 40 Hz and a magnitude gain of 50.
+	\item A bandpass filter with filter with a lower corner frequency of 0.05 Hz and a higher corner frequency of 150 Hz.
+\end{enumerate}
+
+
+\section{Problem 5}
+
+Given an input signal (seen on the left) and a system impulse response, SIR (seen on the right), determine the output signal that would arise. That is, convolve the input with the SIR. You may solve by hand (so long as your work is clear) and/or MATLAB, Excel, or some equivalent software to arrive at your answers. Please include all code used.
+\begin{enumerate}
+	\item What is the output (the convolution) of ``Input (a)'' and ``SIR (a)''?
+	\item What is the output of ``Input (b)'' and ``SIR (b)''?
+	\item What is the output of ``Input (c)'' and ``SIR (c)''?
+\end{enumerate}
+
+\begin{center}
+	\includegraphics[width=\textwidth]{figures/hw4.01.png}
+\end{center}
 
 
 %\setcounter{chapter}{4}
