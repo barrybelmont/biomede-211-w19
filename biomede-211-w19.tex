@@ -2759,12 +2759,107 @@ Let us again approach this  by viewing the two inputs of our operational amplifi
 
 \chapter{System response: IV. Feedback and moving forward}
 03/19/2019
+\minitoc
+\newpage
+
+\section{An introduction}
+\begin{itemize}
+	\item \textbf{A system} is a thing or a group of things whose behavior can be described.
+	\item \textbf{A control system} is a thing or group of things whose behavior can be \textit{controlled}; in this sense a control system is able to alter the future state of a system based on a desired state.
+	\item \textbf{Control theory} is the strategy to control systems by designing the systems or the inputs with which they are convolved in time. 
+\end{itemize}
+
+\section{To this point, an open loop}
+\begin{itemize}
+	\item Until now we have dealt with ``open-loop'' systems -- systems whose input does not depend on a system's output
+	\item This is good for systems with consistent and generally predictable states (e.g., lights being on or off, the surface potential of your heart's dipole, the temperature of water during a shower)
+	\item In the case of a car, for example, the input that is delivered by a driver to accelerate or decelerate the vehicle is the angle they push the gas pedal to. We can imagine then, a system which describes the relationship between the $\theta$ of that pedal input and convert it to the velocity of the car moving forward. Such a system is sometimes called a ``plant''
+	\item In such open loop designs, the relationship between the input and the output is pretty straightforward: the system, convolved with the input, produces an output
+\end{itemize}
+
+\section{Onward, a closed loop}
+
+\begin{itemize}
+	\item We will now start to consider systems where at least some portion of the output is used to influence the system input, thereby changing the output, etc. 
+	\item In this sense, the output is ``fedback'' to the input. 
+	\item Moreover, this ``closes the loop'' between input and output and helps to hone in on the desired output.
+\end{itemize}
+\includegraphics[width = \textwidth]{figures/16.01.png}
+\begin{itemize}
+	\item \textbf{Reference}, $r(t)$ is the value we wish the system to ultimate produce. This might be an intensity of light, a temperature of a room, a velocity of a car, etc.
+	\item \textbf{System output}, $y(t)$,  is the output the system produces in response to its system input (itself a function of the measured error's control strategy when passed to the controller)
+	\item Measured error, $e(t)$, the difference between the reference value and the measured output value (which is the system output value that the sensor measures)
+	\item \textbf{Controller}, $C$, uses the error between the reference and the output to change the system inputs, $u(t)$\footnote{Please note that the $u(t)$ here is not the same as the unit step function.} to the system, $P$
+	\item \textbf{System input}, $u(t)$ is the input delivered directly to the system/plant
+	\item \textbf{System}, $P$ is the system's transfer function. That is, this is the block in the diagram which represents the behavior of the system alone, absent any control strategies.
+	\item \textbf{Sensor}, $F$, is used to measure the system output, $y(t)$ to compare the actual output to the desired output.
+\end{itemize}
 
 
+\section{Block diagram algebra}
+\includegraphics[width = \textwidth]{figures/16.04.png}
+\newpage
+\includegraphics[width = \textwidth]{figures/16.05.png}
 
+
+\section{A closed-loop transfer function}
+\begin{center}
+	\includegraphics[width = 0.5\textwidth]{figures/16.02.png}
+\end{center}
+
+\begin{enumerate}
+	\item The output, $Y(s)=P(s)U(s)$
+	\item The system input, $U(s)=C(s)E(s)$
+	\item The (reference) error, $E(s)=R(s)-F(s)Y(s)$
+\end{enumerate}
+
+\begin{equation}
+	Y(s)=\left({\frac {P(s)C(s)}{1+P(s)C(s)F(s)}}\right)R(s)=H(s)R(s)
+\end{equation}
+
+The expression
+\begin{equation}
+	H(s)={\frac {P(s)C(s)}{1+F(s)P(s)C(s)}}
+\end{equation}
+is referred to as the closed-loop transfer function. 
+\begin{itemize}
+	\item The \textbf{numerator} is the forward (open-loop) gain from r to y.
+	\item The \textbf{denominator} is one plus the gain in going around the feedback loop, the ``loop gain''.
+\end{itemize}
+
+
+\section{PID feedback control}
+A \textbf{proportional-integral-derivative controller} (``PID controller'') is a feedback-control technique widely used to control systems.
+
+A PID controller continuously calculates an error value $e(t)$ as the difference between a desired setpoint and a measured process variable and applies a correction based on proportional, integral, and derivative terms. 
+
+\begin{center}
+	\includegraphics[width = \textwidth]{figures/16.03.png}
+\end{center}
+
+If u(t) is the control signal sent to the system, $y(t)$ is the measured output and $r(t)$ is the desired output, and $e(t)=r(t)-y(t)$ is the tracking error, a PID controller has the general form
+
+\begin{equation}
+	 u(t)=K_{P}e(t)+K_{I}\int e(\tau ){\text{d}}\tau +K_{D}{\frac {{\text{d}}e(t)}{{\text{d}}t}}
+\end{equation}
+where $K_P$, $K_I$, and $K_D$ are constants which scale the effects of each form of control. Generally these are chosen to achieve some effect (minimize overshoot, increase response time, minimize prolonged error, etc.).
+
+Without much erffort we can see the the PID controller transfer function would be of the general form
+
+\begin{equation}
+	C(s)=\left(K_{P}+K_{I}{\frac {1}{s}}+K_{D}s\right)
+\end{equation}
+
+The goal here would be to use these terms to try to compensate for terms present in the plant. For instance, a system in which the output completely and flawless tracked the input would have a transfer function of $H(s) = 1$.
 
 \chapter*{A Glorified Quiz II}
+
+
+
 03/21/2019
+
+
+
 
 A set of exercises in preparation of the second glorified quiz.
 
