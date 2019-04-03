@@ -2345,6 +2345,18 @@ Draw an s-plane. Label the axes. Plot these poles -- (-2,0) and (-5,0) -- and th
 02/21/2019 – Lecture 12. 
 \section{Source-free RC circuits}
 \subsection{One resistor, one capacitor}
+\This circuit is comprised of one resistor and one capacitor in series with no source.
+\To find the function for the voltage V(t) of this source-free circuit, we start by doing KCL.
+\Using the node in between the branch containing the resistor and the branch containing the the capacitor, we get that the current coming into the node from the resistor is (Vg-Va)/R, in which Va is just the voltage at the node and Vg is the ground voltage, which would be zero.
+\The equation for the current going out of the node through the capacitor is C(dV/dt), which can be found from the equation Q=CV.
+\From these, we get the equation (0-Va)/R - C(dVa/dt) = 0, which simplifies to dVa/dt + Va/RC = 0.
+\We now take the LaPlace transform which gives us: sV{tilde} - V(0) + (1/RC)V{tilde} = 0
+\Simplifying gives us: V{tilde} = V(0)/(s+1/RC). The pole is s = -1/RC.
+\Taking the inverse LaPlace to get it back into the t-domain gives us: V(t) = V(0)e^(-t/RC)
+\As seen in this equation and with the negative pole, the solution to the circuit decays, making it stable.
+\This is what we'd expect for a circuit, for it must be stable otherwise we would not see it in real life. 
+
+
 \subsection{Two or more resistors and/or capacitors}
 \section{Source-free ``active'' circuits}
 \section{First-order systems with sources}
@@ -2784,7 +2796,8 @@ Let us again approach this  by viewing the two inputs of our operational amplifi
 	\item In this sense, the output is ``fedback'' to the input. 
 	\item Moreover, this ``closes the loop'' between input and output and helps to hone in on the desired output.
 \end{itemize}
-\includegraphics[width = \textwidth]{figures/16.01.png}
+
+\includegraphics[width = \textwidth]{figures/16.01.png}
 \begin{itemize}
 	\item \textbf{Reference}, $r(t)$ is the value we wish the system to ultimate produce. This might be an intensity of light, a temperature of a room, a velocity of a car, etc.
 	\item \textbf{System output}, $y(t)$,  is the output the system produces in response to its system input (itself a function of the measured error's control strategy when passed to the controller)
@@ -2962,7 +2975,8 @@ A set of exercises in preparation of the second glorified quiz.
 
 \chapter{Bioelectricity: II. Active properties}
 04/04/2019
-
+
+
 
 \chapter{Digital circuits: I. Discretization}
 04/09/2019 
@@ -2999,7 +3013,8 @@ A set of exercises in preparation of the second glorified quiz.
 		\item ``is purported or represented to be for a use in supporting or sustaining human life or for a use which is of substantial importance in preventing impairment of human health or presents a potential unreasonable risk of illness or injury''
 	\end{enumerate}
 \end{itemize}
-
+
+
 
 \chapter{A philosophy of circuits, systems, and signals; Homework VI}
 04/23/2019
