@@ -2345,16 +2345,16 @@ Draw an s-plane. Label the axes. Plot these poles -- (-2,0) and (-5,0) -- and th
 02/21/2019 – Lecture 12. 
 \section{Source-free RC circuits}
 \subsection{One resistor, one capacitor}
-\This circuit is comprised of one resistor and one capacitor in series with no source.
-\To find the function for the voltage V(t) of this source-free circuit, we start by doing KCL.
-\Using the node in between the branch containing the resistor and the branch containing the the capacitor, we get that the current coming into the node from the resistor is (Vg-Va)/R, in which Va is just the voltage at the node and Vg is the ground voltage, which would be zero.
-\The equation for the current going out of the node through the capacitor is C(dV/dt), which can be found from the equation Q=CV.
-\From these, we get the equation (0-Va)/R - C(dVa/dt) = 0, which simplifies to dVa/dt + Va/RC = 0.
-\We now take the LaPlace transform which gives us: sV{tilde} - V(0) + (1/RC)V{tilde} = 0
-\Simplifying gives us: V{tilde} = V(0)/(s+1/RC). The pole is s = -1/RC.
-\Taking the inverse LaPlace to get it back into the t-domain gives us: V(t) = V(0)e^(-t/RC)
-\As seen in this equation and with the negative pole, the solution to the circuit decays, making it stable.
-\This is what we'd expect for a circuit, for it must be stable otherwise we would not see it in real life. 
+This circuit is comprised of one resistor and one capacitor in series with no source.
+To find the function for the voltage $V(t)$ of this source-free circuit, we start by doing KCL.
+Using the node in between the branch containing the resistor and the branch containing the the capacitor, we get that the current coming into the node from the resistor is $(Vg-Va)/R$, in which Va is just the voltage at the node and Vg is the ground voltage, which would be zero.
+The equation for the current going out of the node through the capacitor is $C(dV/dt)$, which can be found from the equation $Q=CV$.
+From these, we get the equation $(0-Va)/R - C(dVa/dt) = 0$, which simplifies to $dVa/dt + Va/RC = 0$.
+We now take the LaPlace transform which gives us: $s\tilde{V} - V(0) + (1/RC)V{tilde} = 0$
+Simplifying gives us: $\tilde{V} = V(0)/(s+1/RC)$. The pole is s = $-1/RC$.
+Taking the inverse LaPlace to get it back into the t-domain gives us: $V(t) = V(0)e^(-t/RC)$
+As seen in this equation and with the negative pole, the solution to the circuit decays, making it stable.
+This is what we'd expect for a circuit, for it must be stable otherwise we would not see it in real life. 
 
 
 \subsection{Two or more resistors and/or capacitors}
@@ -2971,6 +2971,43 @@ A set of exercises in preparation of the second glorified quiz.
 \section{Resistance-Reactance Plane}
 \section{What can we do with this information?}
 
+
+\section{Now, that's what I call a darn good question}
+In class, I was thoroughly stumped. I was asked, ``why is the reactance negative?'' We had just derived a basic bioimpedance model and the reactance, as you may well know dear reader, is negative, such that the impedance vector carves out a shifted semi-circle along the \textit{negative} reactance portion of the resistance-reactance plane.\footnote{Yes, this would be a model without a constant phase element.} There I stood dumbfounded for eternity until a student pointed out that there was a negative sign in our math from the get go! 
+
+It answered the question, but not thoroughly enough for my like. I report below a more thorough attempt at an answer.
+
+The impedance of a capacitor is
+\begin{equation}
+	Z_C = \frac{1}{\jmath \omega C}.
+\end{equation}
+
+Let's play with some algebra. Recall that we define $\jmath = \sqrt{-1}$. I think that you would agree that it's fair to say that the following is true
+\begin{equation}
+	\frac{1}{\jmath} = \frac{1}{\jmath}.
+\end{equation}
+No tricks so far. Let's multiply the right-hand-side by $\frac{\jmath}{\jmath}$, such that
+
+\begin{equation}
+	\frac{1}{\jmath} = \frac{1}{\jmath}\cdot \frac{\jmath}{\jmath}.
+\end{equation}
+This I think you'll agree leads to the following logic:
+\begin{align}
+	\frac{1}{\jmath} &= \frac{1}{\jmath} \\
+	&= \frac{1}{\jmath}\cdot \frac{\jmath}{\jmath} \\
+	&= \frac{\jmath}{\jmath^2} \\
+	&= \frac{\jmath}{-1} \\
+	&= -\jmath \\
+	\frac{1}{\jmath} &=-\jmath.
+\end{align}
+Thus,
+\begin{equation}
+	Z_C = \frac{1}{\jmath}\cdot \frac{1}{\omega C} = - \frac{1}{\omega C}.
+\end{equation}
+
+Therefore, the \textit{reactance that is produced by capacitance} will be negative. Conversely, reactance produced by inductance will be positive. I leave it to the interested reader to prove this to themselves.
+
+Really, what the ``$-\jmath$'' result represents in our math is a 90 degree phase shift between the capacitor's voltage and its current. That is, if one were to try to force a current into a capacitor, a potential would develop in a manner that in which its intensity is 90 degrees out of alignment. Put simply, the current "leads" the voltage (by about 90 degrees)\footnote{Again, we are not considering other sorts of ``constant phase elements'', though the interested reader is encouraged to consider their consequences.}.
 
 
 \chapter{Bioelectricity: II. Active properties}
