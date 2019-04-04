@@ -2967,9 +2967,143 @@ A set of exercises in preparation of the second glorified quiz.
 
 \chapter{Bioelectricity: I. Passive properties}
 04/02/2019 
-\section{Modeling biological material with a simple circuit, $R_1 + (R_2||C)$}
-\section{Resistance-Reactance Plane}
-\section{What can we do with this information?}
+\minitoc
+\newpage
+\section{A quick review of some of our basic impedance knowledge}
+\subsection{Impedance as a vector}
+\begin{equation}
+	Z = R + \jmath X = |Z|\angle \theta = |Z|e^{\jmath\theta}  
+\end{equation}
+\subsection{Impedance as admittance}
+\begin{equation}
+	\frac{1}{Z} = Y = G + jB
+\end{equation}
+\subsection{Impedance equivalents}
+\begin{eqnarray}
+	Z_{eq,R}= R \\
+	Z_{eq,C} = \frac{1}{\jmath \omega C} \\
+	Z_{eq,L} = \jmath \omega L
+\end{eqnarray}
+\subsection{Impedance of networks}
+\begin{equation}
+	Z_{eq,series} = Z_1 + Z_2 + Z_3 + ...
+\end{equation}
+\begin{equation}
+	Z_{eq,parallel} = \left(\frac{1}{Z_1}+ \frac{1}{Z_2}+ \frac{1}{Z_3} + ...\right)^{-1}
+\end{equation}
+
+\section{A long derivation of a simple model}
+
+Draw for yourself a simple picture a cell in a bath and while doing so ask yourself the deep questions regarding the universe. If you're looking for one to munch on consider this: what separates life from non-life?
+
+The cell membrane.
+
+And it acts like a capacitor. Cell membranes are made of a phospholipid bilayer, which, if you squint at it, is kind of like two conductive plates sandwiching a dielectric. (Close enough for government work.) 
+
+On either side of that cell membrane is what we might call an \textit{intra}cellular and \textit{extra}cellular component. These, at their most basic level, must put up some sort of fight to an induced voltage, to scale the resistance of current. So let's say they are both resistors.
+
+With this, we may begin our first modeling foray into the wonderful world of bioimpedance (a model whose use first began to see prominence in the early 1900s: 
+\begin{equation}
+	R_1+R_2\vert\vert C.
+\end{equation}
+This yields an initial model of
+\begin{align}
+	Z_{eq} &= Z_1 + \frac{Z_2\cdot Z_3}{Z_2 + Z_3} \\
+	&= R_1 + \frac{R_2\cdot (1/\jmath \omega C)}{R_2 + (1/\jmath \omega C)} \\
+	&= R_1 + \frac{R_2}{1 + \jmath \omega R_2 C}.
+\end{align}
+To remove that bottomr denominator we apply the complex conjugate
+\begin{align}
+	Z_{eq} &= R_1 + \frac{R_2}{1 + \jmath \omega R_2 C}\cdot\frac{1-\jmath\omega C}{1 - \jmath\omega C} \\
+	&= R_1 + \frac{R_2}{1 - \jmath\omega R_2 C + \jmath\omega R_2 C - \jmath^2 \omega^2 R_2^2C^2} \\
+	&= R_1 + \frac{R_2 - \jmath\omega R_2^2 C}{1 + \omega^2 R_2^2 C^2}.
+\end{align}
+At this point it might be useful to define a time constant, since it appears that the cell related terms (the cell membrane, $C$, and the intracellular component, $R_2$). Let's say
+\begin{equation}
+	\tau = R_2 C.
+\end{equation}
+Rewriting the previous equation:
+\begin{align}
+	Z_{eq} &= R_1 + \frac{R_2 - \jmath\omega \tau R_2}{1 + \omega^2 \tau^2}.
+\end{align}
+Separating the real and imaginary terms so that we might consider resistance and reactance separately:
+\begin{align}
+	Z_{eq} &= \left(R_1 + \frac{R_2}{1 + \omega^2 \tau^2}\right) - \jmath\left(\frac{\omega \tau R_2}{1 + \omega^2 \tau^2}\right).
+\end{align}
+Hence, 
+\begin{align}
+	R &= \left(R_1 + \frac{R_2}{1 + \omega^2 \tau^2}\right) \\
+	X &= - \left(\frac{\omega \tau R_2}{1 + \omega^2 \tau^2}\right).
+\end{align}
+
+It's at a point like this that I like to consider a few extremes in a problem. The reason for that is because it is a very easy measurement to take with the equipment you will have. It will always be easy to send in a 0 and send in way more than you want. So, it being easy to find in lab, in the world, and in life, let use familiarize ourselves with their nature.
+
+At very very very low frequencies ($\omega \rightarrow 0$), resistance tends to become equal to the sum of $R_1$ and $R_2$. At very very high frequencies ($\omega \rightarrow \infty$), resistance tends to become equal to $R_1$. From this I think we can all agree to the following:
+\begin{align}
+	R_0 &= R_1 + R_2 \\
+	R_{\infty} &= R_1 \\
+	R_1 &= R_{\infty} \\
+	R_2 &= R_0 - R_{\infty}.
+\end{align}
+
+We can perform a similar analysis for reactance. At very very very low frequencies ($\omega \rightarrow 0$), reactance tends to become 0. At very very high frequencies ($\omega \rightarrow \infty$), reactance tends to become equal to 0. The combination of these two points represent the extremes of our resistance reactance plane. And they are measurable!
+
+But before we measure, we often want to have in mind some notion of the result to be gotten. Let's consider, analytically, what the signal will end up looking like on the resistance-reactance plane.
+
+Converting our equations from the model-based parameters to the measured ones, yields
+
+\begin{align}
+	R &= \left(R_{\infty} + \frac{R_0 - R_{\infty}}{1 + \omega^2 \tau^2}\right) \\
+	X &= - \left(\frac{\omega \tau (R_0 - R_{\infty})}{1 + \omega^2 \tau^2}\right).
+\end{align}
+From this, we can attempt to solve the equations by looking for shared terms. In this case, let us try to isolate the $\omega\tau$ found in both the resistance and reactance terms.
+\begin{align}
+	R &= R_{\infty} + \frac{R_0 - R_{\infty}}{1 + \omega^2 \tau^2} \\
+	R - R_{\infty} &= \frac{R_0 - R_{\infty}}{1 + \omega^2 \tau^2} \\
+	(R - R_{\infty})(1 + \omega^2 \tau^2) &= R_0 - R_{\infty} \\
+	1 + \omega^2 \tau^2 &= \frac{R_0 - R_{\infty}}{R - R_{\infty}} \\
+	\omega^2 \tau^2 &= \frac{R_0 - R_{\infty}}{R - R_{\infty}}  - 1 \\
+	\omega \tau &= \sqrt{\frac{R_0 - R_{\infty}}{R - R_{\infty}}  - 1}.
+\end{align}
+We can substitute this into our reactance equation
+\begin{align}
+	X &= - \left(\frac{\omega \tau (R_0 - R_{\infty})}{1 + (\omega \tau)^2}\right) \\
+	X &= - \left(\frac{\left(\sqrt{\frac{R_0 - R_{\infty}}{R - R_{\infty}}  - 1}\right) (R_0 - R_{\infty})}{1 + \left(\sqrt{\frac{R_0 - R_{\infty}}{R - R_{\infty}}  - 1}\right)^2}\right) \\
+	X &= - \left(\frac{\left(\sqrt{\frac{R_0 - R_{\infty}}{R - R_{\infty}}  - 1}\right) (R_0 - R_{\infty})}{1 + \frac{R_0 - R_{\infty}}{R - R_{\infty}}  - 1}\right) \\
+	X &= - \left(\frac{\left(\sqrt{\frac{R_0 - R_{\infty}}{R - R_{\infty}}  - 1}\right) (R_0 - R_{\infty})}{\frac{R_0 - R_{\infty}}{R - R_{\infty}}}\right) \\
+	X &= - \left(\left(\sqrt{\frac{R_0 - R_{\infty}}{R - R_{\infty}}  - 1}\right) (R - R_{\infty}) \right) \\
+	X^2 &= \left(\frac{R_0 - R_{\infty}}{R - R_{\infty}}  - 1\right) (R - R_{\infty})^2 \\
+	X^2 &= \left(\frac{R_0 - R_{\infty} - R + R_{\infty}}{R - R_{\infty}}\right) (R - R_{\infty})^2 \\
+	X^2 &= \left(\frac{R_0 - R }{R - R_{\infty}}\right) (R - R_{\infty})^2 \\
+	X^2 &= \left(R_0 - R \right) (R - R_{\infty}) \\
+	X^2 &= R_0R - R_0R_{\infty} - R^2 + R R_{\infty}.
+\end{align}
+It is with the appearance of two squared axes terms ($X^2$ and $R^2$) in that equation that put me in a mind go go looking for circles. With that focus, I will endeavor to put this into a format consistent with a semi-circle.
+
+\begin{align}
+	X^2 &= R_0R - R_0R_{\infty} - R^2 + R R_{\infty} \\
+	X^2 + R^2- R_0R - R R_{\infty} &=  - R_0R_{\infty} \\
+	X^2 + R^2- R(R_0 + R_{\infty}) &=  - R_0R_{\infty} \\ 
+	X^2 + R^2- R(R_0 + R_{\infty}) + \left(\frac{R_0 + R_{\infty}}{2}\right)^2 &=  - R_0R_{\infty} + \left(\frac{R_0 + R_{\infty}}{2}\right)^2 \\
+	X^2 + \left(R - \frac{R_0 + R_{\infty}}{2}\right)^2 &=  - R_0R_{\infty} + \frac{R_0^2}{4} + \frac{2R_0R_{\infty}}{4} + \frac{R_{\infty}^2}{4} \\
+	X^2 + \left(R - \frac{R_0 + R_{\infty}}{2}\right)^2 &= \frac{R_0^2}{4} - \frac{R_0R_{\infty}}{2} + \frac{R_{\infty}^2}{4} \\
+	X^2 + \left(R - \frac{R_0 + R_{\infty}}{2}\right)^2 &= \left(\frac{R_0 - R_{\infty}}{2}\right)^2.
+\end{align}
+This final result demonstrates that we would expect the impedance vector to carve out a semi-circle in the resistance-reactance plane, centered at $((R_0 + R_{\infty})/2, 0)$ and with a radius of $(R_0 - R_{\infty})/2$.
+
+Such a tracing on the resistance-reactance plane is sometimes called an Argand diagram, a Wessel diagram, or a Cole-Cole plot. The latter is a woefully entrenched incorrect way of describing it and the former two describe a complex plane more generally. I prefer to simply call it the result on the resistance-reactance plane.
+
+\section{Implications of the model}
+\subsection{What happens if $R_1$ goes up?}
+In the case in which there is less conductive material in our extracellular space, for instance, when there is less water within our blood vessels (i.e., when we become dehydrated), what happens?
+
+Recall, $R_0 = R_1 + R_2$ and $R_{\infty} = R_1$, so it would shift the curve rightward, elongating our impedance vector and making our phase angle a little more shallow.
+
+\subsection{What happens if $R_1$ goes down?}
+In this case there is more conductive fluid in our extracellular space, as is what happens in many renal disorders, such as end-stage renal disease, one of the final consequences of diabetes. This shifts the curve leftward. This also makes our phase angle a more sensitive measure and thus if we were to try to characterize the disorder, we could use it. (As is the case of those working with ``bioreactance''.)
+
+\subsection{What happens if $R_2$ goes up?}
+$R_2$ may increase, for example, when cells are lysing/dying, being invaded by parasites, etc. Such an increase would expands the circle, but leaves the leftmost point the same, which makes sense since the extracellular has not been altered. Thus as cells begin to die, their impedance goes up. This is a phenomenon that is seen in electrosurgery and is one of the challenges to ensuring an optimal amount of current delivery to heat the tissue.
 
 
 \section{Now, that's what I call a darn good question}
@@ -3012,8 +3146,54 @@ Really, what the ``$-\jmath$'' result represents in our math is a 90 degree phas
 
 \chapter{Bioelectricity: II. Active properties}
 04/04/2019
+\minitoc
+\newpage
 
+\section{How electrical potential arises in a cell}
+\subsection{Sodium-potassium pump}
+\subsection{Membrane capacitance}
+\subsection{Potassium ion channel}
+\subsection{Sodium ion channel}
+\subsection{Leakage channels}
 
+\section{Determining resting potential from a Kirchhoffian perspective}
+
+\section{Electrocardiography}
+
+\subsection{Leads and Einthoven's triangle}
+
+\subsection{The P-wave}
+
+\subsection{The Q-wave}
+
+\subsection{The R-wave}
+
+\subsection{The S-wave}
+
+\subsection{The T-wave}
+
+\section{Basic hardware engineer's concerns}
+\begin{enumerate}
+	\item Sensing electrodes
+	\item Protection circuit
+	\item Lead selector
+	\item Preamplifier
+	\item Driver amplifier
+	\item Driven-reference circuit
+	\item Isolation circuit
+	\item Power supply
+\end{enumerate}
+\section{Basic software engineer's concerns}
+\begin{enumerate}
+	\item Analog digital conversion
+	\item Memory
+	\item Microcomputer/microcontroller
+	\item Control program
+	\item ECG analysis program
+	\item Recorder
+	\item Display
+	\item User input
+\end{enumerate}
 
 \chapter{Digital circuits: I. Discretization}
 04/09/2019 
