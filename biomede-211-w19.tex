@@ -3514,17 +3514,53 @@ Given an input signal (seen on the left) and a system impulse response, SIR (see
 \end{center}
 
 \chapter*{Homework V}
-Assigned March 14, 2019. Due April 2, 2019 as \textit{both} a hard copy in class (at the beginning thereof) and a pdf on Canvas (by 11:59pm). Each problem worth X points.
+Assigned March 14, 2019. Due April 11, 2019 as \textit{both} a hard copy in class (at the beginning thereof) and a pdf on Canvas (by 11:59pm). Each problem worth 20 points.
 \setcounter{chapter}{5}
 \setcounter{section}{0}
 
 
+\section{Problem 1 on something new from a few familiar things}
+Two RC circuit sections (with capacitors grounded) are separated by a voltage buffer. An input signal $v_i(t)$ is applied to first $R_1C_1$ section, producing the signal $v_i(t)$ at node 1, it is buffered by the op-amp to the input of the second $R_2C_2$ section (node 2), the output of which is $v_o(t)$.
+\begin{center}
+	\includegraphics[width=0.75\textwidth]{figures/hw5.01.png}
+\end{center}
+\begin{enumerate}
+	\item Derive the differential equation relating the circuit output, $v_o(t)$, to its input, $v_i(t)$.
+	\item Determine its characteristic equation (i.e., of the form $s^2 + 2\zeta \omega_n s + omega_n^2$) and find its roots.
+	\item Determine whether this circuit could produce an underdamped response.
+\end{enumerate}
+
+\newpage
+
+\section{Problem 2 on reviewing the fundamentals}
+Recall a series circuit of a resistor, a capacitor, and an inductor. Let us hold that C = 200 nF and L = 50 mH.
+\begin{enumerate}
+	\item Over what range of resistors values is the system underdamped, critically damped, and overdamped?
+	\item From within the range found above, select one representative value for the underdamped, critically damped, and overdamped case. Plot each case’s voltage response over time.
+\end{enumerate}
+
+\section{Problem 3 on bioimpedance}
+In class we derived the analytical solution of the equivalent impedance, $Z_{eq}$ of a simple bioimpedance model, $R_1 + R_2\vert\vert C$ as seen from the resistance reactance plane. Find the analytical solution to the equivalent \textit{admittance} of a model in which $R_1\vert\vert(R_2 + C)$. (Hint: it might be more helpful to think in terms of conductances!) Interpret your results.
+
+
+\section{Problem 4 on the body electric}
+
+Given Einthoven's triangle below of the QRS complex, draw (by hand) the shape of the resulting electrocardiographic signal for lead I, lead II, and lead III. [Please use the conventional arrangement of Einthoven’s triangle when referring to your leads, unless you explicitly state you do otherwise.]
+
+\begin{center}	\includegraphics[width=0.5\textwidth]{figures/hw5.02.png}
+\end{center}
+
+\section{Problem 5 on identifying real-world instrumentation}
+As it turns out, there are hundreds and thousands of medical devices out there that use electric circuits. We noted five separate electrophysiological modalities in class – electrocardiography, electroencephalography, electrogastrography, electromyography, and electrooculaography. Find at least three commercial examples of medical devices for each listed modality (i.e., a total of 15 devices). List (1) who makes it, (2) how the product generally works, and (3) if you can find it, how much it costs. (You may also comment on whether you believe that price to be fair/reasonable.) 
+
+
 \chapter*{Homework VI}
-Assigned March 14, 2019. Due April 16, 2019 as \textit{both} a hard copy in class (at the beginning thereof) and a pdf on Canvas (by 11:59pm). Each problem worth X points.
+Assigned March 14, 2019. Due April 23, 2019 as \textit{both} a hard copy in class (at the beginning thereof) and a pdf on Canvas (by 11:59pm). Each problem worth X points.
 \setcounter{chapter}{6}
 \setcounter{section}{0}
 
-\section{Problem 1 on bioamplification}
+\section{Problem 1 on functional completeness}
+In class we discussed the fact that all possible computational relationships (NOT, AND, OR, NAND, NOR, XOR, and XNOR) can be represented by a combination of NOR gates. During class we were only able to prove it for NOT, AND, and OR. Prove it for all cases. That is, make NAND, NOR, and XOR gates (don’t do XNOR) from NOR gates.
 
 \newpage
 \section{Problem 2 on knights, knaves, truths, and lies}
