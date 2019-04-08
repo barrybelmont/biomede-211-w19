@@ -3198,17 +3198,40 @@ Really, what the ``$-\jmath$'' result represents in our math is a 90 degree phas
 \newpage
 
 \section{How electrical potential arises in a cell}
+As we know, cells are far from stagnant. There is a constant movement of molecules and ions in and out of the cell depending on that cell's needs. When an uneven distribution of charges occur inside and outside the cell, an ion gradient is formed, which in turn creates a potential across the membrane of the cell. 
 \subsection{Sodium-potassium pump}
+The purpose of the sodium-potassium pump in many cells is to transport these ions across the membrane in order to reach some kind of threshhold required by the cell to move other larger particles in and out. This is an active pump, meaning it requires the input of energy to function (i.e. food). This pump accomplishes the movement of 3 Na+ ions out of the cell for every 2 K+ ions moved in, creating an overall negative charge inside the cell and a relatively positive one outside, creating a potential across the membrane. 
 \subsection{Membrane capacitance}
+The cell membrane itself has a capacitance of about 1 microFarad per centimeter squared. This is a relatively high capacitance, required in order to store energy across the membrane. The capacitance depermines the time response of voltage across the cell membrane. 
 \subsection{Potassium ion channel}
+This channel, as you may guess, transports K+ ions. It has dynamically opens and closes stochastically, which in layman's terms means at random intervals of time. This pump contains four "N gates" that control the opening and closing of the channel, typically opening at times when the transmembrane potential is positive. 
 \subsection{Sodium ion channel}
+Another surprise, the sodium ion channel transports sodium ions across the cell membrane. In their resting and inactive positions, they allow no ions through. This state is reached over time, after a trigger causes the gate to become activated. It is only in their activated state that Na+ is allowed through the channel. There are again four gates, 3 "M gates" and 1 "H gate". 
 \subsection{Leakage channels}
+This subsection of channels includes all other channels that transport small charged particles across the membrane (such as chloride, for example). It is thanks to these "others" that quick changes in potential between the inside and outside of a cell can be readily stabilized. 
+\includegraphics[width=\textwidth]{figures/lecture18.1.png}
+
 
 \section{Determining resting potential from a Kirchhoffian perspective}
 
+
 \section{Electrocardiography}
+Each of the previously discussed channels separate ions across the membrane, and have a gradient across them, which in turn creates an ionic current. The membrane current as a whole can be described as:
+\begin {equation}
+	I_m = I_k + I_Na + I_leakage + I_c + I_p
+\end {equation}
+Each of these individual terms are of the form:
+\begin {equation}
+	I_k = g_k * (V_m - E_k)
+\end {equation}
+where g_k is the conductance of potassium, V_m is the membrane voltage at rest, and E_k is the Nernst potential. In order to find the membrane potential using all of the channels known to be present in the cell, use the following equation:
+\begin {equation}
+	V_m = \frac{g_k * E_k + g_Na * E_Na + g_leakage * E_leakage...} {\ g_k + g_Na + g_leakage ...}
+\end {equation}
+These equations can be applied to the human heart. Cardiomyocyte contractions are caused by the changes in membrane potential. Due to the uneven distribution of charges, a dipole arises, and we are able to measure this via leads and Einthoven's triangle.
 
 \subsection{Leads and Einthoven's triangle}
+
 
 \subsection{The P-wave}
 
