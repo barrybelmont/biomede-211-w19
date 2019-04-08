@@ -3199,10 +3199,46 @@ Really, what the ``$-\jmath$'' result represents in our math is a 90 degree phas
 
 \section{How electrical potential arises in a cell}
 \subsection{Sodium-potassium pump}
+\begin{itemize}
+	\item Active element
+	\item Only pump we have that consumes energy in the form of ATP (from food)
+	\item The pump utilizes an ATPase
+	\item Pumps 3 sodium ions out of the cell and 2 potassium ions into the cell
+	\begin{itemize}
+		\item This aids in creating a net negative charge within the cell and a net postive charge outside the cell. This charge separation creates a negative transmembrane potential.
+	\end{itemize}
+\end{itemize}
 \subsection{Membrane capacitance}
+\begin{itemize}
+	\item Passive element
+	\item ~1 µF/cm^2
+	\item High capacitance is needed for energy storage across membranes
+	\item Determines temporal voltage response (Activation)
+\end{itemize}
 \subsection{Potassium ion channel}
+\begin{itemize}
+	\item Only allows potassium through it
+	\item Opens/Closes dynamically and stochastically (random with respect to time)
+	\item Contains 4 gating elements (all N gates)
+	\begin {itemize}
+		\item Open when there is a positive membrane potential
+	\end {itemize}
+\end{itemize}
 \subsection{Sodium ion channel}
+\begin{itemize}
+	\item Only allows sodium through it
+	\item Mostly closed at rest
+	\item Opens/Closes based on time
+	\item Contains 4 gating elements (3 M and 1 H gate)
+\end{itemize}
 \subsection{Leakage channels}
+\begin{itemize}
+	\item Small channels that allow the passage of small particles
+	\begin{itemize}
+		\item Typically chloride
+	\end{itemize}
+	\item Stabilizes voltage changes
+\end{itemize}
 
 \section{Determining resting potential from a Kirchhoffian perspective}
 
@@ -3222,13 +3258,46 @@ Really, what the ``$-\jmath$'' result represents in our math is a 90 degree phas
 
 \section{Basic hardware engineer's concerns}
 \begin{enumerate}
+	\begin{itemize}
+	\end{itemize}
 	\item Sensing electrodes
+	\begin{itemize}
+		\item Interface between subject and the system (usually made with Ag/AgCl- Gel coupled materials)
+	\end{itemize}
 	\item Protection circuit
+	\begin{itemize}
+		\item Protects the device from high voltage
+		Example: Voltage follower
+	\end{itemize}
 	\item Lead selector
+	\begin{itemize}
+		\item Compares different sets of leads
+		\item Can be used to scrutinize a particular lead
+	\end{itemize}
+	\item Calibration Signal
+	\begin{itemize}
+		\item Send in a small impulse to figure out the transfer function of the system
+		\item Transfer function may vary with time, so this is essential to calibrate the system
+	\end{itemize}
 	\item Preamplifier
+	\begin{itemize}
+		\item Amplifies ECG signal
+		\item High input impedance
+		\item High common-mode-rejection ratio
+	\end{itemize}
 	\item Driver amplifier
+	\begin{itemize}
+		\item Filters ECG signal using a bandpass filter (to get rid of low frequency drift and high frequency noise)
+	\end{itemize}
 	\item Driven-reference circuit
+	\begin{itemize}
+		\item Gives a reference point (ground) on the human body (usually the right leg is used)
+	\end{itemize}
 	\item Isolation circuit
+	\begin{itemize}
+		\item Protects the patient from dangerous currents
+		\item Galvanic Isolation used in this class
+	\end{itemize}
 	\item Power supply
 \end{enumerate}
 \section{Basic software engineer's concerns}
