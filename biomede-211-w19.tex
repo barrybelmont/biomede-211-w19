@@ -18,7 +18,7 @@
 
 \newpage 
 \section{How can I print off and use this document?}
-Frankly, in just about any way that’s useful to you. I am going to try something here, where I will try to make more or less the entirety of the notes associated with the Winter 2019 semester of BIOMEDE 211, ”Circuits, Systems, and Signals in Biomedical Engineering”, to you, dear reader.\\
+Frankly, in just about any way that’s useful to you. I am going to try something here, where I will try to make more or less the entirety of the notes associated with the Winter 2019 semester of BIOMEDE 211, ``Circuits, Systems, and Signals in Biomedical Engineering'', to you, dear reader.\\
 \\
 Please don’t plagiarize this. If you were raised right, you ought to know what that is. If you’d like my judgment on any sort of action, my opinions can be laid bare.\\
 \\
@@ -3378,6 +3378,185 @@ These equations can be applied to the human heart. Cardiomyocyte contractions ar
 
 \chapter{Digital circuits: II. Logic; Homework V}
 04/11/2019
+\minitoc
+\newpage
+
+\section{Digital components, ``logic gates''}
+\subsection{NOT}
+\begin{center}
+	\includegraphics{figures/20.01.png}
+\end{center}
+\begin{equation}
+	\overline{A} \text{ or } \neg A
+\end{equation}
+\begin{center}
+	\begin{tabular}{c c}
+		\textbf{Input} & \textbf{Output} \\
+		A & $\neg$ A \\
+		1 & 0 \\
+		0 & 1\\
+	\end{tabular}
+\end{center}
+
+\subsection{AND}
+\begin{center}
+	\includegraphics{figures/20.02.png}
+\end{center}
+\begin{equation}
+	A\cdot B
+\end{equation}
+\begin{center}
+	\begin{tabular}{c c c}
+		\textbf{Input 1} &  \textbf{Input 2} & \textbf{Output} \\
+		A & B & A AND B \\
+		0 & 0 & 0 \\
+		0 & 1 & 0 \\
+		1 & 0 & 0 \\
+		1 & 1 & 1
+	\end{tabular}
+\end{center}
+
+\newpage
+
+\subsection{OR}
+\begin{center}
+	\includegraphics{figures/20.03.png}
+\end{center}
+\begin{equation}
+	A + B
+\end{equation}
+\begin{center}
+	\begin{tabular}{c c c}
+		\textbf{Input 1} &  \textbf{Input 2} & \textbf{Output} \\
+		A & B & A OR B \\
+		0 & 0 & 0 \\
+		0 & 1 & 1 \\
+		1 & 0 & 1 \\
+		1 & 1 & 1
+	\end{tabular}
+\end{center}
+
+\subsection{NAND}
+\begin{center}
+	\includegraphics{figures/20.04.png}
+\end{center}
+\begin{equation}
+	\overline{A\cdot B} \text{ or } A \uparrow B
+\end{equation}
+\begin{center}
+	\begin{tabular}{c c c}
+		\textbf{Input 1} &  \textbf{Input 2} & \textbf{Output} \\
+		A & B & A NAN B \\
+		0 & 0 & 1 \\
+		0 & 1 & 1 \\
+		1 & 0 & 1 \\
+		1 & 1 & 0
+	\end{tabular}
+\end{center}
+
+\newpage
+
+\subsection{NOR}
+\begin{center}
+	\includegraphics{figures/20.05.png}
+\end{center}
+\begin{equation}
+	\overline{A+B} \text{ or } A \downarrow B
+\end{equation}
+\begin{center}
+	\begin{tabular}{c c c}
+		\textbf{Input 1} &  \textbf{Input 2} & \textbf{Output} \\
+		A & B & A NOR B \\
+		0 & 0 & 1 \\
+		0 & 1 & 0 \\
+		1 & 0 & 0 \\
+		1 & 1 & 0
+	\end{tabular}
+\end{center}
+
+\subsection{XOR}
+\begin{center}
+	\includegraphics{figures/20.06.png}
+\end{center}
+\begin{equation}
+	A \oplus B
+\end{equation}
+\begin{center}
+	\begin{tabular}{c c c}
+		\textbf{Input 1} &  \textbf{Input 2} & \textbf{Output} \\
+		A & B & A XOR B \\
+		0 & 0 & 0 \\
+		0 & 1 & 1 \\
+		1 & 0 & 1 \\
+		1 & 1 & 0
+	\end{tabular}
+\end{center}
+
+\newpage
+
+\subsection{XNOR}
+\begin{center}
+	\includegraphics{figures/20.07.png}
+\end{center}
+\begin{equation}
+	\overline{A\oplus B} \text{ or} A \odot B
+\end{equation}
+\begin{center}
+	\begin{tabular}{c c c}
+		\textbf{Input 1} &  \textbf{Input 2} & \textbf{Output} \\
+		A & B & A OR B \\
+		0 & 0 & 1 \\
+		0 & 1 & 0 \\
+		1 & 0 & 0 \\
+		1 & 1 & 1
+	\end{tabular}
+\end{center}
+
+\section{Representing logic graphically}
+\begin{center}
+	\includegraphics[width = \textwidth]{figures/20.08.png}
+\end{center}
+
+\section{Functional completeness}
+Or, how to make everything from NORs.
+\subsection{NOR from NOR}
+\subsection{NOT from NOR}
+\subsection{AND from NOR}
+\subsection{OR from NOR}
+\subsection{NAND from NOR}
+\subsection{XOR from NOR}
+\subsection{XNOR from NOR}
+\newpage
+\section{Worksheet}
+In your extensive travels in this world you stumble unto a land inhabited only by knights and knaves. Knights always tell the truth and knaves always lie.
+\subsection{Problem 1, Pedro and Apollonia}
+You come across three inhabitants and ask the first, Pedro, “Are you a knight or a knave?” Pedro answers, but so quietly you can’t hear him. You ask Apollonia “What did he say?” to which she responds “Pedro said he was a knave.” Upon hearing this, Peter piped up and said “Don’t believe that; it’s a lie.” Is Peter a knight or a knave? [Further, is it possible to know what Pedro is?]
+
+
+
+\subsection{Problem 2, Roger and Oedipa} 
+Shortly after that you meet two inhabitants, Roger Mexico and Oedipa Maas. Roger claims, “Both of us are knaves.” What are Roger and Oedipa?
+
+
+ 
+\subsection{Problem 3, Yes and No} 
+Suppose you’ve heard a rumor that there’s gold buried nearby. You meet a local and want to know whether there really is gold in them thar hills, but you don’t know whether the person is a knight or a knave. If you are only allowed to ask only one question answerable by ``yes'' or ``no'', what do you ask?
+
+
+\subsection{Problem 4, Lisa and Louise}
+Lisa and Louise are twins indistinguishable in appearance. One always lies, the other always tells the truth. You don’t know which is which. You meet one of them and may ask one question to determine which twin is truth. What do you ask and what does it tell you?
+
+\newpage
+
+\subsection{Problem 5, NOT from NOR}
+Make a NOT gate from one or more NOR gates.
+\subsection{Problem 6, AND from NOR}
+Make an AND gate from one or more NOR gates.
+\subsection{Problem 7, OR from NOR}
+Make an OR gate from one or more NOR gates.
+\subsection{Problem 8, NAND from NOR}
+Make a NAND gate from one or more NOR gates.
+
 
 
 
@@ -3498,10 +3677,17 @@ Regardless of classification, there exist general controls which apply to all me
 	\item Created the Humanitarian Use Device (HUD)/Humanitarian Device Exemption (HDE) programs to encourage development of devices targeting rare diseases.
 \end{itemize}
 
-\subsection{The ``Medical Device Amendments of 1992'}
-
+\subsection{The ``Medical Device Amendments of 1992''}
+\begin{itemize}
+	\item  Amended certain provisions (section 519 of the ``Federal Food, Drug, and Cosmetic Act of 1938'') that relate to the reporting of adverse events. 
+	\item The primary impact of the 1992 Amendments on medical device reporting was to define certain terms and to establish a single reporting standard for user facilities, manufacturers and distributors.
+\end{itemize}
 
 \subsection{The ``FDA Reform and Enhancement Act of 1996''}
+\begin{itemize}
+	\item Deals primarily with exports and establishing the basic requirements and procedures for exporting human drugs (also drug components) and biologics that may not be sold or distributed in the United States. 
+	\item Also lists requirements for exporting drugs that are approved for marketing in the United States, but which are being exported for an unapproved use. 
+\end{itemize}
 
 
 \subsection{The ``Food and Drug Administration Modernization Act of 1997''}
