@@ -3191,6 +3191,36 @@ Therefore, the \textit{reactance that is produced by capacitance} will be negati
 
 Really, what the ``$-\jmath$'' result represents in our math is a 90 degree phase shift between the capacitor's voltage and its current. That is, if one were to try to force a current into a capacitor, a potential would develop in a manner that in which its intensity is 90 degrees out of alignment. Put simply, the current "leads" the voltage (by about 90 degrees)\footnote{Again, we are not considering other sorts of ``constant phase elements'', though the interested reader is encouraged to consider their consequences.}.
 
+“The Theory and Fundamentals of Bioimpedance Analysis in Clinical Status Monitoring and Diagnosis of Diseases”
+Source: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4118362/ 
+Advantages of bioimpedance measurements: 
+-low cost
+-portable systems
+-wide range of utilizations, non-invasive
+
+Definition of Bioimpedance: the ability of biological tissue to impede electric current
+
+Active vs. Passive Response:
+Active: Biological tissues provoke electricity on their own from ionic activities inside cells (for example, electrocardiogram signals from the heart)
+Passive: Biological tissues are stimulated through an external electrical current source; an elicited reaction to a stimulus.
+
+Methods for measuring whole-body impedance using different placements and types of electrodes:
+Hand to foot method: gel-filled electrodes made to minimize gap impedance
+Foot to foot method: pressure-contact foot-pad electrode
+Hand to hand method: handheld impedance meter
+Segmental bioimpedance analysis: detects the fluctuation in extracellular fluid due to differences in posture. This method measures the body in 5 segments treated as cylinders (both arm and leg limbs plus the torso). 
+
+Using Bioimpedance to measure human health status: estimating the hydration status of individuals using height indexed resistance and reactance data (an R-Xc graph) from bioimpedance measurements. “The data allows creation of 50%, 75%, and 95% tolerance ellipses that determine increasing and decreasing body mass if the minor vector falls in the left and right half of the 50% ellipse, along with increasing and decreasing hydration ratio if the major vector falls in the lower and upper half of the 50% ellipse.”
+
+Clinical Bio-impedance: Read about how our own professor developed a technique called “DRIVE”, also known as dynamic respiratory impedance volume evaluation which “uses the bioimpedance of the upper limb to predict shifts in blood volume in response to cardiac and respiratory phenomenon” : https://belmont.bme.umich.edu/research/ 
+Using this technique, a wearable sensor smaller than a credit card was designed to measure heart rate, respiratory rate, and body temperature and volume status. 
+
+Body Composition: Impedance used to measure Fat mass and Fat-free mass, as well as create body fluids estimations. 
+Breakdown: Your body is made of fat mass and fat free mass. Fat free mass is composed of bone mass and body cell mass, of which in body cell mass is composed of 73.2% water and the other 26.8% proteins. Of the total body water weight, 29% is made from extracellular fluids and 44% is made of intracellular fluids.
+
+Potential future applications: Measuring the bio impedance of the blood and using a control feedback loop to to supply the correct amount of blood back during blood loss. 
+-Could potentially be used for dialysis to take the correct amount of waste out of the body.
+
 
 \chapter{Bioelectricity: II. Active properties}
 04/04/2019
@@ -3198,7 +3228,10 @@ Really, what the ``$-\jmath$'' result represents in our math is a 90 degree phas
 \newpage
 
 \section{How electrical potential arises in a cell}
+As we know, cells are far from stagnant. There is a constant movement of molecules and ions in and out of the cell depending on that cell's needs. When an uneven distribution of charges occur inside and outside the cell, an ion gradient is formed, which in turn creates a potential across the membrane of the cell. 
 \subsection{Sodium-potassium pump}
+
+
 \begin{itemize}
 	\item Active element
 	\item Only pump we have that consumes energy in the form of ATP (from food)
@@ -3240,11 +3273,37 @@ Really, what the ``$-\jmath$'' result represents in our math is a 90 degree phas
 	\item Stabilizes voltage changes
 \end{itemize}
 
+The purpose of the sodium-potassium pump in many cells is to transport these ions across the membrane in order to reach some kind of threshhold required by the cell to move other larger particles in and out. This is an active pump, meaning it requires the input of energy to function (i.e. food). This pump accomplishes the movement of 3 Na+ ions out of the cell for every 2 K+ ions moved in, creating an overall negative charge inside the cell and a relatively positive one outside, creating a potential across the membrane. 
+\subsection{Membrane capacitance}
+The cell membrane itself has a capacitance of about 1 microFarad per centimeter squared. This is a relatively high capacitance, required in order to store energy across the membrane. The capacitance depermines the time response of voltage across the cell membrane. 
+\subsection{Potassium ion channel}
+This channel, as you may guess, transports K+ ions. It has dynamically opens and closes stochastically, which in layman's terms means at random intervals of time. This pump contains four "N gates" that control the opening and closing of the channel, typically opening at times when the transmembrane potential is positive. 
+\subsection{Sodium ion channel}
+Another surprise, the sodium ion channel transports sodium ions across the cell membrane. In their resting and inactive positions, they allow no ions through. This state is reached over time, after a trigger causes the gate to become activated. It is only in their activated state that Na+ is allowed through the channel. There are again four gates, 3 "M gates" and 1 "H gate". 
+\subsection{Leakage channels}
+This subsection of channels includes all other channels that transport small charged particles across the membrane (such as chloride, for example). It is thanks to these "others" that quick changes in potential between the inside and outside of a cell can be readily stabilized. 
+\includegraphics[width=\textwidth]{figures/lecture18.1.png}
+
 \section{Determining resting potential from a Kirchhoffian perspective}
 
+
 \section{Electrocardiography}
+Each of the previously discussed channels separate ions across the membrane, and have a gradient across them, which in turn creates an ionic current. The membrane current as a whole can be described as:
+\begin {equation}
+	I_m = I_k + I_Na + I_leakage + I_c + I_p
+\end {equation}
+Each of these individual terms are of the form:
+\begin {equation}
+	I_k = g_k * (V_m - E_k)
+\end {equation}
+where g_k is the conductance of potassium, V_m is the membrane voltage at rest, and E_k is the Nernst potential. In order to find the membrane potential using all of the channels known to be present in the cell, use the following equation:
+\begin {equation}
+	V_m = \frac{g_k * E_k + g_Na * E_Na + g_leakage * E_leakage...} {\ g_k + g_Na + g_leakage ...}
+\end {equation}
+These equations can be applied to the human heart. Cardiomyocyte contractions are caused by the changes in membrane potential. Due to the uneven distribution of charges, a dipole arises, and we are able to measure this via leads and Einthoven's triangle.
 
 \subsection{Leads and Einthoven's triangle}
+
 
 \subsection{The P-wave}
 
