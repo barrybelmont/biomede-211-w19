@@ -3225,14 +3225,14 @@ Potential future applications: Measuring the bio impedance of the blood and usin
 
 \section{Board Pictures (4/2/19)}
 
-\includegraphics[width=\textwidth]{figures/4-2-19_Fig.1.jpg}
-\\
-\includegraphics[width=\textwidth]{figures/4-2-19_Fig.2.jpg}
-\\
-\includegraphics[width=\textwidth]{figures/4-2-19_Fig.3.jpg}
-\\
-\includegraphics[width=\textwidth]{figures/4-2-19_Fig.4.jpg}
-\\
+%\includegraphics[width=\textwidth]{figures/4-2-19_Fig.1.jpg}
+%\\
+%\includegraphics[width=\textwidth]{figures/4-2-19_Fig.2.jpg}
+%\\
+%\includegraphics[width=\textwidth]{figures/4-2-19_Fig.3.jpg}
+%\\
+%\includegraphics[width=\textwidth]{figures/4-2-19_Fig.4.jpg}
+%\\
 
 \chapter{Bioelectricity: II. Active properties}
 04/04/2019
@@ -3241,9 +3241,9 @@ Potential future applications: Measuring the bio impedance of the blood and usin
 
 \section{How electrical potential arises in a cell}
 As we know, cells are far from stagnant. There is a constant movement of molecules and ions in and out of the cell depending on that cell's needs. When an uneven distribution of charges occur inside and outside the cell, an ion gradient is formed, which in turn creates a potential across the membrane of the cell. 
+
+
 \subsection{Sodium-potassium pump}
-
-
 \begin{itemize}
 	\item Active element
 	\item Only pump we have that consumes energy in the form of ATP (from food)
@@ -3253,6 +3253,9 @@ As we know, cells are far from stagnant. There is a constant movement of molecul
 		\item This aids in creating a net negative charge within the cell and a net postive charge outside the cell. This charge separation creates a negative transmembrane potential.
 	\end{itemize}
 \end{itemize}
+
+The purpose of the sodium-potassium pump in many cells is to transport these ions across the membrane in order to reach some kind of threshhold required by the cell to move other larger particles in and out. This is an active pump, meaning it requires the input of energy to function (i.e. food). This pump accomplishes the movement of 3 Na+ ions out of the cell for every 2 K+ ions moved in, creating an overall negative charge inside the cell and a relatively positive one outside, creating a potential across the membrane. 
+
 \subsection{Membrane capacitance}
 \begin{itemize}
 	\item Passive element
@@ -3260,6 +3263,9 @@ As we know, cells are far from stagnant. There is a constant movement of molecul
 	\item High capacitance is needed for energy storage across membranes
 	\item Determines temporal voltage response (Activation)
 \end{itemize}
+
+The cell membrane itself has a capacitance of about 1 microFarad per centimeter squared. This is a relatively high capacitance, required in order to store energy across the membrane. The capacitance determines the time response of voltage across the cell membrane. 
+
 \subsection{Potassium ion channel}
 \begin{itemize}
 	\item Only allows potassium through it
@@ -3269,6 +3275,9 @@ As we know, cells are far from stagnant. There is a constant movement of molecul
 		\item Open when there is a positive membrane potential
 	\end {itemize}
 \end{itemize}
+
+This channel, as you may guess, transports K+ ions. It has dynamically opens and closes stochastically, which in layman's terms means at random intervals of time. This pump contains four "N gates" that control the opening and closing of the channel, typically opening at times when the transmembrane potential is positive. 
+
 \subsection{Sodium ion channel}
 \begin{itemize}
 	\item Only allows sodium through it
@@ -3276,6 +3285,9 @@ As we know, cells are far from stagnant. There is a constant movement of molecul
 	\item Opens/Closes based on time
 	\item Contains 4 gating elements (3 M and 1 H gate)
 \end{itemize}
+
+Another surprise, the sodium ion channel transports sodium ions across the cell membrane. In their resting and inactive positions, they allow no ions through. This state is reached over time, after a trigger causes the gate to become activated. It is only in their activated state that Na+ is allowed through the channel. There are again four gates, 3 ``M gates'' and 1 ``H gate''. 
+
 \subsection{Leakage channels}
 \begin{itemize}
 	\item Small channels that allow the passage of small particles
@@ -3285,16 +3297,14 @@ As we know, cells are far from stagnant. There is a constant movement of molecul
 	\item Stabilizes voltage changes
 \end{itemize}
 
-The purpose of the sodium-potassium pump in many cells is to transport these ions across the membrane in order to reach some kind of threshhold required by the cell to move other larger particles in and out. This is an active pump, meaning it requires the input of energy to function (i.e. food). This pump accomplishes the movement of 3 Na+ ions out of the cell for every 2 K+ ions moved in, creating an overall negative charge inside the cell and a relatively positive one outside, creating a potential across the membrane. 
-\subsection{Membrane capacitance}
-The cell membrane itself has a capacitance of about 1 microFarad per centimeter squared. This is a relatively high capacitance, required in order to store energy across the membrane. The capacitance depermines the time response of voltage across the cell membrane. 
-\subsection{Potassium ion channel}
-This channel, as you may guess, transports K+ ions. It has dynamically opens and closes stochastically, which in layman's terms means at random intervals of time. This pump contains four "N gates" that control the opening and closing of the channel, typically opening at times when the transmembrane potential is positive. 
-\subsection{Sodium ion channel}
-Another surprise, the sodium ion channel transports sodium ions across the cell membrane. In their resting and inactive positions, they allow no ions through. This state is reached over time, after a trigger causes the gate to become activated. It is only in their activated state that Na+ is allowed through the channel. There are again four gates, 3 "M gates" and 1 "H gate". 
-\subsection{Leakage channels}
 This subsection of channels includes all other channels that transport small charged particles across the membrane (such as chloride, for example). It is thanks to these "others" that quick changes in potential between the inside and outside of a cell can be readily stabilized. 
 %\includegraphics[width=\textwidth]{figures/lecture18.1.png}
+
+
+
+
+
+
 
 \section{Determining resting potential from a Kirchhoffian perspective}
 
@@ -3381,13 +3391,8 @@ These equations can be applied to the human heart. Cardiomyocyte contractions ar
 	\item User input
 \end{enumerate}
 
-\chapter{Digital circuits: I. Discretization}
+\chapter{Digital circuits: I. Logic ad digital components}
 04/09/2019 
-
-
-
-\chapter{Digital circuits: II. Logic; Homework V}
-04/11/2019
 \minitoc
 \newpage
 
@@ -3536,6 +3541,62 @@ Or, how to make everything from NORs.
 \subsection{NAND from NOR}
 \subsection{XOR from NOR}
 \subsection{XNOR from NOR}
+
+\newpage
+\section{Digital components}
+\subsection{Why silicon?}
+\begin{itemize}
+	\item Given the lattice structure of silicon atoms, a silicon atom can bond to its four (4) neighbors.
+	\item Silicon has four (4) electrons in its valence shell.
+	\item That enables the silicon atom to bind itself four (4) partners, covalently.  
+	\item If bound covalently to those neighbors, each of the silicon atom's electrons will exist in its valence band.
+	\item In this case, the only electrons that can move around are free electrons (i.e., electrons that have absorbed some energy) and they would have a hard time at that. It therefore follows that crystalline silicon (typically) has low conductivity. \textit{Pure silicon acts nearly as an insulator}.
+	\item \textbf{Doping} is used to increase the performance of silicon, by mixing in an ``impurity''. These impurities interrupt the crystal and make conduction possible. Hence the term ``semiconductors''.
+\end{itemize}
+
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{figures/19.01.png}
+\end{center}
+
+
+\subsection{Doping}
+There are two types of doping:
+
+\subsubsection{N-type doping}
+Let’s say you mix in a little bit of phosphorous with five (5) valence electrons. Now you’ve got one electron free to move around the system. Only a small amount ($<<1$\%) of impurity (e.g., phosphorus, arsenic) is needed to allow electric current to flow through the silicon. \textbf{N-type: electrons (a ``1'') can move around}
+
+\subsubsection{P-type doping}
+Let's now mix in a little boron or gallium (each having three (3) valence electrons. When mixed into the silicon lattice, they form ``holes'' where silicon has nothing to bond with. Holes have the effect of a positive charge and help conduct current by accepting electrons from a neighbor (thus moving the hole). \textbf{P-type: hole (a ``0'') can move around}
+
+
+
+\subsection{Diodes}
+\begin{itemize}
+	\item What would happen if we combined n-type silicon with p-type silicon 
+	\item We'd get a diode! 
+	\item How does a diode work?
+	\begin{enumerate}
+		\item The abundant electrons present on the n-type semiconductor will tend to migrate over the boundary into the hole rich p-type semiconductor. 
+		\subitem \textbf{(1s from n) $\rightarrow$ (0s in p)}
+		\item This will tend to make the p-side slightly more negative and it will make the n-type slightly more positive. 
+		\subitem \textbf{(p $\downarrow$, n$\uparrow$)}
+		\item Given sufficient time, a potential gradient will form sufficiently large to prevent any further natural migration of electrons 
+	\end{enumerate}
+\end{itemize}
+
+
+
+
+
+\subsection{Transistors}
+\begin{itemize}
+	\item The electronics inn your pockets/bags contain \textit{billions} of transistors
+	\item Act as a switch with no moving parts
+	\item Amplifies weak signals
+\end{itemize}
+
+
+
 \newpage
 \section{Worksheet}
 In your extensive travels in this world you stumble unto a land inhabited only by knights and knaves. Knights always tell the truth and knaves always lie.
@@ -3569,6 +3630,11 @@ Make an OR gate from one or more NOR gates.
 Make a NAND gate from one or more NOR gates.
 
 
+
+
+
+\chapter{Digital circuits: II. Discretization and acquisition}
+04/11/2019
 
 
 \chapter{Happenstance \& Circumstance: A few BME specific situations and standards}
