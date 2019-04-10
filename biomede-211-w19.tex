@@ -3346,17 +3346,34 @@ where $g_k$ is the conductance of potassium, $V_m$ is the membrane voltage at re
 These equations can be applied to the human heart. Cardiomyocyte contractions are caused by the changes in membrane potential. Due to the uneven distribution of charges, a dipole arises, and we are able to measure this via leads and Einthoven's triangle.
 
 \subsection{Leads and Einthoven's triangle}
-
-
+Einthoven's triangle is an imaginary triangle made with three limb leads, the right arm, left arm, and the left leg. It forms an inverted triangle centered around the heart. 
+\includegraphics[width=\textwidth]{figures/lecture17_triangle.png}
+\begin{itemize}
+	\item Lead I goes from right shoulder to left shoulder with negative electrode on right shoulder and positive on the left one.
+	Lead I = left arm - right arm
+	\item Lead II goes from the right arm and reaches to the leg on the left side with negative electrode on the shoulder and positive electrode on the leg.
+	Lead II = left leg - right arm 
+	\item Lead III goes from the left shoulder, having a negative electrode, to the left leg with a positive electrode.
+	Lead III = left leg - left arm
+\end{itemize}
+Only two leads are needed to characterize a vector.
+The heart at the center will produce a zero potential when the voltages are summed. According to Kirchoff's Voltage Law, I+III-II = 0.
 \subsection{The P-wave}
+The P-wave indicates atrial depolarization. This occurs when the sinoatrial node initiates an action potential over the atria. The Na+ channels in atrial cells open and become depolarized. The P-wave becomes visible on lead II.
 
 \subsection{The Q-wave}
+The Q-wave occurs next, as the impulse travels through the arterioventricular bundle and its branches. The impulse goes to the purkinje fibers. It indicates ventricular depolarization, which travels "up" the heart, making the Q-wave negative and create a pulse downwards.
 
 \subsection{The R-wave}
+The R-wave is the largest wave in the complex. It represents the electrical stimulus as it passes through the main portion of the ventricular walls. This occurs when impulse spreads to the contricle fibers of the ventricles, and potassium starts to flow into the ventricle cells. This is the first phase of action potential.
 
 \subsection{The S-wave}
+The S-wave is the downward pulse that follows the R-wave, but may not be present in all ECG leads on a given patient. The S-wave represents depolarization in the purkinje fibers, and the ventricles contract. This is the second and third phase of action potential. The S-wave is visible on lead II.
 
 \subsection{The T-wave}
+The T-wave represents the repolarization of the ventricles. It occurs when ventricles contract, like for the S-wave, and the impulse spreads through the heart. This causes a three-dimensional shift of the heart's dipole. The T-wave is also visible on lead II.
+
+\includegraphics[width=\textwidth]{figures/lecture17_ecg.png}
 
 \section{Basic hardware engineer's concerns}
 \begin{enumerate}
