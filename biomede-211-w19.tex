@@ -3627,12 +3627,51 @@ Let's now mix in a little boron or gallium (each having three (3) valence electr
 
 
 \subsection{Transistors}
+
 \begin{itemize}
 	\item The electronics inn your pockets/bags contain \textit{billions} of transistors
 	\item Act as a switch with no moving parts
 	\item Amplifies weak signals
+	\item In its most basic sense, a transistor is just two of these diodes put back to back. (no matter how you flip the power source, looks the same.) This is known as a \textbf{bipolar junction transistor}.
+	\item Different kinds of transistor (e.g., things like field-effect transistors) have different properties. 
 \end{itemize}
 
+
+\subsubsection{NPN}
+Let's begin by sandwiching a p-type semiconnductor between two n-types.
+\begin{enumerate}
+	\item Let's connect a power supply through the whole thing
+	\item If we do that we’ll have a reverse biasing circuit in either direction.
+	\item Let's also place another power supply between an N and a P.
+	\item This gives us a forward biasing diode! (positive to positive)
+	\item This will move electrons from the n region to the holes in the p region, this will cause some of the occupied holes’ electrons to be moved and circulate.
+	\item Not all electrons will flow through the one circuit, now they will also allow for the migration from the other (perhaps much larger) circuit 
+	\item This gives us three important components that I can never really truly remember unless I’m actually using the thing. But they are thus:
+	\subitem You have a \textbf{small base current, B}, that can be amplified to a high \textbf{collector current, C}, by an \textbf{emitter, E}
+	\subitem As a circuit element that looks like (NPN)
+ 	\begin{center}
+		\includegraphics{figures/20.19.png}
+	\end{center}
+	\subitem You have a small base amplified to produce a large collector and emitter current. This will occur when there is a positive potential difference measured between the base to the emitter.
+\end{enumerate}
+\begin{center}
+	\includegraphics[width = \textwidth]{figures/20.20.png}
+\end{center}
+
+
+\subsubsection{PNP}
+\begin{enumerate}
+	\item An n-type layer sandwiched between two layers of p-type material.
+	\item A small current leaving the base is amplified in the collector output.
+	\item A PNP transistor is on when the base is pulled low relative to the emitter
+	\item Holes are injected into the base as the minority carriers
+	\item Circuitly
+	\begin{center}
+		\includegraphics{figures/20.21.png}
+	\end{center}
+	\item The arrows in the symbols indicate the PN junction between the base and the emitter
+	\item When the transistor is in the ``forward saturated'' / ``active'' / ``forward active'' mode, the arrow tells you which way the current is or very well ought to be going.
+\end{enumerate}
 
 
 \newpage
