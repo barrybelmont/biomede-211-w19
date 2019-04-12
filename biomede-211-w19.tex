@@ -3329,6 +3329,774 @@ This subsection of channels includes all other channels that transport small cha
 
 \section{Determining resting potential from a Kirchhoffian perspective}
 
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{BME 211 Hodgkin Huxley Simulation}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \section{Analyzing Voltage Channels with the Hodgkin-Huxley
+Model}\label{analyzing-voltage-channels-with-the-hodgkin-huxley-model}
+
+    \subsubsection{Abstract}\label{abstract}
+
+Neurons, the cells in our brain that transmit nerve impulses, use the
+principles of Voltage, Conductance, Current, and Capacitance to connect
+our nervous system to our bodies, allowing for instantaneous responses
+to the environment. Each neuron cell is composed of dendrites, axons,
+and synapses where a ``signal'' is received, transported down the cell,
+and transmitted to neighboring cells, respectively. These ``signals''
+are actually just depolarization and repolarization of the cell membrane
+from the movement of potassium and sodium ions, which causes a potential
+difference across the inner and outer spaces; the depolarization and
+repolarization represent a rise and fall in voltage which is called the
+Action Potential. The 1963 Nobel Prize in Physiology or Medicine was
+awarded to Alan Hodgkin and Andrew Huxley, who modeled Action Potentials
+by relating biological components to circuit components, allowing for a
+deeper understanding of how neurons work.
+
+    \subsubsection{Background}\label{background}
+
+\subparagraph{The Neuron}\label{the-neuron}
+
+The human body is an evolutionary marvel, and its functionality is a
+culmination of the natural sciences. One of the most important features
+of the human body is its ability to communicate with itself in response
+to change, which is primarily governed by the Nervous System. The
+Nervous system is a network of fibers that transmits a signal from one
+part of the body to another, and is made up of the brain and spinal
+cord. The cells that do the transmitting are called neurons, and they
+transmit signals by sending electrical impulses, called Action
+Potentials, to a desired location. There are three functional parts of
+the neuron that are integral to understanding how they work: the cell
+body, dendrites and the axon (Figure 1). The cell body is the control
+center of the neuron where all inputs are gathered processed. Dendrites
+are an extension of the cell body that gather input from other neurons
+while the axon sends signals to other neighboring neurons. When a signal
+arrives at the dendrites on the left side of the neuron, the stimuli
+given to the dendrites are integrated at the cell body, which can then
+generate a nerve impulse (Action Potential). The impulse travels down
+the axon to the right side of the neuron, where it ``jumps'' to another
+set of dendrites and the process repeats.
+
+Resource:
+https://www.khanacademy.org/test-prep/mcat/organ-systems/neuron-membrane-potentials/a/neuron-action-potentials-the-creation-of-a-brain-signal
+
+\subparagraph{Action Potential}\label{action-potential}
+
+Neurons, like all cells, have a membrane that separates the inside of
+neuron from the outside. Potentials are able to be measured between the
+inside and outside because of a concentration gradient, which is created
+when there is a difference in the amount of ions inside the neuron than
+outside. Concentration gradients in the body often involve a difference
+in concentration of sodium and potassium. The Action Potential is simply
+a shift in the neuron's membrane potential (from negative to positive)
+that occurs when ions start flowing in or out of the cell through
+``gates,'' known as ion channels. The gates depend on voltage, and will
+open and close accordingly in response to the potential of the cell.
+Before any signal is received, the cell sits at a constant potential
+called the Resting Potential (experimentally measured to be -70 mV).
+Under typical situations, the Action Potential propagates as follows: 1.
+A signal is received from a cell, and the cell becomes depolarized,
+meaning positive charge flows from the outside of the cell to the inside
+of the cell. Once a certain potential is reached (experimentally
+measured to be -55mV), an Action Potential will begin to fire, and a
+gate will activate letting a larger amount of positive charge flow in
+(Sodium) 2. When another positive threshold is reached, the first gate
+is closed and another gate will open causing positive charge (Potassium)
+to flow out of the cell in a process called polarization 3. After
+another threshold, the final gate will close and the cell will regress
+to its Resting Potential Again
+
+It is important to note that the Action Potential only fires when the
+specific thresholds are met, known as the "All or Nothing" principle.
+
+Resource: https://en.wikipedia.org/wiki/Hodgkin\%E2\%80\%93Huxley\_model
+https://neuronaldynamics.epfl.ch/online/Ch2.S2.html
+
+\subparagraph{Hodgkin and Huxley}\label{hodgkin-and-huxley}
+
+Alan Hodgkin and Andrew Huxley, two British born scientists, authored a
+series of five papers describing nonlinear ordinary differential
+equations that model how action potentials can be initiated and
+propagated through an axon. The papers detailed their research into the
+squid giant axon, which has an abnormally large axon (1mm in diameter)
+big enough to conduct experiments on. This ground-breaking work has a
+wide range of applications on many organisms and won Hodgkin and Huxley
+the Nobel Prize in Physiology in 1963.
+
+Resource: https://www.swarthmore.edu/NatSci/echeeve1/Ref/HH/HHmain.htm
+
+    \subsubsection{Setup}\label{setup}
+
+In order to describe the way Action Potentials propagate, Hodgkin and
+Huxley related the membrane of the neuron to a circuit (Figure 2). The
+membrane has a capacitance \(C_{m}\), and accounts for all of the gates
+that were described previously. The Sodium and Potassium gates are
+voltage dependent, and are represented in terms of their conductances.
+To find the total current of ions flowing from inside to outside as a
+function of time, Kirchhoff's rules and the Ohm's Law were used. The
+capacitance of the membrane is a constant, but by virtue of ions moving,
+the voltage is not. Using the relationship of capacitance and charge,
+the membrane current can be solved as such:
+
+\[Q = C_{m} * V_{m}\]
+
+\[\frac{dQ}{dt} = C_{m} * \frac{dV}{dt}\]
+
+Where \(V_{m}\) is the intracellular voltage
+
+For the gates, Ohm's Law describes how the conductance (which is
+\(\frac{1}{R}\)) and voltage relate to current passing in and out of the
+membrane. Because the sodium and potassium ions themselves have voltages
+(represented by batteries in each branch), the voltage term in the Ohm's
+Law equation is the voltage of the membrane (\(V_{m}\)) - the Nernst
+potentials of the ion (\(E_{Na}, E_{K}\)). The third gate is known as a
+leak channel, and is a gate that allows sodium and potassium to pass in
+order to maintain the resting potential, and is not voltage activated.
+The values of the conductance for sodium and potassium are dependent on
+the membrane voltage by formulas derived by Hodgkin and Huxley through
+their experiments. The equations are:
+
+\[I_{Na} = g_{Na}*m^3*h*(V_{m}-E_{Na})\]
+\[I_{K} = g_{K}*n^4*(V_{m}-E_{K})\] \[I_{L} = g_{L}*(V_{m}-E_{L})\]
+
+where:
+
+\[\frac{dn}{dt} = \alpha_{n}(V_{m})*(1-n) - \beta(V_{m})*n\]
+
+\[\frac{dm}{dt} = \alpha_{m}(V_{m})*(1-m) - \beta(V_{m})*m\]
+
+\[\frac{dh}{dt} = \alpha_{h}(V_{m})*(1-h) - \beta(V_{m})*h\]
+
+The values of n, m, and h describe the probability that a gate will be
+open at a given time. Note that the Leak current isnt bound by any of
+these probabilities because it is not voltage gated. The values of n, m,
+and h are values between zero and one. \(\alpha\) and \(\beta\) are
+described by the equations:
+
+\[\alpha_{n}(V) = \frac{.01*(10-V)}{e^\frac{10-V}{10}-1}\]
+
+\[\beta_{n}(V) = .125*e^\frac{-V}{80}\]
+
+\[\alpha_{m}(V) = \frac{.01*(25-V)}{e^\frac{25-V}{10}-1}\]
+
+\[\beta_{m}(V) = 4*e^\frac{-V}{18}\]
+
+\[\alpha_{h}(V) = .07*e^\frac{-V}{20}\]
+
+\[\beta_{h}(V) = \frac{1}{e^\frac{30-V}{10}+1}\]
+
+Finally, because Kirchoff's Loop rule states that the sum of current in
+must equal the sum of the current out, the total current is equal to:
+
+\[I_{ext} = I_{Na} + I_{K} + I_{L} + C_{m} * \frac{dV}{dt}\]
+
+My model uses Eulers method to solve the nonlinear differential
+equations that describe the current flow of sodium and potassium. First,
+I created variables to describe the simulation time of my Action
+Potential. Second, I created a cell filled with tests of different
+currents which I control to see what impact the external current has on
+the Action Potential. Next, I used a for loop that goes through each
+time step in my simulation and calculates the value of each equation,
+and updates the array at the given i value. Finally, I graph the
+conductances of sodium and potassium, and the Action Potential. I
+repeated the process for each testing current and observed how the
+graphs changed with different magnitudes of current, and different
+deliveries.
+
+To judge the relative success/failure of the tests, it is important to
+note what constitutes a "correct" graph. If the plotted graph has a
+sharp spike that goes up, and then down past the resting potential, and
+exhibits repeating behavior, that means it follows a typical action
+potential and is a success.
+
+Resource:
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1392413/pdf/jphysiol01442-0106.pdf
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}228}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} Import usual libraries }
+          \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}                         \PY{c+c1}{\PYZsh{}\PYZsh{} numpy is a library that inclues most of the numerical funciton you will need}
+          \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}            \PY{c+c1}{\PYZsh{}\PYZsh{} this is the library we use to plot}
+          \PY{k+kn}{from} \PY{n+nn}{IPython}\PY{n+nn}{.}\PY{n+nn}{display} \PY{k}{import} \PY{n}{Image}          \PY{c+c1}{\PYZsh{}\PYZsh{} this is to import images from a file}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}88}]:} \PY{c+c1}{\PYZsh{} Create a time sufficient enough to deliver the impulse across the system}
+         \PY{n}{sim\PYZus{}time} \PY{o}{=} \PY{l+m+mi}{100} 
+         \PY{n}{dt} \PY{o}{=} \PY{o}{.}\PY{l+m+mi}{01}
+         \PY{n}{times} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{sim\PYZus{}time}\PY{p}{,}\PY{n}{dt}\PY{p}{)}
+         \PY{n}{Ntimes} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{times}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}299}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} Set variable for the membrane current equal to values to simulate current inside of the neurons}
+          \PY{n}{IextArray} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{Ntimes}\PY{p}{)}
+          \PY{n}{current\PYZus{}1} \PY{o}{=} \PY{l+m+mi}{20} \PY{c+c1}{\PYZsh{} A current value that is within range of normal neuron Action Potential conditions }
+          \PY{n}{current\PYZus{}2} \PY{o}{=} \PY{l+m+mi}{3} \PY{c+c1}{\PYZsh{} A current that is much less than normal  neuron Action Potential conditions }
+          \PY{n}{current\PYZus{}3} \PY{o}{=} \PY{l+m+mi}{100} \PY{c+c1}{\PYZsh{} A current that is much higher than the normal neuron Action Potential conditions }
+          
+          \PY{c+c1}{\PYZsh{}\PYZsh{} Current Test 1: Constant current with each of the different testing values  }
+          \PY{c+c1}{\PYZsh{}IextArray[0:Ntimes] = current\PYZus{}1 }
+          \PY{c+c1}{\PYZsh{}IextArray[0:Ntimes] = current\PYZus{}2}
+          \PY{c+c1}{\PYZsh{}IextArray[0:Ntimes] = current\PYZus{}3}
+          
+          \PY{c+c1}{\PYZsh{}\PYZsh{} Current Test 2: Step current with steps the size of the testing values}
+          \PY{c+c1}{\PYZsh{}IextArray[0:500] = current\PYZus{}1 }
+          \PY{c+c1}{\PYZsh{}IextArray[501:2000] = 0 }
+          \PY{c+c1}{\PYZsh{}IextArray[2001:Ntimes] = current\PYZus{}1}
+          
+          \PY{c+c1}{\PYZsh{}IextArray[0:500] = current\PYZus{}2 }
+          \PY{c+c1}{\PYZsh{}IextArray[501:2000] = 0 }
+          \PY{c+c1}{\PYZsh{}IextArray[2001:Ntimes] = current\PYZus{}2}
+          
+          \PY{c+c1}{\PYZsh{}IextArray[0:500] = current\PYZus{}3 }
+          \PY{c+c1}{\PYZsh{}IextArray[501:2000] = 0 }
+          \PY{c+c1}{\PYZsh{}IextArray[2001:Ntimes] = current\PYZus{}3}
+          
+          
+          \PY{c+c1}{\PYZsh{}\PYZsh{} Current Test 3: Sinusoidal current with amplitude the size of the testing values }
+          \PY{c+c1}{\PYZsh{}IextArray = current\PYZus{}1*np.sin(times)}
+          \PY{c+c1}{\PYZsh{}IextArray = current\PYZus{}2*np.sin(times)}
+          \PY{n}{IextArray} \PY{o}{=} \PY{n}{current\PYZus{}3}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{n}{times}\PY{p}{)}
+          
+          \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{times}\PY{p}{,} \PY{n}{IextArray}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Time (ms)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Current (mA)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}299}]:} Text(0,0.5,'Current (mA)')
+\end{Verbatim}
+            
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_6_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}300}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} These constants are used in the formulas above and were calculated from the research Hodgkin and Huxley did }
+          \PY{n}{gbar\PYZus{}K} \PY{o}{=} \PY{l+m+mi}{36} \PY{c+c1}{\PYZsh{}\PYZsh{} conductance of the potassium channel}
+          \PY{n}{gbar\PYZus{}Na} \PY{o}{=} \PY{l+m+mi}{120} \PY{c+c1}{\PYZsh{}\PYZsh{} conductance of the sodium channel}
+          \PY{n}{g\PYZus{}L} \PY{o}{=} \PY{o}{.}\PY{l+m+mi}{3} \PY{c+c1}{\PYZsh{}\PYZsh{} conductance of the leak channel}
+          \PY{n}{E\PYZus{}K} \PY{o}{=} \PY{o}{\PYZhy{}}\PY{l+m+mi}{12} \PY{c+c1}{\PYZsh{}\PYZsh{} Voltage associated with potassium}
+          \PY{n}{E\PYZus{}Na} \PY{o}{=} \PY{l+m+mi}{115} \PY{c+c1}{\PYZsh{}\PYZsh{} Voltage associated with sodium}
+          \PY{n}{E\PYZus{}L} \PY{o}{=} \PY{l+m+mf}{10.6} \PY{c+c1}{\PYZsh{}\PYZsh{} Voltage associated with the leak}
+          \PY{n}{C} \PY{o}{=} \PY{l+m+mi}{1} \PY{c+c1}{\PYZsh{}\PYZsh{} Membrane capacitance }
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}301}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} These are the arrays necessary to hold the values from the for loop }
+          \PY{n}{VArray} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{Ntimes}\PY{p}{)}
+          \PY{n}{I\PYZus{}NaArray} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{Ntimes}\PY{p}{)}
+          \PY{n}{I\PYZus{}KArray} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{Ntimes}\PY{p}{)}
+          \PY{n}{I\PYZus{}LArray} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{Ntimes}\PY{p}{)}
+          \PY{n}{I\PYZus{}totalArray} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{Ntimes}\PY{p}{)}
+          \PY{n}{a\PYZus{}nArray} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{Ntimes}\PY{p}{)}
+          \PY{n}{b\PYZus{}nArray} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{Ntimes}\PY{p}{)}
+          \PY{n}{a\PYZus{}mArray} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{Ntimes}\PY{p}{)}
+          \PY{n}{b\PYZus{}mArray} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{Ntimes}\PY{p}{)}
+          \PY{n}{a\PYZus{}hArray} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{Ntimes}\PY{p}{)}
+          \PY{n}{b\PYZus{}hArray} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{Ntimes}\PY{p}{)}
+          \PY{n}{nArray} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{Ntimes}\PY{p}{)}
+          \PY{n}{mArray} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{Ntimes}\PY{p}{)}
+          \PY{n}{hArray} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n}{Ntimes}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}302}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} Create a loop to simulate the Action Potential}
+          \PY{n}{VArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{0} \PY{c+c1}{\PYZsh{}\PYZsh{} Initialize the Voltage to 0. This will be brought to its experimental resting potential value after the for loop}
+          \PY{n}{a\PYZus{}nArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{=} \PY{o}{.}\PY{l+m+mi}{01}\PY{o}{*}\PY{p}{(}\PY{p}{(}\PY{l+m+mi}{10}\PY{o}{\PYZhy{}}\PY{n}{VArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{p}{(}\PY{l+m+mi}{10}\PY{o}{\PYZhy{}}\PY{n}{VArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{10}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{}\PYZsh{} Formula for alpha n with initial value for voltage}
+          \PY{n}{b\PYZus{}nArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{=} \PY{o}{.}\PY{l+m+mi}{125}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{VArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{80}\PY{p}{)} \PY{c+c1}{\PYZsh{}\PYZsh{} Formula for beta n with initial value for voltage}
+          \PY{n}{a\PYZus{}mArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{=} \PY{o}{.}\PY{l+m+mi}{1}\PY{o}{*}\PY{p}{(}\PY{p}{(}\PY{l+m+mi}{25}\PY{o}{\PYZhy{}}\PY{n}{VArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{p}{(}\PY{l+m+mi}{25}\PY{o}{\PYZhy{}}\PY{n}{VArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{10}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{}\PYZsh{} Formula for alpha m with initial value for voltage}
+          \PY{n}{b\PYZus{}mArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{4}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{VArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{18}\PY{p}{)} \PY{c+c1}{\PYZsh{}\PYZsh{} Formula for beta m with initial value for voltage}
+          \PY{n}{a\PYZus{}hArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{=} \PY{o}{.}\PY{l+m+mi}{07}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{VArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{20}\PY{p}{)} \PY{c+c1}{\PYZsh{}\PYZsh{} Formula for alpha h with initial value for voltage}
+          \PY{n}{b\PYZus{}hArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{1}\PY{o}{/}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{p}{(}\PY{l+m+mi}{30}\PY{o}{\PYZhy{}}\PY{n}{VArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{10}\PY{p}{)}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)} \PY{c+c1}{\PYZsh{}\PYZsh{} Formula for beta h with initial value for voltage}
+          \PY{n}{nArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{=} \PY{n}{a\PYZus{}nArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{/}\PY{p}{(}\PY{n}{a\PYZus{}nArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{+} \PY{n}{b\PYZus{}nArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)} \PY{c+c1}{\PYZsh{}\PYZsh{} Formula for initial n }
+          \PY{n}{mArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{=} \PY{n}{a\PYZus{}mArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{/}\PY{p}{(}\PY{n}{a\PYZus{}mArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{+} \PY{n}{b\PYZus{}mArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)} \PY{c+c1}{\PYZsh{}\PYZsh{} Formula for initial m}
+          \PY{n}{hArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{=} \PY{n}{a\PYZus{}hArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{/}\PY{p}{(}\PY{n}{a\PYZus{}hArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]} \PY{o}{+} \PY{n}{b\PYZus{}hArray}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)} \PY{c+c1}{\PYZsh{}\PYZsh{} Formula for initial h}
+          
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{Ntimes}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+              \PY{n}{a\PYZus{}nArray}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{=} \PY{o}{.}\PY{l+m+mi}{01}\PY{o}{*}\PY{p}{(}\PY{p}{(}\PY{l+m+mi}{10}\PY{o}{\PYZhy{}}\PY{n}{VArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{p}{(}\PY{l+m+mi}{10}\PY{o}{\PYZhy{}}\PY{n}{VArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{10}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{}\PYZsh{} The following are the equations repeated above, except}
+              \PY{n}{b\PYZus{}nArray}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{=} \PY{o}{.}\PY{l+m+mi}{125}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{VArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{80}\PY{p}{)}                         \PY{c+c1}{\PYZsh{}\PYZsh{} in the form of a for loop calculation}
+              \PY{n}{a\PYZus{}mArray}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{=} \PY{o}{.}\PY{l+m+mi}{1}\PY{o}{*}\PY{p}{(}\PY{p}{(}\PY{l+m+mi}{25}\PY{o}{\PYZhy{}}\PY{n}{VArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{p}{(}\PY{l+m+mi}{25}\PY{o}{\PYZhy{}}\PY{n}{VArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{10}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
+              \PY{n}{b\PYZus{}mArray}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{4}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{VArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{18}\PY{p}{)}
+              \PY{n}{a\PYZus{}hArray}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{=} \PY{o}{.}\PY{l+m+mi}{07}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{VArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{/}\PY{l+m+mi}{20}\PY{p}{)}
+              \PY{n}{b\PYZus{}hArray}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{1}\PY{o}{/}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{p}{(}\PY{l+m+mi}{30}\PY{o}{\PYZhy{}}\PY{n}{VArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{10}\PY{p}{)}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{)}
+              
+              \PY{n}{I\PYZus{}NaArray}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{=} \PY{p}{(}\PY{n}{mArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{3}\PY{p}{)}\PY{o}{*}\PY{n}{gbar\PYZus{}Na}\PY{o}{*}\PY{n}{hArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{p}{(}\PY{n}{VArray}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{\PYZhy{}} \PY{n}{E\PYZus{}Na}\PY{p}{)} \PY{c+c1}{\PYZsh{}\PYZsh{} Use the equations described in the setup to calculate}
+              \PY{n}{I\PYZus{}KArray}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{=} \PY{p}{(}\PY{n}{nArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{4}\PY{p}{)}\PY{o}{*}\PY{n}{gbar\PYZus{}K}\PY{o}{*}\PY{p}{(}\PY{n}{VArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{\PYZhy{}}\PY{n}{E\PYZus{}K}\PY{p}{)}                \PY{c+c1}{\PYZsh{}\PYZsh{} Individual currents and then use Kirchoff to find }
+              \PY{n}{I\PYZus{}LArray}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{=} \PY{n}{g\PYZus{}L}\PY{o}{*}\PY{p}{(}\PY{n}{VArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{\PYZhy{}}\PY{n}{E\PYZus{}L}\PY{p}{)}                                  \PY{c+c1}{\PYZsh{}\PYZsh{} the total current }
+              \PY{n}{I\PYZus{}totalArray}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{=} \PY{n}{IextArray}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{\PYZhy{}} \PY{n}{I\PYZus{}KArray}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{\PYZhy{}} \PY{n}{I\PYZus{}NaArray}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{\PYZhy{}} \PY{n}{I\PYZus{}LArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}
+              
+              \PY{n}{VArray}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{=} \PY{n}{VArray}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{+} \PY{n}{dt}\PY{o}{*}\PY{n}{I\PYZus{}totalArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{/}\PY{n}{C}                                  \PY{c+c1}{\PYZsh{}\PYZsh{} The actual use of eulers method, where the }
+              \PY{n}{nArray}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{=} \PY{n}{nArray}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{+} \PY{n}{dt}\PY{o}{*}\PY{p}{(}\PY{n}{a\PYZus{}nArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{nArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{n}{b\PYZus{}nArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{n}{nArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}  \PY{c+c1}{\PYZsh{}\PYZsh{} Value is updated at each step using the }
+              \PY{n}{mArray}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{=} \PY{n}{mArray}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{+} \PY{n}{dt}\PY{o}{*}\PY{p}{(}\PY{n}{a\PYZus{}mArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{mArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{n}{b\PYZus{}mArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{n}{mArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}  \PY{c+c1}{\PYZsh{}\PYZsh{} Time step and the previous value}
+              \PY{n}{hArray}\PY{p}{[}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{=} \PY{n}{hArray}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{+} \PY{n}{dt}\PY{o}{*}\PY{p}{(}\PY{n}{a\PYZus{}hArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{hArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{n}{b\PYZus{}hArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{n}{hArray}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
+          \PY{n}{VArray} \PY{o}{=} \PY{n}{VArray} \PY{o}{\PYZhy{}} \PY{l+m+mi}{70} \PY{c+c1}{\PYZsh{}\PYZsh{} Set the voltage equal to the resting potential }
+          \PY{n+nb}{print}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{n}{VArray}\PY{p}{)}\PY{p}{)} \PY{c+c1}{\PYZsh{}\PYZsh{} See how action potential peak changes }
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+41.30030671753612
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}303}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} Plot the conductances for Potassium and Sodium}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{times}\PY{p}{,}\PY{n}{gbar\PYZus{}K}\PY{o}{*}\PY{n}{nArray}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{4}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{times}\PY{p}{,} \PY{n}{gbar\PYZus{}Na}\PY{o}{*}\PY{n}{mArray}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{3}\PY{o}{*}\PY{n}{hArray}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Time(ms)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Conductance(mS)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Potassium and Sodium Conductances}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{K}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}303}]:} <matplotlib.legend.Legend at 0x23b953959b0>
+\end{Verbatim}
+            
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_10_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}304}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} Plot the Action Potential }
+          \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{times}\PY{p}{,} \PY{n}{VArray}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Time(ms)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Voltage(mV)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}304}]:} Text(0,0.5,'Voltage(mV)')
+\end{Verbatim}
+            
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_11_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \subsubsection{Results \& Conclusion}\label{results-conclusion}
+
+    \paragraph{Current Test 1: Constant
+Current}\label{current-test-1-constant-current}
+
+Current\_1: The graphs that resuted from this case exhibited Action
+Potential behavior. The spikes in potential occured relatively at the
+same time as the spikes in the conductances, meaning that the peak
+potential was occuring when the conductances were activated. This is
+consistent with the biology of the model because the Action Potential
+occurs when the gates open, allowing ions to flow in.
+
+Current\_2: The graphs that resulted did not exhibit the Action
+Potential behavior. Because the external current is so small, the
+voltage variable in the code was affected and thus the rest of the code
+since the alpha and beta values depended on voltage. The current allows
+for one Action Potential to fire, but as the voltage lowers, it will not
+reach the "all or nothing" threshold so the gates will not open and the
+Action Potential cannot propagate any futher.
+
+Current\_3: The graphs that resulted from this case exhibited Action
+Potential behavior. Like in current\_1, the peaks in conductance and
+potential occur almost simulataneously, but now the amplitudes are
+different. The current\_3 amplitudes are smaller than the current\_1
+because the alpha and beta values exhibit different behaviors as V
+becomes increasing large (which again, is proportional to external
+current getting larger). That is also why this is the only graph where
+the conductance of Potassium is greater than that of sodium.
+
+It is important to note that the each graph has an initial peak that is
+large compared to the peaks that it converges to. This happens because
+initially the voltage is responding to an initial Action Potential that
+passes the "All or Nothing" threshold but as time passes the values of
+potential, alpha, and beta respond to the changes. The simulation time
+has a dt of .01, so change isnt apparent immediately.
+
+    \paragraph{Current Test 2: Step
+Current}\label{current-test-2-step-current}
+
+Current\_1: The graphs that resulted from this case exhibited Action
+Potential behavior. Like current\_1 from the previous test, the peaks
+occur at the same times, but with one important distinction: There are
+two peaks that do not match the peaks after some time has passed (Reason
+for that is explained below).
+
+Current\_2: The graphs that resulted from this case exhibited Action
+Potential behavior for a few seconds, but ulitmately reverted to
+non-Action Potential behavior. The fact that two peaks still occur for
+both conductances and potentials is a consequence of the timing and type
+of change of the current. Because the step down from high current to 0
+current occurs at the polarization state, it does not matter that the
+original external current is small, another Action Potential will fire
+regardless. This type of external current allows Action Potentials to be
+fired at least once regardless of small current which has applications
+in studying how signals transfer down the axon.
+
+Current\_3: The graphs that resulted from this case exhibited Action
+Potential behavior. The relationship between current\_1 and current\_3
+for this test is the same as in the previous test.
+
+In this test current is supplied for a very short amount of time,
+decreased to 0 for a while, then allowed to return back to the original
+supply. The small application of current leads to an Action Potential,
+then at 0 it is allowed to come back to resting and spike again, and
+after the value is constant allowing for the smaller peaks to propogate.
+For the conductances, the gates are opening and closing very quickly and
+it makes sense that there would also be two peaks because the gates
+opening is a response to the potential.
+
+    \paragraph{Current Test 3: Sinusoidal
+Current}\label{current-test-3-sinusoidal-current}
+
+Current\_1: The graphs that resulted from this case exhibited Action
+Potential Behavior. This time around, the peaks on the graph are all the
+same and it maintains the relative shape that is expected. The sodium
+conductance is much larger than the potassium and again the peaks seem
+to in phase (used this terminology now that sin is involved)
+
+Current\_2: The graphs that result from this case, by my definition,
+displays Action Potential Behavior, but in terms of the biology of the
+model would not be a plausible Action Potential. The graphs have lost
+their Action Potential shape and resorted to essentially the same shape
+as the current itself. Interestingly, the potential graph shows the
+potential alternating between -67 and -73 which is 3 plus and 3- the
+resting potential, respectively. A possible explanation to this is that
+average of sin is 0, so the average value of the conductances are 0
+since they exhibit the same sinusoidal behavior. This means the total
+current is just Iext-Ileak which causes the behavior that is shown
+(Ileak is a constant, remember).
+
+Current\_3: The graphs that result from this case, by my definition,
+displays Action Potential Behavior, but in terms of the biology of the
+model would not be a plausible Action Potential. The graph is similar to
+the current\_1 graph as we have seen in the previous tests, with one big
+difference: the inability to return to resting potential. What the graph
+does is repeat immediately after diping below the resting potential,
+which could be because the negative side portion of the sin curve makes
+the max current negative, and the potential cannot recover to the
+resting potential before reaching the threshold again.
+
+The usuage of a current that is driven like this is unrealistic because
+the constantly changing value of I creates a constantly changing value
+in alpha and beta which means the conductances and Action Potentials
+will not be normal. I included this current to make two points 1. Unlike
+the circuits in Physics 260, which seem to be more efficient operating
+at alternating current, this model cannot work under these conditions.
+The known biology of Action Potentials does not account for such a
+current so it makes sense the model wouldnt either 2. Systems like this
+may not be within the scope of normal connditions, but could possibly
+describe a mutation of some sort. For example, mutations in signaling
+could cause the ions to flow in/out at such a current which would cause
+problems in transmission, in which case this model would not be very
+helpful since assumptions are made strictly in ideal conditions
+
+    \subsubsection{Figures}\label{figures}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}229}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} Figure 1 }
+          \PY{n}{Image}\PY{p}{(}\PY{n}{filename} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{img/neuron.png}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{width} \PY{o}{=} \PY{l+m+mi}{400}\PY{p}{,} \PY{n}{height} \PY{o}{=} \PY{l+m+mi}{400}\PY{p}{)}
+\end{Verbatim}
+
+\texttt{\color{outcolor}Out[{\color{outcolor}229}]:}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_18_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}230}]:} \PY{c+c1}{\PYZsh{}\PYZsh{} Figure 2}
+          \PY{n}{Image}\PY{p}{(}\PY{n}{filename} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{img/hodgkin.png}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{width} \PY{o}{=} \PY{l+m+mi}{400}\PY{p}{,} \PY{n}{height} \PY{o}{=} \PY{l+m+mi}{400}\PY{p}{)}
+\end{Verbatim}
+
+\texttt{\color{outcolor}Out[{\color{outcolor}230}]:}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_19_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
 
 \section{Electrocardiography}
 Each of the previously discussed channels separate ions across the membrane, and have a gradient across them, which in turn creates an ionic current. The membrane current as a whole can be described as:
