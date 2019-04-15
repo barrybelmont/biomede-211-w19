@@ -352,12 +352,12 @@ In evaluating circuits, the main focus of the first third of this class, it will
 
 \section{Worksheet}
 
-\subsection{Problem 1, constant charge through a cross-section}
+\subsection{A constant charge through a cross-section}
 How much charge passes through a cross-section of a conductor in 60 seconds if a DC current value is measured at 0.1 mA?
 \textbf{Solution}
 
 
-\subsection{Problem 2, arbitrary charge through a cross-section}
+\subsection{An arbitrary charge through a cross-section}
 Determine the total charge entering a terminal between $t = 0$ seconds and $t = 10$ seconds if the current (in amps) passing through is
 \begin{equation}
 	i(t) = \frac{1}{\sqrt{5t+2}}. 
@@ -365,17 +365,17 @@ Determine the total charge entering a terminal between $t = 0$ seconds and $t = 
 \textbf{Solution}
 
 
-\subsection{Problem 3, a "tera"ble puzzle}
+\subsection{A ``tera''ble puzzle}
 Approximately how much current is necessary to transmit one terabyte of information in an hour?
 \textbf{Solution}
 
 
-\subsection{Problem 4, power necessary to run a pacemaker}
+\subsection{A pacemrker's power requirements}
 A cardiac pacemaker will provide approximately 5,000 J of energy over 5 years. Determine the capacity of a 5 V lithium battery necessary to drive this pacing such that only 40\% of its energy is spent over that time.
 \textbf{Solution}
 
 
-\subsection{Problem 5, energy needed to excite a neuron}
+\subsection{A neuron's excitation energy}
 A colleague of yours has been in their lab ginning up new neurons. You, as their resident electrical expert, are tasked with determining the energy consumed by the cell. If the current and voltage variations are found to be functions of time ($t \geq 0$)
 \begin{eqnarray}
 	i(t) = 3t \\
@@ -385,7 +385,7 @@ determine the energy consumed between 0 and 2 ms.
 \textbf{Solution}
 
 
-\subsection{Problem 6, a thump to the chest}
+\subsection{A thump to the chest}
 (a) A typical defibrillator delivers 200-1000 V in less than 10 ms. How much current is needed to deliver 120, 240, and 360 Joules?
 \\
 (b) A human heart ways about 300 grams. From approximately how high of a cliff would one have to drop a heart such that the impact was equivalent to the energy delivered to someone's chest from a defibrillator?
@@ -2713,8 +2713,8 @@ And let us consider its response with respect to frequency. To help matters, let
 
 For further reference, here is some more info on low pass filters that encorporates the corner frequency and other possible modifications:
 
-Passive Low Pass: https://www.electronics-tutorials.ws/filter/filter_2.html
-Active Low Pass: https://www.electronics-tutorials.ws/filter/filter_5.html
+Passive Low Pass: https://www.electronics-tutorials.ws/filter/filter\_2.html
+Active Low Pass: https://www.electronics-tutorials.ws/filter/filter\_5.html
 
 \textbf{The third combination of impedances we will consider is a capacitor, $C_{in}$, at the input and a resistor, $R_F$ in the feedback loop.}
 
@@ -2744,8 +2744,8 @@ And let us consider its response with respect to frequency. To help matters, let
 
 For further reference, here is some more info on high pass filters that encorporates the corner frequency and other possible modifications:
 
-Passive High Pass: https://www.electronics-tutorials.ws/filter/filter_3.html
-Active High Pass: https://www.electronics-tutorials.ws/filter/filter_6.html
+Passive High Pass: https://www.electronics-tutorials.ws/filter/filter\_3.html
+Active High Pass: https://www.electronics-tutorials.ws/filter/filter\_6.html
 
 \section{Non-inverting variants}
 For each of these types of active filters, there are non-inverting versions which produce similar responses.
@@ -4653,6 +4653,161 @@ Please note that I will make use of the singular form of ``they'' and ``them'' t
 
 \section{On logic gates}
 Did you know that each of the above knight and knave situations can be represented by a combination of logic gates? For example, a simple single knave can be represented by a NOT gate since they always lie. An easy way to work in this matter is to assign 0s and 1s to lies and truth (and thereby liars and truth-tellers and thereby knaves and knights) and construct a truth table. From that truth table and from the logic you used in deriving the solution, put together a sequence of logic gates for each of the situations reported in Problem 2.
+
+
+\chapter{Collected exercises}
+\minitoc
+\section{A constant charge through a cross-section}
+How much charge passes through a cross-section of a conductor in 60 seconds if a DC current value is measured at 0.1 mA?
+
+\section{An arbitrary charge through a cross-section}
+Determine the total charge entering a terminal between $t = 0$ seconds and $t = 10$ seconds if the current (in amps) passing through is
+\begin{equation}
+	i(t) = \frac{1}{\sqrt{5t+2}}. 
+\end{equation} 
+
+
+\section{A ``tera''ble puzzle}
+Approximately how much current is necessary to transmit one terabyte of information in an hour?
+
+
+\section{A pacemrker's power requirements}
+A cardiac pacemaker will provide approximately 5,000 J of energy over 5 years. Determine the capacity of a 5 V lithium battery necessary to drive this pacing such that only 40\% of its energy is spent over that time.
+
+
+\section{A neuron's excitation energy}
+A colleague of yours has been in their lab ginning up new neurons. You, as their resident electrical expert, are tasked with determining the energy consumed by the cell. If the current and voltage variations are found to be functions of time ($t \geq 0$)
+\begin{eqnarray}
+	i(t) = 3t \\
+	v(t) = 10 e^{6t}
+\end{eqnarray}
+determine the energy consumed between 0 and 2 ms.
+
+
+\section{A thump to the chest}
+(a) A typical defibrillator delivers 200-1000 V in less than 10 ms. How much current is needed to deliver 120, 240, and 360 Joules?
+\\
+(b) A human heart ways about 300 grams. From approximately how high of a cliff would one have to drop a heart such that the impact was equivalent to the energy delivered to someone's chest from a defibrillator?
+
+\section{An ohmic power expression}
+Utilizing Ohm's law, express units of power to include ohms.
+
+
+
+\section{A toaster based problem}
+A toaster draws 2 A at 120 V. What is its resistance?
+
+\section{Another toaster based problem}How much current is drawn by a toaster with a resistance of 10 $\Omega$ at 110 V?
+
+
+\section{A current power}
+In the circuit shown, calculate the current, $i$, the conductance, $G$, and the power, $p$.
+
+
+\section{A sodium channel's conductance}
+Conductance ($G$/$A$) of a sodium channel of a cell membrane at a specific time is 10 mS/cm$^{2}$. If the channel length as 100 nm, what is its conductivity?
+
+
+\section{A simple tissue's resistance}
+Determine the resistance of a homogenous and isotropic tissue with a cross-sectional area which can be described by the functions $y = 8 - x^2$ from $x = -2$ cm to $x = +2$ cm, a length of 10 cm (parallel to the z-axis), and a resistivity of 80 $\Omega$m.
+
+\section{A few nodes of KCL}
+Use KCL to write equations at each node.
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{figures/04.problem1.png}
+\end{center}
+
+
+\section{Matrix notation}
+Write the matrix form of the equations written above. 
+
+
+\section{Cramer's rule}
+Using Cramer’s rule on the matrix equations above, what are the results?
+
+
+\section{Straight to the matrix}
+Write the node-voltage equations to the circuit at right in the matrix form.
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{figures/04.problem4.png}
+\end{center}
+
+\section{Laplace transformations}
+Find the Laplace transform of the following:
+\begin{itemize}
+	\item $f(t) = 9$
+	\item $f(t) = \delta(t)$ the Dirac-delta function
+	\item $f(t) = e^{-3t/2}$
+	\item $f(t) = \sin\omega t$
+\end{itemize}
+
+
+\section{Differential equation of a series RLC circuit}
+What is the differential equation describing an inductor, a resistor, and a capacitor in series?
+
+
+\section{Differential equation of a series RLC circuit with numbers}
+What is the differential equation describing an inductor, a resistor, and a capacitor in series? What is a solution to that  differential equation if L = 1 H, R = 1 $\Omega$, and C = 100 mF? Take the Laplace transform of the differential equation. What are its poles and zeros?
+
+
+\section{An $s$-plane with found zeros}
+Draw an s-plane. Label the axes. Plot the poles and zeros you found. What can you say of the behavior of the system? If the poles had an imaginary component to them (that is, if they were pushed along the vertical axis), how would that affect our system?
+
+\section{An $s$-plane with arbitrary zeros}
+Draw an s-plane. Label the axes. Plot these poles -- (-2,0) and (-5,0) -- and this zero -- (0,0). Plot what the signal would look over time at each of these poles and zeros. 
+
+\section{$\tilde{Z}(s)$ (i.e., $\tilde{V}(s)/\tilde{I}(s)$) of a resistor and a capacitor in parallel}
+\begin{enumerate}
+	\item Show the \textit{frequency response} (i.e., $\tilde{Z}(s)$ v. frequency) of such a system. If it helps to ascribe values, assume that the resistor is 1 ohm and the capacitor is 10 farad.
+	\item Comment on the behavior. Is it like anything you have seen before?
+	\item (\textit{The kind of question that might be on a glorified quiz.}) If the current through the circuit is 1 amp when $t \geq 0$, what will be the voltage response?
+\end{enumerate}
+
+\section{A voltage time response of a system with a given impedance}
+Given that 
+\begin{equation}
+	\tilde{Z}(s) = \frac{s^3+9}{(s+1)(s+3)}
+\end{equation}
+\begin{enumerate}
+	\item What is the \textit{time response} of potential to a unit step of current?
+	\item (\textit{The kind of question that might be on a glorified quiz.}) Which exponential term will most significantly affect the signal?
+\end{enumerate}
+
+\section{A stable system?}
+\begin{enumerate}
+	\item A system, $y(t) = \int_{-\infty}^{\infty}x(\tau)d\tau$, when $x(t) = \cos(t)$.
+	\item A system, $y(t) = \int_{-\infty}^{\infty}x(\tau)d\tau$, when $x(t) = u(t)$.
+	\item A system, $y(t) = x(t)/t$, when $x(t) = 2$.
+	\item A system, $y(t) = dx(t)/dt$, when $x=1$.
+	\item A system, $y(t) = dx(t)/dt$, when $u(t)$.
+\end{enumerate}
+
+\section{Pedro, Apollonia, \& Peter}
+You come across three inhabitants and ask the first, Pedro, ``Are you a knight or a knave?'' Pedro answers, but so quietly you can't hear him. You ask Apollonia ``What did he say?'' to which she responds ``Pedro said he was a knave.'' Upon hearing this, Peter piped up and said ``Don't believe that; it’s a lie.'' Is Peter a knight or a knave? (Further, is it possible to know what Pedro is?)
+
+\section{Roger \& Oedipa} 
+Shortly after that you meet two inhabitants, Roger Mexico and Oedipa Maas. Roger claims, ``Both of us are knaves.'' What are Roger and Oedipa?
+
+\section{Yes \& No} 
+Suppose you’ve heard a rumor that there’s gold buried nearby. You meet a local and want to know whether there really is gold in them thar hills, but you don’t know whether the person is a knight or a knave. If you are only allowed to ask only one question answerable by ``yes'' or ``no'', what do you ask?
+
+\section{Lisa \& Louise}
+Lisa and Louise are twins indistinguishable in appearance. One always lies, the other always tells the truth. You don’t know which is which. You meet one of them and may ask one question to determine which twin is truth. What do you ask and what does it tell you?
+
+\section{NOT $\rightarrow$ NOR}
+Make a NOT gate from one or more NOR gates.
+\section{PAND $\rightarrow$ NOR}
+Make an AND gate from one or more NOR gates.
+\section{OR $\rightarrow$ NOR}
+Make an OR gate from one or more NOR gates.
+\section{NAND $\rightarrow$ NOR}
+Make a NAND gate from one or more NOR gates.
+
+
+
+
+
+
 
 
 \end{document}
