@@ -785,17 +785,17 @@ We will apply the conservation of mass at this point to solve our equations.  Th
 
 We apply KCL at the node for v1
 \begin{enumerate}
-	\item I1 – i2 – i3 = 0
-	\item I3 = 0
-	\item I1 – i2 = 0
-	\item I1 = i2
-	\item I1 = (vi – v1)/R1
-	\item I2 = (v1 - Vo)/Rf
-	\item (vi – v1)/R1 = (v1 - Vo)/Rf
-	\item V1 = V2 = 0
-	\item Vi/R1 = -Vo/Rf
-	\item Vo = -Rf/R1 * Vi
-	\item R2/R1 is our gain, gain factor.
+	\item $I1 – i2 – i3 = 0$
+	\item $I3 = 0$
+	\item $I1 – i2 = 0$
+	\item $I1 = i2$
+	\item $I1 = (vi – v1)/R1$
+	\item $I2 = (v1 - Vo)/Rf$
+	\item $(vi – v1)/R1 = (v1 - Vo)/Rf$
+	\item $V1 = V2 = 0$
+	\item $Vi/R1 = -Vo/Rf$
+	\item $Vo = -Rf/R1 * Vi$
+	\item $R2/R1$ is our gain, gain factor.
 \end{enumerate}
 
 
@@ -808,12 +808,12 @@ Again, the name might imply what it does. It will amplify our input signal witho
 
 We can again perform Nodal analysis.
 \begin{enumerate}
-	\item I1 – i2 – i3 = 0
-	\item I3 = 0, since no current enters the non-inverting input
-	\item I1 = i2
-	\item (Vg – v2)/R1 = (v2 – Vo)/Rf
-	\item –v2/R1 = (vi – Vo)/Rf
-	\item Vo = (1 + Rf/R1) * Vi
+	\item $I1 – i2 – i3 = 0
+	\item $I3 = 0$, since no current enters the non-inverting input
+	\item $I1 = i2$
+	\item $(Vg – v2)/R1 = (v2 – Vo)/Rf$
+	\item $–v2/R1 = (vi – Vo)/Rf$
+	\item $Vo = (1 + Rf/R1) * Vi$
 \end{enumerate}
 
 
@@ -988,13 +988,13 @@ Your textbook offers the following description of the technique which seems pret
 	\subitem You can give them any label you want, but I find working your way up from the ground in a clockwise manner and numbering them sequentially is a good habit to get into.
 	\subitem Keep in mind that we typically set our reference node to have a voltage of 0. We can actually set it to be anything we’d like, but the math is often easier if we just make it 0.
 	\item Then we apply KCL to each nonreference node in the circuit.
-	\subitem At node 1, $IA - i1 - i2 - IB \rightarrow IA = IB + i1 + i2$
-	\subitem At node 2, $IB + i2 - i3  IB + i2 = i3$
-	\subitem Once we’ve got that, now it’s a matter of applying Ohm’s law. Thought typically written as V = iR, it is perhaps more helpful to write its full extension here and note that (Va – Vb) = iR
-	\subsubitem $I = (Va - Vb)/R$
+	\subitem At node 1, $I_A - i_1 - i_2 - I_B \rightarrow I_A = I_B + i_1 + i_2$
+	\subitem At node 2, $I_B + i_2 - i_3 \rightarrow I_B + i2 = i3$
+	\subitem Once we’ve got that, now it’s a matter of applying Ohm’s law. Thought typically written as V = iR, it is perhaps more helpful to write its full extension here and note that (V_a – V_b) = iR
+	\subsubitem $I = (V_a - V_b)/R$
 	\subitem Thus we can state
-	\subsubitem $I1 = (v1 - v0)/R1 	\rightarrow I1 = G1(v1 - v0)$
-	\subsubitem $I2 = (v1 - v2)/R2 \rightarrow I2 = G2(v1 - v2)$
+	\subsubitem $I1 = (v_1 - v_0) /R_1 \rightarrow I_1 = G_1 (v_1 - v_0)$
+	\subsubitem $I2 = (v_1 - v_2) /R_2 \rightarrow I_2 = G_2(v_1 - v_2)$
 
 \end{enumerate}
 
@@ -1025,9 +1025,7 @@ Example implementing Cramer's Rule:
 We will use the following system of equations to demonstrate how to use Cramer's Rule to solve for the value of x:
 
 \begin{center}
-x + y + z = 4
--x + 2y = 1
--y + z = 1
+x + y + z = 4;  -x + 2y = 1;  -y + z = 1
 \end{center}
 
 \begin{enumerate}
@@ -1042,7 +1040,7 @@ x + y + z = 4
   		\end{array} } \right]
 		\]
 		\end{center}
-	\item Solve for the determinant of A. (|A| = 4). The determinant does not equal zero.
+	\item Solve for the determinant of A. ($|A| = 4$). The determinant does not equal zero.
 	\item Write the matrix Ax:
 		\begin{center}
 		\[
@@ -1054,7 +1052,7 @@ x + y + z = 4
   		\end{array} } \right]
 		\]
 		\end{center}
-	\item Solve for the determinant of Ax. (|Ax| = 4). 
+	\item Solve for the determinant of Ax. ($|Ax| = 4$). 
 	\item Solve for the value of x:
 		\begin{center}
 		x = $\frac{|Ax|}{|A|}$
@@ -1425,14 +1423,14 @@ Let's begin by analyzing the following circuit.
 	\subitem You can give them any label you want, but I find working your way up from the ground in a clockwise manner and numbering them sequentially is a good habit to get into.
 	\subitem Keep in mind that we typically set our reference node to have a voltage of 0. We can actually set it to be anything we’d like, but the math is often easier if we just make it 0. 
 	\item Then we apply KCL to each nonreference node in the circuit.
-	\subitem At node 1, $IA - i1 - i2 - IB \rightarrow IA = IB + i1 + i2$
-	\subitem At node 2, $IB + i2 - i3 - IB + i2 = i3$
-	\subitem Once we’ve got that, now it’s a matter of applying Ohm’s law. Thought typically written as $V = iR$, it is perhaps more helpful to write its full extension here and note that $(Va – Vb) = iR$
-	\item $I = (Va - Vb)/R$, Thus we can state
+	\subitem At node 1, $I_A - i_1 - i_2 - I_B \rightarrow I_A = I_B + i_1 + i_2$
+	\subitem At node 2, $I_B + i_2 - i_3 - I_B + i_2 = i_3$
+	\subitem Once we’ve got that, now it’s a matter of applying Ohm’s law. Thought typically written as $V = iR$, it is perhaps more helpful to write its full extension here and note that $(V_a – V_b ) = iR$
+	\item $I = (V_a - V_b ) /R$, Thus we can state
 	\begin{itemize} 
-		\item 	$I1 = (v1 - v0)/R1 	\rightarrow I1 = G1(v1 - v0)$
-		\item $I2 = (v1 - v2)/R2	 \rightarrow I2 = G2(v1 - v2)$
-		\item $I3 = (v2 - v0)/R3	 \rightarrow I3 = G3(v2 - v0)$
+		\item $I_1 = (v_1 - v_0 ) /R1 \rightarrow I_1 = G_1(v_1 - v_0 )$
+		\item $I_2 = (v_1 - v_2 ) /R2 \rightarrow I_2 = G+2(v_1 - v_2 )$
+		\item $I_3 = (v_2 - v_0 ) /R3 \rightarrow I_3 = G_3(v_2 - v_0 )$
 	\end{itemize}
 	\item Now we can substitute these relationships into our previous equations
 \end{enumerate}
@@ -1458,14 +1456,14 @@ Or we can create a ``supernode'' which we do by drawing a dashed line around sev
 	\item Recall that KCL says that the net current flowing through any closed surface must be equal to zero. Thus, we apply KCL to the supernode.
 \end{itemize}
 \begin{equation}
-	\frac{v_1}{R_2} + \frac{}{v_1 - (-15)}{R_!} + \frac{v_2}{R_4} + \frac{v_2 = (-15)}{R_3} = 0
+	\frac{v_1}{R_2} + \frac{R_1}{v_1 - (-15)} + \frac{v_2}{R_4} + \frac{v_2 - (-15)}{R_3} = 0
 \end{equation}
 
 Now you might be tempeted to write another current equation for the other super node, however, you’d find that the equation is equivalent to the one we just found. If we tried to solve by substitution, all the terms would drop out and we’d see that the matrix was singular (the determinant is 0, it won't tell you anything new. 
 
 Instead we apply KVL, noting that $-v_1 - 10 + v_2 = 0$
 
-Next, we find an expression for the controlling variable ix in terms of the node voltages. Notice that since in this case ix is the current flowing away from node 3 through R3, we can say ix = (v3 – v2)/R3.
+Next, we find an expression for the controlling variable ix in terms of the node voltages. Notice that since in this case ix is the current flowing away from node 3 through R3, we can say $i_x = (v_3 – v_2) / R_3$.
 
 
 \newpage
@@ -1483,7 +1481,7 @@ Write KCL equations at each node, including the current of the controlled source
 	\includegraphics{figures/06.eqn1.png}
 \end{center}
 
-Next, we find an expression for the controlling variable ix in terms of the node voltages. Notice that since in this case ix is the current flowing away from node 3 through R3, we can say $ix = (v3 - v2)/R3$.
+Next, we find an expression for the controlling variable ix in terms of the node voltages. Notice that since in this case ix is the current flowing away from node 3 through R3, we can say $i_x = (v_3 - v_2) / R_3$.
 \begin{center}
 	\includegraphics{figures/06.eqn2.png}
 \end{center}
@@ -1582,17 +1580,17 @@ Create thevenin equivalent circuit between a and b [$R_L$ is a potentiometer and
 
 \begin{enumerate}
 	\item Start by turning off the independent sources (32 V and 2 A), replacing them with a short- and an open-circuit respectively
-	\item This will yield our resistance as a 4 || 12 + 1 = (4*12)/16 + 1 = 4 ohms
+	\item This will yield our resistance as a $4 || 12 + 1 = (4*12)/16 + 1 = 4$ ohms
 	\item Next, identify what our $V_{Th}$ would be
 	\item To find $V_{Th}$ we can apply mesh analysis
 	\begin{eqnarray}
-		32 – 4i1 -12i1 + 12i2 = 0 \\ 
-		i2 = 2 \\ 
-		i1 = 0.5 A \\ 
+		$32 – 4i_1 - 12i_1 + 12i_2 = 0$ \\ 
+		$i_2 = 2$ \\ 
+		$i_1 = 0.5 A$ \\ 
 	\end{eqnarray} 
 	then plug it in for the voltage across the 12 ohm 
 	\begin{equation}
-		V_{th} = 1_2(i_1-i_1) = 30
+		V_{th} = 12(i_1-i_1) = 30
 	\end{equation}
 	\item Or could use nodal analysis
 	\begin{equation}
@@ -1621,18 +1619,18 @@ Create thevenin equivalent circuit between a and b [$R_L$ is a potentiometer and
 	\subitem We can ignore the 5-ohm resistor as its in parallel with a short and current will always seek the path of least resistance.
 	\subsubitem Recall our bioimpedance example where with increasing frequency caused the current to flow down a different branch, because with greater frequency the capacitor went from acting like an open circuit (at low frequencies) to a short circuit (at high frequencies), thus bypassing the other branch altogether.
 	\begin{eqnarray}
-		I_1 = 2  \\
-		I_2 = 12 – 4i_2 +4i_1 – 8i_2 – 8 i_2 \rightarrow 4(2) – 20(i_2) = -12 \\ 
-		I_2 = 1 = i_{sc} = I_N
+		$I_1 = 2$  \\
+		$I_2 = 12 – 4i_2 +4i_1 – 8i_2 – 8 i_2 \rightarrow 4(2) – 20(i_2) = -12$ \\ 
+		$I_2 = 1 = i_{sc} = I_N$
 	\end{eqnarray}
 	\item Alternatively, we could have found the Thevinin voltage [meshing it up]
 	\begin{eqnarray}
-		i3 = 2 \\
-		12 -4(i4) + 4(i1) – 8(i4) -5(i4) – 8(i4) \rightarrow 4(2) – 25(i4) = -12 \\
-		I4 = 0.8 A
+		$i_3 = 2$ \\
+		$12 -4(i_4) + 4(i_1) – 8(i_4) -5(i_4) – 8(i_4) \rightarrow 4(2) – 25(i_4) = -12$ \\
+		I_4 = 0.8 A
 	\end{eqnarray}
 	\subitem Since we know 0.8 A goes through the 5 ohm resistor, and since we know that that 5 ohm resistor experiences the same voltage drop as the open circuit, we simple multiple 5*0.8 to give us, 4 V
-	\item Well since we know $R_N = R_Th$ is 4 and $V_Th$ is 4: $I_N = V_Th/R_Th = 1 A$
+	\item Well since we know $R_N = R_{Th}$ is 4 and $V_{Th}$ is 4: $I_N = V_{Th}/R_{Th} = 1 A$
 	\item Thus Norton and Thevenin circuits are two sides of the same “source transformation” coin
 \end{enumerate}
 
