@@ -3453,6 +3453,60 @@ The T-wave represents the repolarization of the ventricles. It occurs when ventr
 	\item User input
 \end{enumerate}
 
+\section{Electrophysiology}
+Electrophysiology is a branch of physiology that deals with electical potentials of the body.
+There are many specific branches of electrophysiology, one being electrocardiography. Four other common types are
+\begin{enumerate}
+	\item Electroencephalography(EEG), which deals with the brain
+	\item Electrooculography(EOG), which deals with the eyes
+	\iteam Electromyography(EMG), which deals with skeletal muscle
+	\item Electrogastrography(EGG), which deals with the stomach and intestines
+\end{enumerate}
+
+\subsection{Electroencephalography(EEG)}
+\begin{itemize}
+	\item Electroencephalography is the monitoring of the activity of the brain by measuring the potential at many points across the scalp.
+	\item An International 10-20 system is used to keep track of the location of each point that the potential is being measured at. These points are markers for where the electrodes are to be placed.
+	\item A simplified represenatation of this system has electrodes on the cerebral cortex at each major lobe.
+	\begin{enumerate}
+	\item Frontal
+	\item Temporal
+	\item Parietal
+	\item Occipital
+	\end{enumerate}
+	\item Each EEG contains a lot of information, as it is a sum total of all brain firings occuring .
+	\item EEGs however do pickup electrical signals of other sources, so EEGs have to be corrected in order to get the separation of releveant and non-relevant signals. An example of this in a real-life situation is the cocktail party effect, where with enough focus and concentration, it is possible to filter out a bunch of stimuli, which would be different conversations, and focus in a specific stimulus, which would be the conversation a person would be engaging in. 
+\end{itemize}
+	
+\subsection{Electrooculography(EOG)}
+\begin{itemize}
+	\item Electrooculography deals with tracking the dipole formed by assessing the cornco-retinal standing potential between front and back of the eye. At the back of the eye is the negative side, and the front of the eye is the positive side. By looking at the angle of the dipole and direction of potential created, we can determine whether a person is looking forward, up or down.
+	\item This information can then be used for wheelchairs for paralyzed patients or text-to-speech programs.
+\end{itemize}
+
+\subsection{Electromyography(EMG)}
+\begin{itemize}
+	\item Electromyography is the measuring of electrical activity of skeletal muscles. EMGs are typically used for diagnosising abnormalities or for practical uses, like in athletics.
+	\item The muscles in our body are connected to nerves within our brain via alpha-motor neurons, which are large neurons that are located in the brainstem and the spinal cord.
+	\item The signals from these neurons cause contractions, which is a huge signal that is hard to measure and quantify. 
+	\item However, each individual motor unit within the neuron has their own action potential trait, and the accumulation of these individual potentials becomes the EMG signal.
+\end{itemize}
+
+\subsection{Electrogastrography(EGG)}
+\begin{itemize}
+	\item Electrogastrography is used to determine the spread of potentials through out the GI tract's (mouth to rectum) muscles during rest and during contractions.
+	\item Motility in the GI tract results from coordinated contractions of smooth muscle.
+	\item The electrical signals comprise of action potentials and slow waves, which are a rhythmic movement of the smooth muscle in the GI tract.
+	\item Common Cycles Per Minutes for Slow Waves for Various Smooth Muscles in the GI Tract
+	\begin{enumerate}
+		\item Stomach: 3 CPM
+		\item Duodenum: 12 CPM
+		\item Jejunum: 11 CPM
+		\item Ileum: 8 CPM
+		\item Rectum: 17 CPM
+	\end{enumerate}
+\end{itemize}
+
 \section{Modeling a neuron}
 \includepdf[pages=-]{figures/elijah-neuron.pdf}
 
@@ -4658,7 +4712,8 @@ Did you know that each of the above knight and knave situations can be represent
 \chapter{Collected exercises}
 \minitoc
 \section{A constant charge through a cross-section}
-How much charge passes through a cross-section of a conductor in 60 seconds if a DC current value is measured at 0.1 mA?
+How much charge passes through a cross-section of a conductor in 60 seconds if a DC current value is measured at 0.1 mA?
+
 
 \section{An arbitrary charge through a cross-section}
 Determine the total charge entering a terminal between $t = 0$ seconds and $t = 10$ seconds if the current (in amps) passing through is
@@ -4697,7 +4752,8 @@ Utilizing Ohm's law, express units of power to include ohms.
 \section{A toaster based problem}
 A toaster draws 2 A at 120 V. What is its resistance?
 
-\section{Another toaster based problem}How much current is drawn by a toaster with a resistance of 10 $\Omega$ at 110 V?
+\section{Another toaster based problem}
+How much current is drawn by a toaster with a resistance of 10 $\Omega$ at 110 V?
 
 
 \section{A current power}
@@ -4706,7 +4762,8 @@ In the circuit shown, calculate the current, $i$, the conductance, $G$, and the 
 
 \section{A sodium channel's conductance}
 Conductance ($G$/$A$) of a sodium channel of a cell membrane at a specific time is 10 mS/cm$^{2}$. If the channel length as 100 nm, what is its conductivity?
-
+
+
 
 \section{A simple tissue's resistance}
 Determine the resistance of a homogenous and isotropic tissue with a cross-sectional area which can be described by the functions $y = 8 - x^2$ from $x = -2$ cm to $x = +2$ cm, a length of 10 cm (parallel to the z-axis), and a resistivity of 80 $\Omega$m.
@@ -4724,7 +4781,8 @@ Write the matrix form of the equations written above.
 
 \section{Cramer's rule}
 Using Cramer’s rule on the matrix equations above, what are the results?
-
+
+
 
 \section{Straight to the matrix}
 Write the node-voltage equations to the circuit at right in the matrix form.
@@ -4744,11 +4802,13 @@ Find the Laplace transform of the following:
 
 \section{Differential equation of a series RLC circuit}
 What is the differential equation describing an inductor, a resistor, and a capacitor in series?
-
+
+
 
 \section{Differential equation of a series RLC circuit with numbers}
 What is the differential equation describing an inductor, a resistor, and a capacitor in series? What is a solution to that  differential equation if L = 1 H, R = 1 $\Omega$, and C = 100 mF? Take the Laplace transform of the differential equation. What are its poles and zeros?
-
+
+
 
 \section{An $s$-plane with found zeros}
 Draw an s-plane. Label the axes. Plot the poles and zeros you found. What can you say of the behavior of the system? If the poles had an imaginary component to them (that is, if they were pushed along the vertical axis), how would that affect our system?
@@ -4784,7 +4844,8 @@ Given that
 
 \section{Pedro, Apollonia, \& Peter}
 You come across three inhabitants and ask the first, Pedro, ``Are you a knight or a knave?'' Pedro answers, but so quietly you can't hear him. You ask Apollonia ``What did he say?'' to which she responds ``Pedro said he was a knave.'' Upon hearing this, Peter piped up and said ``Don't believe that; it’s a lie.'' Is Peter a knight or a knave? (Further, is it possible to know what Pedro is?)
-
+
+
 \section{Roger \& Oedipa} 
 Shortly after that you meet two inhabitants, Roger Mexico and Oedipa Maas. Roger claims, ``Both of us are knaves.'' What are Roger and Oedipa?
 
@@ -4793,7 +4854,8 @@ Suppose you’ve heard a rumor that there’s gold buried nearby. You meet a loc
 
 \section{Lisa \& Louise}
 Lisa and Louise are twins indistinguishable in appearance. One always lies, the other always tells the truth. You don’t know which is which. You meet one of them and may ask one question to determine which twin is truth. What do you ask and what does it tell you?
-
+
+
 \section{NOT $\rightarrow$ NOR}
 Make a NOT gate from one or more NOR gates.
 \section{PAND $\rightarrow$ NOR}
