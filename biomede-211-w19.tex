@@ -808,12 +808,12 @@ Again, the name might imply what it does. It will amplify our input signal witho
 
 We can again perform Nodal analysis.
 \begin{enumerate}
-	\item $I1 – i2 – i3 = 0
-	\item $I3 = 0$, since no current enters the non-inverting input
-	\item $I1 = i2$
-	\item $(Vg – v2)/R1 = (v2 – Vo)/Rf$
-	\item $–v2/R1 = (vi – Vo)/Rf$
-	\item $Vo = (1 + Rf/R1) * Vi$
+	\item $i_1 – i_2 – i_3 = 0$
+	\item $i_3 = 0$, since no current enters the non-inverting input
+	\item $i_1 = i2$
+	\item $(v_g – v_2)/R_1 = (v_2 – v_o)/R_f$
+	\item $–v_2/R1 = (v_i – v_o)/R_f$
+	\item $v_o = (1 + R_f/R_1) * V_i$
 \end{enumerate}
 
 
@@ -990,8 +990,8 @@ Your textbook offers the following description of the technique which seems pret
 	\item Then we apply KCL to each nonreference node in the circuit.
 	\subitem At node 1, $I_A - i_1 - i_2 - I_B \rightarrow I_A = I_B + i_1 + i_2$
 	\subitem At node 2, $I_B + i_2 - i_3 \rightarrow I_B + i2 = i3$
-	\subitem Once we’ve got that, now it’s a matter of applying Ohm’s law. Thought typically written as V = iR, it is perhaps more helpful to write its full extension here and note that (V_a – V_b) = iR
-	\subsubitem $I = (V_a - V_b)/R$
+	\subitem Once we’ve got that, now it’s a matter of applying Ohm’s law. Thought typically written as $V = iR$, it is perhaps more helpful to write its full extension here and note that $(V_a – V_b) = iR
+$	\subsubitem $I = (V_a - V_b)/R$
 	\subitem Thus we can state
 	\subsubitem $I1 = (v_1 - v_0) /R_1 \rightarrow I_1 = G_1 (v_1 - v_0)$
 	\subsubitem $I2 = (v_1 - v_2) /R_2 \rightarrow I_2 = G_2(v_1 - v_2)$
@@ -1584,9 +1584,9 @@ Create thevenin equivalent circuit between a and b [$R_L$ is a potentiometer and
 	\item Next, identify what our $V_{Th}$ would be
 	\item To find $V_{Th}$ we can apply mesh analysis
 	\begin{eqnarray}
-		$32 – 4i_1 - 12i_1 + 12i_2 = 0$ \\ 
-		$i_2 = 2$ \\ 
-		$i_1 = 0.5 A$ \\ 
+		32 – 4i_1 - 12i_1 + 12i_2 = 0 \\ 
+		i_2 = 2 \\ 
+		i_1 = 0.5 A \\ 
 	\end{eqnarray} 
 	then plug it in for the voltage across the 12 ohm 
 	\begin{equation}
@@ -1619,14 +1619,14 @@ Create thevenin equivalent circuit between a and b [$R_L$ is a potentiometer and
 	\subitem We can ignore the 5-ohm resistor as its in parallel with a short and current will always seek the path of least resistance.
 	\subsubitem Recall our bioimpedance example where with increasing frequency caused the current to flow down a different branch, because with greater frequency the capacitor went from acting like an open circuit (at low frequencies) to a short circuit (at high frequencies), thus bypassing the other branch altogether.
 	\begin{eqnarray}
-		$I_1 = 2$  \\
-		$I_2 = 12 – 4i_2 +4i_1 – 8i_2 – 8 i_2 \rightarrow 4(2) – 20(i_2) = -12$ \\ 
-		$I_2 = 1 = i_{sc} = I_N$
+		I_1 = 2 \\
+		I_2 = 12 – 4i_2 +4i_1 – 8i_2 – 8 i_2 \rightarrow 4(2) – 20(i_2) = -12 \\ 
+		I_2 = 1 = i_{sc} = I_N
 	\end{eqnarray}
 	\item Alternatively, we could have found the Thevinin voltage [meshing it up]
 	\begin{eqnarray}
-		$i_3 = 2$ \\
-		$12 -4(i_4) + 4(i_1) – 8(i_4) -5(i_4) – 8(i_4) \rightarrow 4(2) – 25(i_4) = -12$ \\
+		i_3 = 2 \\
+		12 -4(i_4) + 4(i_1) – 8(i_4) -5(i_4) – 8(i_4) \rightarrow 4(2) – 25(i_4) = -12 \\
 		I_4 = 0.8 A
 	\end{eqnarray}
 	\subitem Since we know 0.8 A goes through the 5 ohm resistor, and since we know that that 5 ohm resistor experiences the same voltage drop as the open circuit, we simple multiple 5*0.8 to give us, 4 V
