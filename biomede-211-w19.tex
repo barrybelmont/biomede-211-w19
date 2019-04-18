@@ -3677,10 +3677,9 @@ Or, how to make everything from NORs.
 
 \subsection{XNOR from NOR}
 
+\subsection{For examples and more explaination visit : http://www.ee.surrey.ac.uk/Projects/CAL/digital-logic/gatesfunc/}
 
 \includegraphics[width=\textwidth]{figures/XNOR.jpg}
-
-For examples and more explanation visit : http://www.ee.surrey.ac.uk/Projects/CAL/digital-logic/gatesfunc/
 
 \newpage
 \section{Digital components}
@@ -3850,106 +3849,6 @@ This video describes how a breadboard is connected and what it means to connect 
 (2) RC Filters: https://youtu.be/kc02HWprTo8
 This video goes through the math behind RC filters and shows the resulting behavior of these filters on an oscilloscope, briefly showing the design of these circuits on a breadboard.
 
-\section{Getting the Band(pass) Back Together}
-A tutorial created by Isabel Holtan and Ryan Schildcrout.
-
-\subsection{Materials}
-Before you begin, you will need to gather the following materials:
-
-\begin{itemize}
-	\item 2 resistors
-	\item 3 alligator clips
-	\item an LM741 OpAmp
-	\item 7 thick wires and 5 smaller wires
-	\item a bread board
-	\item 2 capacitors
-	\item 2 output splitters
-\end{itemize}
-\includegraphics{figures/ex.01.png}
-\includegraphics{figures/ex.02.png}
-\includegraphics{figures/ex.03.png}
-\includegraphics{figures/ex.04.png}
-\includegraphics{figures/ex.05.png}
-\includegraphics{figures/ex.06.png}
-\includegraphics{figures/ex.07.png}
-
-\subsection{Selecting Capacitor and Resistor Values}
-In order to make an inverting bandpass filter, you should select corner frequencies that are higher than 1 Hz, ideally, in order to see an interesting response on the oscilloscope. This is because when you look at frequencies this low, they are very slow.  For this filter, both the low pass and high pass sections require a capacitor and a resistor. The equation for the corner frequency for this circuit is 1/RC. You have a lot of room to play with these corner frequencies, but the lower and upper values represent the bandwidth of your filter. 
-
-\subsection{Circuits, Assemble!}
-Place the op amp in the circuit across a gap. That way, the two sides of the op amp are not connected below the bread board.
-
-\includegraphics{figures/ex.08.png}
-
-Add the high pass resistor in series with the terminal 2 position of the op amp by placing one end in the same row as the terminal and the other in a row above. Make sure that these are not in the same row as any other elements. This is the inverting input.
- 
-\includegraphics{figures/ex.09.png}
-
-Add the high pass capacitor in series with the resistor by placing one end in the same row as the other end of the resistor. 
-
-\includegraphics{figures/ex.10.png}
-
-Add a wire in series to the other end of the capacitor, and connect it to Va (voltage input).
-
-\includegraphics{figures/ex.11.png}
-
-Add one end of the low pass capacitor in series with terminal 2, and the other end in series with terminal 6. This puts the capacitor in parallel with op amp, as they both share the same nodes. Then, add the low pass resistor in series with the capacitor on both sides. This gives us the capacitor, the resistor, and the OpAmp all in parallel with each other. 
-
-\includegraphics{figures/ex.12.png}
-Next, add an output wire in series with terminal 6, and connect it to Vb.
-
-
-\includegraphics{figures/ex.13.png}
-
-Attach yellow wires to terminals 4 and 7 of the OpAmp; these will be the positive and negative source voltages. Don’t connect them; we will attach alligator clips to them later so we can power the OpAmp
-
-\includegraphics{figures/ex.14.png}
-
-Attach a wire in series with terminal 3, and connect it to ground. 
-
-\includegraphics{figures/ex.15.png}
-
-Now, we can start to add our power!
-
-\subsection{With Great Power Comes Great Responsibility}
-
-For clarity, we will be referring to the following locations as numbered below: 1 is the input voltage; 2 is the ground; 3 is the output voltage; 4 is the positive source voltage; 5 is the negative source voltage.
-
-
-\includegraphics{figures/ex.16.png}
-
-Use a voltage splitter to divide the output of the waveform generator, and attach the black wire to 2 (ground) in order to provide a reference to counteract the noise from the environment. Attach the red one to 1 (Va). 
-
-\includegraphics{figures/ex.17.png}
-
-The output will travel to the oscilloscope, where it will be read in and shown as a wave. So, attach one side to position 3 (the output). Or you can plug it into Vb, if you’re so inclined; there is no difference between these two positions.
-
-Attach the other wire to position 2 (ground), because the oscilloscope will measure the difference between the output and the ground.
-
-
-\includegraphics{figures/ex.18.png}
-
-Plug the COM wire into 2 (ground), once again to act as a reference. Plug the 20+ into location 4 (positive source voltage) and the 20- into location 5 (negative source voltage).
-
-\includegraphics{figures/ex.19.png}
-
-This picture shows how all of the inputs and outputs actually attach to the power supply, oscilloscope, and waveform generator. 
-
-\includegraphics{figures/ex.20.png}
-
-\subsection{Testing, Testing...}
-
-Now we can test how accurate our corner frequency is!
-
-For a bandpass of 0.2Hz to 17.8Hz, here is an example of a signal within the bandwidth. This was driven at 4Hz, it can be seen that it has a fairly large amplitude.
-
-\includegraphics{figures/ex.21.png}
-
-This is the result after using 27Hz. The signal has significantly less amplitude and is therefore attenuated.
-
-\includegraphics{figures/ex.22.png}
-
-Now you have the fundamentals of building a bandpass! Of course, you can play around with this circuit to create different types of filters. Have fun, and be safe kids. \footnote{Barry's note: Thank you Isabel and Ryan for putting this all together.}
 
 \chapter{Happenstance \& Circumstance: A few BME specific situations and standards}
 04/16/2019
@@ -4475,6 +4374,47 @@ https://philosophy.hku.hk/think/logic/knights.php
 
 Website with problems for Logic gates:
 https://www.allaboutcircuits.com/worksheets/basic-logic-gates/
+\newpage
+
+\section{Final Exam Practice}
+\begin{enumerate}
+	\item (1)True or False: A forward biased diode has current flowing through it and the potential difference increases. 
+	\item Answer: False; the potential difference in the diode is smaller when it is forward bias because the positive terminal of the circuit is connected to the P-type material while the negative terminal is connected to the N-type material, which decreases the PN junction width and therefore the electric potential.
+	\item (2) When does resonance occur with an inductor and capacitor?
+	\subitem a) Wehn impedence is at its minimum and the elements are in series
+	\subitem b) when impedence is at its maximumm and the elements are in series
+	\subitem c) when impedence is at its minimum and the elements are in parallel
+	\subitem d) when impedence is at its maximum and the elements are in parallel
+	\subitem e) both a and c
+	\subitem f) both b and d
+	\item Answer: e) Resonance occurs when the inductance values of the two elements are equal, which happens at the minimum impedence in series or at the maximum impedence in parallel
+	\item (3) What does is te purpose of the -Vs and +Vs terminals on an operational amplifier?
+	\item Answer: The potential at the -Vs terminal sets the lower pound of the final voltage potential while the +Vs terminal sets the upper bound. The  resulting voltage potential from the op amp cannot exceed either of these extremities.  
+	\item (4) What are the voltage transfer functions for inverting and non-inverting amplifiers?
+	\item Answer: For inverting op amps: (Vo/Vi) = -(Rf/Ri), and for non-inverting op amps: (Vo/Vi) = 1 + (Rf/Ri)
+	\item (5) What is an assumption we must make before using Norton and Thevenin Eequivalences to solve a circuit?
+	\item Answer: We must assume that the circuit is linear, meaning that it abides by two rules: homogeneity (if V=IR, then cV = cIR) and additivity (if V1 = I1*R1 and V2 = I2*R2, then Vt = V1 + V2 = I1*R1 + I2*R2). 
+	\item (6) How many poles does the following transfer function contain and what are they: (s-5)/(((s-6)^2)*(s-3))
+	\subitem a) 2 poles at s = 3,6 
+	\subitem b) 3 poles at s = 3,5,6 
+	\subitem c) 1 regular pole at s = 3 and 1 repeating pole at s = 6 
+	\item Answer: c) The term in the numerator (s-5) will give you a zero at s = 5, while the terms in the denominator would give us a pole at s = 3 and a repeating pole at s = 6.
+	\item (7) Find the time dependant voltage equation v(t) given that its Laplace transform  V(s) = 5/((s-6)*(s-3)^2)
+	\item Answer: First step is to perform partial fraction decomposition
+	\item 5/((s-6)*(s-3)^2) = (A)/(s-6) + (Bs+C)/(s-3)^2
+	\item 5 = A(x-3)^2 + B(s-6)*(s-3) + C(s-6)  by plugging in s = 6, we get that A = 5/9; when s= 3, C = -5/3
+	\item By plugging in for A and C, we get 5 =  (5/9)(x-3)^2 + B(s-6)*(s-3) + (-5/3)(s-6), from which we can get B = -5/9
+	\item New V(s) = -5/(9(s-3)^2) - 5/(3(s-3)) + 5(9(s-6))
+	\item by taking the inverse laplace transform, we get: 
+	\item v(t) = (e^(3t)/9)(-15 + 5e^(3t) -5)
+	\item (8) True or False: We dope silicon with impurities in order to increase or decrease its conductivity
+	\item Answer: True; Silicon molecules are in crystaline structures in which they are all boun to 4 other silicon molecules. When adding an impurity that has more than 4 electrons in its valance shell, 4 of the electrons will bind to the silicon but the other will remain free to conduct an electrical charge. 
+	\item (9) biomedical devices are classified into 3 "classes." What are they?
+	\item Answer: Class I devices require a general control that  must extend to all devices. These types of devices already exist and have been proved to not generate risks of any kind to the user. Class II devices are considered to only expose the user to a moderate risk and they must be proven to function as intended (can be done by similarity to current product). Finally, class III devices must be critical to a person's suvival or have high potential risks of ending a person's life. 
+	\item (10) Given the voltage transfer function s(s-3)^2/(s-5), what will be the end-behavior slope of the BODE plot representing the transfer function?
+	\item Answer: Since every zero adds 20dB/dec to the slope of the graph and every pole subtracts 20dB/dec, the slop = 20 + 2*(20) -20 = +40 dB/dec
+	
+	
 
 \newpage
 
@@ -4954,7 +4894,7 @@ Given that
 
 \section{Pedro, Apollonia, \& Peter}
 You come across three inhabitants and ask the first, Pedro, ``Are you a knight or a knave?'' Pedro answers, but so quietly you can't hear him. You ask Apollonia ``What did he say?'' to which she responds ``Pedro said he was a knave.'' Upon hearing this, Peter piped up and said ``Don't believe that; it’s a lie.'' Is Peter a knight or a knave? (Further, is it possible to know what Pedro is?)
-
+\begin{Pedro,Apollonia, \&Peter}
 
 \section{Roger \& Oedipa} 
 Shortly after that you meet two inhabitants, Roger Mexico and Oedipa Maas. Roger claims, ``Both of us are knaves.'' What are Roger and Oedipa?
