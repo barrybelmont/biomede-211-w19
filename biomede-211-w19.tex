@@ -3891,7 +3891,159 @@ From the U.S. FDA's website:
 \chapter{A philosophy of circuits, systems, and signals in biomedical engineering}
 04/23/2019
 
+\newpage
 
+
+
+\section{Final Exam Practice}
+
+
+
+\begin{enumerate}
+
+
+
+	\item (1)True or False: A forward biased diode has current flowing through it and the potential difference increases. 
+
+
+
+	\item Answer: False; the potential difference in the diode is smaller when it is forward bias because the positive terminal of the circuit is connected to the P-type material while the negative terminal is connected to the N-type material, which decreases the PN junction width and therefore the electric potential.
+
+
+
+	\item (2) When does resonance occur with an inductor and capacitor?
+
+
+
+	\subitem a) Wehn impedence is at its minimum and the elements are in series
+
+
+
+	\subitem b) when impedence is at its maximumm and the elements are in series
+
+
+
+	\subitem c) when impedence is at its minimum and the elements are in parallel
+
+
+
+	\subitem d) when impedence is at its maximum and the elements are in parallel
+
+
+
+	\subitem e) both a and c
+
+
+
+	\subitem f) both b and d
+
+
+
+	\item Answer: e) Resonance occurs when the inductance values of the two elements are equal, which happens at the minimum impedence in series or at the maximum impedence in parallel
+
+
+
+	\item (3) What does is te purpose of the -Vs and +Vs terminals on an operational amplifier?
+
+
+
+	\item Answer: The potential at the -Vs terminal sets the lower pound of the final voltage potential while the +Vs terminal sets the upper bound. The  resulting voltage potential from the op amp cannot exceed either of these extremities.  
+
+
+
+	\item (4) What are the voltage transfer functions for inverting and non-inverting amplifiers?
+
+
+
+	\item Answer: For inverting op amps: (Vo/Vi) = -(Rf/Ri), and for non-inverting op amps: (Vo/Vi) = 1 + (Rf/Ri)
+
+
+
+	\item (5) What is an assumption we must make before using Norton and Thevenin Eequivalences to solve a circuit?
+
+
+
+	\item Answer: We must assume that the circuit is linear, meaning that it abides by two rules: homogeneity (if V=IR, then cV = cIR) and additivity (if V1 = I1*R1 and V2 = I2*R2, then Vt = V1 + V2 = I1*R1 + I2*R2). 
+
+
+
+	\item (6) How many poles does the following transfer function contain and what are they: (s-5)/(((s-6)^2)*(s-3))
+
+
+
+	\subitem a) 2 poles at s = 3,6 
+
+
+
+	\subitem b) 3 poles at s = 3,5,6 
+
+
+
+	\subitem c) 1 regular pole at s = 3 and 1 repeating pole at s = 6 
+
+
+
+	\item Answer: c) The term in the numerator (s-5) will give you a zero at s = 5, while the terms in the denominator would give us a pole at s = 3 and a repeating pole at s = 6.
+
+
+
+	\item (7) Find the time dependant voltage equation v(t) given that its Laplace transform  V(s) = 5/((s-6)*(s-3)^2)
+
+
+
+	\item Answer: First step is to perform partial fraction decomposition
+
+
+
+	\item 5/((s-6)*(s-3)^2) = (A)/(s-6) + (Bs+C)/(s-3)^2
+
+
+
+	\item 5 = A(x-3)^2 + B(s-6)*(s-3) + C(s-6)  by plugging in s = 6, we get that A = 5/9; when s= 3, C = -5/3
+
+
+
+	\item By plugging in for A and C, we get 5 =  (5/9)(x-3)^2 + B(s-6)*(s-3) + (-5/3)(s-6), from which we can get B = -5/9
+
+
+
+	\item New V(s) = -5/(9(s-3)^2) - 5/(3(s-3)) + 5(9(s-6))
+
+
+
+	\item by taking the inverse laplace transform, we get: 
+
+
+
+	\item v(t) = (e^(3t)/9)(-15 + 5e^(3t) -5)
+
+
+
+	\item (8) True or False: We dope silicon with impurities in order to increase or decrease its conductivity
+
+
+
+	\item Answer: True; Silicon molecules are in crystaline structures in which they are all boun to 4 other silicon molecules. When adding an impurity that has more than 4 electrons in its valance shell, 4 of the electrons will bind to the silicon but the other will remain free to conduct an electrical charge. 
+
+
+
+	\item (9) biomedical devices are classified into 3 "classes." What are they?
+
+
+
+	\item Answer: Class I devices require a general control that  must extend to all devices. These types of devices already exist and have been proved to not generate risks of any kind to the user. Class II devices are considered to only expose the user to a moderate risk and they must be proven to function as intended (can be done by similarity to current product). Finally, class III devices must be critical to a person's suvival or have high potential risks of ending a person's life. 
+
+
+
+	\item (10) Given the voltage transfer function s(s-3)^2/(s-5), what will be the end-behavior slope of the BODE plot representing the transfer function?
+
+
+
+	\item Answer: Since every zero adds 20dB/dec to the slope of the graph and every pole subtracts 20dB/dec, the slop = 20 + 2*(20) -20 = +40 dB/dec
+
+\end{enumerate}
+
+\newpage
 
 
 
