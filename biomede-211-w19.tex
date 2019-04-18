@@ -1671,247 +1671,9 @@ When we’ve got a dependent source, we can’t just remove the sources and comb
 \end{enumerate}
 
 
-\chapter{A review of the material so far}
-02/07/2019 
-
-\section{A set of exercises in preparation of the first Glorifed Quiz}
-
-\begin{enumerate}
-	\item Find the equivalent resistance of the following [``+'' means ``in series with'', ``$\vert\vert$'' means ``in parallel with'']:
-	\subitem a.	R1 + R2$\vert\vert$(R3 + R4)
-	\subitem b.	(R1 + R2)$\vert\vert$(R3 + R4)
-	\subitem c.	R1 + (R2 + R3$\vert\vert$(R4 + R5)||R6)
-	\subitem d.	(R1$\vert\vert$R2$\vert\vert$R3)$\vert\vert$(R4$\vert\vert$R5$\vert\vert$R6)||(R7 + R8$\vert\vert$R9)
-	\item To use superposition, one must turn off sources. A voltage source is replaced by what? A current source is replaced by what?
-	\item A 5 µF capacitor has accumulated a total charge of 1250 µC. What is the voltage across the capacitor?
-	\item Name each of the four types of dependent power sources and explain their functioning a bit beyond their name.
-	\item The unit of current is the ampere, A. What are some equivalent units (for instance, what is its relationship to charge)?
-	\item Does potential change instantaneously over the terminals of a capacitor?
-	\item An RC circuit (in which ``R + C'', seen below) has a time constant, $\tau = RC$. Prove the following at a time $t_0$ when the switch is thrown to complete the circuit.
-	
-	\begin{center}\includegraphics{figures/q1.01.png}\end{center}
-	
-	\subitem a. $I(t) = \frac{V_0}{R}\cdot e^{-t/\tau}$
-	\subitem b. $V(t) = V_0\left(1-e^{-t/\tau}\right)$
-	\subitem c. $Q(t) = C\cdot V_0\left(1-e^{-t/\tau}\right)$
-	\item What is the difference between active and passive circuit elements?
-	\item What can an ideal current source do what a real one cannot?
-	\item What can ideal voltage source do what a real one cannot?
-	\item Draw the symbol for a polarized capacitor.
-	\item Draw the symbol for a potentiometer.
-	\item Draw an op-amp, label its terminals, and explain what each does.
-	\item What’s another name for a conductor?
-	\item Which way does current run in a diode?
-	\item Describe what Ohm’s law tells us in your own words.
-	\item What is conductance? State Ohm’s law using conductance. What does it tell us about eh current passing through conductive materials?
-	\item What is the equation for resistance in terms of resistivity? If resistivity goes up, what happens to resistance? If the cross-sectional areas decreases, what results? If a resistor keeps the exact same cross-sectional area over a length L, yet we contorted it into a very weird shape (say a balloon-animal poodle), will its resistance remain the same according to the aforementioned equation. Does that agree with your intuition?
-	\item A capacitor has a time variance of current according to the follow formulation $I(t) = \frac{dQ(t)}{dt} = C\frac{dV(t)}{dt}$. That might be useful to know. See if you can prove that relationship to yourself knowing that C = Q/V.
-	\item What is an inductor and how does it work?
-	\item What is impedance? What is impeded? What does the impeding?
-	\item What is the real and imaginary component of impedance.	
-	\item How would I represent impedance by a magnitude and phase?
-	\item 	What is impedance’s inverse? What are its real and imaginary components?	
-	\item What is the impedance of a resistor, capacitor, and inductor?
-	\item Find the equivalent impedance of the following, being sure to remove imaginary numbers from the denominator [``+'' means ``in series with'', ``$\vert\vert$'' means ``in parallel with'']:
-	\subitem a.	Z1$\vert\vert$(Z2 + Z3)
-	\subitem b.	(R1 + C1)$\vert\vert$C2$\vert\vert$(R2 + R3 + C3)
-	\subitem c.	(R1 + L1)$\vert\vert$(C1 + L1)$\vert\vert$(C1 + R1)
-	\item Convert a Wye circuit, with all R = 10 ohms, to a Delta circuit.
-	\item Find the equivalent impedance of a Delta circuit of capacitors.	
-	\item Given the following map, can you plan a parade rate that crosses each bridge exactly once? Why or why not?
-	
-	\begin{center}\includegraphics{figures/q1.02.png}\end{center} 
-	
-	\item 32.	Prove the fundamental theorem of network topology given any circuit (for instance, those aforementioned).
-	\item Kirchhoff’s current law is a mere recitation of what other law of physics?
-	\item Kirchhoff’s voltage law is a mere recitation of what other law of physics?
-	\item When do we most use KCL? When do we must use KVL? Which do you prefer in general and why?
-	\item Draw a complicated circuit (at least four branches) and solve for the current going through each component.
-	\item Analyze the aforementioned complicated circuit using nodal analysis. Analyze said circuit with mesh analysis. Prove the validity of the fundamental theorem of network topology using said circuit.
-	\item What is the difference between earth ground and chassis ground?
-	\item Draw a circuit using each of the following, R1 = 10 ohms, R2 = 20 ohms, R3 = 30 ohms, R4 = 40 ohms, V1 = 20 V, V2 = 10 V, and I1 = 2 A. Solve using nodal analysis if you can (do you need to make a supernode?). Solve using mesh analysis if you can (do you need to make a supermesh?).
-	\item Can you imagine modeling some actions in terms of circuits? For instance, if you were asked to model an equivalent circuit based on the operations of a shop floor, could you do it? If you were asked to model some aspect of physiology could you? The resistance of blood to flow? The capacitance of the lungs? The duration of our blinks?
-	\item What is Cramer’s rule and how do we use it?
-	\item Draw a circuit with at least five resistors and two current sources. Put that circuit into matrix formation for nodal voltages from inspection alone. What values should be along the diagonal, what values should be on the off-diagonal?
-	\item To solve the above circuit in MATLAB, what would you type in?
-	\item For any circuit stated previously, add a voltage source to one of the branches and solve using nodal analysis. What new technique did you need to employ and why did you need to? What does that technique do to our matrix?
-	\item To any previously mentioned circuit, add a dependent current source and let it be dependent on the current going through R1. How does this change your nodal voltages?
-	\item Given a jolt of 240 J from an AED, provide an energy equivalent. For example, how many little soft kitten jumps on the chest (1 kg, 5cm) is it equivalent to? It would be like falling from a height of how much? [Hint: the ground comes up at you.]
-	\item A hospital consumes 500 kW in 60 seconds. How many people running on treadmills would it take to power it for a minute?
-	\item A nurse starts their shift turning on medical doohickey that consumes 50 W at 220 V. How many electrons’ worth of charge pass through the doohickey before the nurse turns it off at the end of their shift, 10 hours later?
-	\item Explain how mesh analysis works.
-	\item Draw a mesh circuit with at least 6 unique elements. Analyze it.
-	\item Draw another mesh circuit with at least four loops. Analyze it.
-	\item For the two above-mentioned mesh circuits, put them directly into matrix form. What values go along the diagonal? What values go on the off-diagonals?
-	\item For one of the mesh circuits you drew in either, add a dependent current source and solve using mesh analysis.
-	\item How do we measure current and potential using actual ammeters and voltmeters? Why must we “break” the circuit to measure current? How do we measure potential across an element?
-	\item Say, in as much detail as you can muster, what you believe the Thevenin circuit theorem is about.
-	\item Say, in as much detail as you can muster, what you believe the Norton circuit theorem is about.
-	\item Changing a potential source to a current source is an example of what technique to analyze circuits?
-	\item What are two attributes necessary for things to be ``linear''?
-	\item What is superposition and how do we use it to analyze a circuit?
-	\item How do you turn off a voltage source in a circuit diagram? How do you turn off a current source?
-	\item To one of the above dozen or so circuits you have drawn, find the Thevenin equivalent.
-	\item To one of the above dozen or so circuits you have drawn, find the Norton equivalent.
-	\item To the Thevenin in 62, convert it to its Norton equivalent. To the Norton in 63, convert it to its Thevenin equivalent.\
-	\item What is an open circuit? What is a short circuit? How are they relevant to Thevenin and Norton equivalents?
-	\item Draw an LM741 and label all 8 pins.
-	\item What is an operational amplifier? What does it behave like? What can it do for us? How are they different from resistors, capacitors, and their ilk?
-	\item What are the three key features we need to know to analyze op-amp circuits?
-	\item Draw an inverting amplifier with R1 = 20 ohms, and R2 = 100 ohms. What is the gain on the input signal?
-	\item Draw an inverting amplifier with Z1 = R1 = (Ra$\vert\vert$Rb) and Z2 = R2 = (Rc + Rb). Solve for the output voltage in terms of the input voltage.
-	\item Draw a non-inverting amplifier with R1 = 100 kohms and R2 = 100 kohms.
-	\item Draw the two circuits you drew above in series with one another. What is the output?
-	\item What is a voltage follower and why is it important?
-	\item If it’s so important you should be able to draw one and analyze its operation! Let’s do that. Draw a voltage follower and demonstrate its behavior in as much detail as you would need to convince another engineer you know what you’re talking about.
-	\item Why might we want to use a voltage follower with an electrocardiogram?
-	\item What is a summing amplifier?
-	\item A summing amplifier can actually act as a logic converter is set up right. Can you imagine using a set of summing amplifiers to determine a winner in a simple tic-tac-toe game in which button presses turned on new voltage sources? Briefly describe how you could determine a winner.
-	\item If I have a summing amplifier in which V1 = 10 V, R1 = 10 ohms, V2 = –10 V, R2 = 10 ohms, and Rf = 20 ohms, what is my output voltage?
-	\item What is a differential amplifier and why is it important?
-	\item Draw a differential amplifier. Analyze said differential amplifier. What is the output voltage in terms of the input voltage?
-	\item What is a transfer function?
-	\item You know how to go from a triangle (Delta) to a y (Wye) circuit for equivalence. How would you find the equivalent of going from a square to a cross?
-	\item 	Draw a blood vessel. Find the electrical equivalent across the vessel and through the vessel.
-	\item Draw the meanest circuit you think I’d ever give you on an exam. Then add a voltage dependent voltage source to one branch of it (its dependence rests on you). Solve it using nodal analysis, mesh analysis, superposition, and just plain looking at it.
-\end{enumerate}
 
 
-
-\chapter*{A Glorified Quiz I}
-Given on February 12, 2019. All problems worth 10 points. Do not spend an inordinate amount of time on any given problem. Try your best.
-\minitoc
-\newpage
-
-\section{Problem 1 on basic impedance}
-
-Find the equivalent impedance of the following (``+'' means ``in series with'' and ``$\vert\vert$'' means ``in parallel with'') being sure that you end up with no imaginary terms in denominators. It may be helpful to draw these circuits as you understand them.
-\begin{enumerate}
-	\item 
-	\item 
-	\item 
-\end{enumerate}
-
-
-\section{Problem 2 on basic knowledge}
-\begin{enumerate}
-	\item 
-	\item 
-	\item 
-	\item 
-	\item 
-\end{enumerate}
-
-\section{Problem 3 on current and potential}
-A current, $i(t)$, enters a device, causing a potential drop, $v(t)$. The current and the potential can be described mathematically as
-
-\begin{equation*}
-	i(t) = \begin{cases} 
-      0 \text{ A}, & t< 0\\
-      f(t) \text{ mA}, & t \geq0 \\
-   \end{cases}
-\end{equation*}
-\begin{equation*}
-	v(t) = \begin{cases} 
-      0 \text{ V}, & t< 0\\
-      g(t) \text{ V}, & t \geq0 \\
-   \end{cases}
-\end{equation*}
-
-\begin{enumerate}
-	\item 
-	\item 
-	\item 
-\end{enumerate}
-
-\newpage
-
-\section{Problem 4 on transresistance amplification or bioamplification}
-There are at least two kinds of current-to-voltage converters (also known as \textit{transresistance amplifiers)}.
-
-\section{Problem 5 on equivalent impedance}
-Choose one of the following (or do both for bonus points).
-\begin{enumerate}
-	\item Determine the equivalent impedance seen between terminals a and b.
-	\item Determine the equivalent impedance of a three-dimensional network of resistors, each of value $R$, as measured from the two farthest corners.
-\end{enumerate}
-
-
-\section{Problem 6 on differential amplification}
-\begin{enumerate}
-	\item What is the potential difference between points a and b?
-	\item What is the gain seen between points a and b?
-	\item What is the current running through R2?
-	\item What is the current running through R4?
-	\item If the operational amplifier (LM741) were only supplied 10 V, what is the largest V1 we could input before our output was saturated?
-\end{enumerate}
-
-\section{Problem 7 on counting cells}
-A Coulter counter (an electronic means by which to count the number of cells passing by a channel) is essentially a bridge circuit that determines the presence of a cell by tracking a change in due to a change in resistance from the cell. Referring to the circuit below, $R_1 = R_2 = R_3 = R_4 = R$ at rest (no cells present) and every time a cell passes through the channel R2 increases its resistance by $\Delta R$.
-
-\begin{enumerate}
-	\item 
-	\item 
-	\item 
-\end{enumerate}
-
-
-\section{Problem 8 on your own}
-
-\begin{enumerate}
-	\item Set up the series of simultaneous equations to \textbf{find the mesh currents}.
-	\item Determine \textbf{the matrix form} of the simultaneous equations.
-	\item Determine \textbf{the power dissipated} by three of your resistors.
-	\item Find \textbf{the equivalent resistance} of the system as measured from the two most distant corners of your circuit drawing.
-\end{enumerate}
-
-\section{Problem 9 also on your own}
-
-\begin{enumerate}
-	\item Determine whether your circuit \textbf{satisfies the fundamental theorem of network topology}.
-	\item \textbf{Determine the nodal voltages} (\textit{at the very least set them up as a solvable set of simultaneous equations} and try to solve them).
-	\item \textbf{Determine the current} going through three of your resistors.
-\end{enumerate}
-
-\section{Problem 10 on miscellanea}
-\begin{enumerate}
-	\item 
-	\item 
-	\item 
-\end{enumerate}
-
-
-\newpage
-\section{Useful equations in alphabetical order}
-\begin{eqnarray*}
-	b &=& l+n-1 \\
-	C &=& \frac{Q}{V} \rightarrow i(t) \frac{dQ(t)}{dt} = C\frac{dV(t)}{dt}\\
-	\text{Cramer's Rule: } x &=& \frac{D_1}{D}, y = \frac{D_1}{D}\text{ for }a_1x+b_1y=c_1, a_2x+b_2y=c_2\\
-	\text{where D } &=& \begin{bmatrix}
-		a_1 & b_1 \\ a_2 & b_2
-	\end{bmatrix}, D_1 = \begin{bmatrix}
-		c_1 & b_1 \\ c_2 & b_2
-	\end{bmatrix}, D_2 = \begin{bmatrix}
-		a_1 & c_1 \\ a_2 & c_2
-	\end{bmatrix}  \\
-	\mathbf{E} &=& \rho \mathbf{J} \\
-	E &=& pt \\
-	e &=& -1.602\cdot10^{-19}\text{ C} \\
-	i &=& \frac{dq}{dt} \\
-	i_{N} &=& i_{sc} = V_{Th}/R_{Th} \\
-	\text{KCL: } \sum_{x=1}^{n}i_x &=& 0 \\
-	\text{KVL: } \sum_{x=1}^{n}v_x &=& 0 \\
-	L &=& \frac{\Phi}{I} \rightarrow v(t) = \frac{d\Phi}{dt} \\
-	p &=& \frac{dw}{dt} \\
-	Q &=& \int_{t_1}^{t_2}i(t)dt \\
-	R &=& \rho \frac{l}{A} \\
-	v &=& \frac{dw}{dq} \\
-	v &=& iR \\
-	V_{Th} = V_{oc} \\
-	\mathbf{Z}&=& R + \jmath X = \vert \mathbf{Z} \vert e^{\jmath \theta} \\
-	\text{Parallel: } \frac{1}{Z_{eq}} &=& \frac{1}{Z_{1}} + \frac{1}{Z_{2}} + \frac{1}{Z_{3}} + ...\\
-	\text{Series: } Z_{eq} &=& Z_1 + Z_2 + Z_3 + ...
-\end{eqnarray*}
+
 
 
 
@@ -2392,15 +2154,15 @@ This is what we'd expect for a circuit, for it must be stable otherwise we would
 \section{Several singular functions}
 \subsection{Unit step function, $u(t-t_0) = 1, t>t_0$}
 \subsubsection{The Laplace transform of the unit step function}
-The unit step function essentially has two components to it. It will initially start out at 0, but then at a specific time that you choose (t_0 term) the function will become one. Therefore, we can take the laplace of 1 and we will essentially get the laplace transform of a unit step function to be 1/s.
+The unit step function essentially has two components to it. It will initially start out at 0, but then at a specific time that you choose ($t_0$ term) the function will become one. Therefore, we can take the Laplace of 1 and we will essentially get the Laplace transform of a unit step function to be $1/s$.
 \subsection{Unit impulse function, $\delta(t) = du(t)/dt$}
 \subsubsection{Its ``sifting'' abilities}
-The unit impulse function is really good for "sifting" purposes. Since the impulse function is essentially a very sharp peak at a certain t_0, you can imagine that if we convolve a function with a unit impulse function at a certain time, we will simply get the point of that function at that certain time. Therefore, we can sort of imagine a function as a file and in order to get to a certain document in that file, we can utilize the unit impulse function to "sift" through it. 
+The unit impulse function is really good for ``sifting'' purposes. Since the impulse function is essentially a very sharp peak at a certain $t_0$, you can imagine that if we convolve a function with a unit impulse function at a certain time, we will simply get the point of that function at that certain time. Therefore, we can sort of imagine a function as a file and in order to get to a certain document in that file, we can utilize the unit impulse function to ``sift'' through it. 
 \subsubsection{The Laplace transform of the unit impulse function}
-The laplace transform of a unit impulse function is just 1.
+The Laplace transform of a unit impulse function is just 1.
 \subsection{Unit ramp function, $r(t) = \int u(t)dt $}
 \subsubsection{The Laplace transform of the unit impulse function}
-We know that the ramp function is 0 before a certain time t_0 and after that it is "t" after a certain t_0. Therefore, the laplace transform of a ramp function is simply the laplace transform of t, which is 1/(s^2).
+We know that the ramp function is 0 before a certain time $t_0$ and after that it is ``$t$'' after a certain $t_0$. Therefore, the Laplace transform of a ramp function is simply the Laplace transform of t, which is $1/(s^2)$.
 
 
 
@@ -2928,122 +2690,6 @@ The goal here would be to use these terms to try to compensate for terms present
 \\
 \includegraphics[width=\textwidth]{figures/3_26_9.jpg}
 \\
-
-\chapter*{A Glorified Quiz II}
-03/19/2019, a review held
-03/21/2019, a quiz given
-
-A set of exercises in preparation of the second glorified quiz.
-
-\begin{enumerate}
-	\item Find the transfer function (as V/I, I/V, Vo/Vin, etc.) of the following (``+'' means ``in series with'', ``$\vert\vert$'' means “in parallel with''):
-	\subitem R1 + R2$\vert\vert$(R3 + C1)
-	\subitem (R1 + R2)$\vert\vert$(R3 + C1 + L1)
-	\subitem C1 + (C2 + R1$\vert\vert$(R2 + C3)$\vert\vert$L1)
-	\subitem (R1$\vert\vert$R2$\vert\vert$R3)$\vert\vert$(R4$\vert\vert$R5$\vert\vert$R6)$\vert\vert$(R7 + R8$\vert\vert$R9)
-	\item Label and describe the pins of an operational amplifier.
-	\item Draw and derive an inverting amplifier.
-	\item Draw and derive a non-inverting amplifier.
-	\item Draw and derive a differential amplifier.
-	\item Draw and derive an operational amplifier.
-	\item What is the Laplace transform? What is its definition? What does it do for us? How does it do that? Why do we care? When can you use it? When can you not? When should you?
-	\item What is the s-domain? What are its axes? What do those axes represent? When is looking at the s-domain useful for us?
-	\item The s of the s-domain has two components. What are they and what do they individually and collectively represent?
-	\item What is at least one condition (w/r/t s) that must exist for a system to be stable? 
-	\item What is the Laplace transform of a constant (i.e., of 1)?
-	\item What is the Laplace transform of an exponential function (i.e., of $e^{at}$)?
-	\item What is the Laplace transform of a derivative (i.e., of dx/dt)? First, second, third, fourth, etc.?
-	\item Is the Laplace transform linear? And if so, what does that mean?
-	\item What is Euler’s formula? What is Euler’s identity? When might it be useful (especially in this class)?
-	\item What is the differential equation of a series RLC circuit? [I will take “series RLC circuit” here to mean a resistor, an inductor, and a capacitor in series.]
-	\item What is the differential equation of a parallel RLC circuit? [I will take “parallel RLC circuit” here to mean a resistor, an inductor, and a capacitor in parallel.]
-	\item What is the differential equation of a series RLC circuit in parallel with another series RLC circuit?
-	\item What the inverse Laplace transform?
-	\item Make sure you can invert a simple Laplace transformation (say of an RLC circuit) to yield the time-domain equation. For example:
-	\subitem $1/(s^2+5s+6)$
-	\subitem $(s+2)/(s+3)(s+4)$
-	\subitem $s^2/(s(s^2+4s+4))$
-	\subitem $(s+1)/(s^1+1)$
-	\item For the s-domain representations show above, what sort of frequency dependent behavior do you expect each to have? How do you know?
-	\item We have learned the general form the denominator (the poles) that many transfer functions take is: $s^2 + 2\zeta \omega_n s + \omega_n^2$. What is $\zeta$? What is $\omega_n$?
-	\item Describe the behavior of a system when $\zeta$ is (1) zero, (2) between zero and one, (3) one, and (4) greater than one. Include graphs. Include solutions to the differential equations thus described. Be sure you could identify such behavior if given a graphical representation.
-	\item A charged capacitor (charge it to whatever value you’d like) is dropped in series with a resistor at time t = 0. Use KCL to find first-order differential equation. What is its solution?
-	\item The solution to the above example has a time constant, $\tau$. What is it (in terms of the resistor and capacitor terms)? What is the amplitude of the response when t = 1$\tau$? When t = 2$\tau$? 3$\tau$? 4$\tau$? 5$\tau$? 10$\tau$?
-	\item If one were to take the derivative of the solution to 24 at t = 0, the slope of the line would intersect time axis at what point? Why might this be useful?
-	\item If there is no excitation signal (as in 24), but there are initial conditions, what kind of response is this, ZIR or ZSR?
-	\item BTW, what’s ZIR \& ZSR?
-	\item A voltage source, a resistor, and a switch are in series with (R2 + C1)$\vert\vert$R3. What is the differential equation of the circuit? What is its Laplace transformation? What is its solution?
-	\item 30.	What is partial fraction decomposition and why should I know it?
-	\item For the circuit at right, assume the initial condition of the inductor’s current is i(0) = I0. Apply KVL around the loop to find the first-order differential equation. Solve said equation. What is the time constant?
-	\item If instead of charging the inductor in the above example, we removed the charge and put in a time varying voltage signal and measured the voltage drop across the resistor, would we record be recording the zero state response, the zero input response, or some combination of the two?
-	\item For the circuit below, assuming i(0) = 10 A, calculate i(t) and ix(t).
-	\begin{center}\includegraphics{figures/q2.02.png}\end{center}
-	\item Below is what’s called a “gate function”, which is like a step function that switches on at one value of t and switches off at another. Express this voltage pulse (seen at right) in terms of the unit step. Calculate its derivative.
-	\begin{center}\includegraphics{figures/q2.03.png}\end{center}
-	\item What is the definition of a unit step function?
-	\item What is the definition of a unit impulse function? How is it related to the unit step function?
-	\item What is the definition of a unit ramp function? How is it related to the unit step function?
-	\item For 35-37, draw a graphical representation of the functions.
-	\item If you wanted to shift a unit step/impulse/ramp function by an amount t0 in time, how does this alter your definition of the function as reported above?
-	\item If you multiplied a function f(t) by an impulse function that has been time shifted (by an amount t0), what is the result? 
-	\item If the switch of the circuit shown below is closed at t = 0, find the time-dependent voltage function for the circuit for both t $<$ 0 and t $\geq$ 0.
-	\begin{center}\includegraphics{figures/q2.05.png}\end{center}
-	\item The above example has two responses, a natural response (using stored energy) and a forced response (using an independent source). Describe these in your own words.
-	\item One could also decompose the responses by a transient response and a steady-state response. Describe these in your own words.
-	\item Describe convolution in your own words.
-	\item What is the formal definition of convolution?
-	\item Draw a (simple) system function and a (simple) input function. What is the convolution of your input with your system? 
-	\item Convolution with the impulse response produces what?
-	\item What are the commutative, associative, and distributive properties of convolution?
-	\item What is the relationship between convolution and the Laplace transform? (Similarly, what is the relationship between convolution the Fourier transform?)
-	\item Draw a passive low-pass circuit. What is the transfer function between Vo/Vin? What is the cutoff frequency?
-	\item Draw a passive high-pass circuit. What is the transfer function between Vo/Vin? What is the cutoff frequency?
-	\item Draw a bode plot for a first-order passive low-pass filter. What is the pass band? What is the stop band? What is the slope of the tracing within the stop band? At the corner frequency, what is the amplitude in dB? Draw a corresponding phase diagram. What is the phase shift one order of magnitude below the cutoff frequency? What is the phase shift one order of magnitude above the cutoff frequency?
-	\item Draw a bode plot for a first-order passive high-pass filter. List all the ways it differs from the first-order passive low-pass filter of 50.
-	\item Draw a bode plot and phase diagram for the series combination of a first-order passive low-pass filter with a cutoff frequency of 50 Hz and a first-order passive low-pass filter with a cutoff frequency of 500 Hz.
-	\item Redo the above questions but using ``second-order'' instead of ``first-order'' filters. How does this change your results?
-	\item Why do we care about the phase of a signal?
-	\item Draw the bode plot and phase diagram of the following transfer functions:
-	\subitem $100(s + 1) / (s + 10)(s + 100)$
-	\subitem $(s^2 + 27s + 100) / (s^2 + 4s + 4)$
-	\subitem $(s(s + 100)) / (s(s + 1)(s + 10))$
-	\subitem $s^2 / (s^3 + 2s^2 + 3s + 4)$
-	\item What are the general forms of the transfer functions for low-pass, high-pass, and band-pass filters?
-	\item What is an integrator? How would you make one with an operational amplifier? What is the Laplace transform of an integrator / integration? What is one advantage and disadvantage to using an ideal inverting integrator?
-	\item We can modify the ideal inverting integrator by placing a resistor in the feedback loop of the op-amp. What does this produce? Sketch a bode plot relating Vo/Vin for such a modified inverting integrator.
-	\item Given real values for the modified inverting integrator, could you determine the frequency at which you would expect the amplitude of a signal in the stop-band to be half the value one would expect to see in the pass-band?
-	\item What is a differentiator? How could you make one with an operational amplifier? What is the Laplace transform of a differentiator / differentiation? What is one advantage and disadvantage to using an ideal inverting differentiator?
-	\item We can modify the ideal inverting differentiator by inserting an input resistor (generally before the capacitor). What does this produce? Sketch a bode plot relating Vo/Vin for such a modified inverting differentiator.
-	\item What is the input impedance of the following system? (Note, this is from an actual bit of implantable electronics.)
-	\begin{center}\includegraphics{figures/q2.01.png}\end{center}
-	\item What is a plant? What is a controller? What is a system?
-	\item What is open-loop control? What is closed-loop control?
-	\item Given a simple block diagram with F = 1 / (s + a), G = s / (s + b), and H = 1 / s; what is the overall system response (output / input)?
-	\item What is proportional, integral, and derivative control?
-	\item What is the s-domain representation of P, I, and D control?
-	\item How can we make for a stable arms race?
-\end{enumerate}
-
-\newpage
-
-\section{Exam 2 Review Board Pictures (3/19/19)}
-
-The glares made parts of the board difficult to see. 
-All the notes below are hand renderings of board pictures taken today.
-
-\includegraphics[width=\textwidth]{figures/3-19_Board1.png}
-\\
-\includegraphics[width=\textwidth]{figures/3-19_Board2.png}
-\\
-\includegraphics[width=\textwidth]{figures/3-19_Board3.png}
-\\
-\includegraphics[width=\textwidth]{figures/3-19_Board4.png}
-\\
-\includegraphics[width=\textwidth]{figures/3-19_Board5.png}
-\\
-\includegraphics[width=\textwidth]{figures/3-19_Board6.png}
-\\
-\includegraphics[width=\textwidth]{figures/3-19_Board7.png}
 
 
 
@@ -4225,21 +3871,1020 @@ From the U.S. FDA's website:
 	\item Animal Drugs and Feeds regulatory activities account for 4 percent of FDA’s budget; 13 percent of these activities are paid for by industry user fees.
 \end{enumerate}
 
-
-
-
-\chapter{A philosophy of circuits, systems, and signals}
+\chapter{A philosophy of circuits, systems, and signals in biomedical engineering}
 04/23/2019
 
 
 
-\chapter*{A Glorified Quiz III}
-\textbf{04/18/2019, in class}. Below is set of exercises in preparation of the third glorified quiz.
 
-\minitoc
+
+\part{Homework}
+\setcounter{chapter}{0}
+\chapter{Homework I}
+Assigned January 22, 2019. Due January 31, 2019 as \textit{both} a hard copy in class and a pdf on Canvas. Each problem worth 10 points.
+
+\setcounter{section}{0}
+\section{On shocking the heart}
+(15 points)	A typical automated external defibrillator (AED) delivers 200-1000 V in less than 10 ms. 
+\begin{enumerate}
+	\item If the AED in front us delivers a pulse of 600 V, how much current is needed to deliver 120, 240, and 360 Joules?
+	\item Assuming two human hands have a mass of approximately 1 kg, how many chest compressions would be needed to deliver an equivalent amount of energy if each compression had a depth of 5 cm and was delivered at a constant speed of 0.5 m/s every 2 seconds?
+	\item If you had the option of having your heart “jump-started” would you choose an AED or the bare hands of a stranger? Justify your answer.
+\end{enumerate}
 
 \newpage
 
+\section{On energy within batteries}
+(5 points) A  3.3 V battery you are considering for a wearable you are designing has a total charge of 300 mAh. How many joules is this battery capable of delivering?
+
+\section{On predicting energy use}
+(5 points) A fellow engineer bought a 12 V battery rated for 60 Ah. The experiment you both have in mind will draw 2 A over a 1 k$\Omega$ load. How long can your experiment last?
+
+\section{On charges through equipment}
+(5 points) A piece of medical equipment supplies 135 W at 220 V. How much electrical charge flows through the device in the 10 hours a nurse is on-call using it? And how many electrons does this charge correspond to?
+
+\section{\textit{In vitro}}
+(10 points) During an in vitro (petri dish) experiment, the peak electric power that a group of stem cells can tolerate without some serious functional consequence is known to have a threshold of about 1 mW. If the power delivered to this group of cells is defined as $p(t) = 2e^{-t}\sin 5t$ [mW], will the cell be harmed and if so how long can power be delivered before the cells are harmed?
+
+\section{On equivalent resistance}
+(10 points) Find the equivalent resistances. (Show your work.)
+\begin{itemize}
+	\item 1 square of resistors (R = 10 k$\Omega$) measured across corners.
+	\item 2 resistors (R1 = 10 k$\Omega$, R2 = 4 k$\Omega$) in series.
+	\item 3 resistors (R1 = R2 = R3 = 10 k$\Omega$) in parallel.
+	\item 4 resistors (R1 = 1 k$\Omega$, R1 = 2 k$\Omega$, R1 = 3 k$\Omega$, R1 = 4 k$\Omega$) in parallel.
+	\item 5 resistors (R = 10 k$\Omega$) in a pentagon, measured across each resistor.
+\end{itemize}
+
+\section{On uninterruptible power}
+(10 points) Hospitals often employ what is known as a dynamic uninterruptible power system (D-UPS) comprising a diesel generator, a synchronous machine, and a kinetic energy unit. By way of example, if the energy to a particular hospital fails, the kinetic energy unit continues to feed 600 kW to the hospital for 20 seconds, allowing the generator and synchronous machine to take over and feed the load.
+\begin{enumerate}
+	\item What is the total energy capacity of this kinetic energy unit?
+	\item If the hospital were operating at 240 kW (instead of the aforementioned 600 kW), how much longer can the unit feed the load?
+\end{enumerate}
+
+
+\section{On modeling current and voltage}
+(10 points) Current passing through an electrical element in an AC situation can generally be defined as $i(t) = A \sin \omega t$. 
+\begin{enumerate}
+	\item Determine the energy on this element if the voltage across it is 
+\\
+$v(t) = B \cos \omega t$.
+	\item Plot current, voltage, and energy as functions of time using MATLAB (or an equivalent software package). You may use any values of $A$, $B$, and $\omega$ that you’d like, but unit values (=1) might make your life/work easier. (Present the code you used to arrive at your plot.)
+\end{enumerate}
+
+
+\section{On the materiality of the human body}
+(10 points) The materiality of the human body ensures that it puts up some resistance to the flow of current. Find some values of impedance for the following human body parts. Be sure to cite your source(s) and explain why you trust it. (Given that there is a frequency dependence to these values, you may present any value of impedance found between 1 | 100 kHz.)
+\begin{enumerate}
+	\item The whole body, from head to toe.
+	\item A single limb (such as an arm or a leg).
+	\item Blood.
+	\item Muscle.
+	\item Fat.
+\end{enumerate}
+
+
+\section{On circuit analysis}
+(20 points) For the circuit shown below.
+\begin{center}
+	\includegraphics{figures/hw1.10.png}
+\end{center}
+
+\begin{enumerate}
+	\item Use the delta-wye transformation rule to determine the power dissipated by R1.
+	\item Find the voltage at node a (just after R1). 
+	\item If R4 were changed to 100 $\Omega$, would the results to (10.1) and/or (10.2) change? How do you know?
+	\item How many nodes, branches, and loops are there?
+	\item What is the voltage at each node, the current through each branch?
+\end{enumerate}
+
+
+
+
+\chapter{Homework II}
+Assigned February 8, 2019. Due February 14, 2019 as \textit{both} a hard copy in class and a pdf on Canvas. Each problem worth 10 points.
+\setcounter{chapter}{2}
+\setcounter{section}{0}
+\section{On the directionality of resistors}
+Though we rarely think about it, resistors have a directionality to them. To prove this to ourselves, let us consider a rectangular prism with a square cross-sectional area with a width of $a$ on its square face, a length of $L$, and a resistivity of $\rho$. An example of such a conductor may be seen in the figure below.
+\begin{center}
+	\includegraphics{figures/hw2.01.png}
+\end{center}
+\begin{enumerate}
+	\item Determine the resistance between two parallel square faces, two parallel rectangular faces, and determine the ratio of these two resistances.
+	\item How would you go about performing a similar analysis for a resistor with a circular cross-sectional area? 
+\end{enumerate}
+
+
+
+\section{On nodal analysis}
+For the circuit shown below, find the current flowing though $R3$ ($i3$) and the current flowing through $R4$ ($i4$). 
+\begin{center}
+	\includegraphics{figures/hw2.02.png}
+\end{center}
+
+
+\section{On mesh analysis}
+For the circuit shown below.
+\begin{center}
+	\includegraphics{figures/hw2.03.png}
+\end{center}
+\begin{enumerate}
+	\item Perform a mesh analysis and determine the mesh currents in each loop. (You may solve it any way you’d like, just walk me through how you solve it.)
+	\item Determine the current through R3. How you would actually measure the actual current through R3 in an actual circuit?
+\end{enumerate}
+
+
+
+\section{On Thevenin and Norton equivalent circuits}
+
+For the circuit shown below, determine the Thevenin and Norton equivalent circuits between terminals a and b.
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{figures/hw2.04.png}
+\end{center}
+
+\section{On superposition}
+Using the superposition theorem, find the voltage \color{red} \textbf{Va} \color{black} in in the circuit shown below. Be sure to show all your steps.
+
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{figures/hw2.05.png}
+\end{center}
+
+\section{On Thevenin and Norton equivalent circuits, again}
+For the circuit shown below, determine the Thevenin equivalent circuit that would be found between the \color{red}\textbf{a} \color{black} and \color{red} \textbf{b} \color{black} terminals.
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{figures/hw2.06.png}
+\end{center}
+
+\section{On input impedance}
+Electrocardiographic (ECG) signals tend to be about 1 mV before being measured by a monitoring system (that is, it is about 1 mV just before it gets to our skin). If skin resistance is about 100 k$\Omega$, what is the voltage as measured by our system if our system has an input impedance of 500 k$\Omega$, 1 M$\Omega$, and 2M$\Omega$. You may model the entire situation as a series combination of elements. What effect do you think sweating at the area of measurement will have on the voltages you just calculated?
+
+\section{On current through elements}
+For the circuit below, find the current passing through each element.
+
+\begin{center}\includegraphics{figures/hw2.08.png}\end{center}
+
+\section{On blood vessel conductivity}
+Our blood vessels are something of glorified hollow conductive cylinders. Let us assume that the resistivity of the vessel, $\rho$, is constant throughout our length of interest, $L$. If we were to apply a potential difference, $V$, between the inner surface of the blood vessel (with radius $a$) and the outer surface of the blood vessel (with radius $b$), what would be the resistance we measure? (Hint: the differential resistance in this case is equal to $dR = \rho(dL/A)$.)
+
+\section{On personal experience}
+To the extent you feel comfortable sharing this information, have you ever had to interact with a piece of biomedical equipment that utilized electronic circuitry? (This may include anything from a Fitbit to an ECG and beyond.) If so, what aspects of that experience relating to the equipment did you find fascinating, and which aspects of it would you personally liked to have seen improved? [If you do not wish to share a personal experience or perhaps do not have one to share, consider the question in the abstract: \textit{knowing what you know, what might you wish to see improved regarding current medical instruments}?]
+
+
+\chapter{Homework III}
+Assigned February 22, 2019. Due February 28, 2019 as \textit{both} a hard copy in class (at the beginning thereof) and a pdf on Canvas (by 11:59pm). Each problem worth 20 points.
+\setcounter{chapter}{3}
+\setcounter{section}{0}
+
+
+\section{On mathematical proficiency}
+Please find the Laplace transforms for the following functions. Be sure to show as much of your work as you can. And please also resist the urge to use computational means of finding these answers. Try it yourself! It's good exercise.
+
+\begin{enumerate}
+	\item $a(t) = \sin(\omega t)$
+	\item $b(t) = \cos(\omega t)$
+	\item $c(t) = 1 - \cos(\omega t)$
+	\item $d(t) = t$
+	\item $f(t) = t^n$
+\end{enumerate}
+
+\newpage
+
+\section{On poles and zeros, exponentially}
+
+Find the poles and zeroes of the following functions. Again, show as much of your work as you can and resist those computational urges.
+
+\begin{enumerate}
+	\item $f(t) = e^{-3t}$
+	\item $f(t) = e^{-3t - 2t + 1t}\cdot e^{-t}$
+	\item $f(t) = e^{-3t}\cdot \sin(3t)$
+	\item $f(t) = e^{-3t}\cdot \cos(4t - 3t)$
+	\item $f(t) = e^{3t}\cdot e^{-2t} \cdot \sin(t)\cdot cos (-t)$
+\end{enumerate}
+
+\section{On the stability of geopolitical systems}
+``Stability'' is a property we seek in many systems. Representing something of a ``back of the envelope'' approximation of the time course of geopolitical entities, a model was first proposed by a fellow by the name of Lewis Fry Richardson to track the development of weapons used/accrued by the nations of the earth. Richardson's Arms race, expressed as the coupled differential equation below, relates the rate at which one country (Country 1) develops its arms, $dx/dt$ to the rate at which another country (Country 2) develops its arms $dy/dt$:
+
+\begin{align}
+	\frac{dx}{dt} &= Ay - mx \\
+	\frac{dy}{dt} &= Bx - ny
+\end{align}
+One can see that these rates are proportional to the the amount of arms the other country has minus the amount of arms the country has. If we know that $s < 0$ for a system to be stable, determine the conditions of stability in this system. (Assume the world starts peacefully with no weapons in either country.) Comment on the results. 
+
+\newpage
+
+\section{On a circuit as a differential equation}
+For circuit below
+\begin{enumerate}
+	\item Write its differential equation and take its Laplace transform (assume all initial conditions are equal to zero). 
+	\item Find its transfer function (the ratio of voltage to current).
+	\item  Choose \textbf{five} triplets of values (different from those printed on the figure). Plot the output of each transfer function as \textit{either} a function of time ($t$) or frequency ($s = \jmath \omega $).
+\end{enumerate} 
+
+
+\begin{center}
+	\includegraphics{figures/hw3.01.png}
+\end{center}
+
+\newpage
+\section{On poles and zeros, applicably}
+Believe it or not, this Laplace and circuitry stuff can actually be useful to those more biologically inclined among us. Indeed, it can be used to describe how drugs perfuse into our bodies. Let us consider taking some drugs.\footnote{Don't do drugs, kids.}  We may model the drug as a charged capacitor, C1, with a potential of 100 V across it and a value of 1 F. Recalling that the tissues within our bodies may be modeled as the combination of a resistor, R1, in series with the parallel combination of a resistor, R2, and a capacitor, C2, we may model the perfusion of the drug within the body as the time rate of change of potential within the circuit shown at right. Once we’ve taken the drug (t = 0), the switch is closed. Using nodal analysis, determine the potential at point b in the s-domain. What are the poles of this model? 
+\begin{center}
+	\includegraphics{figures/hw3.02.png}
+\end{center}
+
+\chapter{Homework IV}
+Assigned March 14, 2019. Due March 28, 2019 as \textit{both} a hard copy in class (at the beginning thereof) and a pdf on Canvas (by 11:59pm). Each problem worth 20 points.
+\setcounter{chapter}{4}
+\setcounter{section}{0}
+
+\section{On equivalent differential equations for transfer functions}
+For each of the transfer functions, $\tilde{H}(s)$, below, find a time-domain differential equation, $h(t)$, that would produce such a transfer function. (In this problem and those that follow from it, you may choose any initial conditions you would like, but I suggest setting them to 0 as a first attempt.)
+\begin{enumerate}
+	\item $\tilde{H}(s) = \frac{4}{s^2+5s+6}$
+	\item $\tilde{H}(s) = \frac{4}{s^2+4s+4}$
+	\item $\tilde{H}(s) = \frac{4}{s^2+5s+4}$
+	\item $\tilde{H}(s) = \frac{4}{s^2-4}$
+	\item $\tilde{H}(s) = \frac{4}{s^2-5s-6}$
+\end{enumerate}
+
+\newpage
+\section{On designing circuitry}
+Let us treat the transfer functions reported in Problem 1 as system impedance, $\tilde{Z}(s)$.
+For each of the differential equations you found from Problem 1, draw a circuit which whose output, $v(t)$, represents the voltage time response of an input of a unit step of current, $u(t)$ applied at time, $t = 0$. (That is, design a circuit which when subjected to an input $u(t)$ would produces an output of $v(t) = z(t)*u(t)$.)
+
+\section{On determining output}
+Given the transfer functions reported in Problem 1, please answer the questions below.
+\begin{enumerate}
+	\item Is the system stable when subjected to a unit step function? (In other words, is it BIBO stable?)
+	\item How damped is the system?
+	\item Where are the poles and zeros of the transfer function in the $s$-domain?
+	\item How long would it take for each system to achieve 95\% of its total response? (For systems to which this does not apply, please state why.)
+\end{enumerate}
+
+
+\section{On designing filters}
+Design the following filters (using an input impedance, R1 = 1 k$\Omega$) and produce a Bode plot demonstrating your results. (You may plot your results via computational means, i.e., a computer program, or by hand, by using what we learned in this class.)
+\begin{enumerate}
+	\item A first order high-pass filter with a corner frequency at 0.5 Hz and a magnitude of gain of 10.
+	\item A second low-pass filter with a corner frequency of 40 Hz and a magnitude gain of 50.
+	\item A bandpass filter with filter with a lower corner frequency of 0.05 Hz and a higher corner frequency of 150 Hz.
+\end{enumerate}
+
+
+\section{On convolving}
+
+Given an input signal (seen on the left) and a system impulse response, SIR (seen on the right), determine the output signal that would arise. That is, convolve the input with the SIR. You may solve by hand (so long as your work is clear) and/or MATLAB, Excel, or some equivalent software to arrive at your answers. Please include all code used.
+\begin{enumerate}
+	\item What is the output (the convolution) of ``Input (a)'' and ``SIR (a)''?
+	\item What is the output of ``Input (b)'' and ``SIR (b)''?
+	\item What is the output of ``Input (c)'' and ``SIR (c)''?
+\end{enumerate}
+
+\begin{center}
+	\includegraphics[width=\textwidth]{figures/hw4.01.png}
+\end{center}
+
+\chapter{Homework V}
+Assigned March 14, 2019. Due April 11, 2019 as \textit{both} a hard copy in class (at the beginning thereof) and a pdf on Canvas (by 11:59pm). Each problem worth 20 points.
+\setcounter{chapter}{5}
+\setcounter{section}{0}
+
+
+\section{On something new from a few familiar things}
+Two RC circuit sections (with capacitors grounded) are separated by a voltage buffer. An input signal $v_i(t)$ is applied to first $R_1C_1$ section, producing the signal $v_i(t)$ at node 1, it is buffered by the op-amp to the input of the second $R_2C_2$ section (node 2), the output of which is $v_o(t)$.
+\begin{center}
+	\includegraphics[width=0.75\textwidth]{figures/hw5.01.png}
+\end{center}
+\begin{enumerate}
+	\item Derive the differential equation relating the circuit output, $v_o(t)$, to its input, $v_i(t)$.
+	\item Determine its characteristic equation (i.e., of the form $s^2 + 2\zeta \omega_n s + omega_n^2$) and find its roots.
+	\item Determine whether this circuit could produce an underdamped response.
+\end{enumerate}
+
+\newpage
+
+\section{On reviewing the fundamentals}
+Recall a series circuit of a resistor, a capacitor, and an inductor. Let us hold that C = 200 nF and L = 50 mH.
+\begin{enumerate}
+	\item Over what range of resistors values is the system underdamped, critically damped, and overdamped?
+	\item From within the range found above, select one representative value for the underdamped, critically damped, and overdamped case. Plot each case’s voltage response over time.
+\end{enumerate}
+
+\section{On bioimpedance}
+In class we derived the analytical solution of the equivalent impedance, $Z_{eq}$ of a simple bioimpedance model, $R_1 + R_2\vert\vert C$ as seen from the resistance reactance plane. Find the analytical solution to the equivalent \textit{admittance} of a model in which $R_1\vert\vert(R_2 + C)$. (Hint: it might be more helpful to think in terms of conductances!) Interpret your results.
+
+
+\section{On the body electric}
+
+Given Einthoven's triangle below of the QRS complex, draw (by hand) the shape of the resulting electrocardiographic signal for lead I, lead II, and lead III. [Please use the conventional arrangement of Einthoven’s triangle when referring to your leads, unless you explicitly state you do otherwise.]
+
+\begin{center}	\includegraphics[width=0.5\textwidth]{figures/hw5.02.png}
+\end{center}
+
+\section{On identifying real-world instrumentation}
+As it turns out, there are hundreds and thousands of medical devices out there that use electric circuits. We noted five separate electrophysiological modalities in class – electrocardiography, electroencephalography, electrogastrography, electromyography, and electrooculaography. Find at least three commercial examples of medical devices for each listed modality (i.e., a total of 15 devices). List (1) who makes it, (2) how the product generally works, and (3) if you can find it, how much it costs. (You may also comment on whether you believe that price to be fair/reasonable.) 
+
+
+\chapter{Homework VI}
+Assigned March 14, 2019. Due April 23, 2019 as \textit{both} a hard copy in class (at the beginning thereof) and a pdf on Canvas (by 11:59pm). Each problem worth X points.
+\setcounter{chapter}{6}
+\setcounter{section}{0}
+
+\section{On functional completeness}
+In class we discussed the fact that all possible computational relationships (NOT, AND, OR, NAND, NOR, XOR, and XNOR) can be represented by a combination of NOR gates. During class we were only able to prove it for NOT, AND, and OR. Prove it for all cases. That is, make NAND, NOR, and XOR gates (don’t do XNOR) from NOR gates.
+
+\newpage
+\section{On knights, knaves, truths, and lies}
+Recall the land inhabited by knights and knaves. Knights always tell the truth and knaves always lie. For each of the following give an answer and explain your reasoning as best you can. It will often help to draw a truth table or a logic/decision tree. Please use your own methods or feel free to ask me what I might do.
+
+Please note that I will make use of the singular form of ``they'' and ``them'' to describe the individuals below. If that leads to any consternation, you may replace with any singular pronoun of your choice.
+
+\begin{enumerate}
+	\item You come across three inhabitants and ask the first, A, ``Are you a knight or a knave?'' A answers, but so quietly you can’t hear them. You ask B ``What did A say?” to which B responds “A said they were a knave.'' Upon hearing this, C piped up and said ``Don’t believe that; it’s a lie.'' Is C a knight or a knave? (Further, is it possible to know what A is?)
+	\item Instead of asking if A was a knight or a knave, you could have asked how many of the three of them were knaves. So, upon meeting the next three inhabitants (D, E, and F), D answers indistinctly, so you ask E what D had said. E said that D had said that exactly two of them were knaves. F says E is lying. Is it possible to know what D is? (Further, what are E and F?)
+	\item Meeting with two inhabitants, G and H, G says, ``Both of us are knaves.'' What is G? What is H?
+	\item Meeting two other inhabitants, I and J, I says, ``At least one of us is a knave.'' What are I and J?
+	\item Meeting yet two more, K and L, K says, ``We are the same type – we are either both knights or both knaves.'' What are K and L?
+	\item Meeting another two, M and N, you ask M if they are a knight and get an answer. You then ask N if M is a knight and get an answer. Are M and N’s answers the same or different? 
+\end{enumerate}
+
+\newpage
+
+\section{On logic gates}
+Did you know that each of the above knight and knave situations can be represented by a combination of logic gates? For example, a simple single knave can be represented by a NOT gate since they always lie. An easy way to work in this matter is to assign 0s and 1s to lies and truth (and thereby liars and truth-tellers and thereby knaves and knights) and construct a truth table. From that truth table and from the logic you used in deriving the solution, put together a sequence of logic gates for each of the situations reported in Problem 2.
+
+\part{Glorified Quizzes}
+
+\setcounter{chapter}{0}
+\chapter{A Glorified Quiz I}
+Given on February 12, 2019. All problems worth 10 points. Do not spend an inordinate amount of time on any given problem. Try your best.
+
+\setcounter{section}{0}
+\minitoc
+\newpage
+
+\section{Problem 1 on basic impedance}
+
+Find the equivalent impedance of the following (``+'' means ``in series with'' and ``$\vert\vert$'' means ``in parallel with'') being sure that you end up with no imaginary terms in denominators. It may be helpful to draw these circuits as you understand them.
+\begin{enumerate}
+	\item 
+	\item 
+	\item 
+\end{enumerate}
+
+
+\section{Problem 2 on basic knowledge}
+\begin{enumerate}
+	\item 
+	\item 
+	\item 
+	\item 
+	\item 
+\end{enumerate}
+
+\section{Problem 3 on current and potential}
+A current, $i(t)$, enters a device, causing a potential drop, $v(t)$. The current and the potential can be described mathematically as
+
+\begin{equation*}
+	i(t) = \begin{cases} 
+      0 \text{ A}, & t< 0\\
+      f(t) \text{ mA}, & t \geq0 \\
+   \end{cases}
+\end{equation*}
+\begin{equation*}
+	v(t) = \begin{cases} 
+      0 \text{ V}, & t< 0\\
+      g(t) \text{ V}, & t \geq0 \\
+   \end{cases}
+\end{equation*}
+
+\begin{enumerate}
+	\item 
+	\item 
+	\item 
+\end{enumerate}
+
+\newpage
+
+\section{Problem 4 on transresistance amplification or bioamplification}
+There are at least two kinds of current-to-voltage converters (also known as \textit{transresistance amplifiers)}.
+
+\section{Problem 5 on equivalent impedance}
+Choose one of the following (or do both for bonus points).
+\begin{enumerate}
+	\item Determine the equivalent impedance seen between terminals a and b.
+	\item Determine the equivalent impedance of a three-dimensional network of resistors, each of value $R$, as measured from the two farthest corners.
+\end{enumerate}
+
+
+\section{Problem 6 on differential amplification}
+\begin{enumerate}
+	\item What is the potential difference between points a and b?
+	\item What is the gain seen between points a and b?
+	\item What is the current running through R2?
+	\item What is the current running through R4?
+	\item If the operational amplifier (LM741) were only supplied 10 V, what is the largest V1 we could input before our output was saturated?
+\end{enumerate}
+
+\section{Problem 7 on counting cells}
+A Coulter counter (an electronic means by which to count the number of cells passing by a channel) is essentially a bridge circuit that determines the presence of a cell by tracking a change in due to a change in resistance from the cell. Referring to the circuit below, $R_1 = R_2 = R_3 = R_4 = R$ at rest (no cells present) and every time a cell passes through the channel R2 increases its resistance by $\Delta R$.
+
+\begin{enumerate}
+	\item 
+	\item 
+	\item 
+\end{enumerate}
+
+
+\section{Problem 8 on your own}
+
+\begin{enumerate}
+	\item Set up the series of simultaneous equations to \textbf{find the mesh currents}.
+	\item Determine \textbf{the matrix form} of the simultaneous equations.
+	\item Determine \textbf{the power dissipated} by three of your resistors.
+	\item Find \textbf{the equivalent resistance} of the system as measured from the two most distant corners of your circuit drawing.
+\end{enumerate}
+
+\section{Problem 9 also on your own}
+
+\begin{enumerate}
+	\item Determine whether your circuit \textbf{satisfies the fundamental theorem of network topology}.
+	\item \textbf{Determine the nodal voltages} (\textit{at the very least set them up as a solvable set of simultaneous equations} and try to solve them).
+	\item \textbf{Determine the current} going through three of your resistors.
+\end{enumerate}
+
+\section{Problem 10 on miscellanea}
+\begin{enumerate}
+	\item 
+	\item 
+	\item 
+\end{enumerate}
+
+
+\newpage
+\section{Useful equations in alphabetical order}
+\begin{eqnarray*}
+	b &=& l+n-1 \\
+	C &=& \frac{Q}{V} \rightarrow i(t) \frac{dQ(t)}{dt} = C\frac{dV(t)}{dt}\\
+	\text{Cramer's Rule: } x &=& \frac{D_1}{D}, y = \frac{D_1}{D}\text{ for }a_1x+b_1y=c_1, a_2x+b_2y=c_2\\
+	\text{where D } &=& \begin{bmatrix}
+		a_1 & b_1 \\ a_2 & b_2
+	\end{bmatrix}, D_1 = \begin{bmatrix}
+		c_1 & b_1 \\ c_2 & b_2
+	\end{bmatrix}, D_2 = \begin{bmatrix}
+		a_1 & c_1 \\ a_2 & c_2
+	\end{bmatrix}  \\
+	\mathbf{E} &=& \rho \mathbf{J} \\
+	E &=& pt \\
+	e &=& -1.602\cdot10^{-19}\text{ C} \\
+	i &=& \frac{dq}{dt} \\
+	i_{N} &=& i_{sc} = V_{Th}/R_{Th} \\
+	\text{KCL: } \sum_{x=1}^{n}i_x &=& 0 \\
+	\text{KVL: } \sum_{x=1}^{n}v_x &=& 0 \\
+	L &=& \frac{\Phi}{I} \rightarrow v(t) = \frac{d\Phi}{dt} \\
+	p &=& \frac{dw}{dt} \\
+	Q &=& \int_{t_1}^{t_2}i(t)dt \\
+	R &=& \rho \frac{l}{A} \\
+	v &=& \frac{dw}{dq} \\
+	v &=& iR \\
+	V_{Th} = V_{oc} \\
+	\mathbf{Z}&=& R + \jmath X = \vert \mathbf{Z} \vert e^{\jmath \theta} \\
+	\text{Parallel: } \frac{1}{Z_{eq}} &=& \frac{1}{Z_{1}} + \frac{1}{Z_{2}} + \frac{1}{Z_{3}} + ...\\
+	\text{Series: } Z_{eq} &=& Z_1 + Z_2 + Z_3 + ...
+\end{eqnarray*}
+
+\chapter{A Glorified Quiz II}
+\section{Problem 1, a review}
+\section{Problem 2, our biopotential}
+\section{Problem 3, (con)/(in)volved}
+\section{Problem 4, implanted}
+\section{Problem 5, to zap your brain}
+
+\newpage
+\section*{Useful equations in alphabetical order}
+\begin{eqnarray*}
+	b &=& l+n-1 \\
+	C &=& \frac{Q}{V} \rightarrow i(t) \frac{dQ(t)}{dt} = C\frac{dV(t)}{dt}\\
+	\text{Convolution: } (f*g)(t) &=&  \int _{-\infty }^{\infty }f(\tau )g(t-\tau )\,d\tau \\
+	\text{Cramer's Rule: } x &=& \frac{D_1}{D}, y = \frac{D_1}{D}\text{ for }a_1x+b_1y=c_1, a_2x+b_2y=c_2\\
+	\text{where D } &=& \begin{bmatrix}
+		a_1 & b_1 \\ a_2 & b_2
+	\end{bmatrix}, D_1 = \begin{bmatrix}
+		c_1 & b_1 \\ c_2 & b_2
+	\end{bmatrix}, D_2 = \begin{bmatrix}
+		a_1 & c_1 \\ a_2 & c_2
+	\end{bmatrix}  \\
+	\delta(t) &=& \begin{cases} 
+      \infty, & t = 0\\
+      0, & t \neq 0\\
+   \end{cases} \\
+   \delta_{\Delta}(t) &=& \begin{cases} 
+      \frac{1}{\Delta}, & \text{if } 0< t < \Delta \\
+      0, & \text{otherwise }\\
+   \end{cases} \\
+	\mathbf{E} &=& \rho \mathbf{J} \\
+	E &=& pt \\
+	e^- &=& -1.602\cdot10^{-19}\text{ C} \\
+	e^{\jmath x} &=& \cos x + \jmath \sin x \\
+	e^{\jmath \pi} &=& -1 \\
+	i &=& \frac{dq}{dt} \\
+	i_{N} &=& i_{sc} = V_{Th}/R_{Th} \\
+	\text{KCL: } \sum_{x=1}^{n}i_x &=& 0 \\
+	\text{KVL: } \sum_{x=1}^{n}v_x &=& 0 \\
+	L &=& \frac{\Phi}{I} \rightarrow v(t) = \frac{d\Phi}{dt} \\
+	\end{eqnarray*}
+
+\newpage
+
+\begin{eqnarray*}
+	\mathcal{L}\{f(t)\} &=& \int_0^{\infty}e^{-st}f(t)dt \\
+	\mathcal{L}\{1\} &=& \frac{1}{s} \\
+	\mathcal{L}\{e^{at}\} &=& \frac{1}{s - a} \\
+	\mathcal{L}\{\sin t\} &=& \frac{a}{s^2 + a^2} \\
+	\mathcal{L}\{\frac{dx}{dt}\} &=& s\tilde{X} - x(o) \\
+	p &=& \frac{dw}{dt} \\
+	Q &=& \int_{t_1}^{t_2}i(t)dt \\
+	R &=& \rho \frac{l}{A} \\
+	r(t) &=& {\begin{cases}t,&t\geq 0;\\0,&t<0\end{cases}}\\
+	u(t) &=& \begin{cases} 
+      1, & t \geq 0\\
+      0, & t \neq 0\\
+   \end{cases} \\	v &=& \frac{dw}{dq} \\
+	v &=& iR \\
+	V_{Th} &=& V_{oc} \\
+	\mathbf{Z}&=& R + \jmath X = \vert \mathbf{Z} \vert e^{\jmath \theta} \\
+	\text{Parallel: } \frac{1}{Z_{eq}} &=& \frac{1}{Z_{1}} + \frac{1}{Z_{2}} + \frac{1}{Z_{3}} + ...\\
+	\text{Series: } Z_{eq} &=& Z_1 + Z_2 + Z_3 + ... \\
+	Z_{eq,C} &=& \frac{1}{\jmath \omega C}\\
+	Z_{eq,L} &=& R \\
+	Z_{eq,R} &=& \jmath \omega L 
+\end{eqnarray*}
+
+\chapter{A Glorified Quiz III}
+\textbf{04/18/2019, in class}. Below is the outline of the third glorified quiz.
+
+\minitoc
+
+\section{Our words, our definitions}
+\section{A series RLC circuit}
+\section{A Laplace transform}
+\section{Current through tissue}
+\section{An instrumentation amplifier}
+\section{A filter}
+\section{Putting it all together}
+\section{Truth and lies}
+\section{Turning it off and on again}
+\section{A parade}
+\newpage
+\section*{Useful equations in alphabetical order}
+\begin{eqnarray*}
+	b &=& l+n-1 \\
+	C &=& \frac{Q}{V} \rightarrow i(t) \frac{dQ(t)}{dt} = C\frac{dV(t)}{dt}\\
+	\text{Convolution: } (f*g)(t) &=&  \int _{-\infty }^{\infty }f(\tau )g(t-\tau )\,d\tau \\
+								  &=&  \int _{-\infty }^{\infty }f(t - \tau )g(\tau )\,d\tau \\
+	\text{Cramer's Rule: } x &=& \frac{D_1}{D}, y = \frac{D_1}{D}\text{ for }a_1x+b_1y=c_1, a_2x+b_2y=c_2\\
+	\text{where D } &=& \begin{bmatrix}
+		a_1 & b_1 \\ a_2 & b_2
+	\end{bmatrix}, D_1 = \begin{bmatrix}
+		c_1 & b_1 \\ c_2 & b_2
+	\end{bmatrix}, D_2 = \begin{bmatrix}
+		a_1 & c_1 \\ a_2 & c_2
+	\end{bmatrix}  \\
+	\delta(t) &=& \begin{cases} 
+      \infty, & t = 0\\
+      0, & t \neq 0\\
+   \end{cases} \\
+   \delta_{\Delta}(t) &=& \begin{cases} 
+      \frac{1}{\Delta}, & \text{if } 0< t < \Delta \\
+      0, & \text{otherwise }\\
+   \end{cases} \\
+	\mathbf{E} &=& \rho \mathbf{J} \\
+	E &=& pt \\
+	e^- &=& -1.602\cdot10^{-19}\text{ C} \\
+	e^{\jmath x} &=& \cos x + \jmath \sin x \\
+	e^{\jmath \pi} &=& -1 \\
+	i &=& \frac{dq}{dt} \\
+	i_{N} &=& i_{sc} = V_{Th}/R_{Th} \\
+	\text{KCL: } \sum_{x=1}^{n}i_x &=& 0 \\
+	\text{KVL: } \sum_{x=1}^{n}v_x &=& 0 \\
+	L &=& \frac{\Phi}{I} \rightarrow v(t) = \frac{d\Phi}{dt} \\
+	\end{eqnarray*}
+
+
+\begin{eqnarray*}
+	\mathcal{L}\{f(t)\} &=& \int_0^{\infty}e^{-st}f(t)dt \\
+	\mathcal{L}\{1\} &=& \frac{1}{s} \\
+	\mathcal{L}\{e^{at}\} &=& \frac{1}{s - a} \\
+	\mathcal{L}\{\sin t\} &=& \frac{a}{s^2 + a^2} \\
+	\mathcal{L}\{\frac{dx}{dt}\} &=& s\tilde{X} - x(o) \\
+	p &=& \frac{dw}{dt} \\
+	Q &=& \int_{t_1}^{t_2}i(t)dt \\
+	R &=& \rho \frac{l}{A} \\
+	r(t) &=& {\begin{cases}t,&t\geq 0;\\0,&t<0\end{cases}}\\
+	\text{Systems in general: D.E.}  &=& \frac{d^x}{dt^2} + 2\zeta\omega_n \frac{dx}{dt} + \omega_n^2\\
+	\text{Systems in general: T.F.}  &=& \frac{K}{s^2 + 2\zeta\omega_n s + \omega_n^2}  \\
+	u(t) &=& \begin{cases} 
+      1, & t \geq 0\\
+      0, & t \neq 0\\
+   \end{cases} \\	v &=& \frac{dw}{dq} \\
+	v &=& iR \\
+	V_{Th} &=& V_{oc} \\
+	\mathbf{Z}&=& R + \jmath X = \vert \mathbf{Z} \vert e^{\jmath \theta} \\
+	\text{Parallel: } \frac{1}{Z_{eq}} &=& \frac{1}{Z_{1}} + \frac{1}{Z_{2}} + \frac{1}{Z_{3}} + ...\\
+	\text{Series: } Z_{eq} &=& Z_1 + Z_2 + Z_3 + ... \\
+	Z_{eq,C} &=& \frac{1}{\jmath \omega C}\\
+	Z_{eq,L} &=& R \\
+	Z_{eq,R} &=& \jmath \omega L 
+\end{eqnarray*}
+
+
+\newpage
+
+
+\part{Collected exercises}
+
+\setcounter{chapter}{0}
+\chapter{Collected exercises}
+
+\setcounter{section}{0}
+\minitoc
+
+\section{A constant charge through a cross-section}
+How much charge passes through a cross-section of a conductor in 60 seconds if a DC current value is measured at 0.1 mA?
+
+
+\section{An arbitrary charge through a cross-section}
+Determine the total charge entering a terminal between $t = 0$ seconds and $t = 10$ seconds if the current (in amps) passing through is
+\begin{equation}
+	i(t) = \frac{1}{\sqrt{5t+2}}. 
+\end{equation} 
+
+
+\section{A ``tera''ble puzzle}
+Approximately how much current is necessary to transmit one terabyte of information in an hour?
+
+
+\section{A pacemrker's power requirements}
+A cardiac pacemaker will provide approximately 5,000 J of energy over 5 years. Determine the capacity of a 5 V lithium battery necessary to drive this pacing such that only 40\% of its energy is spent over that time.
+
+
+\section{A neuron's excitation energy}
+A colleague of yours has been in their lab ginning up new neurons. You, as their resident electrical expert, are tasked with determining the energy consumed by the cell. If the current and voltage variations are found to be functions of time ($t \geq 0$)
+\begin{eqnarray}
+	i(t) = 3t \\
+	v(t) = 10 e^{6t}
+\end{eqnarray}
+determine the energy consumed between 0 and 2 ms.
+
+
+\section{A thump to the chest}
+(a) A typical defibrillator delivers 200-1000 V in less than 10 ms. How much current is needed to deliver 120, 240, and 360 Joules?
+\\
+(b) A human heart ways about 300 grams. From approximately how high of a cliff would one have to drop a heart such that the impact was equivalent to the energy delivered to someone's chest from a defibrillator?
+
+\section{An ohmic power expression}
+Utilizing Ohm's law, express units of power to include ohms.
+
+
+
+\section{A toaster based problem}
+A toaster draws 2 A at 120 V. What is its resistance?
+
+\section{Another toaster based problem}
+How much current is drawn by a toaster with a resistance of 10 $\Omega$ at 110 V?
+
+
+\section{A current power}
+In the circuit shown, calculate the current, $i$, the conductance, $G$, and the power, $p$.
+
+
+\section{A sodium channel's conductance}
+Conductance ($G$/$A$) of a sodium channel of a cell membrane at a specific time is 10 mS/cm$^{2}$. If the channel length as 100 nm, what is its conductivity?
+
+
+
+\section{A simple tissue's resistance}
+Determine the resistance of a homogenous and isotropic tissue with a cross-sectional area which can be described by the functions $y = 8 - x^2$ from $x = -2$ cm to $x = +2$ cm, a length of 10 cm (parallel to the z-axis), and a resistivity of 80 $\Omega$m.
+
+\section{A few nodes of KCL}
+Use KCL to write equations at each node.
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{figures/04.problem1.png}
+\end{center}
+
+
+\section{Matrix notation}
+Write the matrix form of the equations written above. 
+
+
+\section{Cramer's rule}
+Using Cramer’s rule on the matrix equations above, what are the results?
+
+
+
+\section{Straight to the matrix}
+Write the node-voltage equations to the circuit at right in the matrix form.
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{figures/04.problem4.png}
+\end{center}
+
+\section{Laplace transformations}
+Find the Laplace transform of the following:
+\begin{itemize}
+	\item $f(t) = 9$
+	\item $f(t) = \delta(t)$ the Dirac-delta function
+	\item $f(t) = e^{-3t/2}$
+	\item $f(t) = \sin\omega t$
+\end{itemize}
+
+
+\section{Differential equation of a series RLC circuit}
+What is the differential equation describing an inductor, a resistor, and a capacitor in series?
+
+
+
+\section{Differential equation of a series RLC circuit with numbers}
+What is the differential equation describing an inductor, a resistor, and a capacitor in series? What is a solution to that  differential equation if L = 1 H, R = 1 $\Omega$, and C = 100 mF? Take the Laplace transform of the differential equation. What are its poles and zeros?
+
+
+
+\section{An $s$-plane with found zeros}
+Draw an s-plane. Label the axes. Plot the poles and zeros you found. What can you say of the behavior of the system? If the poles had an imaginary component to them (that is, if they were pushed along the vertical axis), how would that affect our system?
+
+\section{An $s$-plane with arbitrary zeros}
+Draw an s-plane. Label the axes. Plot these poles -- (-2,0) and (-5,0) -- and this zero -- (0,0). Plot what the signal would look over time at each of these poles and zeros. 
+
+\section{$\tilde{Z}(s)$ (i.e., $\tilde{V}(s)/\tilde{I}(s)$) of a resistor and a capacitor in parallel}
+\begin{enumerate}
+	\item Show the \textit{frequency response} (i.e., $\tilde{Z}(s)$ v. frequency) of such a system. If it helps to ascribe values, assume that the resistor is 1 ohm and the capacitor is 10 farad.
+	\item Comment on the behavior. Is it like anything you have seen before?
+	\item (\textit{The kind of question that might be on a glorified quiz.}) If the current through the circuit is 1 amp when $t \geq 0$, what will be the voltage response?
+\end{enumerate}
+
+\section{A voltage time response of a system with a given impedance}
+Given that 
+\begin{equation}
+	\tilde{Z}(s) = \frac{s^3+9}{(s+1)(s+3)}
+\end{equation}
+\begin{enumerate}
+	\item What is the \textit{time response} of potential to a unit step of current?
+	\item (\textit{The kind of question that might be on a glorified quiz.}) Which exponential term will most significantly affect the signal?
+\end{enumerate}
+
+\section{A stable system?}
+\begin{enumerate}
+	\item A system, $y(t) = \int_{-\infty}^{\infty}x(\tau)d\tau$, when $x(t) = \cos(t)$.
+	\item A system, $y(t) = \int_{-\infty}^{\infty}x(\tau)d\tau$, when $x(t) = u(t)$.
+	\item A system, $y(t) = x(t)/t$, when $x(t) = 2$.
+	\item A system, $y(t) = dx(t)/dt$, when $x=1$.
+	\item A system, $y(t) = dx(t)/dt$, when $u(t)$.
+\end{enumerate}
+
+\section{Pedro, Apollonia, \& Peter}
+You come across three inhabitants and ask the first, Pedro, ``Are you a knight or a knave?'' Pedro answers, but so quietly you can't hear him. You ask Apollonia ``What did he say?'' to which she responds ``Pedro said he was a knave.'' Upon hearing this, Peter piped up and said ``Don't believe that; it’s a lie.'' Is Peter a knight or a knave? (Further, is it possible to know what Pedro is?)
+
+
+\section{Roger \& Oedipa} 
+Shortly after that you meet two inhabitants, Roger Mexico and Oedipa Maas. Roger claims, ``Both of us are knaves.'' What are Roger and Oedipa?
+
+\section{Yes \& No} 
+Suppose you’ve heard a rumor that there’s gold buried nearby. You meet a local and want to know whether there really is gold in them thar hills, but you don’t know whether the person is a knight or a knave. If you are only allowed to ask only one question answerable by ``yes'' or ``no'', what do you ask?
+
+\section{Lisa \& Louise}
+Lisa and Louise are twins indistinguishable in appearance. One always lies, the other always tells the truth. You don’t know which is which. You meet one of them and may ask one question to determine which twin is truth. What do you ask and what does it tell you?
+
+
+\section{NOT $\rightarrow$ NOR}
+Make a NOT gate from one or more NOR gates.
+\section{AND $\rightarrow$ NOR}
+Make an AND gate from one or more NOR gates.
+\section{OR $\rightarrow$ NOR}
+Make an OR gate from one or more NOR gates.
+\section{NAND $\rightarrow$ NOR}
+Make a NAND gate from one or more NOR gates.
+
+
+\chapter{A set of exercises in preparation of the first Glorifed Quiz}
+02/07/2019 
+
+\begin{enumerate}
+	\item Find the equivalent resistance of the following [``+'' means ``in series with'', ``$\vert\vert$'' means ``in parallel with'']:
+	\subitem a.	R1 + R2$\vert\vert$(R3 + R4)
+	\subitem b.	(R1 + R2)$\vert\vert$(R3 + R4)
+	\subitem c.	R1 + (R2 + R3$\vert\vert$(R4 + R5)||R6)
+	\subitem d.	(R1$\vert\vert$R2$\vert\vert$R3)$\vert\vert$(R4$\vert\vert$R5$\vert\vert$R6)||(R7 + R8$\vert\vert$R9)
+	\item To use superposition, one must turn off sources. A voltage source is replaced by what? A current source is replaced by what?
+	\item A 5 µF capacitor has accumulated a total charge of 1250 µC. What is the voltage across the capacitor?
+	\item Name each of the four types of dependent power sources and explain their functioning a bit beyond their name.
+	\item The unit of current is the ampere, A. What are some equivalent units (for instance, what is its relationship to charge)?
+	\item Does potential change instantaneously over the terminals of a capacitor?
+	\item An RC circuit (in which ``R + C'', seen below) has a time constant, $\tau = RC$. Prove the following at a time $t_0$ when the switch is thrown to complete the circuit.
+	
+	\begin{center}\includegraphics{figures/q1.01.png}\end{center}
+	
+	\subitem a. $I(t) = \frac{V_0}{R}\cdot e^{-t/\tau}$
+	\subitem b. $V(t) = V_0\left(1-e^{-t/\tau}\right)$
+	\subitem c. $Q(t) = C\cdot V_0\left(1-e^{-t/\tau}\right)$
+	\item What is the difference between active and passive circuit elements?
+	\item What can an ideal current source do what a real one cannot?
+	\item What can ideal voltage source do what a real one cannot?
+	\item Draw the symbol for a polarized capacitor.
+	\item Draw the symbol for a potentiometer.
+	\item Draw an op-amp, label its terminals, and explain what each does.
+	\item What’s another name for a conductor?
+	\item Which way does current run in a diode?
+	\item Describe what Ohm’s law tells us in your own words.
+	\item What is conductance? State Ohm’s law using conductance. What does it tell us about eh current passing through conductive materials?
+	\item What is the equation for resistance in terms of resistivity? If resistivity goes up, what happens to resistance? If the cross-sectional areas decreases, what results? If a resistor keeps the exact same cross-sectional area over a length L, yet we contorted it into a very weird shape (say a balloon-animal poodle), will its resistance remain the same according to the aforementioned equation. Does that agree with your intuition?
+	\item A capacitor has a time variance of current according to the follow formulation $I(t) = \frac{dQ(t)}{dt} = C\frac{dV(t)}{dt}$. That might be useful to know. See if you can prove that relationship to yourself knowing that C = Q/V.
+	\item What is an inductor and how does it work?
+	\item What is impedance? What is impeded? What does the impeding?
+	\item What is the real and imaginary component of impedance.	
+	\item How would I represent impedance by a magnitude and phase?
+	\item 	What is impedance’s inverse? What are its real and imaginary components?	
+	\item What is the impedance of a resistor, capacitor, and inductor?
+	\item Find the equivalent impedance of the following, being sure to remove imaginary numbers from the denominator [``+'' means ``in series with'', ``$\vert\vert$'' means ``in parallel with'']:
+	\subitem a.	Z1$\vert\vert$(Z2 + Z3)
+	\subitem b.	(R1 + C1)$\vert\vert$C2$\vert\vert$(R2 + R3 + C3)
+	\subitem c.	(R1 + L1)$\vert\vert$(C1 + L1)$\vert\vert$(C1 + R1)
+	\item Convert a Wye circuit, with all R = 10 ohms, to a Delta circuit.
+	\item Find the equivalent impedance of a Delta circuit of capacitors.	
+	\item Given the following map, can you plan a parade rate that crosses each bridge exactly once? Why or why not?
+	
+	\begin{center}\includegraphics{figures/q1.02.png}\end{center} 
+	
+	\item 32.	Prove the fundamental theorem of network topology given any circuit (for instance, those aforementioned).
+	\item Kirchhoff’s current law is a mere recitation of what other law of physics?
+	\item Kirchhoff’s voltage law is a mere recitation of what other law of physics?
+	\item When do we most use KCL? When do we must use KVL? Which do you prefer in general and why?
+	\item Draw a complicated circuit (at least four branches) and solve for the current going through each component.
+	\item Analyze the aforementioned complicated circuit using nodal analysis. Analyze said circuit with mesh analysis. Prove the validity of the fundamental theorem of network topology using said circuit.
+	\item What is the difference between earth ground and chassis ground?
+	\item Draw a circuit using each of the following, R1 = 10 ohms, R2 = 20 ohms, R3 = 30 ohms, R4 = 40 ohms, V1 = 20 V, V2 = 10 V, and I1 = 2 A. Solve using nodal analysis if you can (do you need to make a supernode?). Solve using mesh analysis if you can (do you need to make a supermesh?).
+	\item Can you imagine modeling some actions in terms of circuits? For instance, if you were asked to model an equivalent circuit based on the operations of a shop floor, could you do it? If you were asked to model some aspect of physiology could you? The resistance of blood to flow? The capacitance of the lungs? The duration of our blinks?
+	\item What is Cramer’s rule and how do we use it?
+	\item Draw a circuit with at least five resistors and two current sources. Put that circuit into matrix formation for nodal voltages from inspection alone. What values should be along the diagonal, what values should be on the off-diagonal?
+	\item To solve the above circuit in MATLAB, what would you type in?
+	\item For any circuit stated previously, add a voltage source to one of the branches and solve using nodal analysis. What new technique did you need to employ and why did you need to? What does that technique do to our matrix?
+	\item To any previously mentioned circuit, add a dependent current source and let it be dependent on the current going through R1. How does this change your nodal voltages?
+	\item Given a jolt of 240 J from an AED, provide an energy equivalent. For example, how many little soft kitten jumps on the chest (1 kg, 5cm) is it equivalent to? It would be like falling from a height of how much? [Hint: the ground comes up at you.]
+	\item A hospital consumes 500 kW in 60 seconds. How many people running on treadmills would it take to power it for a minute?
+	\item A nurse starts their shift turning on medical doohickey that consumes 50 W at 220 V. How many electrons’ worth of charge pass through the doohickey before the nurse turns it off at the end of their shift, 10 hours later?
+	\item Explain how mesh analysis works.
+	\item Draw a mesh circuit with at least 6 unique elements. Analyze it.
+	\item Draw another mesh circuit with at least four loops. Analyze it.
+	\item For the two above-mentioned mesh circuits, put them directly into matrix form. What values go along the diagonal? What values go on the off-diagonals?
+	\item For one of the mesh circuits you drew in either, add a dependent current source and solve using mesh analysis.
+	\item How do we measure current and potential using actual ammeters and voltmeters? Why must we “break” the circuit to measure current? How do we measure potential across an element?
+	\item Say, in as much detail as you can muster, what you believe the Thevenin circuit theorem is about.
+	\item Say, in as much detail as you can muster, what you believe the Norton circuit theorem is about.
+	\item Changing a potential source to a current source is an example of what technique to analyze circuits?
+	\item What are two attributes necessary for things to be ``linear''?
+	\item What is superposition and how do we use it to analyze a circuit?
+	\item How do you turn off a voltage source in a circuit diagram? How do you turn off a current source?
+	\item To one of the above dozen or so circuits you have drawn, find the Thevenin equivalent.
+	\item To one of the above dozen or so circuits you have drawn, find the Norton equivalent.
+	\item To the Thevenin in 62, convert it to its Norton equivalent. To the Norton in 63, convert it to its Thevenin equivalent.\
+	\item What is an open circuit? What is a short circuit? How are they relevant to Thevenin and Norton equivalents?
+	\item Draw an LM741 and label all 8 pins.
+	\item What is an operational amplifier? What does it behave like? What can it do for us? How are they different from resistors, capacitors, and their ilk?
+	\item What are the three key features we need to know to analyze op-amp circuits?
+	\item Draw an inverting amplifier with R1 = 20 ohms, and R2 = 100 ohms. What is the gain on the input signal?
+	\item Draw an inverting amplifier with Z1 = R1 = (Ra$\vert\vert$Rb) and Z2 = R2 = (Rc + Rb). Solve for the output voltage in terms of the input voltage.
+	\item Draw a non-inverting amplifier with R1 = 100 kohms and R2 = 100 kohms.
+	\item Draw the two circuits you drew above in series with one another. What is the output?
+	\item What is a voltage follower and why is it important?
+	\item If it’s so important you should be able to draw one and analyze its operation! Let’s do that. Draw a voltage follower and demonstrate its behavior in as much detail as you would need to convince another engineer you know what you’re talking about.
+	\item Why might we want to use a voltage follower with an electrocardiogram?
+	\item What is a summing amplifier?
+	\item A summing amplifier can actually act as a logic converter is set up right. Can you imagine using a set of summing amplifiers to determine a winner in a simple tic-tac-toe game in which button presses turned on new voltage sources? Briefly describe how you could determine a winner.
+	\item If I have a summing amplifier in which V1 = 10 V, R1 = 10 ohms, V2 = –10 V, R2 = 10 ohms, and Rf = 20 ohms, what is my output voltage?
+	\item What is a differential amplifier and why is it important?
+	\item Draw a differential amplifier. Analyze said differential amplifier. What is the output voltage in terms of the input voltage?
+	\item What is a transfer function?
+	\item You know how to go from a triangle (Delta) to a y (Wye) circuit for equivalence. How would you find the equivalent of going from a square to a cross?
+	\item 	Draw a blood vessel. Find the electrical equivalent across the vessel and through the vessel.
+	\item Draw the meanest circuit you think I’d ever give you on an exam. Then add a voltage dependent voltage source to one branch of it (its dependence rests on you). Solve it using nodal analysis, mesh analysis, superposition, and just plain looking at it.
+\end{enumerate}
+
+\chapter{A set of exercises in preparation of the second Glorified Quiz}
+03/19/2019, a review held
+03/21/2019, a quiz given
+
+
+\begin{enumerate}
+	\item Find the transfer function (as V/I, I/V, Vo/Vin, etc.) of the following (``+'' means ``in series with'', ``$\vert\vert$'' means “in parallel with''):
+	\subitem R1 + R2$\vert\vert$(R3 + C1)
+	\subitem (R1 + R2)$\vert\vert$(R3 + C1 + L1)
+	\subitem C1 + (C2 + R1$\vert\vert$(R2 + C3)$\vert\vert$L1)
+	\subitem (R1$\vert\vert$R2$\vert\vert$R3)$\vert\vert$(R4$\vert\vert$R5$\vert\vert$R6)$\vert\vert$(R7 + R8$\vert\vert$R9)
+	\item Label and describe the pins of an operational amplifier.
+	\item Draw and derive an inverting amplifier.
+	\item Draw and derive a non-inverting amplifier.
+	\item Draw and derive a differential amplifier.
+	\item Draw and derive an operational amplifier.
+	\item What is the Laplace transform? What is its definition? What does it do for us? How does it do that? Why do we care? When can you use it? When can you not? When should you?
+	\item What is the s-domain? What are its axes? What do those axes represent? When is looking at the s-domain useful for us?
+	\item The s of the s-domain has two components. What are they and what do they individually and collectively represent?
+	\item What is at least one condition (w/r/t s) that must exist for a system to be stable? 
+	\item What is the Laplace transform of a constant (i.e., of 1)?
+	\item What is the Laplace transform of an exponential function (i.e., of $e^{at}$)?
+	\item What is the Laplace transform of a derivative (i.e., of dx/dt)? First, second, third, fourth, etc.?
+	\item Is the Laplace transform linear? And if so, what does that mean?
+	\item What is Euler’s formula? What is Euler’s identity? When might it be useful (especially in this class)?
+	\item What is the differential equation of a series RLC circuit? [I will take “series RLC circuit” here to mean a resistor, an inductor, and a capacitor in series.]
+	\item What is the differential equation of a parallel RLC circuit? [I will take “parallel RLC circuit” here to mean a resistor, an inductor, and a capacitor in parallel.]
+	\item What is the differential equation of a series RLC circuit in parallel with another series RLC circuit?
+	\item What the inverse Laplace transform?
+	\item Make sure you can invert a simple Laplace transformation (say of an RLC circuit) to yield the time-domain equation. For example:
+	\subitem $1/(s^2+5s+6)$
+	\subitem $(s+2)/(s+3)(s+4)$
+	\subitem $s^2/(s(s^2+4s+4))$
+	\subitem $(s+1)/(s^1+1)$
+	\item For the s-domain representations show above, what sort of frequency dependent behavior do you expect each to have? How do you know?
+	\item We have learned the general form the denominator (the poles) that many transfer functions take is: $s^2 + 2\zeta \omega_n s + \omega_n^2$. What is $\zeta$? What is $\omega_n$?
+	\item Describe the behavior of a system when $\zeta$ is (1) zero, (2) between zero and one, (3) one, and (4) greater than one. Include graphs. Include solutions to the differential equations thus described. Be sure you could identify such behavior if given a graphical representation.
+	\item A charged capacitor (charge it to whatever value you’d like) is dropped in series with a resistor at time t = 0. Use KCL to find first-order differential equation. What is its solution?
+	\item The solution to the above example has a time constant, $\tau$. What is it (in terms of the resistor and capacitor terms)? What is the amplitude of the response when t = 1$\tau$? When t = 2$\tau$? 3$\tau$? 4$\tau$? 5$\tau$? 10$\tau$?
+	\item If one were to take the derivative of the solution to 24 at t = 0, the slope of the line would intersect time axis at what point? Why might this be useful?
+	\item If there is no excitation signal (as in 24), but there are initial conditions, what kind of response is this, ZIR or ZSR?
+	\item BTW, what’s ZIR \& ZSR?
+	\item A voltage source, a resistor, and a switch are in series with (R2 + C1)$\vert\vert$R3. What is the differential equation of the circuit? What is its Laplace transformation? What is its solution?
+	\item What is partial fraction decomposition and why should I know it?
+	\item For the circuit at right, assume the initial condition of the inductor’s current is i(0) = I0. Apply KVL around the loop to find the first-order differential equation. Solve said equation. What is the time constant?
+	\item If instead of charging the inductor in the above example, we removed the charge and put in a time varying voltage signal and measured the voltage drop across the resistor, would we record be recording the zero state response, the zero input response, or some combination of the two?
+	\item For the circuit below, assuming i(0) = 10 A, calculate i(t) and ix(t).
+	\begin{center}\includegraphics{figures/q2.02.png}\end{center}
+	\item Below is what’s called a “gate function”, which is like a step function that switches on at one value of t and switches off at another. Express this voltage pulse (seen at right) in terms of the unit step. Calculate its derivative.
+	\begin{center}\includegraphics{figures/q2.03.png}\end{center}
+	\item What is the definition of a unit step function?
+	\item What is the definition of a unit impulse function? How is it related to the unit step function?
+	\item What is the definition of a unit ramp function? How is it related to the unit step function?
+	\item For 35-37, draw a graphical representation of the functions.
+	\item If you wanted to shift a unit step/impulse/ramp function by an amount t0 in time, how does this alter your definition of the function as reported above?
+	\item If you multiplied a function f(t) by an impulse function that has been time shifted (by an amount t0), what is the result? 
+	\item If the switch of the circuit shown below is closed at t = 0, find the time-dependent voltage function for the circuit for both t $<$ 0 and t $\geq$ 0.
+	\begin{center}\includegraphics{figures/q2.05.png}\end{center}
+	\item The above example has two responses, a natural response (using stored energy) and a forced response (using an independent source). Describe these in your own words.
+	\item One could also decompose the responses by a transient response and a steady-state response. Describe these in your own words.
+	\item Describe convolution in your own words.
+	\item What is the formal definition of convolution?
+	\item Draw a (simple) system function and a (simple) input function. What is the convolution of your input with your system? 
+	\item Convolution with the impulse response produces what?
+	\item What are the commutative, associative, and distributive properties of convolution?
+	\item What is the relationship between convolution and the Laplace transform? (Similarly, what is the relationship between convolution the Fourier transform?)
+	\item Draw a passive low-pass circuit. What is the transfer function between Vo/Vin? What is the cutoff frequency?
+	\item Draw a passive high-pass circuit. What is the transfer function between Vo/Vin? What is the cutoff frequency?
+	\item Draw a bode plot for a first-order passive low-pass filter. What is the pass band? What is the stop band? What is the slope of the tracing within the stop band? At the corner frequency, what is the amplitude in dB? Draw a corresponding phase diagram. What is the phase shift one order of magnitude below the cutoff frequency? What is the phase shift one order of magnitude above the cutoff frequency?
+	\item Draw a bode plot for a first-order passive high-pass filter. List all the ways it differs from the first-order passive low-pass filter of 50.
+	\item Draw a bode plot and phase diagram for the series combination of a first-order passive low-pass filter with a cutoff frequency of 50 Hz and a first-order passive low-pass filter with a cutoff frequency of 500 Hz.
+	\item Redo the above questions but using ``second-order'' instead of ``first-order'' filters. How does this change your results?
+	\item Why do we care about the phase of a signal?
+	\item Draw the bode plot and phase diagram of the following transfer functions:
+	\subitem $100(s + 1) / (s + 10)(s + 100)$
+	\subitem $(s^2 + 27s + 100) / (s^2 + 4s + 4)$
+	\subitem $(s(s + 100)) / (s(s + 1)(s + 10))$
+	\subitem $s^2 / (s^3 + 2s^2 + 3s + 4)$
+	\item What are the general forms of the transfer functions for low-pass, high-pass, and band-pass filters?
+	\item What is an integrator? How would you make one with an operational amplifier? What is the Laplace transform of an integrator / integration? What is one advantage and disadvantage to using an ideal inverting integrator?
+	\item We can modify the ideal inverting integrator by placing a resistor in the feedback loop of the op-amp. What does this produce? Sketch a bode plot relating Vo/Vin for such a modified inverting integrator.
+	\item Given real values for the modified inverting integrator, could you determine the frequency at which you would expect the amplitude of a signal in the stop-band to be half the value one would expect to see in the pass-band?
+	\item What is a differentiator? How could you make one with an operational amplifier? What is the Laplace transform of a differentiator / differentiation? What is one advantage and disadvantage to using an ideal inverting differentiator?
+	\item We can modify the ideal inverting differentiator by inserting an input resistor (generally before the capacitor). What does this produce? Sketch a bode plot relating Vo/Vin for such a modified inverting differentiator.
+	\item What is the input impedance of the following system? (Note, this is from an actual bit of implantable electronics.)
+	\begin{center}\includegraphics{figures/q2.01.png}\end{center}
+	\item What is a plant? What is a controller? What is a system?
+	\item What is open-loop control? What is closed-loop control?
+	\item Given a simple block diagram with F = 1 / (s + a), G = s / (s + b), and H = 1 / s; what is the overall system response (output / input)?
+	\item What is proportional, integral, and derivative control?
+	\item What is the s-domain representation of P, I, and D control?
+	\item How can we make for a stable arms race?
+\end{enumerate}
+
+\newpage
+
+\section{Exam 2 Review Board Pictures (3/19/19)}
+
+The glares made parts of the board difficult to see. 
+All the notes below are hand renderings of board pictures taken today.
+
+\includegraphics[width=\textwidth]{figures/3-19_Board1.png}
+\\
+\includegraphics[width=\textwidth]{figures/3-19_Board2.png}
+\\
+\includegraphics[width=\textwidth]{figures/3-19_Board3.png}
+\\
+\includegraphics[width=\textwidth]{figures/3-19_Board4.png}
+\\
+\includegraphics[width=\textwidth]{figures/3-19_Board5.png}
+\\
+\includegraphics[width=\textwidth]{figures/3-19_Board6.png}
+\\
+\includegraphics[width=\textwidth]{figures/3-19_Board7.png}
+
+\chapter{A set of exercise in preparation for the third Glorious Quiz}
 
 \section{Basic analysis}
 \begin{center}
@@ -4481,507 +5126,6 @@ Website with problems for Logic gates:
 https://www.allaboutcircuits.com/worksheets/basic-logic-gates/
 
 \newpage
-
-
-\part{Assignments}
-\chapter*{Homework I}
-Assigned January 22, 2019. Due January 31, 2019 as \textit{both} a hard copy in class and a pdf on Canvas. Each problem worth 10 points.
-\setcounter{chapter}{1}
-\setcounter{section}{0}
-\section{On shocking the heart}
-(15 points)	A typical automated external defibrillator (AED) delivers 200-1000 V in less than 10 ms. 
-\begin{enumerate}
-	\item If the AED in front us delivers a pulse of 600 V, how much current is needed to deliver 120, 240, and 360 Joules?
-	\item Assuming two human hands have a mass of approximately 1 kg, how many chest compressions would be needed to deliver an equivalent amount of energy if each compression had a depth of 5 cm and was delivered at a constant speed of 0.5 m/s every 2 seconds?
-	\item If you had the option of having your heart “jump-started” would you choose an AED or the bare hands of a stranger? Justify your answer.
-\end{enumerate}
-
-\newpage
-
-\section{On energy within batteries}
-(5 points) A  3.3 V battery you are considering for a wearable you are designing has a total charge of 300 mAh. How many joules is this battery capable of delivering?
-
-\section{On predicting energy use}
-(5 points) A fellow engineer bought a 12 V battery rated for 60 Ah. The experiment you both have in mind will draw 2 A over a 1 k$\Omega$ load. How long can your experiment last?
-
-\section{On charges through equipment}
-(5 points) A piece of medical equipment supplies 135 W at 220 V. How much electrical charge flows through the device in the 10 hours a nurse is on-call using it? And how many electrons does this charge correspond to?
-
-\section{\textit{In vitro}}
-(10 points) During an in vitro (petri dish) experiment, the peak electric power that a group of stem cells can tolerate without some serious functional consequence is known to have a threshold of about 1 mW. If the power delivered to this group of cells is defined as $p(t) = 2e^{-t}\sin 5t$ [mW], will the cell be harmed and if so how long can power be delivered before the cells are harmed?
-
-\section{On equivalent resistance}
-(10 points) Find the equivalent resistances. (Show your work.)
-\begin{itemize}
-	\item 1 square of resistors (R = 10 k$\Omega$) measured across corners.
-	\item 2 resistors (R1 = 10 k$\Omega$, R2 = 4 k$\Omega$) in series.
-	\item 3 resistors (R1 = R2 = R3 = 10 k$\Omega$) in parallel.
-	\item 4 resistors (R1 = 1 k$\Omega$, R1 = 2 k$\Omega$, R1 = 3 k$\Omega$, R1 = 4 k$\Omega$) in parallel.
-	\item 5 resistors (R = 10 k$\Omega$) in a pentagon, measured across each resistor.
-\end{itemize}
-
-\section{On uninterruptible power}
-(10 points) Hospitals often employ what is known as a dynamic uninterruptible power system (D-UPS) comprising a diesel generator, a synchronous machine, and a kinetic energy unit. By way of example, if the energy to a particular hospital fails, the kinetic energy unit continues to feed 600 kW to the hospital for 20 seconds, allowing the generator and synchronous machine to take over and feed the load.
-\begin{enumerate}
-	\item What is the total energy capacity of this kinetic energy unit?
-	\item If the hospital were operating at 240 kW (instead of the aforementioned 600 kW), how much longer can the unit feed the load?
-\end{enumerate}
-
-
-\section{On modeling current and voltage}
-(10 points) Current passing through an electrical element in an AC situation can generally be defined as $i(t) = A \sin \omega t$. 
-\begin{enumerate}
-	\item Determine the energy on this element if the voltage across it is 
-\\
-$v(t) = B \cos \omega t$.
-	\item Plot current, voltage, and energy as functions of time using MATLAB (or an equivalent software package). You may use any values of $A$, $B$, and $\omega$ that you’d like, but unit values (=1) might make your life/work easier. (Present the code you used to arrive at your plot.)
-\end{enumerate}
-
-
-\section{On the materiality of the human body}
-(10 points) The materiality of the human body ensures that it puts up some resistance to the flow of current. Find some values of impedance for the following human body parts. Be sure to cite your source(s) and explain why you trust it. (Given that there is a frequency dependence to these values, you may present any value of impedance found between 1 | 100 kHz.)
-\begin{enumerate}
-	\item The whole body, from head to toe.
-	\item A single limb (such as an arm or a leg).
-	\item Blood.
-	\item Muscle.
-	\item Fat.
-\end{enumerate}
-
-
-\section{On circuit analysis}
-(20 points) For the circuit shown below.
-\begin{center}
-	\includegraphics{figures/hw1.10.png}
-\end{center}
-
-\begin{enumerate}
-	\item Use the delta-wye transformation rule to determine the power dissipated by R1.
-	\item Find the voltage at node a (just after R1). 
-	\item If R4 were changed to 100 $\Omega$, would the results to (10.1) and/or (10.2) change? How do you know?
-	\item How many nodes, branches, and loops are there?
-	\item What is the voltage at each node, the current through each branch?
-\end{enumerate}
-
-
-
-
-\chapter*{Homework II}
-Assigned February 8, 2019. Due February 14, 2019 as \textit{both} a hard copy in class and a pdf on Canvas. Each problem worth 10 points.
-\setcounter{chapter}{2}
-\setcounter{section}{0}
-
-\section{On the directionality of resistors}
-Though we rarely think about it, resistors have a directionality to them. To prove this to ourselves, let us consider a rectangular prism with a square cross-sectional area with a width of $a$ on its square face, a length of $L$, and a resistivity of $\rho$. An example of such a conductor may be seen in the figure below.
-\begin{center}
-	\includegraphics{figures/hw2.01.png}
-\end{center}
-\begin{enumerate}
-	\item Determine the resistance between two parallel square faces, two parallel rectangular faces, and determine the ratio of these two resistances.
-	\item How would you go about performing a similar analysis for a resistor with a circular cross-sectional area? 
-\end{enumerate}
-
-
-
-\section{On nodal analysis}
-For the circuit shown below, find the current flowing though $R3$ ($i3$) and the current flowing through $R4$ ($i4$). 
-\begin{center}
-	\includegraphics{figures/hw2.02.png}
-\end{center}
-
-
-\section{On mesh analysis}
-For the circuit shown below.
-\begin{center}
-	\includegraphics{figures/hw2.03.png}
-\end{center}
-\begin{enumerate}
-	\item Perform a mesh analysis and determine the mesh currents in each loop. (You may solve it any way you’d like, just walk me through how you solve it.)
-	\item Determine the current through R3. How you would actually measure the actual current through R3 in an actual circuit?
-\end{enumerate}
-
-
-
-\section{On Thevenin and Norton equivalent circuits}
-
-For the circuit shown below, determine the Thevenin and Norton equivalent circuits between terminals a and b.
-\begin{center}
-	\includegraphics[width=0.5\textwidth]{figures/hw2.04.png}
-\end{center}
-
-\section{On superposition}
-Using the superposition theorem, find the voltage \color{red} \textbf{Va} \color{black} in in the circuit shown below. Be sure to show all your steps.
-
-\begin{center}
-	\includegraphics[width=0.5\textwidth]{figures/hw2.05.png}
-\end{center}
-
-\section{On Thevenin and Norton equivalent circuits, again}
-For the circuit shown below, determine the Thevenin equivalent circuit that would be found between the \color{red}\textbf{a} \color{black} and \color{red} \textbf{b} \color{black} terminals.
-\begin{center}
-	\includegraphics[width=0.5\textwidth]{figures/hw2.06.png}
-\end{center}
-
-\section{On input impedance}
-Electrocardiographic (ECG) signals tend to be about 1 mV before being measured by a monitoring system (that is, it is about 1 mV just before it gets to our skin). If skin resistance is about 100 k$\Omega$, what is the voltage as measured by our system if our system has an input impedance of 500 k$\Omega$, 1 M$\Omega$, and 2M$\Omega$. You may model the entire situation as a series combination of elements. What effect do you think sweating at the area of measurement will have on the voltages you just calculated?
-
-\section{On current through elements}
-For the circuit below, find the current passing through each element.
-
-\begin{center}\includegraphics{figures/hw2.08.png}\end{center}
-
-\section{On blood vessel conductivity}
-Our blood vessels are something of glorified hollow conductive cylinders. Let us assume that the resistivity of the vessel, $\rho$, is constant throughout our length of interest, $L$. If we were to apply a potential difference, $V$, between the inner surface of the blood vessel (with radius $a$) and the outer surface of the blood vessel (with radius $b$), what would be the resistance we measure? (Hint: the differential resistance in this case is equal to $dR = \rho(dL/A)$.)
-
-\section{On personal experience}
-To the extent you feel comfortable sharing this information, have you ever had to interact with a piece of biomedical equipment that utilized electronic circuitry? (This may include anything from a Fitbit to an ECG and beyond.) If so, what aspects of that experience relating to the equipment did you find fascinating, and which aspects of it would you personally liked to have seen improved? [If you do not wish to share a personal experience or perhaps do not have one to share, consider the question in the abstract: \textit{knowing what you know, what might you wish to see improved regarding current medical instruments}?]
-
-
-\chapter*{Homework III}
-Assigned February 22, 2019. Due February 28, 2019 as \textit{both} a hard copy in class (at the beginning thereof) and a pdf on Canvas (by 11:59pm). Each problem worth 20 points.
-\setcounter{chapter}{3}
-\setcounter{section}{0}
-%\minitoc
-
-
-\section{On mathematical proficiency}
-Please find the Laplace transforms for the following functions. Be sure to show as much of your work as you can. And please also resist the urge to use computational means of finding these answers. Try it yourself! It's good exercise.
-
-\begin{enumerate}
-	\item $a(t) = \sin(\omega t)$
-	\item $b(t) = \cos(\omega t)$
-	\item $c(t) = 1 - \cos(\omega t)$
-	\item $d(t) = t$
-	\item $f(t) = t^n$
-\end{enumerate}
-
-\newpage
-
-\section{On poles and zeros, exponentially}
-
-Find the poles and zeroes of the following functions. Again, show as much of your work as you can and resist those computational urges.
-
-\begin{enumerate}
-	\item $f(t) = e^{-3t}$
-	\item $f(t) = e^{-3t - 2t + 1t}\cdot e^{-t}$
-	\item $f(t) = e^{-3t}\cdot \sin(3t)$
-	\item $f(t) = e^{-3t}\cdot \cos(4t - 3t)$
-	\item $f(t) = e^{3t}\cdot e^{-2t} \cdot \sin(t)\cdot cos (-t)$
-\end{enumerate}
-
-\section{On the stability of geopolitical systems}
-``Stability'' is a property we seek in many systems. Representing something of a ``back of the envelope'' approximation of the time course of geopolitical entities, a model was first proposed by a fellow by the name of Lewis Fry Richardson to track the development of weapons used/accrued by the nations of the earth. Richardson's Arms race, expressed as the coupled differential equation below, relates the rate at which one country (Country 1) develops its arms, $dx/dt$ to the rate at which another country (Country 2) develops its arms $dy/dt$:
-
-\begin{align}
-	\frac{dx}{dt} &= Ay - mx \\
-	\frac{dy}{dt} &= Bx - ny
-\end{align}
-One can see that these rates are proportional to the the amount of arms the other country has minus the amount of arms the country has. If we know that $s < 0$ for a system to be stable, determine the conditions of stability in this system. (Assume the world starts peacefully with no weapons in either country.) Comment on the results. 
-
-\newpage
-
-\section{On a circuit as a differential equation}
-For circuit below
-\begin{enumerate}
-	\item Write its differential equation and take its Laplace transform (assume all initial conditions are equal to zero). 
-	\item Find its transfer function (the ratio of voltage to current).
-	\item  Choose \textbf{five} triplets of values (different from those printed on the figure). Plot the output of each transfer function as \textit{either} a function of time ($t$) or frequency ($s = \jmath \omega $).
-\end{enumerate} 
-
-
-\begin{center}
-	\includegraphics{figures/hw3.01.png}
-\end{center}
-
-\newpage
-\section{On poles and zeros, applicably}
-Believe it or not, this Laplace and circuitry stuff can actually be useful to those more biologically inclined among us. Indeed, it can be used to describe how drugs perfuse into our bodies. Let us consider taking some drugs.\footnote{Don't do drugs, kids.}  We may model the drug as a charged capacitor, C1, with a potential of 100 V across it and a value of 1 F. Recalling that the tissues within our bodies may be modeled as the combination of a resistor, R1, in series with the parallel combination of a resistor, R2, and a capacitor, C2, we may model the perfusion of the drug within the body as the time rate of change of potential within the circuit shown at right. Once we’ve taken the drug (t = 0), the switch is closed. Using nodal analysis, determine the potential at point b in the s-domain. What are the poles of this model? 
-\begin{center}
-	\includegraphics{figures/hw3.02.png}
-\end{center}
-
-\chapter*{Homework IV}
-Assigned March 14, 2019. Due March 28, 2019 as \textit{both} a hard copy in class (at the beginning thereof) and a pdf on Canvas (by 11:59pm). Each problem worth 20 points.
-\setcounter{chapter}{4}
-\setcounter{section}{0}
-
-
-\section{On equivalent differential equations for transfer functions}
-For each of the transfer functions, $\tilde{H}(s)$, below, find a time-domain differential equation, $h(t)$, that would produce such a transfer function. (In this problem and those that follow from it, you may choose any initial conditions you would like, but I suggest setting them to 0 as a first attempt.)
-\begin{enumerate}
-	\item $\tilde{H}(s) = \frac{4}{s^2+5s+6}$
-	\item $\tilde{H}(s) = \frac{4}{s^2+4s+4}$
-	\item $\tilde{H}(s) = \frac{4}{s^2+5s+4}$
-	\item $\tilde{H}(s) = \frac{4}{s^2-4}$
-	\item $\tilde{H}(s) = \frac{4}{s^2-5s-6}$
-\end{enumerate}
-
-\newpage
-\section{On designing circuitry}
-Let us treat the transfer functions reported in Problem 1 as system impedance, $\tilde{Z}(s)$.
-For each of the differential equations you found from Problem 1, draw a circuit which whose output, $v(t)$, represents the voltage time response of an input of a unit step of current, $u(t)$ applied at time, $t = 0$. (That is, design a circuit which when subjected to an input $u(t)$ would produces an output of $v(t) = z(t)*u(t)$.)
-
-\section{On determining output}
-Given the transfer functions reported in Problem 1, please answer the questions below.
-\begin{enumerate}
-	\item Is the system stable when subjected to a unit step function? (In other words, is it BIBO stable?)
-	\item How damped is the system?
-	\item Where are the poles and zeros of the transfer function in the $s$-domain?
-	\item How long would it take for each system to achieve 95\% of its total response? (For systems to which this does not apply, please state why.)
-\end{enumerate}
-
-
-\section{On designing filters}
-Design the following filters (using an input impedance, R1 = 1 k$\Omega$) and produce a Bode plot demonstrating your results. (You may plot your results via computational means, i.e., a computer program, or by hand, by using what we learned in this class.)
-\begin{enumerate}
-	\item A first order high-pass filter with a corner frequency at 0.5 Hz and a magnitude of gain of 10.
-	\item A second low-pass filter with a corner frequency of 40 Hz and a magnitude gain of 50.
-	\item A bandpass filter with filter with a lower corner frequency of 0.05 Hz and a higher corner frequency of 150 Hz.
-\end{enumerate}
-
-
-\section{On convolving}
-
-Given an input signal (seen on the left) and a system impulse response, SIR (seen on the right), determine the output signal that would arise. That is, convolve the input with the SIR. You may solve by hand (so long as your work is clear) and/or MATLAB, Excel, or some equivalent software to arrive at your answers. Please include all code used.
-\begin{enumerate}
-	\item What is the output (the convolution) of ``Input (a)'' and ``SIR (a)''?
-	\item What is the output of ``Input (b)'' and ``SIR (b)''?
-	\item What is the output of ``Input (c)'' and ``SIR (c)''?
-\end{enumerate}
-
-\begin{center}
-	\includegraphics[width=\textwidth]{figures/hw4.01.png}
-\end{center}
-
-\chapter*{Homework V}
-Assigned March 14, 2019. Due April 11, 2019 as \textit{both} a hard copy in class (at the beginning thereof) and a pdf on Canvas (by 11:59pm). Each problem worth 20 points.
-\setcounter{chapter}{5}
-\setcounter{section}{0}
-
-
-\section{On something new from a few familiar things}
-Two RC circuit sections (with capacitors grounded) are separated by a voltage buffer. An input signal $v_i(t)$ is applied to first $R_1C_1$ section, producing the signal $v_i(t)$ at node 1, it is buffered by the op-amp to the input of the second $R_2C_2$ section (node 2), the output of which is $v_o(t)$.
-\begin{center}
-	\includegraphics[width=0.75\textwidth]{figures/hw5.01.png}
-\end{center}
-\begin{enumerate}
-	\item Derive the differential equation relating the circuit output, $v_o(t)$, to its input, $v_i(t)$.
-	\item Determine its characteristic equation (i.e., of the form $s^2 + 2\zeta \omega_n s + omega_n^2$) and find its roots.
-	\item Determine whether this circuit could produce an underdamped response.
-\end{enumerate}
-
-\newpage
-
-\section{On reviewing the fundamentals}
-Recall a series circuit of a resistor, a capacitor, and an inductor. Let us hold that C = 200 nF and L = 50 mH.
-\begin{enumerate}
-	\item Over what range of resistors values is the system underdamped, critically damped, and overdamped?
-	\item From within the range found above, select one representative value for the underdamped, critically damped, and overdamped case. Plot each case’s voltage response over time.
-\end{enumerate}
-
-\section{On bioimpedance}
-In class we derived the analytical solution of the equivalent impedance, $Z_{eq}$ of a simple bioimpedance model, $R_1 + R_2\vert\vert C$ as seen from the resistance reactance plane. Find the analytical solution to the equivalent \textit{admittance} of a model in which $R_1\vert\vert(R_2 + C)$. (Hint: it might be more helpful to think in terms of conductances!) Interpret your results.
-
-
-\section{On the body electric}
-
-Given Einthoven's triangle below of the QRS complex, draw (by hand) the shape of the resulting electrocardiographic signal for lead I, lead II, and lead III. [Please use the conventional arrangement of Einthoven’s triangle when referring to your leads, unless you explicitly state you do otherwise.]
-
-\begin{center}	\includegraphics[width=0.5\textwidth]{figures/hw5.02.png}
-\end{center}
-
-\section{On identifying real-world instrumentation}
-As it turns out, there are hundreds and thousands of medical devices out there that use electric circuits. We noted five separate electrophysiological modalities in class – electrocardiography, electroencephalography, electrogastrography, electromyography, and electrooculaography. Find at least three commercial examples of medical devices for each listed modality (i.e., a total of 15 devices). List (1) who makes it, (2) how the product generally works, and (3) if you can find it, how much it costs. (You may also comment on whether you believe that price to be fair/reasonable.) 
-
-
-\chapter*{Homework VI}
-Assigned March 14, 2019. Due April 23, 2019 as \textit{both} a hard copy in class (at the beginning thereof) and a pdf on Canvas (by 11:59pm). Each problem worth X points.
-\setcounter{chapter}{6}
-\setcounter{section}{0}
-
-\section{On functional completeness}
-In class we discussed the fact that all possible computational relationships (NOT, AND, OR, NAND, NOR, XOR, and XNOR) can be represented by a combination of NOR gates. During class we were only able to prove it for NOT, AND, and OR. Prove it for all cases. That is, make NAND, NOR, and XOR gates (don’t do XNOR) from NOR gates.
-
-\newpage
-\section{On knights, knaves, truths, and lies}
-Recall the land inhabited by knights and knaves. Knights always tell the truth and knaves always lie. For each of the following give an answer and explain your reasoning as best you can. It will often help to draw a truth table or a logic/decision tree. Please use your own methods or feel free to ask me what I might do.
-
-Please note that I will make use of the singular form of ``they'' and ``them'' to describe the individuals below. If that leads to any consternation, you may replace with any singular pronoun of your choice.
-
-\begin{enumerate}
-	\item You come across three inhabitants and ask the first, A, ``Are you a knight or a knave?'' A answers, but so quietly you can’t hear them. You ask B ``What did A say?” to which B responds “A said they were a knave.'' Upon hearing this, C piped up and said ``Don’t believe that; it’s a lie.'' Is C a knight or a knave? (Further, is it possible to know what A is?)
-	\item Instead of asking if A was a knight or a knave, you could have asked how many of the three of them were knaves. So, upon meeting the next three inhabitants (D, E, and F), D answers indistinctly, so you ask E what D had said. E said that D had said that exactly two of them were knaves. F says E is lying. Is it possible to know what D is? (Further, what are E and F?)
-	\item Meeting with two inhabitants, G and H, G says, ``Both of us are knaves.'' What is G? What is H?
-	\item Meeting two other inhabitants, I and J, I says, ``At least one of us is a knave.'' What are I and J?
-	\item Meeting yet two more, K and L, K says, ``We are the same type – we are either both knights or both knaves.'' What are K and L?
-	\item Meeting another two, M and N, you ask M if they are a knight and get an answer. You then ask N if M is a knight and get an answer. Are M and N’s answers the same or different? 
-\end{enumerate}
-
-\newpage
-
-\section{On logic gates}
-Did you know that each of the above knight and knave situations can be represented by a combination of logic gates? For example, a simple single knave can be represented by a NOT gate since they always lie. An easy way to work in this matter is to assign 0s and 1s to lies and truth (and thereby liars and truth-tellers and thereby knaves and knights) and construct a truth table. From that truth table and from the logic you used in deriving the solution, put together a sequence of logic gates for each of the situations reported in Problem 2.
-
-
-\chapter{Collected exercises}
-\minitoc
-\section{A constant charge through a cross-section}
-How much charge passes through a cross-section of a conductor in 60 seconds if a DC current value is measured at 0.1 mA?
-
-
-\section{An arbitrary charge through a cross-section}
-Determine the total charge entering a terminal between $t = 0$ seconds and $t = 10$ seconds if the current (in amps) passing through is
-\begin{equation}
-	i(t) = \frac{1}{\sqrt{5t+2}}. 
-\end{equation} 
-
-
-\section{A ``tera''ble puzzle}
-Approximately how much current is necessary to transmit one terabyte of information in an hour?
-
-
-\section{A pacemrker's power requirements}
-A cardiac pacemaker will provide approximately 5,000 J of energy over 5 years. Determine the capacity of a 5 V lithium battery necessary to drive this pacing such that only 40\% of its energy is spent over that time.
-
-
-\section{A neuron's excitation energy}
-A colleague of yours has been in their lab ginning up new neurons. You, as their resident electrical expert, are tasked with determining the energy consumed by the cell. If the current and voltage variations are found to be functions of time ($t \geq 0$)
-\begin{eqnarray}
-	i(t) = 3t \\
-	v(t) = 10 e^{6t}
-\end{eqnarray}
-determine the energy consumed between 0 and 2 ms.
-
-
-\section{A thump to the chest}
-(a) A typical defibrillator delivers 200-1000 V in less than 10 ms. How much current is needed to deliver 120, 240, and 360 Joules?
-\\
-(b) A human heart ways about 300 grams. From approximately how high of a cliff would one have to drop a heart such that the impact was equivalent to the energy delivered to someone's chest from a defibrillator?
-
-\section{An ohmic power expression}
-Utilizing Ohm's law, express units of power to include ohms.
-
-
-
-\section{A toaster based problem}
-A toaster draws 2 A at 120 V. What is its resistance?
-
-\section{Another toaster based problem}
-How much current is drawn by a toaster with a resistance of 10 $\Omega$ at 110 V?
-
-
-\section{A current power}
-In the circuit shown, calculate the current, $i$, the conductance, $G$, and the power, $p$.
-
-
-\section{A sodium channel's conductance}
-Conductance ($G$/$A$) of a sodium channel of a cell membrane at a specific time is 10 mS/cm$^{2}$. If the channel length as 100 nm, what is its conductivity?
-
-
-
-\section{A simple tissue's resistance}
-Determine the resistance of a homogenous and isotropic tissue with a cross-sectional area which can be described by the functions $y = 8 - x^2$ from $x = -2$ cm to $x = +2$ cm, a length of 10 cm (parallel to the z-axis), and a resistivity of 80 $\Omega$m.
-
-\section{A few nodes of KCL}
-Use KCL to write equations at each node.
-\begin{center}
-	\includegraphics[width=0.5\textwidth]{figures/04.problem1.png}
-\end{center}
-
-
-\section{Matrix notation}
-Write the matrix form of the equations written above. 
-
-
-\section{Cramer's rule}
-Using Cramer’s rule on the matrix equations above, what are the results?
-
-
-
-\section{Straight to the matrix}
-Write the node-voltage equations to the circuit at right in the matrix form.
-\begin{center}
-	\includegraphics[width=0.5\textwidth]{figures/04.problem4.png}
-\end{center}
-
-\section{Laplace transformations}
-Find the Laplace transform of the following:
-\begin{itemize}
-	\item $f(t) = 9$
-	\item $f(t) = \delta(t)$ the Dirac-delta function
-	\item $f(t) = e^{-3t/2}$
-	\item $f(t) = \sin\omega t$
-\end{itemize}
-
-
-\section{Differential equation of a series RLC circuit}
-What is the differential equation describing an inductor, a resistor, and a capacitor in series?
-
-
-
-\section{Differential equation of a series RLC circuit with numbers}
-What is the differential equation describing an inductor, a resistor, and a capacitor in series? What is a solution to that  differential equation if L = 1 H, R = 1 $\Omega$, and C = 100 mF? Take the Laplace transform of the differential equation. What are its poles and zeros?
-
-
-
-\section{An $s$-plane with found zeros}
-Draw an s-plane. Label the axes. Plot the poles and zeros you found. What can you say of the behavior of the system? If the poles had an imaginary component to them (that is, if they were pushed along the vertical axis), how would that affect our system?
-
-\section{An $s$-plane with arbitrary zeros}
-Draw an s-plane. Label the axes. Plot these poles -- (-2,0) and (-5,0) -- and this zero -- (0,0). Plot what the signal would look over time at each of these poles and zeros. 
-
-\section{$\tilde{Z}(s)$ (i.e., $\tilde{V}(s)/\tilde{I}(s)$) of a resistor and a capacitor in parallel}
-\begin{enumerate}
-	\item Show the \textit{frequency response} (i.e., $\tilde{Z}(s)$ v. frequency) of such a system. If it helps to ascribe values, assume that the resistor is 1 ohm and the capacitor is 10 farad.
-	\item Comment on the behavior. Is it like anything you have seen before?
-	\item (\textit{The kind of question that might be on a glorified quiz.}) If the current through the circuit is 1 amp when $t \geq 0$, what will be the voltage response?
-\end{enumerate}
-
-\section{A voltage time response of a system with a given impedance}
-Given that 
-\begin{equation}
-	\tilde{Z}(s) = \frac{s^3+9}{(s+1)(s+3)}
-\end{equation}
-\begin{enumerate}
-	\item What is the \textit{time response} of potential to a unit step of current?
-	\item (\textit{The kind of question that might be on a glorified quiz.}) Which exponential term will most significantly affect the signal?
-\end{enumerate}
-
-\section{A stable system?}
-\begin{enumerate}
-	\item A system, $y(t) = \int_{-\infty}^{\infty}x(\tau)d\tau$, when $x(t) = \cos(t)$.
-	\item A system, $y(t) = \int_{-\infty}^{\infty}x(\tau)d\tau$, when $x(t) = u(t)$.
-	\item A system, $y(t) = x(t)/t$, when $x(t) = 2$.
-	\item A system, $y(t) = dx(t)/dt$, when $x=1$.
-	\item A system, $y(t) = dx(t)/dt$, when $u(t)$.
-\end{enumerate}
-
-\section{Pedro, Apollonia, \& Peter}
-You come across three inhabitants and ask the first, Pedro, ``Are you a knight or a knave?'' Pedro answers, but so quietly you can't hear him. You ask Apollonia ``What did he say?'' to which she responds ``Pedro said he was a knave.'' Upon hearing this, Peter piped up and said ``Don't believe that; it’s a lie.'' Is Peter a knight or a knave? (Further, is it possible to know what Pedro is?)
-
-
-\section{Roger \& Oedipa} 
-Shortly after that you meet two inhabitants, Roger Mexico and Oedipa Maas. Roger claims, ``Both of us are knaves.'' What are Roger and Oedipa?
-
-\section{Yes \& No} 
-Suppose you’ve heard a rumor that there’s gold buried nearby. You meet a local and want to know whether there really is gold in them thar hills, but you don’t know whether the person is a knight or a knave. If you are only allowed to ask only one question answerable by ``yes'' or ``no'', what do you ask?
-
-\section{Lisa \& Louise}
-Lisa and Louise are twins indistinguishable in appearance. One always lies, the other always tells the truth. You don’t know which is which. You meet one of them and may ask one question to determine which twin is truth. What do you ask and what does it tell you?
-
-
-\section{NOT $\rightarrow$ NOR}
-Make a NOT gate from one or more NOR gates.
-\section{AND $\rightarrow$ NOR}
-Make an AND gate from one or more NOR gates.
-\section{OR $\rightarrow$ NOR}
-Make an OR gate from one or more NOR gates.
-\section{NAND $\rightarrow$ NOR}
-Make a NAND gate from one or more NOR gates.
-
-
-
-
 
 
 
