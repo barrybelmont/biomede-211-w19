@@ -2392,11 +2392,15 @@ This is what we'd expect for a circuit, for it must be stable otherwise we would
 \section{Several singular functions}
 \subsection{Unit step function, $u(t-t_0) = 1, t>t_0$}
 \subsubsection{The Laplace transform of the unit step function}
+The unit step function essentially has two components to it. It will initially start out at 0, but then at a specific time that you choose (t_0 term) the function will become one. Therefore, we can take the laplace of 1 and we will essentially get the laplace transform of a unit step function to be 1/s.
 \subsection{Unit impulse function, $\delta(t) = du(t)/dt$}
 \subsubsection{Its ``sifting'' abilities}
+The unit impulse function is really good for "sifting" purposes. Since the impulse function is essentially a very sharp peak at a certain t_0, you can imagine that if we convolve a function with a unit impulse function at a certain time, we will simply get the point of that function at that certain time. Therefore, we can sort of imagine a function as a file and in order to get to a certain document in that file, we can utilize the unit impulse function to "sift" through it. 
 \subsubsection{The Laplace transform of the unit impulse function}
+The laplace transform of a unit impulse function is just 1.
 \subsection{Unit ramp function, $r(t) = \int u(t)dt $}
 \subsubsection{The Laplace transform of the unit impulse function}
+We know that the ramp function is 0 before a certain time t_0 and after that it is "t" after a certain t_0. Therefore, the laplace transform of a ramp function is simply the laplace transform of t, which is 1/(s^2).
 
 
 
